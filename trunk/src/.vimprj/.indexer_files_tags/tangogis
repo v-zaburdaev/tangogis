@@ -4,547 +4,457 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
-Bar	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^GtkWidget *Bar = NULL; $/;"	v
-COLUMN_BOOLEAN	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^	COLUMN_BOOLEAN,$/;"	e	enum:__anon1	file:
-COLUMN_INT	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^	COLUMN_INT,$/;"	e	enum:__anon1	file:
-COLUMN_STRING	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^	COLUMN_STRING,$/;"	e	enum:__anon1	file:
-ERR_DOWN	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	26;"	d	file:
-ERR_LOAD	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	24;"	d	file:
-ERR_REPO	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	25;"	d	file:
-ERR_ZOOM	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	23;"	d	file:
-GCONF	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	12;"	d
-GLADE_HOOKUP_OBJECT	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	22;"	d	file:
-GLADE_HOOKUP_OBJECT_NO_REF	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	26;"	d	file:
-G_THREADS_ENABLED	/home/leha/tangogps/tangogis-1.0.0/src/main.c	19;"	d	file:
-LOAD_OK	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	27;"	d	file:
-N_COLUMNS	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^	N_COLUMNS$/;"	e	enum:__anon1	file:
-PHOTO_DB	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	26;"	d	file:
-PNAME	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	14;"	d
-POI_DB	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	24;"	d	file:
-POI_DB_CREATE	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	44;"	d	file:
-Repo_data_t	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^} Repo_data_t;$/;"	t	typeref:struct:__anon2	file:
-TILESIZE	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	8;"	d	file:
-TILESIZE	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	13;"	d
-WTFCOUNTER	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	32;"	d	file:
-YANDEX_A	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	18;"	d
-YANDEX_AB	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	20;"	d
-YANDEX_BB	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	21;"	d
-YANDEX_CB	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	22;"	d
-YANDEX_DB	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	23;"	d
-YANDEX_E	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	17;"	d
-YANDEX_F	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	19;"	d
-YANDEX_Rn	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	16;"	d
-add_pixmap_directory	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^add_pixmap_directory                   (const gchar     *directory)$/;"	f
-add_to_database	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^gboolean add_to_database = TRUE;$/;"	v
-altitude	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double altitude;    \/* Altitude in meters (valid if mode == 3) *\/$/;"	m	struct:__anon7
-auto_load_trf_timer	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^gboolean auto_load_trf_timer()$/;"	f
-away_msg	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *away_msg;$/;"	m	struct:__anon4
-bearing	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double bearing;	\/* in radian *\/$/;"	m	struct:__anon7
-category	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int category;$/;"	m	struct:__anon6
-cb_download_maps	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^cb_download_maps(GtkWidget *dialog)$/;"	f
-cb_gps_timer	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^cb_gps_timer() $/;"	f
-cb_gpsd_data	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^cb_gpsd_data(GIOChannel *src, GIOCondition condition, gpointer data)$/;"	f	file:
-cb_gpsd_io_error	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^cb_gpsd_io_error(GIOChannel *src, GIOCondition condition, gpointer data)$/;"	f	file:
-cb_progress_func	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^cb_progress_func(GtkWidget *Bar,$/;"	f
-cb_read_func	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^cb_read_func (void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f
-cb_write_func	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^cb_write_func(void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f
-cb_write_to_mem	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^cb_write_to_mem(void *ptr, size_t size, size_t nmemb, void *data)$/;"	f	file:
-check_connect	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^gboolean check_connect(void)$/;"	f
-combobox_subcat	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^static GtkWidget *combobox_subcat = NULL;$/;"	v	file:
-create_combobox_list_store	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^create_combobox_list_store(char *list)$/;"	f
-create_dialog1	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog1 (void)$/;"	f
-create_dialog2	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog2 (void)$/;"	f
-create_dialog3	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog3 (void)$/;"	f
-create_dialog4	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog4 (void)$/;"	f
-create_dialog5	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog5 (void)$/;"	f
-create_dialog6	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog6 (void)$/;"	f
-create_dialog7	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog7 (void)$/;"	f
-create_dialog8	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog8 (void)$/;"	f
-create_dialog_geocode	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog_geocode (void)$/;"	f
-create_dialog_geocode_result	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog_geocode_result (void)$/;"	f
-create_dialog_image_data	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_dialog_image_data (void)$/;"	f
-create_filechooserdialog1	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_filechooserdialog1 (void)$/;"	f
-create_menu1	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_menu1 (void)$/;"	f
-create_pixbuf	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^create_pixbuf                          (const gchar     *filename)$/;"	f
-create_pixmap	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^create_pixmap                          (GtkWidget       *widget,$/;"	f
-create_win13_biggeo	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_win13_biggeo (void)$/;"	f
-create_window1	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window1 (void)$/;"	f
-create_window10	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window10 (void)$/;"	f
-create_window11	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window11 (void)$/;"	f
-create_window2	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window2 (void)$/;"	f
-create_window3	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window3 (void)$/;"	f
-create_window4	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window4 (void)$/;"	f
-create_window5	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window5 (void)$/;"	f
-create_window6	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window6 (void)$/;"	f
-create_window7	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window7 (void)$/;"	f
-create_window8	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window8 (void)$/;"	f
-create_window9	/home/leha/tangogps/tangogis-1.0.0/src/interface.c	/^create_window9 (void)$/;"	f
-curl_threads	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^GList *curl_threads;\/\/таблица закачек$/;"	v
-curr_trf	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^repo_t		*curr_trf;\/\/указатель на текущий репозиторий$/;"	v
-curr_trf_name	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gchar		*curr_trf_name = NULL;$/;"	v
-deg2rad	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^deg2rad(float deg)$/;"	f
-delete_poi	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^delete_poi(poi_t *p)$/;"	f
-desc	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *desc;$/;"	m	struct:__anon5
-desc	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *desc;$/;"	m	struct:__anon6
-destroy_all_threads	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int destroy_all_threads=0;$/;"	v
-dialog1	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *dialog1 = NULL;$/;"	v
-dialog8	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *dialog8 = NULL;$/;"	v
-dialog_geocode_result	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^GtkWidget *dialog_geocode_result = NULL;$/;"	v
-dialog_image_data	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^GtkWidget *dialog_image_data = NULL;$/;"	v
-dialog_photo_correlate	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^GtkWidget *dialog_photo_correlate = NULL;$/;"	v
-dir	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *dir;$/;"	m	struct:__anon3
-dl_thread	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^dl_thread(void *ptr)$/;"	f
-do_paint_myposition	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^do_paint_myposition()$/;"	f
-do_paint_wp	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^do_paint_wp()$/;"	f
-download_maps	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^download_maps(bbox_t bbox, int zoom_start, int zoom_end)$/;"	f
-download_tile	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^download_tile(	repo_t *repo,$/;"	f
-drag_started	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static int drag_started = 0;$/;"	v	file:
-drawingarea11	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^static GtkWidget	*drawingarea11 = NULL;$/;"	v	file:
-extended_open	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int extended_open;$/;"	m	struct:__anon6
-file_type_test	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^file_type_test(const char *file, char *type)$/;"	f
-filename	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *filename;$/;"	m	struct:__anon5
-fill_tiles_latlon	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^fill_tiles_latlon(	float lat,$/;"	f
-fill_tiles_latlon_hack	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^fill_tiles_latlon_hack(	float lat,$/;"	f
-fill_tiles_pixel	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^fill_tiles_pixel(	int pixel_x,$/;"	f
-find_pixmap_file	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^find_pixmap_file                       (const gchar     *filename)$/;"	f	file:
-fix	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	gps_fix_t fix;$/;"	m	struct:__anon8
-fp	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^FILE *fp = NULL;$/;"	v
-friend_icon	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^static GdkPixbuf	*friend_icon = NULL;$/;"	v	file:
-friend_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} friend_t;$/;"	t	typeref:struct:__anon4
-friendfinder_timer	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static int friendfinder_timer = 0;$/;"	v	file:
-friends_list	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList		*friends_list = NULL;$/;"	v
-gc_map	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^static GdkGC		*gc_map = NULL;$/;"	v	file:
-gc_map	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^static GdkGC		*gc_map = NULL;$/;"	v	file:
-gconf_get_repolist	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^gconf_get_repolist()$/;"	f
-gconf_set_repolist	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^gconf_set_repolist()$/;"	f
-geo_photo_cancel_dialog_image_data	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_cancel_dialog_image_data()$/;"	f
-geo_photo_cancel_dialog_photo_correlate	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_cancel_dialog_photo_correlate()$/;"	f
-geo_photo_close_dialog_image_data	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_close_dialog_image_data()$/;"	f
-geo_photo_close_dialog_photo_correlate	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_close_dialog_photo_correlate()$/;"	f
-geo_photo_correction_entry_cb	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_correction_entry_cb(GtkEditable *editable)$/;"	f
-geo_photo_dialog_image_data_next	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_dialog_image_data_next(GtkWidget *widget, gpointer user_data, geo_photo_move_e move)$/;"	f
-geo_photo_set_add_to_database	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_set_add_to_database(GtkToggleButton *togglebutton)$/;"	f
-geo_photo_set_timezone	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photo_set_timezone(GtkComboBox *combobox)$/;"	f
-geo_photos_dialog_image_data_next	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photos_dialog_image_data_next()$/;"	f
-geo_photos_geocode_dir_select_dialog	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photos_geocode_dir_select_dialog (GtkButton       *button,$/;"	f
-geo_photos_geocode_track_select_dialog	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photos_geocode_track_select_dialog (GtkButton       *button,$/;"	f
-geo_photos_open_dialog_image_data	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photos_open_dialog_image_data()$/;"	f
-geo_photos_open_dialog_photo_correlate	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geo_photos_open_dialog_photo_correlate()$/;"	f
-geocode_correction	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^int geocode_correction = 0;$/;"	v
-geocode_photo_list	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^GList *geocode_photo_list;$/;"	v
-geocode_photodir	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^char *geocode_photodir	= NULL;$/;"	v
-geocode_set_photodir	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geocode_set_photodir(char *photodir, GtkWidget *widget)$/;"	f
-geocode_set_trackname	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geocode_set_trackname(char *trackname, GtkWidget *widget)$/;"	f
-geocode_thread	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^geocode_thread(gpointer user_data)$/;"	f
-geocode_timezone	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^int geocode_timezone = 0;$/;"	v
-geocode_trackname	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^char *geocode_trackname	= NULL;$/;"	v
-get_basename	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^get_basename(char *file)$/;"	f
-get_bbox	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^get_bbox()$/;"	f
-get_bbox_deg	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^get_bbox_deg()$/;"	f
-get_bbox_pixel	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^get_bbox_pixel(bbox_t bbox, int zoom)$/;"	f
-get_bearing	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^get_bearing(double lat1, double lon1, double lat2, double lon2)$/;"	f
-get_distance	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^get_distance(double lat1, double lon1, double lat2, double lon2)$/;"	f
-get_entries_from_dir	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^get_entries_from_dir(char *dirname)$/;"	f
-get_gps	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^get_gps()$/;"	f
-get_photos	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^get_photos()$/;"	f
-get_pois	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^get_pois()$/;"	f
-get_tile	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^get_tile(int pixel_x, int pixel_y, int zoom)$/;"	f
-get_zoom_covering	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^get_zoom_covering(int width, int height, double lat_max, double lon_min, double lat_min, double lon_max)$/;"	f
-glade_set_atk_action_description	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^glade_set_atk_action_description       (AtkAction       *action,$/;"	f
-global_alt_unit	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_alt_unit	= 0;	$/;"	v
-global_auto_download	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_auto_download = TRUE;$/;"	v
-global_autocenter	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_autocenter = FALSE;$/;"	v
-global_curr_repo	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList		*global_curr_repo = NULL;$/;"	v
-global_curr_reponame	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gchar		*global_curr_reponame = NULL;$/;"	v
-global_curr_trf_repo	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList		*global_curr_trf_repo = NULL;$/;"	v
-global_current_track_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_current_track_show= TRUE;$/;"	v
-global_current_track_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean	global_current_track_show;$/;"	v
-global_drawingarea_height	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_drawingarea_height = 0;$/;"	v
-global_drawingarea_width	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_drawingarea_width  = 0;$/;"	v
-global_ffcm_friends	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffcm_friends = TRUE;$/;"	v
-global_ffcm_public	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffcm_public = TRUE;$/;"	v
-global_ffcm_registered	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffcm_registered = TRUE;$/;"	v
-global_ffcu_friends	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffcu_friends = TRUE;$/;"	v
-global_ffcu_public	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffcu_public = TRUE;$/;"	v
-global_ffcu_registered	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffcu_registered = TRUE;$/;"	v
-global_fftimer_running	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean 	global_fftimer_running = FALSE;$/;"	v
-global_ffupdate_auto	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_ffupdate_auto = FALSE;$/;"	v
-global_ffupdate_interval	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int		global_ffupdate_interval = 900000;$/;"	v
-global_ffupdate_interval_minutes	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^double		global_ffupdate_interval_minutes = 15;$/;"	v
-global_gconfclient	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GConfClient	*global_gconfclient = NULL;$/;"	v
-global_grid_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_grid_show= TRUE;$/;"	v
-global_grid_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean	global_grid_show;$/;"	v
-global_home_dir	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gchar		*global_home_dir = NULL;$/;"	v
-global_latlon_unit	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_latlon_unit	= 0;	$/;"	v
-global_mapmode	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_mapmode = TRUE;$/;"	v
-global_myposition	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^trackpoint_t	global_myposition;$/;"	v
-global_poi_cat	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int		global_poi_cat = 0;$/;"	v
-global_port	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gchar		*global_port	= NULL;$/;"	v
-global_reconnect_gpsd	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_reconnect_gpsd = TRUE;$/;"	v
-global_repo_cnt	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int		global_repo_cnt = 0;$/;"	v
-global_repo_list	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList 		*global_repo_list = NULL;$/;"	v
-global_server	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gchar		*global_server	= NULL;$/;"	v
-global_show_friends	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_show_friends = FALSE;$/;"	v
-global_show_photos	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_show_photos = FALSE;$/;"	v
-global_show_pois	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_show_pois = FALSE;$/;"	v
-global_speed_unit	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_speed_unit	= 0;	$/;"	v
-global_tiles_in_dl_queue	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int		global_tiles_in_dl_queue = 0;$/;"	v
-global_time	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^time_t		global_time;\/\/время$/;"	v
-global_track_dir	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^char *global_track_dir = NULL;$/;"	v
-global_track_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_track_show= TRUE;$/;"	v
-global_track_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean	global_track_show;$/;"	v
-global_trf_auto	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_trf_auto = TRUE;$/;"	v
-global_trf_list	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList 		*global_trf_list = NULL;$/;"	v
-global_trf_show	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_trf_show= TRUE;$/;"	v
-global_wp	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^waypoint_t	global_wp;$/;"	v
-global_wp_on	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	global_wp_on = FALSE;$/;"	v
-global_x	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_x = 890;$/;"	v
-global_y	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_y = 515;$/;"	v
-global_zoom	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int global_zoom = 3;$/;"	v
-gps_data_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} gps_data_t;$/;"	t	typeref:struct:__anon8
-gps_fix_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} gps_fix_t;$/;"	t	typeref:struct:__anon7
-gpsd_io_channel	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^static GIOChannel *gpsd_io_channel =NULL;$/;"	v	file:
-gpsdata	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gps_data_t *gpsdata = NULL;$/;"	v
-hdop	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double hdop;$/;"	m	struct:__anon8
-head	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int head;$/;"	m	struct:__anon4
-host_failed	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^extern gboolean host_failed = FALSE;\/\/ошибка разрешения имени хоста, скорее всего нет инета$/;"	v
-ht	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GHashTable *ht = NULL;$/;"	v
-ht	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^GHashTable *ht;\/\/таблица состояние тайла$/;"	v
-idmd5	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *idmd5;$/;"	m	struct:__anon6
-init	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^init()$/;"	f
-interface	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^GladeXML* interface;$/;"	v
-inverted_zoom	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int inverted_zoom;$/;"	m	struct:__anon3
-keywords	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *keywords;$/;"	m	struct:__anon6
-lastseen	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *lastseen;$/;"	m	struct:__anon4
-lat	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double lat;$/;"	m	struct:__anon2
-lat	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double lat;$/;"	m	struct:__anon5
-lat	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	float lat;$/;"	m	struct:__anon1
-lat	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	float lat;$/;"	m	struct:__anon4
-lat2pixel	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^lat2pixel(	float zoom,$/;"	f
-lat_deg	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double lat_deg;$/;"	m	struct:__anon6
-latdeg2latmin	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^latdeg2latmin(	float lat)$/;"	f
-latdeg2latsec	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^latdeg2latsec(	float lat)$/;"	f
-latitude	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double latitude;    \/* Latitude in degrees (valid if mode >= 2) *\/$/;"	m	struct:__anon7
-list_store	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^GtkListStore *list_store;$/;"	v
-load_current_track	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^load_current_track(data_of_thread *local)$/;"	f
-load_tile	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^load_tile(data_of_thread *local)$/;"	f
-load_tracks	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^load_tracks(data_of_thread *local)$/;"	f
-load_trf	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^load_trf(data_of_thread *local)$/;"	f
-loaded_track	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^GSList *loaded_track; \/\/track points latlon information$/;"	v
-local_x	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static int local_x = 0;$/;"	v	file:
-local_y	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static int local_y = 0;$/;"	v	file:
-lon	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double lon;$/;"	m	struct:__anon2
-lon	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double lon;$/;"	m	struct:__anon5
-lon	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	float lon;$/;"	m	struct:__anon1
-lon	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	float lon;$/;"	m	struct:__anon4
-lon2pixel	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^lon2pixel(	float zoom,$/;"	f
-lon_deg	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	double lon_deg;$/;"	m	struct:__anon6
-londeg2lonmin	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^londeg2lonmin(	float lon)$/;"	f
-londeg2lonsec	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^londeg2lonsec(	float lon)$/;"	f
-longitude	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double longitude;   \/* Longitude in degrees (valid if mode >= 2) *\/$/;"	m	struct:__anon7
-lookup_widget	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^lookup_widget                          (GtkWidget       *widget,$/;"	f
-main	/home/leha/tangogps/tangogis-1.0.0/src/main.c	/^main (int argc, char *argv[])$/;"	f
-maina	/home/leha/tangogps/tangogis-1.0.0/src/exif.c	/^int maina(int argc, char **argv)$/;"	f
-make_file_label	/home/leha/tangogps/tangogis-1.0.0/src/tracks.c	/^make_file_label(const char *file, char *full_file)$/;"	f
-map_drawable	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *map_drawable = NULL;$/;"	v
-map_redraw	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^map_redraw(void *p)$/;"	f
-mem_struct	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^struct mem_struct {$/;"	s	file:
-memory	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^	char *memory;$/;"	m	struct:mem_struct	file:
-menu1	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *menu1 = NULL;$/;"	v
-mercator_offset	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)$/;"	f
-mode	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    int    mode;        \/* Mode of fix *\/$/;"	m	struct:__anon7
-mouse_dx	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int mouse_dx = 0; $/;"	v
-mouse_dy	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int mouse_dy = 0;$/;"	v
-mouse_x	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int		mouse_x = 0;$/;"	v
-mouse_y	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int		mouse_y = 0;$/;"	v
-my_strescape	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^my_strescape (const gchar *source,$/;"	f
-my_strescape_back	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^my_strescape_back (const gchar *source,$/;"	f
-myposition_icon	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^static GdkPixbuf	*myposition_icon = NULL;$/;"	v	file:
-name	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *name;$/;"	m	struct:__anon3
-name	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *name;$/;"	m	struct:__anon5
-new_dialog	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^static gboolean new_dialog = TRUE;$/;"	v	file:
-nick	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *nick;$/;"	m	struct:__anon4
-number_threads	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int number_threads;$/;"	v
-on_button10_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button10_clicked                    (GtkButton       *button,$/;"	f
-on_button11_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button11_clicked                    (GtkButton       *button,$/;"	f
-on_button11_expose_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button11_expose_event               (GtkWidget       *widget,$/;"	f
-on_button12_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button12_clicked                    (GtkButton       *button,$/;"	f
-on_button13_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button13_clicked                    (GtkButton       *button,$/;"	f
-on_button14_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button14_clicked                    (GtkButton       *button,$/;"	f
-on_button15_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button15_clicked                    (GtkButton       *button,$/;"	f
-on_button16_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button16_clicked                    (GtkButton       *button,$/;"	f
-on_button17_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button17_clicked                    (GtkButton       *button,$/;"	f
-on_button18_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button18_clicked                    (GtkButton       *button,$/;"	f
-on_button19_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button19_clicked                    (GtkButton       *button,$/;"	f
-on_button1_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button1_clicked                     (GtkButton       *button,$/;"	f
-on_button20_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button20_clicked                    (GtkButton       *button,$/;"	f
-on_button21_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button21_clicked                    (GtkButton       *button,$/;"	f
-on_button22_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button22_clicked                    (GtkButton       *button,$/;"	f
-on_button23_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button23_clicked                    (GtkButton       *button,$/;"	f
-on_button26_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button26_clicked                    (GtkButton       *button,$/;"	f
-on_button27_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button27_clicked                    (GtkButton       *button,$/;"	f
-on_button28_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button28_clicked                    (GtkButton       *button,$/;"	f
-on_button29_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button29_clicked                    (GtkButton       *button,$/;"	f
-on_button2_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button2_clicked                     (GtkButton       *button,$/;"	f
-on_button30_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button30_clicked                    (GtkButton       *button,$/;"	f
-on_button33_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button33_clicked                    (GtkButton       *button,$/;"	f
-on_button34_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button34_clicked                    (GtkButton       *button,$/;"	f
-on_button35_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button35_clicked                    (GtkButton       *button,$/;"	f
-on_button36_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button36_clicked                    (GtkButton       *button,$/;"	f
-on_button37_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button37_clicked                    (GtkButton       *button,$/;"	f
-on_button38_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button38_clicked                    (GtkButton       *button,$/;"	f
-on_button39_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button39_clicked                    (GtkButton       *button,$/;"	f
-on_button3_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button3_clicked                     (GtkButton       *button,$/;"	f
-on_button40_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button40_clicked                    (GtkButton       *button,$/;"	f
-on_button41_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button41_clicked                    (GtkButton       *button,$/;"	f
-on_button44_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button44_clicked                    (GtkButton       *button,$/;"	f
-on_button45_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button45_clicked                    (GtkButton       *button,$/;"	f
-on_button46_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button46_clicked                    (GtkButton       *button,$/;"	f
-on_button47_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button47_clicked                    (GtkButton       *button,$/;"	f
-on_button48_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button48_clicked                    (GtkButton       *button,$/;"	f
-on_button49_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button49_clicked                    (GtkButton       *button,$/;"	f
-on_button4_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button4_clicked                     (GtkButton       *button,$/;"	f
-on_button50_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button50_clicked                    (GtkButton       *button,$/;"	f
-on_button5_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button5_clicked                     (GtkButton       *button,$/;"	f
-on_button6_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button6_clicked                     (GtkButton       *button,$/;"	f
-on_button7_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button7_clicked                     (GtkButton       *button,$/;"	f
-on_button8_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button8_clicked                     (GtkButton       *button,$/;"	f
-on_button9_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_button9_clicked                     (GtkButton       *button,$/;"	f
-on_cancelbutton1_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton1_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton2_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton2_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton3_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton3_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton4_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton4_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton5_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton5_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton5a_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton5a_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton6_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton6_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton7_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton7_clicked               (GtkButton       *button,$/;"	f
-on_cancelbutton8_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_cancelbutton8_clicked               (GtkButton       *button,$/;"	f
-on_checkbutton12_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton12_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton13_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton14_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton1_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton2_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton2_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton3_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton3_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton4_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton4_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton5_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton5_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton6_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton6_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton7_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton7_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton8_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton8_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton_trf_auto_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_checkbutton_trf_show_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_checkbutton_trf_show_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_closebutton2_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_closebutton2_clicked                (GtkButton       *button,$/;"	f
-on_combobox1_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_combobox1_changed                   (GtkComboBox     *combobox,$/;"	f
-on_combobox2_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_combobox2_changed                   (GtkComboBox     *combobox,$/;"	f
-on_combobox7_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_combobox7_changed                   (GtkComboBox     *combobox,$/;"	f
-on_combobox_cat_changed	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^on_combobox_cat_changed(GtkComboBox     *combobox)$/;"	f
-on_combobox_subcat_changed	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^on_combobox_subcat_changed                   (GtkComboBox     *combobox,$/;"	f
-on_combobox_trf_repo_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_combobox_trf_repo_changed        (GtkComboBox     *combobox,$/;"	f
-on_dialog1_close	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog1_close                       (GtkDialog       *dialog,$/;"	f
-on_dialog1_response	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog1_response                    (GtkDialog       *dialog,$/;"	f
-on_dialog5_close	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog5_close                       (GtkDialog       *dialog,$/;"	f
-on_dialog5_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog5_delete_event                (GtkWidget       *widget,$/;"	f
-on_dialog6_close	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog6_close                       (GtkDialog       *dialog,$/;"	f
-on_dialog6_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog6_delete_event                (GtkWidget       *widget,$/;"	f
-on_dialog7_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog7_delete_event                (GtkWidget       *widget,$/;"	f
-on_dialog_geocode_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog_geocode_delete_event         (GtkWidget       *widget,$/;"	f
-on_dialog_image_data_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_dialog_image_data_delete_event      (GtkWidget       *widget,$/;"	f
-on_drawingarea1_button_press_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_button_press_event     (GtkWidget       *widget,$/;"	f
-on_drawingarea1_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_button_release_event   (GtkWidget       *widget,$/;"	f
-on_drawingarea1_configure_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_configure_event        (GtkWidget         *widget,$/;"	f
-on_drawingarea1_expose_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_expose_event           (GtkWidget       *widget,$/;"	f
-on_drawingarea1_key_press_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_key_press_event        (GtkWidget       *widget,$/;"	f
-on_drawingarea1_motion_notify_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_motion_notify_event    (GtkWidget       *widget,$/;"	f
-on_drawingarea1_scroll_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea1_scroll_event            (GtkWidget       *widget,$/;"	f
-on_drawingarea2_configure_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea2_configure_event        (GtkWidget       *widget,$/;"	f
-on_drawingarea2_expose_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea2_expose_event           (GtkWidget       *widget,$/;"	f
-on_drawingarea3_configure_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea3_configure_event        (GtkWidget       *widget,$/;"	f
-on_drawingarea3_expose_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_drawingarea3_expose_event           (GtkWidget       *widget,$/;"	f
-on_entry16_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry16_changed                     (GtkEditable     *editable,$/;"	f
-on_entry1_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry1_changed                      (GtkEditable     *editable,$/;"	f
-on_entry20_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry20_changed                     (GtkEditable     *editable,$/;"	f
-on_entry21_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry21_activate                    (GtkEntry        *entry,$/;"	f
-on_entry21_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry21_changed                     (GtkEditable     *editable,$/;"	f
-on_entry24_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry24_changed                     (GtkEditable     *editable,$/;"	f
-on_entry25_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry25_changed                     (GtkEditable     *editable,$/;"	f
-on_entry26_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry26_changed                     (GtkEditable     *editable,$/;"	f
-on_entry28_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry28_changed                     (GtkEditable     *editable,$/;"	f
-on_entry2_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry2_changed                      (GtkEditable     *editable,$/;"	f
-on_entry3_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry3_changed                      (GtkEditable     *editable,$/;"	f
-on_entry4_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry4_changed                      (GtkEditable     *editable,$/;"	f
-on_entry5_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry5_changed                      (GtkEditable     *editable,$/;"	f
-on_entry7_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry7_changed                      (GtkEditable     *editable,$/;"	f
-on_entry8_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_entry8_changed                      (GtkEditable     *editable,$/;"	f
-on_eventbox1_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_eventbox1_button_release_event      (GtkWidget       *widget,$/;"	f
-on_eventbox2_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_eventbox2_button_release_event      (GtkWidget       *widget,$/;"	f
-on_eventbox3_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_eventbox3_button_release_event      (GtkWidget       *widget,$/;"	f
-on_eventbox4_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_eventbox4_button_release_event      (GtkWidget       *widget,$/;"	f
-on_item10_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item10_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item11_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item11_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item12_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item12_activate                     (GtkWidget       *widget,$/;"	f
-on_item14_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item14_activate                     (GtkWidget       *widget,$/;"	f
-on_item15_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item15_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item17_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item17_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item18_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item18_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item19_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item19_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item1_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item1_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item20_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item20_activate                     (GtkMenuItem     *menuitem,$/;"	f
-on_item2_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item2_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item3_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item3_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item4_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item4_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item5_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item5_activate                      (GtkWidget       *widget,$/;"	f
-on_item6_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item6_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item7_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item7_activate                      (GtkWidget       *widget,$/;"	f
-on_item8_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item8_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item9_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item9_activate                      (GtkMenuItem     *menuitem,$/;"	f
-on_item9_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_item9_button_release_event          (GtkWidget       *widget,$/;"	f
-on_itemgeocode1_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_itemgeocode1_activate               (GtkMenuItem     *menuitem,$/;"	f
-on_itemimport1_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_itemimport1_activate                (GtkMenuItem     *menuitem,$/;"	f
-on_itemselect1_activate	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_itemselect1_activate                (GtkMenuItem     *menuitem,$/;"	f
-on_okbutton1_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton1_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton2_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton2_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton3_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton3_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton4_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton4_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton5_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton5_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton5a_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton5a_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton6_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton6_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton7_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton7_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton8_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton8_clicked                   (GtkButton       *button,$/;"	f
-on_okbutton9_clicked	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_okbutton9_clicked                   (GtkButton       *button,$/;"	f
-on_radiobutton13_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton14_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton15_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton15_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton16_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton16_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton17_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton17_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton18_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton18_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton19_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton19_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton1_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton20_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton20_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_radiobutton21_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_radiobutton21_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_togglebutton1_toggled	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_togglebutton1_toggled               (GtkToggleButton *togglebutton,$/;"	f
-on_vscale1_button_press_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_vscale1_button_press_event          (GtkWidget       *widget,$/;"	f
-on_vscale1_button_release_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_vscale1_button_release_event        (GtkWidget       *widget,$/;"	f
-on_vscale1_change_value	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_vscale1_change_value                (GtkRange        *range,$/;"	f
-on_vscale1_value_changed	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_vscale1_value_changed               (GtkRange        *range,$/;"	f
-on_window12_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_window12_delete_event               (GtkWidget       *widget,$/;"	f
-on_window1_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_window1_delete_event                (GtkWidget       *widget,$/;"	f
-on_window1_destroy_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_window1_destroy_event               (GtkWidget       *widget,$/;"	f
-on_window2_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_window2_delete_event                (GtkWidget       *widget,$/;"	f
-on_window3_delete_event	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^on_window3_delete_event                (GtkWidget       *widget,$/;"	f
-osd_speed	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^osd_speed()$/;"	f
-osd_wp	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^osd_wp()$/;"	f
-paint_friends	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^paint_friends()$/;"	f
-paint_myposition	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^paint_myposition()$/;"	f
-paint_photos	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^paint_photos()$/;"	f
-paint_pois	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^paint_pois()$/;"	f
-paint_wp	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^paint_wp()$/;"	f
-parse_degrees	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^parse_degrees(const char *s)$/;"	f
-parse_nmea_gga	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^parse_nmea_gga(char *nmea)$/;"	f
-parse_nmea_gsv	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^parse_nmea_gsv(char *nmea)$/;"	f
-parse_nmea_rmc	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^parse_nmea_rmc(char *nmea)$/;"	f
-pause_all_threads	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^int pause_all_threads;$/;"	v
-photo_list	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList		*photo_list = NULL;$/;"	v
-photo_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} photo_t;$/;"	t	typeref:struct:__anon5
-pixbuf_is_null	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	pixbuf_is_null = FALSE;\/\/нету такого тайла в хеше$/;"	v
-pixbuf_is_null	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean        pixbuf_is_null;\/\/нету такого тайла в хеше$/;"	v
-pixel2lat	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^pixel2lat(	float zoom,$/;"	f
-pixel2lon	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^pixel2lon(	float zoom,$/;"	f
-pixmap	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GdkPixmap *pixmap = NULL;$/;"	v
-pixmap_photo	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static	GdkPixmap *pixmap_photo = NULL;$/;"	v	file:
-pixmap_photo_big	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static	GdkPixmap *pixmap_photo_big = NULL;$/;"	v	file:
-pixmaps_directories	/home/leha/tangogps/tangogis-1.0.0/src/support.c	/^static GList *pixmaps_directories = NULL;$/;"	v	file:
-poi_list	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList		*poi_list = NULL;$/;"	v
-poi_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} poi_t;$/;"	t	typeref:struct:__anon6
-pre_init	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^pre_init()$/;"	f
-prepare_perl	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^prepare_perl()$/;"	f
-price_range	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int price_range;$/;"	m	struct:__anon6
-print_track	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^print_track()$/;"	f
-queue_tile_dl_for_bbox	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^queue_tile_dl_for_bbox(bbox_pixel_t bbox_pixel, int zoom)$/;"	f
-rad2deg	/home/leha/tangogps/tangogis-1.0.0/src/converter.c	/^rad2deg(float rad)$/;"	f
-register_nick	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^register_nick()$/;"	f
-register_nick_thread	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^register_nick_thread(void *ptr)$/;"	f
-repaint_all	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^repaint_all()$/;"	f
-repo_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} repo_t;$/;"	t	typeref:struct:__anon3
-repoconfig__create_dropdown	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^repoconfig__create_dropdown()$/;"	f
-repoconfig__populate_dialog	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^repoconfig__populate_dialog()$/;"	f
-repoconfig__set_current_list_pointer	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^repoconfig__set_current_list_pointer()$/;"	f
-reset_gpsd_io	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^reset_gpsd_io()$/;"	f
-satellites_inview	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int satellites_inview;$/;"	m	struct:__anon8
-satellites_used	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int satellites_used;$/;"	m	struct:__anon8
-screen_x	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon4
-screen_x	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon5
-screen_x	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon6
-screen_y	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon4
-screen_y	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon5
-screen_y	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon6
-seen_vaild	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	gboolean seen_vaild; \/* ever had a vaild fix? *\/$/;"	m	struct:__anon8
-set_combobox_subcat	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^void set_combobox_subcat(GtkWidget *widget, int choice)$/;"	f
-set_current_wp	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^set_current_wp(double lat, double lon)$/;"	f
-set_label	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^set_label()$/;"	f
-set_label_nogps	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^set_label_nogps()$/;"	f
-set_mapcenter	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^set_mapcenter(	float lat,$/;"	f
-set_poi	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^set_poi(GtkWidget *dialog)$/;"	f
-show_mnote_tag	/home/leha/tangogps/tangogis-1.0.0/src/exif.c	/^void show_mnote_tag(ExifData *d, unsigned tag)$/;"	f
-show_poi_detail	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^show_poi_detail()$/;"	f
-show_tag	/home/leha/tangogps/tangogis-1.0.0/src/exif.c	/^show_tag(ExifData *d, ExifIfd ifd, ExifTag tag)$/;"	f
-show_window6	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^show_window6()$/;"	f
-showed_tiles	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList *showed_tiles = NULL;$/;"	v
-showed_tiles	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^GSList *showed_tiles;$/;"	v
-showed_tiles_index	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^int showed_tiles_index;$/;"	v
-sid1	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^static guint sid1,  sid3; $/;"	v	file:
-sid3	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^static guint sid1,  sid3; $/;"	v	file:
-size	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^	size_t size;$/;"	m	struct:mem_struct	file:
-speed	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int speed;$/;"	m	struct:__anon4
-speed	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double speed;       \/* Speed over ground, meters\/sec *\/$/;"	m	struct:__anon7
-sql_cb__photo	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^sql_cb__photo(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
-sql_cb__poi_get	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^sql_cb__poi_get(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
-sql_execute	/home/leha/tangogps/tangogis-1.0.0/src/util.c	/^sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))$/;"	f
-subcategory	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int subcategory;$/;"	m	struct:__anon6
-tangogps_dir	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gchar		*tangogps_dir = NULL;$/;"	v
-tile_download_list	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^static GSList *tile_download_list = NULL;$/;"	v	file:
-tile_url	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^	char *tile_url;$/;"	m	struct:__anon2	file:
-time	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double time;        \/* Time of update, seconds since Unix epoch *\/$/;"	m	struct:__anon7
-timer_tile_download	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^timer_tile_download(gpointer data)$/;"	f
-tm_photo	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^struct tm tm_photo;$/;"	v	typeref:struct:tm
-track	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^    double track;       \/* Course made good (relative to true north) *\/$/;"	m	struct:__anon7
-track_log	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^track_log()$/;"	f
-track_log_close	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^track_log_close()$/;"	f
-track_log_open	/home/leha/tangogps/tangogis-1.0.0/src/init.c	/^track_log_open()$/;"	f
-trackpoint_list	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GSList		*trackpoint_list = NULL;$/;"	v
-trackpoint_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} trackpoint_t;$/;"	t	typeref:struct:__anon1
-tracks_open_tracks_dialog	/home/leha/tangogps/tangogis-1.0.0/src/tracks.c	/^tracks_open_tracks_dialog()$/;"	f
-tracks_read	/home/leha/tangogps/tangogis-1.0.0/src/tracks.c	/^tracks_read      ( char* file)$/;"	f
-traffic_old_factor	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^int traffic_old_factor=0;$/;"	v
-traffic_old_factor	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^int traffic_old_factor;$/;"	v
-traffic_time	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^time_t		traffic_time;\/\/время создания пробоК$/;"	v
-trf_is_failed	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	trf_is_failed = FALSE;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
-trf_is_failed	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean        trf_is_failed;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
-trf_next	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean trf_next=FALSE;\/\/флаг запроса на загрузку свежих пробок$/;"	v
-trf_next	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean trf_next;\/\/флаг запроса на загрузку свежих пробок$/;"	v
-trf_old	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean trf_old=FALSE;\/\/флаг запроса изменения показателя старости$/;"	v
-trf_old	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^gboolean trf_old;\/\/флаг запроса изменения показателя старости$/;"	v
-trim_spaces	/home/leha/tangogps/tangogis-1.0.0/src/exif.c	/^static void trim_spaces(char *buf)$/;"	f	file:
-trip_counter_on	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	trip_counter_on = TRUE;$/;"	v
-trip_distance	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^float		trip_distance = 0;$/;"	v
-trip_logger_on	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^gboolean	trip_logger_on = FALSE;$/;"	v
-trip_maxspeed	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^double		trip_maxspeed = 0;$/;"	v
-trip_starttime	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^double		trip_starttime = 0;$/;"	v
-trip_time	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^double		trip_time = 0;$/;"	v
-type	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int type;$/;"	m	struct:__anon4
-update_gps_time_label	/home/leha/tangogps/tangogis-1.0.0/src/geo_photos.c	/^update_gps_time_label()$/;"	f
-update_poi	/home/leha/tangogps/tangogis-1.0.0/src/poi.c	/^update_poi(GtkWidget *dialog)$/;"	f
-update_position	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^update_position()$/;"	f
-update_position0	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^update_position0()$/;"	f
-update_position_thread	/home/leha/tangogps/tangogis-1.0.0/src/friends.c	/^update_position_thread(void *ptr)$/;"	f
-update_thread_number	/home/leha/tangogps/tangogis-1.0.0/src/tile_management.c	/^update_thread_number (int change)$/;"	f
-uri	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	char *uri;$/;"	m	struct:__anon3
-valid	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	gboolean valid;$/;"	m	struct:__anon8
-view_tile	/home/leha/tangogps/tangogis-1.0.0/src/map_management.c	/^view_tile(data_of_thread \/*tile_threads* data*\/ *local)$/;"	f
-visibility	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	int visibility;$/;"	m	struct:__anon6
-watchdog	/home/leha/tangogps/tangogis-1.0.0/src/gps_functions.c	/^guint watchdog;$/;"	v
-waypoint_t	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^} waypoint_t;$/;"	t	typeref:struct:__anon2
-widget	/home/leha/tangogps/tangogis-1.0.0/src/globals.h	/^	GtkWidget *widget;$/;"	m	struct:__anon6
-window1	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *window1 = NULL;$/;"	v
-window2	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *window2 = NULL;$/;"	v
-window3	/home/leha/tangogps/tangogis-1.0.0/src/globals.c	/^GtkWidget *window3 = NULL;$/;"	v
-wp_icon	/home/leha/tangogps/tangogis-1.0.0/src/wp.c	/^static GdkPixbuf	*wp_icon = NULL;$/;"	v	file:
-wtfcounter	/home/leha/tangogps/tangogis-1.0.0/src/callbacks.c	/^static int wtfcounter=0; $/;"	v	file:
+Bar	/home/leha/tangogps/tangogis/src/tile_management.c	/^GtkWidget *Bar = NULL; $/;"	v
+COLUMN_BOOLEAN	/home/leha/tangogps/tangogis/src/poi.c	/^	COLUMN_BOOLEAN,$/;"	e	enum:__anon1	file:
+COLUMN_INT	/home/leha/tangogps/tangogis/src/poi.c	/^	COLUMN_INT,$/;"	e	enum:__anon1	file:
+COLUMN_STRING	/home/leha/tangogps/tangogis/src/poi.c	/^	COLUMN_STRING,$/;"	e	enum:__anon1	file:
+ERR_DOWN	/home/leha/tangogps/tangogis/src/map_management.c	26;"	d	file:
+ERR_LOAD	/home/leha/tangogps/tangogis/src/map_management.c	24;"	d	file:
+ERR_REPO	/home/leha/tangogps/tangogis/src/map_management.c	25;"	d	file:
+ERR_ZOOM	/home/leha/tangogps/tangogis/src/map_management.c	23;"	d	file:
+GLADE_HOOKUP_OBJECT	/home/leha/tangogps/tangogis/src/interface.c	22;"	d	file:
+GLADE_HOOKUP_OBJECT_NO_REF	/home/leha/tangogps/tangogis/src/interface.c	26;"	d	file:
+G_THREADS_ENABLED	/home/leha/tangogps/tangogis/src/main.c	19;"	d	file:
+LOAD_OK	/home/leha/tangogps/tangogis/src/map_management.c	27;"	d	file:
+N_COLUMNS	/home/leha/tangogps/tangogis/src/poi.c	/^	N_COLUMNS$/;"	e	enum:__anon1	file:
+PHOTO_DB	/home/leha/tangogps/tangogis/src/geo_photos.c	26;"	d	file:
+POI_DB	/home/leha/tangogps/tangogis/src/poi.c	24;"	d	file:
+POI_DB_CREATE	/home/leha/tangogps/tangogis/src/poi.c	44;"	d	file:
+Repo_data_t	/home/leha/tangogps/tangogis/src/tile_management.c	/^} Repo_data_t;$/;"	t	typeref:struct:__anon2	file:
+TILESIZE	/home/leha/tangogps/tangogis/src/converter.c	8;"	d	file:
+WTFCOUNTER	/home/leha/tangogps/tangogis/src/callbacks.c	32;"	d	file:
+add_pixmap_directory	/home/leha/tangogps/tangogis/src/support.c	/^add_pixmap_directory                   (const gchar     *directory)$/;"	f
+add_to_database	/home/leha/tangogps/tangogis/src/geo_photos.c	/^gboolean add_to_database = TRUE;$/;"	v
+auto_load_trf_timer	/home/leha/tangogps/tangogis/src/map_management.c	/^gboolean auto_load_trf_timer()$/;"	f
+cb_download_maps	/home/leha/tangogps/tangogis/src/tile_management.c	/^cb_download_maps(GtkWidget *dialog)$/;"	f
+cb_gps_timer	/home/leha/tangogps/tangogis/src/init.c	/^cb_gps_timer() $/;"	f
+cb_gpsd_data	/home/leha/tangogps/tangogis/src/gps_functions.c	/^cb_gpsd_data(GIOChannel *src, GIOCondition condition, gpointer data)$/;"	f	file:
+cb_gpsd_io_error	/home/leha/tangogps/tangogis/src/gps_functions.c	/^cb_gpsd_io_error(GIOChannel *src, GIOCondition condition, gpointer data)$/;"	f	file:
+cb_progress_func	/home/leha/tangogps/tangogis/src/tile_management.c	/^cb_progress_func(GtkWidget *Bar,$/;"	f
+cb_read_func	/home/leha/tangogps/tangogis/src/tile_management.c	/^cb_read_func (void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f
+cb_write_func	/home/leha/tangogps/tangogis/src/tile_management.c	/^cb_write_func(void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f
+cb_write_to_mem	/home/leha/tangogps/tangogis/src/friends.c	/^cb_write_to_mem(void *ptr, size_t size, size_t nmemb, void *data)$/;"	f	file:
+check_connect	/home/leha/tangogps/tangogis/src/tile_management.c	/^gboolean check_connect(void)$/;"	f
+combobox_subcat	/home/leha/tangogps/tangogis/src/poi.c	/^static GtkWidget *combobox_subcat = NULL;$/;"	v	file:
+create_combobox_list_store	/home/leha/tangogps/tangogis/src/poi.c	/^create_combobox_list_store(char *list)$/;"	f
+create_dialog1	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog1 (void)$/;"	f
+create_dialog2	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog2 (void)$/;"	f
+create_dialog3	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog3 (void)$/;"	f
+create_dialog4	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog4 (void)$/;"	f
+create_dialog5	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog5 (void)$/;"	f
+create_dialog6	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog6 (void)$/;"	f
+create_dialog7	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog7 (void)$/;"	f
+create_dialog8	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog8 (void)$/;"	f
+create_dialog_geocode	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog_geocode (void)$/;"	f
+create_dialog_geocode_result	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog_geocode_result (void)$/;"	f
+create_dialog_image_data	/home/leha/tangogps/tangogis/src/interface.c	/^create_dialog_image_data (void)$/;"	f
+create_filechooserdialog1	/home/leha/tangogps/tangogis/src/interface.c	/^create_filechooserdialog1 (void)$/;"	f
+create_menu1	/home/leha/tangogps/tangogis/src/interface.c	/^create_menu1 (void)$/;"	f
+create_pixbuf	/home/leha/tangogps/tangogis/src/support.c	/^create_pixbuf                          (const gchar     *filename)$/;"	f
+create_pixmap	/home/leha/tangogps/tangogis/src/support.c	/^create_pixmap                          (GtkWidget       *widget,$/;"	f
+create_win13_biggeo	/home/leha/tangogps/tangogis/src/interface.c	/^create_win13_biggeo (void)$/;"	f
+create_window1	/home/leha/tangogps/tangogis/src/interface.c	/^create_window1 (void)$/;"	f
+create_window10	/home/leha/tangogps/tangogis/src/interface.c	/^create_window10 (void)$/;"	f
+create_window11	/home/leha/tangogps/tangogis/src/interface.c	/^create_window11 (void)$/;"	f
+create_window2	/home/leha/tangogps/tangogis/src/interface.c	/^create_window2 (void)$/;"	f
+create_window3	/home/leha/tangogps/tangogis/src/interface.c	/^create_window3 (void)$/;"	f
+create_window4	/home/leha/tangogps/tangogis/src/interface.c	/^create_window4 (void)$/;"	f
+create_window5	/home/leha/tangogps/tangogis/src/interface.c	/^create_window5 (void)$/;"	f
+create_window6	/home/leha/tangogps/tangogis/src/interface.c	/^create_window6 (void)$/;"	f
+create_window7	/home/leha/tangogps/tangogis/src/interface.c	/^create_window7 (void)$/;"	f
+create_window8	/home/leha/tangogps/tangogis/src/interface.c	/^create_window8 (void)$/;"	f
+create_window9	/home/leha/tangogps/tangogis/src/interface.c	/^create_window9 (void)$/;"	f
+curr_trf_name	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*curr_trf_name = NULL;$/;"	v
+deg2rad	/home/leha/tangogps/tangogis/src/converter.c	/^deg2rad(float deg)$/;"	f
+delete_poi	/home/leha/tangogps/tangogis/src/poi.c	/^delete_poi(poi_t *p)$/;"	f
+destroy_all_threads	/home/leha/tangogps/tangogis/src/globals.c	/^int destroy_all_threads=0;$/;"	v
+dialog1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *dialog1 = NULL;$/;"	v
+dialog8	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *dialog8 = NULL;$/;"	v
+dialog_geocode_result	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GtkWidget *dialog_geocode_result = NULL;$/;"	v
+dialog_image_data	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GtkWidget *dialog_image_data = NULL;$/;"	v
+dialog_photo_correlate	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GtkWidget *dialog_photo_correlate = NULL;$/;"	v
+dl_thread	/home/leha/tangogps/tangogis/src/tile_management.c	/^dl_thread(void *ptr)$/;"	f
+do_paint_myposition	/home/leha/tangogps/tangogis/src/wp.c	/^do_paint_myposition()$/;"	f
+do_paint_wp	/home/leha/tangogps/tangogis/src/wp.c	/^do_paint_wp()$/;"	f
+download_maps	/home/leha/tangogps/tangogis/src/tile_management.c	/^download_maps(bbox_t bbox, int zoom_start, int zoom_end)$/;"	f
+download_tile	/home/leha/tangogps/tangogis/src/tile_management.c	/^download_tile(	repo_t *repo,$/;"	f
+drag_started	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int drag_started = 0;$/;"	v	file:
+drawingarea11	/home/leha/tangogps/tangogis/src/map_management.c	/^static GtkWidget	*drawingarea11 = NULL;$/;"	v	file:
+file_type_test	/home/leha/tangogps/tangogis/src/geo_photos.c	/^file_type_test(const char *file, char *type)$/;"	f
+fill_tiles_latlon	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_latlon(	float lat,$/;"	f
+fill_tiles_latlon_hack	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_latlon_hack(	float lat,$/;"	f
+fill_tiles_pixel	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_pixel(	int pixel_x,$/;"	f
+find_pixmap_file	/home/leha/tangogps/tangogis/src/support.c	/^find_pixmap_file                       (const gchar     *filename)$/;"	f	file:
+fp	/home/leha/tangogps/tangogis/src/init.c	/^FILE *fp = NULL;$/;"	v
+friend_icon	/home/leha/tangogps/tangogis/src/friends.c	/^static GdkPixbuf	*friend_icon = NULL;$/;"	v	file:
+friendfinder_timer	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int friendfinder_timer = 0;$/;"	v	file:
+friends_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*friends_list = NULL;$/;"	v
+gc_map	/home/leha/tangogps/tangogis/src/friends.c	/^static GdkGC		*gc_map = NULL;$/;"	v	file:
+gc_map	/home/leha/tangogps/tangogis/src/wp.c	/^static GdkGC		*gc_map = NULL;$/;"	v	file:
+gconf_get_repolist	/home/leha/tangogps/tangogis/src/init.c	/^gconf_get_repolist()$/;"	f
+gconf_set_repolist	/home/leha/tangogps/tangogis/src/init.c	/^gconf_set_repolist()$/;"	f
+geo_photo_cancel_dialog_image_data	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_cancel_dialog_image_data()$/;"	f
+geo_photo_cancel_dialog_photo_correlate	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_cancel_dialog_photo_correlate()$/;"	f
+geo_photo_close_dialog_image_data	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_close_dialog_image_data()$/;"	f
+geo_photo_close_dialog_photo_correlate	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_close_dialog_photo_correlate()$/;"	f
+geo_photo_correction_entry_cb	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_correction_entry_cb(GtkEditable *editable)$/;"	f
+geo_photo_dialog_image_data_next	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_dialog_image_data_next(GtkWidget *widget, gpointer user_data, geo_photo_move_e move)$/;"	f
+geo_photo_set_add_to_database	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_set_add_to_database(GtkToggleButton *togglebutton)$/;"	f
+geo_photo_set_timezone	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photo_set_timezone(GtkComboBox *combobox)$/;"	f
+geo_photos_dialog_image_data_next	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photos_dialog_image_data_next()$/;"	f
+geo_photos_geocode_dir_select_dialog	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photos_geocode_dir_select_dialog (GtkButton       *button,$/;"	f
+geo_photos_geocode_track_select_dialog	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photos_geocode_track_select_dialog (GtkButton       *button,$/;"	f
+geo_photos_open_dialog_image_data	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photos_open_dialog_image_data()$/;"	f
+geo_photos_open_dialog_photo_correlate	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geo_photos_open_dialog_photo_correlate()$/;"	f
+geocode_correction	/home/leha/tangogps/tangogis/src/geo_photos.c	/^int geocode_correction = 0;$/;"	v
+geocode_photo_list	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GList *geocode_photo_list;$/;"	v
+geocode_photodir	/home/leha/tangogps/tangogis/src/geo_photos.c	/^char *geocode_photodir	= NULL;$/;"	v
+geocode_set_photodir	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geocode_set_photodir(char *photodir, GtkWidget *widget)$/;"	f
+geocode_set_trackname	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geocode_set_trackname(char *trackname, GtkWidget *widget)$/;"	f
+geocode_thread	/home/leha/tangogps/tangogis/src/geo_photos.c	/^geocode_thread(gpointer user_data)$/;"	f
+geocode_timezone	/home/leha/tangogps/tangogis/src/geo_photos.c	/^int geocode_timezone = 0;$/;"	v
+geocode_trackname	/home/leha/tangogps/tangogis/src/geo_photos.c	/^char *geocode_trackname	= NULL;$/;"	v
+get_basename	/home/leha/tangogps/tangogis/src/geo_photos.c	/^get_basename(char *file)$/;"	f
+get_bbox	/home/leha/tangogps/tangogis/src/tile_management.c	/^get_bbox()$/;"	f
+get_bbox_deg	/home/leha/tangogps/tangogis/src/tile_management.c	/^get_bbox_deg()$/;"	f
+get_bbox_pixel	/home/leha/tangogps/tangogis/src/tile_management.c	/^get_bbox_pixel(bbox_t bbox, int zoom)$/;"	f
+get_bearing	/home/leha/tangogps/tangogis/src/converter.c	/^get_bearing(double lat1, double lon1, double lat2, double lon2)$/;"	f
+get_distance	/home/leha/tangogps/tangogis/src/converter.c	/^get_distance(double lat1, double lon1, double lat2, double lon2)$/;"	f
+get_entries_from_dir	/home/leha/tangogps/tangogis/src/geo_photos.c	/^get_entries_from_dir(char *dirname)$/;"	f
+get_gps	/home/leha/tangogps/tangogis/src/gps_functions.c	/^get_gps()$/;"	f
+get_photos	/home/leha/tangogps/tangogis/src/geo_photos.c	/^get_photos()$/;"	f
+get_pois	/home/leha/tangogps/tangogis/src/poi.c	/^get_pois()$/;"	f
+get_tile	/home/leha/tangogps/tangogis/src/tile_management.c	/^get_tile(int pixel_x, int pixel_y, int zoom)$/;"	f
+get_zoom_covering	/home/leha/tangogps/tangogis/src/converter.c	/^get_zoom_covering(int width, int height, double lat_max, double lon_min, double lat_min, double lon_max)$/;"	f
+glade_set_atk_action_description	/home/leha/tangogps/tangogis/src/support.c	/^glade_set_atk_action_description       (AtkAction       *action,$/;"	f
+global_alt_unit	/home/leha/tangogps/tangogis/src/globals.c	/^int global_alt_unit	= 0;	$/;"	v
+global_auto_download	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_auto_download = TRUE;$/;"	v
+global_autocenter	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_autocenter = FALSE;$/;"	v
+global_curr_repo	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*global_curr_repo = NULL;$/;"	v
+global_curr_reponame	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_curr_reponame = NULL;$/;"	v
+global_curr_trf_repo	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*global_curr_trf_repo = NULL;$/;"	v
+global_current_track_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_current_track_show= TRUE;$/;"	v
+global_drawingarea_height	/home/leha/tangogps/tangogis/src/globals.c	/^int global_drawingarea_height = 0;$/;"	v
+global_drawingarea_width	/home/leha/tangogps/tangogis/src/globals.c	/^int global_drawingarea_width  = 0;$/;"	v
+global_ffcm_friends	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcm_friends = TRUE;$/;"	v
+global_ffcm_public	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcm_public = TRUE;$/;"	v
+global_ffcm_registered	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcm_registered = TRUE;$/;"	v
+global_ffcu_friends	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcu_friends = TRUE;$/;"	v
+global_ffcu_public	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcu_public = TRUE;$/;"	v
+global_ffcu_registered	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcu_registered = TRUE;$/;"	v
+global_fftimer_running	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean 	global_fftimer_running = FALSE;$/;"	v
+global_ffupdate_auto	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffupdate_auto = FALSE;$/;"	v
+global_ffupdate_interval	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_ffupdate_interval = 900000;$/;"	v
+global_ffupdate_interval_minutes	/home/leha/tangogps/tangogis/src/globals.c	/^double		global_ffupdate_interval_minutes = 15;$/;"	v
+global_gconfclient	/home/leha/tangogps/tangogis/src/globals.c	/^GConfClient	*global_gconfclient = NULL;$/;"	v
+global_grid_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_grid_show= TRUE;$/;"	v
+global_home_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_home_dir = NULL;$/;"	v
+global_latlon_unit	/home/leha/tangogps/tangogis/src/globals.c	/^int global_latlon_unit	= 0;	$/;"	v
+global_mapmode	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_mapmode = TRUE;$/;"	v
+global_myposition	/home/leha/tangogps/tangogis/src/globals.c	/^trackpoint_t	global_myposition;$/;"	v
+global_poi_cat	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_poi_cat = 0;$/;"	v
+global_port	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_port	= NULL;$/;"	v
+global_reconnect_gpsd	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_reconnect_gpsd = TRUE;$/;"	v
+global_repo_cnt	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_repo_cnt = 0;$/;"	v
+global_repo_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList 		*global_repo_list = NULL;$/;"	v
+global_server	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_server	= NULL;$/;"	v
+global_show_friends	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_show_friends = FALSE;$/;"	v
+global_show_photos	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_show_photos = FALSE;$/;"	v
+global_show_pois	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_show_pois = FALSE;$/;"	v
+global_speed_unit	/home/leha/tangogps/tangogis/src/globals.c	/^int global_speed_unit	= 0;	$/;"	v
+global_tiles_in_dl_queue	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_tiles_in_dl_queue = 0;$/;"	v
+global_track_dir	/home/leha/tangogps/tangogis/src/globals.c	/^char *global_track_dir = NULL;$/;"	v
+global_track_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_track_show= TRUE;$/;"	v
+global_trf_auto	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_trf_auto = TRUE;$/;"	v
+global_trf_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList 		*global_trf_list = NULL;$/;"	v
+global_trf_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_trf_show= TRUE;$/;"	v
+global_wp	/home/leha/tangogps/tangogis/src/globals.c	/^waypoint_t	global_wp;$/;"	v
+global_wp_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_wp_on = FALSE;$/;"	v
+global_x	/home/leha/tangogps/tangogis/src/globals.c	/^int global_x = 890;$/;"	v
+global_y	/home/leha/tangogps/tangogis/src/globals.c	/^int global_y = 515;$/;"	v
+global_zoom	/home/leha/tangogps/tangogis/src/globals.c	/^int global_zoom = 3;$/;"	v
+gpsd_io_channel	/home/leha/tangogps/tangogis/src/gps_functions.c	/^static GIOChannel *gpsd_io_channel =NULL;$/;"	v	file:
+gpsdata	/home/leha/tangogps/tangogis/src/globals.c	/^gps_data_t *gpsdata = NULL;$/;"	v
+host_failed	/home/leha/tangogps/tangogis/src/globals.c	/^extern gboolean host_failed = FALSE;\/\/ошибка разрешения имени хоста, скорее всего нет инета$/;"	v
+ht	/home/leha/tangogps/tangogis/src/globals.c	/^GHashTable *ht = NULL;$/;"	v
+init	/home/leha/tangogps/tangogis/src/init.c	/^init()$/;"	f
+lat2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lat2pixel(	float zoom,$/;"	f
+latdeg2latmin	/home/leha/tangogps/tangogis/src/converter.c	/^latdeg2latmin(	float lat)$/;"	f
+latdeg2latsec	/home/leha/tangogps/tangogis/src/converter.c	/^latdeg2latsec(	float lat)$/;"	f
+list_store	/home/leha/tangogps/tangogis/src/poi.c	/^GtkListStore *list_store;$/;"	v
+load_current_track	/home/leha/tangogps/tangogis/src/map_management.c	/^load_current_track(data_of_thread *local)$/;"	f
+load_tile	/home/leha/tangogps/tangogis/src/map_management.c	/^load_tile(data_of_thread *local)$/;"	f
+load_tracks	/home/leha/tangogps/tangogis/src/map_management.c	/^load_tracks(data_of_thread *local)$/;"	f
+load_trf	/home/leha/tangogps/tangogis/src/map_management.c	/^load_trf(data_of_thread *local)$/;"	f
+local_x	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_x = 0;$/;"	v	file:
+local_y	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_y = 0;$/;"	v	file:
+lon2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lon2pixel(	float zoom,$/;"	f
+londeg2lonmin	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonmin(	float lon)$/;"	f
+londeg2lonsec	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonsec(	float lon)$/;"	f
+lookup_widget	/home/leha/tangogps/tangogis/src/support.c	/^lookup_widget                          (GtkWidget       *widget,$/;"	f
+main	/home/leha/tangogps/tangogis/src/main.c	/^main (int argc, char *argv[])$/;"	f
+maina	/home/leha/tangogps/tangogis/src/exif.c	/^int maina(int argc, char **argv)$/;"	f
+make_file_label	/home/leha/tangogps/tangogis/src/tracks.c	/^make_file_label(const char *file, char *full_file)$/;"	f
+map_drawable	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *map_drawable = NULL;$/;"	v
+map_redraw	/home/leha/tangogps/tangogis/src/tile_management.c	/^map_redraw(void *p)$/;"	f
+mem_struct	/home/leha/tangogps/tangogis/src/friends.c	/^struct mem_struct {$/;"	s	file:
+memory	/home/leha/tangogps/tangogis/src/friends.c	/^	char *memory;$/;"	m	struct:mem_struct	file:
+menu1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *menu1 = NULL;$/;"	v
+mercator_offset	/home/leha/tangogps/tangogis/src/map_management.c	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)$/;"	f
+mouse_dx	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dx = 0; $/;"	v
+mouse_dy	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dy = 0;$/;"	v
+mouse_x	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_x = 0;$/;"	v
+mouse_y	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_y = 0;$/;"	v
+my_strescape	/home/leha/tangogps/tangogis/src/poi.c	/^my_strescape (const gchar *source,$/;"	f
+my_strescape_back	/home/leha/tangogps/tangogis/src/poi.c	/^my_strescape_back (const gchar *source,$/;"	f
+myposition_icon	/home/leha/tangogps/tangogis/src/wp.c	/^static GdkPixbuf	*myposition_icon = NULL;$/;"	v	file:
+new_dialog	/home/leha/tangogps/tangogis/src/poi.c	/^static gboolean new_dialog = TRUE;$/;"	v	file:
+on_button10_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button10_clicked                    (GtkButton       *button,$/;"	f
+on_button11_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button11_clicked                    (GtkButton       *button,$/;"	f
+on_button11_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button11_expose_event               (GtkWidget       *widget,$/;"	f
+on_button12_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button12_clicked                    (GtkButton       *button,$/;"	f
+on_button13_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button13_clicked                    (GtkButton       *button,$/;"	f
+on_button14_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button14_clicked                    (GtkButton       *button,$/;"	f
+on_button15_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button15_clicked                    (GtkButton       *button,$/;"	f
+on_button16_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button16_clicked                    (GtkButton       *button,$/;"	f
+on_button17_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button17_clicked                    (GtkButton       *button,$/;"	f
+on_button18_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button18_clicked                    (GtkButton       *button,$/;"	f
+on_button19_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button19_clicked                    (GtkButton       *button,$/;"	f
+on_button1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button1_clicked                     (GtkButton       *button,$/;"	f
+on_button20_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button20_clicked                    (GtkButton       *button,$/;"	f
+on_button21_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button21_clicked                    (GtkButton       *button,$/;"	f
+on_button22_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button22_clicked                    (GtkButton       *button,$/;"	f
+on_button23_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button23_clicked                    (GtkButton       *button,$/;"	f
+on_button26_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button26_clicked                    (GtkButton       *button,$/;"	f
+on_button27_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button27_clicked                    (GtkButton       *button,$/;"	f
+on_button28_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button28_clicked                    (GtkButton       *button,$/;"	f
+on_button29_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button29_clicked                    (GtkButton       *button,$/;"	f
+on_button2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button2_clicked                     (GtkButton       *button,$/;"	f
+on_button30_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button30_clicked                    (GtkButton       *button,$/;"	f
+on_button33_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button33_clicked                    (GtkButton       *button,$/;"	f
+on_button34_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button34_clicked                    (GtkButton       *button,$/;"	f
+on_button35_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button35_clicked                    (GtkButton       *button,$/;"	f
+on_button36_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button36_clicked                    (GtkButton       *button,$/;"	f
+on_button37_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button37_clicked                    (GtkButton       *button,$/;"	f
+on_button38_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button38_clicked                    (GtkButton       *button,$/;"	f
+on_button39_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button39_clicked                    (GtkButton       *button,$/;"	f
+on_button3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button3_clicked                     (GtkButton       *button,$/;"	f
+on_button40_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button40_clicked                    (GtkButton       *button,$/;"	f
+on_button41_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button41_clicked                    (GtkButton       *button,$/;"	f
+on_button44_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button44_clicked                    (GtkButton       *button,$/;"	f
+on_button45_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button45_clicked                    (GtkButton       *button,$/;"	f
+on_button46_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button46_clicked                    (GtkButton       *button,$/;"	f
+on_button47_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button47_clicked                    (GtkButton       *button,$/;"	f
+on_button48_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button48_clicked                    (GtkButton       *button,$/;"	f
+on_button49_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button49_clicked                    (GtkButton       *button,$/;"	f
+on_button4_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button4_clicked                     (GtkButton       *button,$/;"	f
+on_button50_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button50_clicked                    (GtkButton       *button,$/;"	f
+on_button5_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button5_clicked                     (GtkButton       *button,$/;"	f
+on_button6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button6_clicked                     (GtkButton       *button,$/;"	f
+on_button7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button7_clicked                     (GtkButton       *button,$/;"	f
+on_button8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button8_clicked                     (GtkButton       *button,$/;"	f
+on_button9_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button9_clicked                     (GtkButton       *button,$/;"	f
+on_cancelbutton1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton1_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton2_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton3_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton4_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton4_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton5_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton5_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton5a_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton5a_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton6_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton7_clicked               (GtkButton       *button,$/;"	f
+on_cancelbutton8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton8_clicked               (GtkButton       *button,$/;"	f
+on_checkbutton12_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton12_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton13_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton14_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton1_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton2_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton2_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton3_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton3_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton4_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton4_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton5_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton5_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton6_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton6_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton7_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton7_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton8_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton8_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton_trf_auto_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_checkbutton_trf_show_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton_trf_show_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_closebutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_closebutton2_clicked                (GtkButton       *button,$/;"	f
+on_combobox1_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox1_changed                   (GtkComboBox     *combobox,$/;"	f
+on_combobox2_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox2_changed                   (GtkComboBox     *combobox,$/;"	f
+on_combobox7_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox7_changed                   (GtkComboBox     *combobox,$/;"	f
+on_combobox_cat_changed	/home/leha/tangogps/tangogis/src/poi.c	/^on_combobox_cat_changed(GtkComboBox     *combobox)$/;"	f
+on_combobox_subcat_changed	/home/leha/tangogps/tangogis/src/poi.c	/^on_combobox_subcat_changed                   (GtkComboBox     *combobox,$/;"	f
+on_combobox_trf_repo_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox_trf_repo_changed        (GtkComboBox     *combobox,$/;"	f
+on_dialog1_close	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog1_close                       (GtkDialog       *dialog,$/;"	f
+on_dialog1_response	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog1_response                    (GtkDialog       *dialog,$/;"	f
+on_dialog5_close	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog5_close                       (GtkDialog       *dialog,$/;"	f
+on_dialog5_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog5_delete_event                (GtkWidget       *widget,$/;"	f
+on_dialog6_close	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog6_close                       (GtkDialog       *dialog,$/;"	f
+on_dialog6_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog6_delete_event                (GtkWidget       *widget,$/;"	f
+on_dialog7_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog7_delete_event                (GtkWidget       *widget,$/;"	f
+on_dialog_geocode_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog_geocode_delete_event         (GtkWidget       *widget,$/;"	f
+on_dialog_image_data_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog_image_data_delete_event      (GtkWidget       *widget,$/;"	f
+on_drawingarea1_button_press_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_button_press_event     (GtkWidget       *widget,$/;"	f
+on_drawingarea1_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_button_release_event   (GtkWidget       *widget,$/;"	f
+on_drawingarea1_configure_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_configure_event        (GtkWidget         *widget,$/;"	f
+on_drawingarea1_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_expose_event           (GtkWidget       *widget,$/;"	f
+on_drawingarea1_key_press_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_key_press_event        (GtkWidget       *widget,$/;"	f
+on_drawingarea1_motion_notify_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_motion_notify_event    (GtkWidget       *widget,$/;"	f
+on_drawingarea1_scroll_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_scroll_event            (GtkWidget       *widget,$/;"	f
+on_drawingarea2_configure_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea2_configure_event        (GtkWidget       *widget,$/;"	f
+on_drawingarea2_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea2_expose_event           (GtkWidget       *widget,$/;"	f
+on_drawingarea3_configure_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea3_configure_event        (GtkWidget       *widget,$/;"	f
+on_drawingarea3_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea3_expose_event           (GtkWidget       *widget,$/;"	f
+on_entry16_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry16_changed                     (GtkEditable     *editable,$/;"	f
+on_entry1_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry1_changed                      (GtkEditable     *editable,$/;"	f
+on_entry20_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry20_changed                     (GtkEditable     *editable,$/;"	f
+on_entry21_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry21_activate                    (GtkEntry        *entry,$/;"	f
+on_entry21_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry21_changed                     (GtkEditable     *editable,$/;"	f
+on_entry24_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry24_changed                     (GtkEditable     *editable,$/;"	f
+on_entry25_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry25_changed                     (GtkEditable     *editable,$/;"	f
+on_entry26_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry26_changed                     (GtkEditable     *editable,$/;"	f
+on_entry28_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry28_changed                     (GtkEditable     *editable,$/;"	f
+on_entry2_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry2_changed                      (GtkEditable     *editable,$/;"	f
+on_entry3_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry3_changed                      (GtkEditable     *editable,$/;"	f
+on_entry4_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry4_changed                      (GtkEditable     *editable,$/;"	f
+on_entry5_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry5_changed                      (GtkEditable     *editable,$/;"	f
+on_entry7_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry7_changed                      (GtkEditable     *editable,$/;"	f
+on_entry8_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry8_changed                      (GtkEditable     *editable,$/;"	f
+on_eventbox1_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox1_button_release_event      (GtkWidget       *widget,$/;"	f
+on_eventbox2_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox2_button_release_event      (GtkWidget       *widget,$/;"	f
+on_eventbox3_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox3_button_release_event      (GtkWidget       *widget,$/;"	f
+on_eventbox4_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox4_button_release_event      (GtkWidget       *widget,$/;"	f
+on_item10_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item10_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item11_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item11_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item12_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item12_activate                     (GtkWidget       *widget,$/;"	f
+on_item14_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item14_activate                     (GtkWidget       *widget,$/;"	f
+on_item15_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item15_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item17_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item17_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item18_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item18_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item19_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item19_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item1_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item20_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item20_activate                     (GtkMenuItem     *menuitem,$/;"	f
+on_item2_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item2_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item3_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item3_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item4_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item4_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item5_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item5_activate                      (GtkWidget       *widget,$/;"	f
+on_item6_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item6_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item7_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item7_activate                      (GtkWidget       *widget,$/;"	f
+on_item8_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item8_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item9_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item9_activate                      (GtkMenuItem     *menuitem,$/;"	f
+on_item9_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item9_button_release_event          (GtkWidget       *widget,$/;"	f
+on_itemgeocode1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_itemgeocode1_activate               (GtkMenuItem     *menuitem,$/;"	f
+on_itemimport1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_itemimport1_activate                (GtkMenuItem     *menuitem,$/;"	f
+on_itemselect1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_itemselect1_activate                (GtkMenuItem     *menuitem,$/;"	f
+on_okbutton1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton1_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton2_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton3_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton4_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton4_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton5_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton5_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton5a_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton5a_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton6_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton7_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton8_clicked                   (GtkButton       *button,$/;"	f
+on_okbutton9_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton9_clicked                   (GtkButton       *button,$/;"	f
+on_radiobutton13_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton14_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton15_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton15_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton16_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton16_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton17_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton17_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton18_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton18_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton19_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton19_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton1_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton20_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton20_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_radiobutton21_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton21_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_togglebutton1_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_togglebutton1_toggled               (GtkToggleButton *togglebutton,$/;"	f
+on_vscale1_button_press_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_button_press_event          (GtkWidget       *widget,$/;"	f
+on_vscale1_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_button_release_event        (GtkWidget       *widget,$/;"	f
+on_vscale1_change_value	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_change_value                (GtkRange        *range,$/;"	f
+on_vscale1_value_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_value_changed               (GtkRange        *range,$/;"	f
+on_window12_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window12_delete_event               (GtkWidget       *widget,$/;"	f
+on_window1_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window1_delete_event                (GtkWidget       *widget,$/;"	f
+on_window1_destroy_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window1_destroy_event               (GtkWidget       *widget,$/;"	f
+on_window2_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window2_delete_event                (GtkWidget       *widget,$/;"	f
+on_window3_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window3_delete_event                (GtkWidget       *widget,$/;"	f
+osd_speed	/home/leha/tangogps/tangogis/src/gps_functions.c	/^osd_speed()$/;"	f
+osd_wp	/home/leha/tangogps/tangogis/src/wp.c	/^osd_wp()$/;"	f
+paint_friends	/home/leha/tangogps/tangogis/src/friends.c	/^paint_friends()$/;"	f
+paint_myposition	/home/leha/tangogps/tangogis/src/wp.c	/^paint_myposition()$/;"	f
+paint_photos	/home/leha/tangogps/tangogis/src/geo_photos.c	/^paint_photos()$/;"	f
+paint_pois	/home/leha/tangogps/tangogis/src/poi.c	/^paint_pois()$/;"	f
+paint_wp	/home/leha/tangogps/tangogis/src/wp.c	/^paint_wp()$/;"	f
+parse_degrees	/home/leha/tangogps/tangogis/src/poi.c	/^parse_degrees(const char *s)$/;"	f
+parse_nmea_gga	/home/leha/tangogps/tangogis/src/gps_functions.c	/^parse_nmea_gga(char *nmea)$/;"	f
+parse_nmea_gsv	/home/leha/tangogps/tangogis/src/gps_functions.c	/^parse_nmea_gsv(char *nmea)$/;"	f
+parse_nmea_rmc	/home/leha/tangogps/tangogis/src/gps_functions.c	/^parse_nmea_rmc(char *nmea)$/;"	f
+photo_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*photo_list = NULL;$/;"	v
+pixbuf_is_null	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	pixbuf_is_null = FALSE;\/\/нету такого тайла в хеше$/;"	v
+pixel2lat	/home/leha/tangogps/tangogis/src/converter.c	/^pixel2lat(	float zoom,$/;"	f
+pixel2lon	/home/leha/tangogps/tangogis/src/converter.c	/^pixel2lon(	float zoom,$/;"	f
+pixmap	/home/leha/tangogps/tangogis/src/globals.c	/^GdkPixmap *pixmap = NULL;$/;"	v
+pixmap_photo	/home/leha/tangogps/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo = NULL;$/;"	v	file:
+pixmap_photo_big	/home/leha/tangogps/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo_big = NULL;$/;"	v	file:
+pixmaps_directories	/home/leha/tangogps/tangogis/src/support.c	/^static GList *pixmaps_directories = NULL;$/;"	v	file:
+poi_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*poi_list = NULL;$/;"	v
+pre_init	/home/leha/tangogps/tangogis/src/init.c	/^pre_init()$/;"	f
+prepare_perl	/home/leha/tangogps/tangogis/src/geo_photos.c	/^prepare_perl()$/;"	f
+print_track	/home/leha/tangogps/tangogis/src/callbacks.c	/^print_track()$/;"	f
+queue_tile_dl_for_bbox	/home/leha/tangogps/tangogis/src/tile_management.c	/^queue_tile_dl_for_bbox(bbox_pixel_t bbox_pixel, int zoom)$/;"	f
+rad2deg	/home/leha/tangogps/tangogis/src/converter.c	/^rad2deg(float rad)$/;"	f
+register_nick	/home/leha/tangogps/tangogis/src/friends.c	/^register_nick()$/;"	f
+register_nick_thread	/home/leha/tangogps/tangogis/src/friends.c	/^register_nick_thread(void *ptr)$/;"	f
+repaint_all	/home/leha/tangogps/tangogis/src/callbacks.c	/^repaint_all()$/;"	f
+repoconfig__create_dropdown	/home/leha/tangogps/tangogis/src/init.c	/^repoconfig__create_dropdown()$/;"	f
+repoconfig__populate_dialog	/home/leha/tangogps/tangogis/src/init.c	/^repoconfig__populate_dialog()$/;"	f
+repoconfig__set_current_list_pointer	/home/leha/tangogps/tangogis/src/init.c	/^repoconfig__set_current_list_pointer()$/;"	f
+reset_gpsd_io	/home/leha/tangogps/tangogis/src/gps_functions.c	/^reset_gpsd_io()$/;"	f
+set_combobox_subcat	/home/leha/tangogps/tangogis/src/poi.c	/^void set_combobox_subcat(GtkWidget *widget, int choice)$/;"	f
+set_current_wp	/home/leha/tangogps/tangogis/src/wp.c	/^set_current_wp(double lat, double lon)$/;"	f
+set_label	/home/leha/tangogps/tangogis/src/gps_functions.c	/^set_label()$/;"	f
+set_label_nogps	/home/leha/tangogps/tangogis/src/gps_functions.c	/^set_label_nogps()$/;"	f
+set_mapcenter	/home/leha/tangogps/tangogis/src/map_management.c	/^set_mapcenter(	float lat,$/;"	f
+set_poi	/home/leha/tangogps/tangogis/src/poi.c	/^set_poi(GtkWidget *dialog)$/;"	f
+show_mnote_tag	/home/leha/tangogps/tangogis/src/exif.c	/^void show_mnote_tag(ExifData *d, unsigned tag)$/;"	f
+show_poi_detail	/home/leha/tangogps/tangogis/src/poi.c	/^show_poi_detail()$/;"	f
+show_tag	/home/leha/tangogps/tangogis/src/exif.c	/^show_tag(ExifData *d, ExifIfd ifd, ExifTag tag)$/;"	f
+show_window6	/home/leha/tangogps/tangogis/src/poi.c	/^show_window6()$/;"	f
+showed_tiles	/home/leha/tangogps/tangogis/src/globals.c	/^GSList *showed_tiles = NULL;$/;"	v
+sid1	/home/leha/tangogps/tangogis/src/gps_functions.c	/^static guint sid1,  sid3; $/;"	v	file:
+sid3	/home/leha/tangogps/tangogis/src/gps_functions.c	/^static guint sid1,  sid3; $/;"	v	file:
+size	/home/leha/tangogps/tangogis/src/friends.c	/^	size_t size;$/;"	m	struct:mem_struct	file:
+sql_cb__photo	/home/leha/tangogps/tangogis/src/geo_photos.c	/^sql_cb__photo(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
+sql_cb__poi_get	/home/leha/tangogps/tangogis/src/poi.c	/^sql_cb__poi_get(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
+sql_execute	/home/leha/tangogps/tangogis/src/util.c	/^sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))$/;"	f
+tangogps_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*tangogps_dir = NULL;$/;"	v
+tile_download_list	/home/leha/tangogps/tangogis/src/tile_management.c	/^static GSList *tile_download_list = NULL;$/;"	v	file:
+tile_url	/home/leha/tangogps/tangogis/src/tile_management.c	/^	char *tile_url;$/;"	m	struct:__anon2	file:
+timer_tile_download	/home/leha/tangogps/tangogis/src/tile_management.c	/^timer_tile_download(gpointer data)$/;"	f
+tm_photo	/home/leha/tangogps/tangogis/src/geo_photos.c	/^struct tm tm_photo;$/;"	v	typeref:struct:tm
+track_log	/home/leha/tangogps/tangogis/src/init.c	/^track_log()$/;"	f
+track_log_close	/home/leha/tangogps/tangogis/src/init.c	/^track_log_close()$/;"	f
+track_log_open	/home/leha/tangogps/tangogis/src/init.c	/^track_log_open()$/;"	f
+trackpoint_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*trackpoint_list = NULL;$/;"	v
+tracks_open_tracks_dialog	/home/leha/tangogps/tangogis/src/tracks.c	/^tracks_open_tracks_dialog()$/;"	f
+tracks_read	/home/leha/tangogps/tangogis/src/tracks.c	/^tracks_read      ( char* file)$/;"	f
+traffic_old_factor	/home/leha/tangogps/tangogis/src/globals.c	/^int traffic_old_factor=0;$/;"	v
+trf_is_failed	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trf_is_failed = FALSE;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
+trf_next	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean trf_next=FALSE;\/\/флаг запроса на загрузку свежих пробок$/;"	v
+trf_old	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean trf_old=FALSE;\/\/флаг запроса изменения показателя старости$/;"	v
+trim_spaces	/home/leha/tangogps/tangogis/src/exif.c	/^static void trim_spaces(char *buf)$/;"	f	file:
+trip_counter_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trip_counter_on = TRUE;$/;"	v
+trip_distance	/home/leha/tangogps/tangogis/src/globals.c	/^float		trip_distance = 0;$/;"	v
+trip_logger_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trip_logger_on = FALSE;$/;"	v
+trip_maxspeed	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_maxspeed = 0;$/;"	v
+trip_starttime	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_starttime = 0;$/;"	v
+trip_time	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_time = 0;$/;"	v
+update_gps_time_label	/home/leha/tangogps/tangogis/src/geo_photos.c	/^update_gps_time_label()$/;"	f
+update_poi	/home/leha/tangogps/tangogis/src/poi.c	/^update_poi(GtkWidget *dialog)$/;"	f
+update_position	/home/leha/tangogps/tangogis/src/friends.c	/^update_position()$/;"	f
+update_position0	/home/leha/tangogps/tangogis/src/friends.c	/^update_position0()$/;"	f
+update_position_thread	/home/leha/tangogps/tangogis/src/friends.c	/^update_position_thread(void *ptr)$/;"	f
+update_thread_number	/home/leha/tangogps/tangogis/src/tile_management.c	/^update_thread_number (int change)$/;"	f
+view_tile	/home/leha/tangogps/tangogis/src/map_management.c	/^view_tile(data_of_thread \/*tile_threads* data*\/ *local)$/;"	f
+watchdog	/home/leha/tangogps/tangogis/src/gps_functions.c	/^guint watchdog;$/;"	v
+window1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window1 = NULL;$/;"	v
+window2	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window2 = NULL;$/;"	v
+window3	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window3 = NULL;$/;"	v
+wp_icon	/home/leha/tangogps/tangogis/src/wp.c	/^static GdkPixbuf	*wp_icon = NULL;$/;"	v	file:
+wtfcounter	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int wtfcounter=0; $/;"	v	file:
