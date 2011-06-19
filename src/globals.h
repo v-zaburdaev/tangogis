@@ -2,7 +2,6 @@
 #  include <config.h>
 #endif
 
-
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
 #include <time.h>
