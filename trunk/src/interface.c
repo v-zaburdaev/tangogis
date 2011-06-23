@@ -29,9 +29,6 @@
 GtkWidget*
 create_window1 (void)
 {
-	interface = glade_xml_new("interface.glade", NULL, NULL);
-	glade_xml_signal_autoconnect(interface);
-
   GtkWidget *window1 = glade_xml_get_widget(interface, "window1");
   GtkWidget *notebook1 = glade_xml_get_widget(interface, "notebook1");
   GtkWidget *vbox1 = glade_xml_get_widget(interface, "vbox1");

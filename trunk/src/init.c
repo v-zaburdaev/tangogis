@@ -793,8 +793,8 @@ init()
 	
 	screen_height = gdk_screen_get_height(gdk_screen_get_default());
 	
-	tangogps_dir = g_strconcat(global_home_dir, "/.tangogps", NULL);
-	g_mkdir(tangogps_dir, 0700);
+	tangogis_dir = g_strconcat(global_home_dir, "/.tangogis", NULL);
+	g_mkdir(tangogis_dir, 0700);
 
 	repoconfig__create_dropdown();
 
