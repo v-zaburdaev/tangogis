@@ -10,7 +10,7 @@
 
 #define GCONF "/apps/tangogps"
 #define TILESIZE 256
-#define PNAME "tangogps"
+#define PNAME "tangogis"
 
 #define YANDEX_Rn (6378137.0)
 #define YANDEX_E (0.0818191908426)
@@ -212,7 +212,7 @@ extern gchar		*global_server;
 extern gchar		*global_port;
 
 extern gchar		*global_home_dir;
-extern gchar		*tangogps_dir;
+extern gchar		*tangogis_dir;
 
 extern int		mouse_x;
 extern int		mouse_y;

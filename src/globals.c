@@ -111,7 +111,7 @@ gchar		*global_server	= NULL;
 gchar		*global_port	= NULL;
 
 gchar		*global_home_dir = NULL;
-gchar		*tangogps_dir = NULL;
+gchar		*tangogis_dir = NULL;
 
 int		mouse_x = 0;
 int		mouse_y = 0;

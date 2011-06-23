@@ -196,7 +196,7 @@ get_photos()
 	char *sql, *db;
 	bbox_t bbox = get_bbox_deg();
 	
-	db = g_strconcat(tangogps_dir,"/", PHOTO_DB, NULL);
+	db = g_strconcat(tangogis_dir,"/", PHOTO_DB, NULL);
 	
 	
 	
