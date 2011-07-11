@@ -423,7 +423,7 @@ size	/home/leha/tangogps/tangogis/src/friends.c	/^	size_t size;$/;"	m	struct:mem
 sql_cb__photo	/home/leha/tangogps/tangogis/src/geo_photos.c	/^sql_cb__photo(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
 sql_cb__poi_get	/home/leha/tangogps/tangogis/src/poi.c	/^sql_cb__poi_get(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
 sql_execute	/home/leha/tangogps/tangogis/src/util.c	/^sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))$/;"	f
-tangogps_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*tangogps_dir = NULL;$/;"	v
+tangogis_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*tangogis_dir = NULL;$/;"	v
 tile_download_list	/home/leha/tangogps/tangogis/src/tile_management.c	/^static GSList *tile_download_list = NULL;$/;"	v	file:
 tile_url	/home/leha/tangogps/tangogis/src/tile_management.c	/^	char *tile_url;$/;"	m	struct:__anon2	file:
 timer_tile_download	/home/leha/tangogps/tangogis/src/tile_management.c	/^timer_tile_download(gpointer data)$/;"	f
