@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 #PROJECT (prog C)
 PROJECT (tangogis C)
 # The version number.
-set (tangogis_VERSION_MAJOR 1.0)
-set (tangogis_VERSION_MINOR 0)
+set (tangogis_VERSION_ 1.0.0)
 
 set (PROJECT_SOURCE_LIST src/main.c 
 						src/callbacks.c 
@@ -91,3 +90,33 @@ ADD_EXECUTABLE(tangogis ${PROJECT_SOURCE_LIST})
 	
 	# Hide advanced variables from CMake GUIs
 	MARK_AS_ADVANCED( LIBGLADE_LIBRARIES LIBGLADE_INCLUDE_DIRS )
+
+message(STATUS "Package name: " ${PROJECT_NAME})
+message(STATUS "Version:      " ${${PROJECT_NAME}_VERSION_})
+
+add_definitions(-DHAVE_CONFIG_H)
+include(CheckIncludeFile)
+check_include_file("config.h" CONF_H)
+set(PACKAGE_LOCALE_DIR 1)
+set (SHARE /usr/local/share/)
+set (ENABLE_NLS 1)
+#set(HAVE_BIND_TEXTDOMAIN_CODESET 1)
+#set(HAVE_DCGETTEXT 1)
+#set(HAVE_DLFCN_H 1)
+#set(HAVE_GETTEXT 1)
+#set(HAVE_INTTYPES_H 1)
+#set(HAVE_LC_MESSAGES 1)
+#set(HAVE_LOCALE_H 1)
+#set(HAVE_MEMORY_H 1)
+#set(HAVE_STDINT_H 1)
+#set(HAVE_STDLIB_H 1)
+#set(HAVE_STRINGS_H 1)
+#set(HAVE_STRING_H 1)
+#set(HAVE_SYS_STAT_H 1)
+#set(HAVE_SYS_TYPES_H 1)
+#set(HAVE_UNISTD_H 1)
+#set(STDC_HEADERS 1)
+configure_file(config.h.in config.h) 
+#include_directories(${PROJECT_BINARY_DIR})
+set (PROJECT_SOURCE_LIST ${PROJECT_SOURCE_LIST} config.h)
+message(STATUS ${PROJECT_SOURCE_LIST})
