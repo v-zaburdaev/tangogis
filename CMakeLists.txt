@@ -24,35 +24,16 @@ set (PROJECT_SOURCE_LIST src/main.c
 						src/wp.c)
 
 FIND_PACKAGE(GTK2 REQUIRED gtk)
-	include_directories(${GTK2_INCLUDE_DIRS})
+include_directories(${GTK2_INCLUDE_DIRS})
 include_directories("/usr/include/gconf/2/")
-add_definitions(-DPACKAGE_DATA_DIR )
+
+
 
 FIND_PACKAGE(CURL REQUIRED)
 	include_directories(${CURL_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(tangogis ${PROJECT_SOURCE_LIST})
-#	target_link_libraries(tangogis ${GTK2_LIBRARIES} ${CURL_LIBRARIES})
 
-#configure_file(config.h.in config.h)
-
-# - Try to find LIBGLADE
-	# Find LIBGLADE headers, libraries and the answer to all questions.
-	#
-	#  LIBGLADE_FOUND               True if LIBGLADE got found
-	#  LIBGLADE_INCLUDE_DIR         Location of LIBGLADE headers
-	#  LIBGLADE_LIBRARIES           List of libaries to use LIBGLADE
-	#  LIBGLADE_DEFINITIONS         Definitions to compile LIBGLADE
-	#
-	#  Copyright (c) 2007 Daniel Gollub <dgollub@suse.de>
-	#  Copyright (c) 2008 Daniel Friedrich <daniel.friedrich@opensync.org>
-	#  Copyright (c) 2008 Bjoern Ricks <bjoern.ricks@googlemail.com>
-	#
-	#  Redistribution and use is allowed according to the terms of the New
-	#  BSD license.
-	#  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
-	#
-	
+#-----libglade------https://www.opensync.org/browser/branches/3rd-party-cmake-modules/modules/FindLibGlade.cmake?rev=3475
 	INCLUDE( FindPkgConfig )
 	
 	IF ( LibGlade_FIND_REQUIRED )
@@ -91,6 +72,17 @@ ADD_EXECUTABLE(tangogis ${PROJECT_SOURCE_LIST})
 	
 	# Hide advanced variables from CMake GUIs
 	MARK_AS_ADVANCED( LIBGLADE_LIBRARIES LIBGLADE_INCLUDE_DIRS )
+#-----libglade------https://www.opensync.org/browser/branches/3rd-party-cmake-modules/modules/FindLibGlade.cmake?rev=3475
+
+ADD_EXECUTABLE(tangogis ${PROJECT_SOURCE_LIST})
+#target_link_libraries(tangogis gtk glade curl sqlite) 
+target_link_libraries(tangogis 
+								${GTK2_LIBRARIES} 
+								${LIBGLADE_LIBRARIES}
+								${CURL_LIBRARIES}
+
+								)
+
 
 message(STATUS "Package name: " ${PROJECT_NAME})
 message(STATUS "Version:      " ${${PROJECT_NAME}_VERSION_})
