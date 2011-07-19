@@ -50,19 +50,21 @@ main (int argc, char *argv[])
 
   pre_init();
 
-//	interface = glade_xml_new("/usr/share/tangogis", NULL, NULL);
-//	if (!interface)
+	interface = glade_xml_new(INTERFACE_INSTALL_PATH, NULL, NULL);
+	printf ("INTERFACE_NONINSTALL_PATH - %s\n",INTERFACE_NONINSTALL_PATH);
+	if (!interface)
 	{
-		gchar* interface_file_name = g_strdup_printf("%s%s",g_path_get_dirname(argv[0]),"/interface.glade");
-		interface = glade_xml_new(interface_file_name, NULL, NULL);
-		g_free(interface_file_name);
+		//gchar* interface_file_name = g_strdup_printf("%s%s",g_path_get_dirname(argv[0]),"/interface.glade");
+		interface = glade_xml_new(INTERFACE_NONINSTALL_PATH, NULL, NULL);
+	printf ("INTERFACE_INSTALL_PATH - %s\n",INTERFACE_INSTALL_PATH);
+		//g_free(interface_file_name);
 	}
 	if (interface)
 		glade_xml_signal_autoconnect(interface);
 	else
 	{
 		printf ("\n\n\nfile \"interface.glade\" not found\n\n\n");
-		gtk_main_quit();
+		return -10;
 	}
 
   window1 = create_window1 ();
