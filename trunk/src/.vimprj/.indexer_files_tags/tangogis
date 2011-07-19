@@ -14,6 +14,7 @@ ERR_REPO	/home/leha/tangogps/tangogis/src/map_management.c	25;"	d	file:
 ERR_ZOOM	/home/leha/tangogps/tangogis/src/map_management.c	23;"	d	file:
 GLADE_HOOKUP_OBJECT	/home/leha/tangogps/tangogis/src/interface.c	22;"	d	file:
 GLADE_HOOKUP_OBJECT_NO_REF	/home/leha/tangogps/tangogis/src/interface.c	26;"	d	file:
+G_THREADS_ENABLED	/home/leha/tangogis/src/main.c	19;"	d	file:
 G_THREADS_ENABLED	/home/leha/tangogps/tangogis/src/main.c	19;"	d	file:
 LOAD_OK	/home/leha/tangogps/tangogis/src/map_management.c	27;"	d	file:
 N_COLUMNS	/home/leha/tangogps/tangogis/src/poi.c	/^	N_COLUMNS$/;"	e	enum:__anon1	file:
@@ -192,6 +193,7 @@ lon2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lon2pixel(	float zoom,$
 londeg2lonmin	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonmin(	float lon)$/;"	f
 londeg2lonsec	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonsec(	float lon)$/;"	f
 lookup_widget	/home/leha/tangogps/tangogis/src/support.c	/^lookup_widget                          (GtkWidget       *widget,$/;"	f
+main	/home/leha/tangogis/src/main.c	/^main (int argc, char *argv[])$/;"	f
 main	/home/leha/tangogps/tangogis/src/main.c	/^main (int argc, char *argv[])$/;"	f
 maina	/home/leha/tangogps/tangogis/src/exif.c	/^int maina(int argc, char **argv)$/;"	f
 make_file_label	/home/leha/tangogps/tangogis/src/tracks.c	/^make_file_label(const char *file, char *full_file)$/;"	f

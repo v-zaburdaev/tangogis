@@ -84,21 +84,25 @@
 //
 ///* Define to the full name and version of this package. */
 //#undef PACKAGE_STRING
-#define PACKAGE_STRING "${${PROJECT_NAME}_VERSION_}"
+#cmakedefine PACKAGE_STRING "${${PROJECT_NAME}_VERSION_}"
 //
 ///* Define to the full name of this package. */
-#define PACKAGE_NAME PACKAGE-PACKAGE_STRING
+//#define PACKAGE_NAME PACKAGE-PACKAGE_STRING
 //
 ///* Define to the one symbol short name of this package. */
 //#undef PACKAGE_TARNAME
 //
 ///* Define to the version of this package. */
 //#undef PACKAGE_VERSION
-#define PACKAGE_VERSION PACKAGE_STRING
+//#define PACKAGE_VERSION PACKAGE_STRING
 //
 ///* Define to 1 if you have the ANSI C header files. */
 //#undef STDC_HEADERS
 //
 ///* Version number of package */
 //#undef VERSION
-#define VERSION PACKAGE_STRING
+#cmakedefine VERSION PACKAGE_STRING
+
+#cmakedefine INTERFACE_NONINSTALL_PATH "${PROJECT_SOURCE_DIR}/src/interface.glade"
+#cmakedefine INTERFACE_INSTALL_PATH "${SHARE}${PROJECT_NAME}/interface.glade"
+

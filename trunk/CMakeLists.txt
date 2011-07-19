@@ -80,7 +80,9 @@ target_link_libraries(tangogis
 								${GTK2_LIBRARIES} 
 								${LIBGLADE_LIBRARIES}
 								${CURL_LIBRARIES}
-
+								sqlite3
+								gconf-2
+								exif
 								)
 
 
@@ -94,8 +96,12 @@ set(PACKAGE_LOCALE_DIR 1)
 set(PACKAGE_DATA_DIR 1)
 set(PACKAGE_PIXMAPS_DIR 1)
 set(GETTEXT_PACKAGE 1)
+set(INTERFACE_NONINSTALL_PATH 1)
+set(INTERFACE_INSTALL_PATH 1)
 set (SHARE /usr/local/share/)
 set (ENABLE_NLS 1)
+set (PACKAGE_STRING 1)
+set (VERSION 1)
 #set(HAVE_BIND_TEXTDOMAIN_CODESET 1)
 #set(HAVE_DCGETTEXT 1)
 #set(HAVE_DLFCN_H 1)
