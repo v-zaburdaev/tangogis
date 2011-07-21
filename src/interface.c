@@ -32,28 +32,28 @@ create_window1 (void)
   GtkWidget *window1 = glade_xml_get_widget(interface, "window1");
   GtkWidget *notebook1 = glade_xml_get_widget(interface, "notebook1");
   GtkWidget *vbox1 = glade_xml_get_widget(interface, "vbox1");
-  GtkWidget *toolbar1 = glade_xml_get_widget(interface, "toolbar1");
-  GtkIconSize tmp_toolbar_icon_size;
-  GtkWidget *toolitem1 = glade_xml_get_widget(interface, "toolitem1");
+//  GtkWidget *toolbar1 = glade_xml_get_widget(interface, "toolbar1");
+//  GtkIconSize tmp_toolbar_icon_size;
+//  GtkWidget *toolitem1 = glade_xml_get_widget(interface, "toolitem1");
   GtkWidget *button1 = glade_xml_get_widget(interface, "button1");
-  GtkWidget *toolitem2 = glade_xml_get_widget(interface, "toolitem2");
+//  GtkWidget *toolitem2 = glade_xml_get_widget(interface, "toolitem2");
   GtkWidget *button4 = glade_xml_get_widget(interface, "button4");
-  GtkWidget *toolitem3 = glade_xml_get_widget(interface, "toolitem3");
+//  GtkWidget *toolitem3 = glade_xml_get_widget(interface, "toolitem3");
   GtkWidget *button5 = glade_xml_get_widget(interface, "button5");
-  GtkWidget *toolitem5 = glade_xml_get_widget(interface, "toolitem5");
+//  GtkWidget *toolitem5 = glade_xml_get_widget(interface, "toolitem5");
   GtkWidget *button3 = glade_xml_get_widget(interface, "button3");
-  GtkWidget *toolitem6 = glade_xml_get_widget(interface, "toolitem6");
+//  GtkWidget *toolitem6 = glade_xml_get_widget(interface, "toolitem6");
   GtkWidget *togglebutton1 = glade_xml_get_widget(interface, "togglebutton1");
   GtkWidget *drawingarea1 = glade_xml_get_widget(interface, "drawingarea1");
   GtkWidget *vscale1 = glade_xml_get_widget(interface, "vscale1");
   GtkWidget *label4 = glade_xml_get_widget(interface, "label4");
   GtkWidget *label1 = glade_xml_get_widget(interface, "label1");
-  GtkWidget *scrolledwindow6 = glade_xml_get_widget(interface, "scrolledwindow6");
-  GtkWidget *viewport4 = glade_xml_get_widget(interface, "viewport4");
-  GtkWidget *hbox12 = glade_xml_get_widget(interface, "hbox12");
+//  GtkWidget *scrolledwindow6 = glade_xml_get_widget(interface, "scrolledwindow6");
+//  GtkWidget *viewport4 = glade_xml_get_widget(interface, "viewport4");
+//  GtkWidget *hbox12 = glade_xml_get_widget(interface, "hbox12");
   GtkWidget *vbox4 = glade_xml_get_widget(interface, "vbox4");
   GtkWidget *frame1 = glade_xml_get_widget(interface, "frame1");
-  GtkWidget *vbox16 = glade_xml_get_widget(interface, "vbox16");
+//  GtkWidget *vbox16 = glade_xml_get_widget(interface, "vbox16");
   GtkWidget *alignment1 = glade_xml_get_widget(interface, "alignment1");
   GtkWidget *table3 = glade_xml_get_widget(interface, "table3");
   GtkWidget *label28 = glade_xml_get_widget(interface, "label28");
@@ -84,126 +84,126 @@ create_window1 (void)
   GtkWidget *label37 = glade_xml_get_widget(interface, "label37");
   GtkWidget *label43 = glade_xml_get_widget(interface, "label43");
   GtkWidget *label48 = glade_xml_get_widget(interface, "label48");
-  GtkWidget *label95 = glade_xml_get_widget(interface, "label95");
+//  GtkWidget *label95 = glade_xml_get_widget(interface, "label95");
   GtkWidget *label7 = glade_xml_get_widget(interface, "label7");
-  GtkWidget *hbox13 = glade_xml_get_widget(interface, "hbox13");
+//  GtkWidget *hbox13 = glade_xml_get_widget(interface, "hbox13");
   GtkWidget *frame7 = glade_xml_get_widget(interface, "frame7");
   GtkWidget *alignment7 = glade_xml_get_widget(interface, "alignment7");
-  GtkWidget *vbox17 = glade_xml_get_widget(interface, "vbox17");
-  GtkWidget *label75 = glade_xml_get_widget(interface, "label75");
+//  GtkWidget *vbox17 = glade_xml_get_widget(interface, "vbox17");
+//  GtkWidget *label75 = glade_xml_get_widget(interface, "label75");
   GtkWidget *hbox6 = glade_xml_get_widget(interface, "hbox6");
   GtkWidget *button18 = glade_xml_get_widget(interface, "button18");
   GtkWidget *button19 = glade_xml_get_widget(interface, "button19");
-  GtkWidget *label76 = glade_xml_get_widget(interface, "label76");
+//  GtkWidget *label76 = glade_xml_get_widget(interface, "label76");
   GtkWidget *hbox7 = glade_xml_get_widget(interface, "hbox7");
   GtkWidget *button20 = glade_xml_get_widget(interface, "button20");
-  GtkWidget *label133 = glade_xml_get_widget(interface, "label133");
+//  GtkWidget *label133 = glade_xml_get_widget(interface, "label133");
   GtkWidget *button36 = glade_xml_get_widget(interface, "button36");
-  GtkWidget *label77 = glade_xml_get_widget(interface, "label77");
-  GtkWidget *label74 = glade_xml_get_widget(interface, "label74");
-  GtkWidget *label94 = glade_xml_get_widget(interface, "label94");
-  GtkWidget *label73 = glade_xml_get_widget(interface, "label73");
+//  GtkWidget *label77 = glade_xml_get_widget(interface, "label77");
+//  GtkWidget *label74 = glade_xml_get_widget(interface, "label74");
+//  GtkWidget *label94 = glade_xml_get_widget(interface, "label94");
+//  GtkWidget *label73 = glade_xml_get_widget(interface, "label73");
   GtkWidget *hbox11 = glade_xml_get_widget(interface, "hbox11");
-  GtkWidget *scrolledwindow2 = glade_xml_get_widget(interface, "scrolledwindow2");
-  GtkWidget *viewport2 = glade_xml_get_widget(interface, "viewport2");
+//  GtkWidget *scrolledwindow2 = glade_xml_get_widget(interface, "scrolledwindow2");
+//  GtkWidget *viewport2 = glade_xml_get_widget(interface, "viewport2");
   GtkWidget *vbox5 = glade_xml_get_widget(interface, "vbox5");
-  GtkWidget *button35 = glade_xml_get_widget(interface, "button35");
-  GtkWidget *label132 = glade_xml_get_widget(interface, "label132");
+//  GtkWidget *button35 = glade_xml_get_widget(interface, "button35");
+//  GtkWidget *label132 = glade_xml_get_widget(interface, "label132");
   GtkWidget *frame6 = glade_xml_get_widget(interface, "frame6");
   GtkWidget *alignment6 = glade_xml_get_widget(interface, "alignment6");
-  GtkWidget *vbox14 = glade_xml_get_widget(interface, "vbox14");
-  GtkWidget *hbox17 = glade_xml_get_widget(interface, "hbox17");
-  GtkWidget *label101 = glade_xml_get_widget(interface, "label101");
-  GtkWidget *label99 = glade_xml_get_widget(interface, "label99");
+//  GtkWidget *vbox14 = glade_xml_get_widget(interface, "vbox14");
+//  GtkWidget *hbox17 = glade_xml_get_widget(interface, "hbox17");
+//  GtkWidget *label101 = glade_xml_get_widget(interface, "label101");
+//  GtkWidget *label99 = glade_xml_get_widget(interface, "label99");
   GtkWidget *hbox4 = glade_xml_get_widget(interface, "hbox4");
   GtkWidget *radiobutton1 = glade_xml_get_widget(interface, "radiobutton1");
   GSList *radiobutton1_group = NULL;
   GtkWidget *radiobutton13 = glade_xml_get_widget(interface, "radiobutton13");
-  GtkWidget *entry16 = glade_xml_get_widget(interface, "entry16");
-  GtkWidget *label113 = glade_xml_get_widget(interface, "label113");
-  GtkWidget *vbox8 = glade_xml_get_widget(interface, "vbox8");
-  GtkWidget *hbox14 = glade_xml_get_widget(interface, "hbox14");
-  GtkWidget *button11 = glade_xml_get_widget(interface, "button11");
-  GtkWidget *button23 = glade_xml_get_widget(interface, "button23");
-  GtkWidget *alignment13 = glade_xml_get_widget(interface, "alignment13");
-  GtkWidget *label97 = glade_xml_get_widget(interface, "label97");
-  GtkWidget *label51 = glade_xml_get_widget(interface, "label51");
-  GtkWidget *label61 = glade_xml_get_widget(interface, "label61");
+//  GtkWidget *entry16 = glade_xml_get_widget(interface, "entry16");
+//  GtkWidget *label113 = glade_xml_get_widget(interface, "label113");
+//  GtkWidget *vbox8 = glade_xml_get_widget(interface, "vbox8");
+//  GtkWidget *hbox14 = glade_xml_get_widget(interface, "hbox14");
+//  GtkWidget *button11 = glade_xml_get_widget(interface, "button11");
+//  GtkWidget *button23 = glade_xml_get_widget(interface, "button23");
+//  GtkWidget *alignment13 = glade_xml_get_widget(interface, "alignment13");
+//  GtkWidget *label97 = glade_xml_get_widget(interface, "label97");
+//  GtkWidget *label51 = glade_xml_get_widget(interface, "label51");
+//  GtkWidget *label61 = glade_xml_get_widget(interface, "label61");
   GtkWidget *frame3 = glade_xml_get_widget(interface, "frame3");
   GtkWidget *alignment3 = glade_xml_get_widget(interface, "alignment3");
   GtkWidget *vbox6 = glade_xml_get_widget(interface, "vbox6");
   GtkWidget *vbox7 = glade_xml_get_widget(interface, "vbox7");
-  GtkWidget *label52 = glade_xml_get_widget(interface, "label52");
-  GtkWidget *checkbutton3 = glade_xml_get_widget(interface, "checkbutton3");
-  GtkWidget *checkbutton4 = glade_xml_get_widget(interface, "checkbutton4");
-  GtkWidget *checkbutton5 = glade_xml_get_widget(interface, "checkbutton5");
-  GtkWidget *label50 = glade_xml_get_widget(interface, "label50");
+//  GtkWidget *label52 = glade_xml_get_widget(interface, "label52");
+//  GtkWidget *checkbutton3 = glade_xml_get_widget(interface, "checkbutton3");
+//  GtkWidget *checkbutton4 = glade_xml_get_widget(interface, "checkbutton4");
+//  GtkWidget *checkbutton5 = glade_xml_get_widget(interface, "checkbutton5");
+//  GtkWidget *label50 = glade_xml_get_widget(interface, "label50");
   GtkWidget *frame4 = glade_xml_get_widget(interface, "frame4");
   GtkWidget *alignment4 = glade_xml_get_widget(interface, "alignment4");
-  GtkWidget *vbox9 = glade_xml_get_widget(interface, "vbox9");
-  GtkWidget *vbox11 = glade_xml_get_widget(interface, "vbox11");
-  GtkWidget *label54 = glade_xml_get_widget(interface, "label54");
-  GtkWidget *checkbutton6 = glade_xml_get_widget(interface, "checkbutton6");
-  GtkWidget *checkbutton7 = glade_xml_get_widget(interface, "checkbutton7");
-  GtkWidget *checkbutton8 = glade_xml_get_widget(interface, "checkbutton8");
-  GtkWidget *label53 = glade_xml_get_widget(interface, "label53");
+//  GtkWidget *vbox9 = glade_xml_get_widget(interface, "vbox9");
+//  GtkWidget *vbox11 = glade_xml_get_widget(interface, "vbox11");
+//  GtkWidget *label54 = glade_xml_get_widget(interface, "label54");
+//  GtkWidget *checkbutton6 = glade_xml_get_widget(interface, "checkbutton6");
+//  GtkWidget *checkbutton7 = glade_xml_get_widget(interface, "checkbutton7");
+//  GtkWidget *checkbutton8 = glade_xml_get_widget(interface, "checkbutton8");
+//  GtkWidget *label53 = glade_xml_get_widget(interface, "label53");
   GtkWidget *frame5 = glade_xml_get_widget(interface, "frame5");
   GtkWidget *alignment5 = glade_xml_get_widget(interface, "alignment5");
-  GtkWidget *vbox13 = glade_xml_get_widget(interface, "vbox13");
-  GtkWidget *label100 = glade_xml_get_widget(interface, "label100");
-  GtkWidget *table5 = glade_xml_get_widget(interface, "table5");
-  GtkWidget *label57 = glade_xml_get_widget(interface, "label57");
-  GtkWidget *label58 = glade_xml_get_widget(interface, "label58");
-  GtkWidget *entry7 = glade_xml_get_widget(interface, "entry7");
-  GtkWidget *entry8 = glade_xml_get_widget(interface, "entry8");
-  GtkWidget *label60 = glade_xml_get_widget(interface, "label60");
-  GtkWidget *hbox18 = glade_xml_get_widget(interface, "hbox18");
-  GtkWidget *label59 = glade_xml_get_widget(interface, "label59");
-  GtkWidget *entry9 = glade_xml_get_widget(interface, "entry9");
-  GtkWidget *hbox15 = glade_xml_get_widget(interface, "hbox15");
-  GtkWidget *button13 = glade_xml_get_widget(interface, "button13");
-  GtkWidget *label98 = glade_xml_get_widget(interface, "label98");
-  GtkWidget *label62 = glade_xml_get_widget(interface, "label62");
-  GtkWidget *label56 = glade_xml_get_widget(interface, "label56");
-  GtkWidget *label93 = glade_xml_get_widget(interface, "label93");
-  GtkWidget *label63 = glade_xml_get_widget(interface, "label63");
-  GtkWidget *hbox30 = glade_xml_get_widget(interface, "hbox30");
-  GtkWidget *scrolledwindow1 = glade_xml_get_widget(interface, "scrolledwindow1");
-  GtkWidget *viewport1 = glade_xml_get_widget(interface, "viewport1");
+//  GtkWidget *vbox13 = glade_xml_get_widget(interface, "vbox13");
+//  GtkWidget *label100 = glade_xml_get_widget(interface, "label100");
+//  GtkWidget *table5 = glade_xml_get_widget(interface, "table5");
+//  GtkWidget *label57 = glade_xml_get_widget(interface, "label57");
+//  GtkWidget *label58 = glade_xml_get_widget(interface, "label58");
+//  GtkWidget *entry7 = glade_xml_get_widget(interface, "entry7");
+//  GtkWidget *entry8 = glade_xml_get_widget(interface, "entry8");
+//  GtkWidget *label60 = glade_xml_get_widget(interface, "label60");
+//  GtkWidget *hbox18 = glade_xml_get_widget(interface, "hbox18");
+//  GtkWidget *label59 = glade_xml_get_widget(interface, "label59");
+//  GtkWidget *entry9 = glade_xml_get_widget(interface, "entry9");
+//  GtkWidget *hbox15 = glade_xml_get_widget(interface, "hbox15");
+//  GtkWidget *button13 = glade_xml_get_widget(interface, "button13");
+//  GtkWidget *label98 = glade_xml_get_widget(interface, "label98");
+//  GtkWidget *label62 = glade_xml_get_widget(interface, "label62");
+//  GtkWidget *label56 = glade_xml_get_widget(interface, "label56");
+//  GtkWidget *label93 = glade_xml_get_widget(interface, "label93");
+//  GtkWidget *label63 = glade_xml_get_widget(interface, "label63");
+//  GtkWidget *hbox30 = glade_xml_get_widget(interface, "hbox30");
+//  GtkWidget *scrolledwindow1 = glade_xml_get_widget(interface, "scrolledwindow1");
+//  GtkWidget *viewport1 = glade_xml_get_widget(interface, "viewport1");
   GtkWidget *vbox2 = glade_xml_get_widget(interface, "vbox2");
   GtkWidget *label117 = glade_xml_get_widget(interface, "label117");
-  GtkWidget *frame9 = glade_xml_get_widget(interface, "frame9");
-  GtkWidget *alignment9 = glade_xml_get_widget(interface, "alignment9");
-  GtkWidget *vbox19 = glade_xml_get_widget(interface, "vbox19");
+//  GtkWidget *frame9 = glade_xml_get_widget(interface, "frame9");
+//  GtkWidget *alignment9 = glade_xml_get_widget(interface, "alignment9");
+//  GtkWidget *vbox19 = glade_xml_get_widget(interface, "vbox19");
   GtkWidget *label81 = glade_xml_get_widget(interface, "label81");
   GtkWidget *checkbutton2 = glade_xml_get_widget(interface, "checkbutton2");
   GtkWidget *label80 = glade_xml_get_widget(interface, "label80");
-  GtkWidget *frame8 = glade_xml_get_widget(interface, "frame8");
-  GtkWidget *alignment8 = glade_xml_get_widget(interface, "alignment8");
-  GtkWidget *vbox18 = glade_xml_get_widget(interface, "vbox18");
+//  GtkWidget *frame8 = glade_xml_get_widget(interface, "frame8");
+//  GtkWidget *alignment8 = glade_xml_get_widget(interface, "alignment8");
+//  GtkWidget *vbox18 = glade_xml_get_widget(interface, "vbox18");
   GtkWidget *label86 = glade_xml_get_widget(interface, "label86");
   GtkWidget *hbox3 = glade_xml_get_widget(interface, "hbox3");
   GtkWidget *combobox1 = glade_xml_get_widget(interface, "combobox1");
-  GtkWidget *hbox37 = glade_xml_get_widget(interface, "hbox37");
+//  GtkWidget *hbox37 = glade_xml_get_widget(interface, "hbox37");
   GtkWidget *button7 = glade_xml_get_widget(interface, "button7");
-  GtkWidget *label140 = glade_xml_get_widget(interface, "label140");
+//  GtkWidget *label140 = glade_xml_get_widget(interface, "label140");
   GtkWidget *button38 = glade_xml_get_widget(interface, "button38");
   GtkWidget *table1 = glade_xml_get_widget(interface, "table1");
-  GtkWidget *label20 = glade_xml_get_widget(interface, "label20");
-  GtkWidget *checkbutton1 = glade_xml_get_widget(interface, "checkbutton1");
+//  GtkWidget *label20 = glade_xml_get_widget(interface, "label20");
+//  GtkWidget *checkbutton1 = glade_xml_get_widget(interface, "checkbutton1");
   GtkWidget *label18 = glade_xml_get_widget(interface, "label18");
-  GtkWidget *label19 = glade_xml_get_widget(interface, "label19");
-  GtkWidget *entry1 = glade_xml_get_widget(interface, "entry1");
-  GtkWidget *entry2 = glade_xml_get_widget(interface, "entry2");
+//  GtkWidget *label19 = glade_xml_get_widget(interface, "label19");
+//  GtkWidget *entry1 = glade_xml_get_widget(interface, "entry1");
+//  GtkWidget *entry2 = glade_xml_get_widget(interface, "entry2");
   GtkWidget *hbox8 = glade_xml_get_widget(interface, "hbox8");
-  GtkWidget *button6 = glade_xml_get_widget(interface, "button6");
-  GtkWidget *label89 = glade_xml_get_widget(interface, "label89");
+//  GtkWidget *button6 = glade_xml_get_widget(interface, "button6");
+//  GtkWidget *label89 = glade_xml_get_widget(interface, "label89");
   GtkWidget *label78 = glade_xml_get_widget(interface, "label78");
-  GtkWidget *frame11 = glade_xml_get_widget(interface, "frame11");
-  GtkWidget *alignment11 = glade_xml_get_widget(interface, "alignment11");
-  GtkWidget *vbox32 = glade_xml_get_widget(interface, "vbox32");
+//  GtkWidget *frame11 = glade_xml_get_widget(interface, "frame11");
+//  GtkWidget *alignment11 = glade_xml_get_widget(interface, "alignment11");
+//  GtkWidget *vbox32 = glade_xml_get_widget(interface, "vbox32");
   GtkWidget *label114 = glade_xml_get_widget(interface, "label114");
-  GtkWidget *hbox22 = glade_xml_get_widget(interface, "hbox22");
+//  GtkWidget *hbox22 = glade_xml_get_widget(interface, "hbox22");
   GtkWidget *radiobutton14 = glade_xml_get_widget(interface, "radiobutton14");
   GSList *radiobutton14_group = NULL;
   GtkWidget *radiobutton15 = glade_xml_get_widget(interface, "radiobutton15");
@@ -213,16 +213,16 @@ create_window1 (void)
   GtkWidget *radiobutton17 = glade_xml_get_widget(interface, "radiobutton17");
   GSList *radiobutton17_group = NULL;
   GtkWidget *radiobutton18 = glade_xml_get_widget(interface, "radiobutton18");
-  GtkWidget *label116 = glade_xml_get_widget(interface, "label116");
-  GtkWidget *hbox24 = glade_xml_get_widget(interface, "hbox24");
+//  GtkWidget *label116 = glade_xml_get_widget(interface, "label116");
+//  GtkWidget *hbox24 = glade_xml_get_widget(interface, "hbox24");
   GtkWidget *radiobutton19 = glade_xml_get_widget(interface, "radiobutton19");
   GSList *radiobutton19_group = NULL;
   GtkWidget *radiobutton20 = glade_xml_get_widget(interface, "radiobutton20");
   GtkWidget *radiobutton21 = glade_xml_get_widget(interface, "radiobutton21");
   GtkWidget *label87 = glade_xml_get_widget(interface, "label87");
-  GtkWidget *frame12 = glade_xml_get_widget(interface, "frame12");
-  GtkWidget *alignment12 = glade_xml_get_widget(interface, "alignment12");
-  GtkWidget *vbox22 = glade_xml_get_widget(interface, "vbox22");
+//  GtkWidget *frame12 = glade_xml_get_widget(interface, "frame12");
+//  GtkWidget *alignment12 = glade_xml_get_widget(interface, "alignment12");
+//  GtkWidget *vbox22 = glade_xml_get_widget(interface, "vbox22");
   GtkWidget *label91 = glade_xml_get_widget(interface, "label91");
   GtkWidget *hbox2 = glade_xml_get_widget(interface, "hbox2");
   GtkWidget *label21 = glade_xml_get_widget(interface, "label21");
@@ -232,26 +232,26 @@ create_window1 (void)
   GtkWidget *entry4 = glade_xml_get_widget(interface, "entry4");
   GtkWidget *hbox10 = glade_xml_get_widget(interface, "hbox10");
   GtkWidget *button9 = glade_xml_get_widget(interface, "button9");
-  GtkWidget *label92 = glade_xml_get_widget(interface, "label92");
-  GtkWidget *label90 = glade_xml_get_widget(interface, "label90");
-  GtkWidget *frame10 = glade_xml_get_widget(interface, "frame10");
-  GtkWidget *alignment10 = glade_xml_get_widget(interface, "alignment10");
-  GtkWidget *vbox20 = glade_xml_get_widget(interface, "vbox20");
-  GtkWidget *label83 = glade_xml_get_widget(interface, "label83");
-  GtkWidget *hbox31 = glade_xml_get_widget(interface, "hbox31");
-  GtkWidget *entry6 = glade_xml_get_widget(interface, "entry6");
-  GtkWidget *hbox16 = glade_xml_get_widget(interface, "hbox16");
-  GtkWidget *button10 = glade_xml_get_widget(interface, "button10");
-  GtkWidget *label96 = glade_xml_get_widget(interface, "label96");
-  GtkWidget *label82 = glade_xml_get_widget(interface, "label82");
-  GtkWidget *vbox31 = glade_xml_get_widget(interface, "vbox31");
-  GtkWidget *label84 = glade_xml_get_widget(interface, "label84");
-  GtkWidget *entry10 = glade_xml_get_widget(interface, "entry10");
+//  GtkWidget *label92 = glade_xml_get_widget(interface, "label92");
+//  GtkWidget *label90 = glade_xml_get_widget(interface, "label90");
+//  GtkWidget *frame10 = glade_xml_get_widget(interface, "frame10");
+//  GtkWidget *alignment10 = glade_xml_get_widget(interface, "alignment10");
+//  GtkWidget *vbox20 = glade_xml_get_widget(interface, "vbox20");
+//  GtkWidget *label83 = glade_xml_get_widget(interface, "label83");
+//  GtkWidget *hbox31 = glade_xml_get_widget(interface, "hbox31");
+//  GtkWidget *entry6 = glade_xml_get_widget(interface, "entry6");
+//  GtkWidget *hbox16 = glade_xml_get_widget(interface, "hbox16");
+//  GtkWidget *button10 = glade_xml_get_widget(interface, "button10");
+//  GtkWidget *label96 = glade_xml_get_widget(interface, "label96");
+//  GtkWidget *label82 = glade_xml_get_widget(interface, "label82");
+//  GtkWidget *vbox31 = glade_xml_get_widget(interface, "vbox31");
+//  GtkWidget *label84 = glade_xml_get_widget(interface, "label84");
+//  GtkWidget *entry10 = glade_xml_get_widget(interface, "entry10");
   GtkWidget *button16 = glade_xml_get_widget(interface, "button16");
-  GtkWidget *entry11 = glade_xml_get_widget(interface, "entry11");
+//  GtkWidget *entry11 = glade_xml_get_widget(interface, "entry11");
   GtkWidget *button17 = glade_xml_get_widget(interface, "button17");
-  GtkWidget *label88 = glade_xml_get_widget(interface, "label88");
-  GtkWidget *label44 = glade_xml_get_widget(interface, "label44");
+//  GtkWidget *label88 = glade_xml_get_widget(interface, "label88");
+//  GtkWidget *label44 = glade_xml_get_widget(interface, "label44");
   GtkWidget *checkbutton_trf_auto = glade_xml_get_widget(interface, "checkbutton_trf_auto");
   GtkWidget *checkbutton_trf_show = glade_xml_get_widget(interface, "checkbutton_trf_show");
   GtkWidget *combobox_trf_repo = glade_xml_get_widget(interface, "combobox_trf_repo");
@@ -339,9 +339,9 @@ create_window1 (void)
   g_signal_connect ((gpointer) button3, "clicked",
                     G_CALLBACK (on_button3_clicked),
                     NULL);
-  g_signal_connect ((gpointer) togglebutton1, "toggled",
-                    G_CALLBACK (on_togglebutton1_toggled),
-                    NULL);
+//  g_signal_connect ((gpointer) togglebutton1, "toggled",
+//                    G_CALLBACK (on_togglebutton1_toggled),
+//                    NULL);
   g_signal_connect ((gpointer) drawingarea1, "button_press_event",
                     G_CALLBACK (on_drawingarea1_button_press_event),
                     NULL);
@@ -393,54 +393,54 @@ create_window1 (void)
   g_signal_connect ((gpointer) button36, "clicked",
                     G_CALLBACK (on_button36_clicked),
                     NULL);
-  g_signal_connect ((gpointer) button35, "clicked",
-                    G_CALLBACK (on_button35_clicked),
-                    NULL);
+//  g_signal_connect ((gpointer) button35, "clicked",
+//                    G_CALLBACK (on_button35_clicked),
+//                    NULL);
   g_signal_connect ((gpointer) radiobutton1, "toggled",
                     G_CALLBACK (on_radiobutton1_toggled),
                     NULL);
   g_signal_connect ((gpointer) radiobutton13, "toggled",
                     G_CALLBACK (on_radiobutton13_toggled),
                     NULL);
-  g_signal_connect ((gpointer) entry16, "changed",
-                    G_CALLBACK (on_entry16_changed),
-                    NULL);
-  g_signal_connect ((gpointer) button11, "clicked",
-                    G_CALLBACK (on_button11_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) button11, "expose_event",
-                    G_CALLBACK (on_button11_expose_event),
-                    NULL);
-  g_signal_connect ((gpointer) button23, "clicked",
-                    G_CALLBACK (on_button23_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) checkbutton3, "toggled",
-                    G_CALLBACK (on_checkbutton3_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) checkbutton4, "toggled",
-                    G_CALLBACK (on_checkbutton4_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) checkbutton5, "toggled",
-                    G_CALLBACK (on_checkbutton5_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) checkbutton6, "toggled",
-                    G_CALLBACK (on_checkbutton6_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) checkbutton7, "toggled",
-                    G_CALLBACK (on_checkbutton7_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) checkbutton8, "toggled",
-                    G_CALLBACK (on_checkbutton8_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) entry7, "changed",
-                    G_CALLBACK (on_entry7_changed),
-                    NULL);
-  g_signal_connect ((gpointer) entry8, "changed",
-                    G_CALLBACK (on_entry8_changed),
-                    NULL);
-  g_signal_connect ((gpointer) button13, "clicked",
-                    G_CALLBACK (on_button13_clicked),
-                    NULL);
+//  g_signal_connect ((gpointer) entry16, "changed",
+//                    G_CALLBACK (on_entry16_changed),
+//                    NULL);
+//  g_signal_connect ((gpointer) button11, "clicked",
+//                    G_CALLBACK (on_button11_clicked),
+//                    NULL);
+//  g_signal_connect ((gpointer) button11, "expose_event",
+//                    G_CALLBACK (on_button11_expose_event),
+//                    NULL);
+//  g_signal_connect ((gpointer) button23, "clicked",
+//                    G_CALLBACK (on_button23_clicked),
+//                    NULL);
+//  g_signal_connect ((gpointer) checkbutton3, "toggled",
+//                    G_CALLBACK (on_checkbutton3_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) checkbutton4, "toggled",
+//                    G_CALLBACK (on_checkbutton4_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) checkbutton5, "toggled",
+//                    G_CALLBACK (on_checkbutton5_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) checkbutton6, "toggled",
+//                    G_CALLBACK (on_checkbutton6_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) checkbutton7, "toggled",
+//                    G_CALLBACK (on_checkbutton7_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) checkbutton8, "toggled",
+//                    G_CALLBACK (on_checkbutton8_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) entry7, "changed",
+//                    G_CALLBACK (on_entry7_changed),
+//                    NULL);
+//  g_signal_connect ((gpointer) entry8, "changed",
+//                    G_CALLBACK (on_entry8_changed),
+//                    NULL);
+//  g_signal_connect ((gpointer) button13, "clicked",
+//                    G_CALLBACK (on_button13_clicked),
+//                    NULL);
   g_signal_connect ((gpointer) checkbutton2, "toggled",
                     G_CALLBACK (on_checkbutton2_toggled),
                     NULL);
@@ -464,18 +464,18 @@ create_window1 (void)
   g_signal_connect ((gpointer) button38, "clicked",
                     G_CALLBACK (on_button38_clicked),
                     NULL);
-  g_signal_connect ((gpointer) checkbutton1, "toggled",
-                    G_CALLBACK (on_checkbutton1_toggled),
-                    NULL);
-  g_signal_connect ((gpointer) entry1, "changed",
-                    G_CALLBACK (on_entry1_changed),
-                    NULL);
-  g_signal_connect ((gpointer) entry2, "changed",
-                    G_CALLBACK (on_entry2_changed),
-                    NULL);
-  g_signal_connect ((gpointer) button6, "clicked",
-                    G_CALLBACK (on_button6_clicked),
-                    NULL);
+//  g_signal_connect ((gpointer) checkbutton1, "toggled",
+//                    G_CALLBACK (on_checkbutton1_toggled),
+//                    NULL);
+//  g_signal_connect ((gpointer) entry1, "changed",
+//                    G_CALLBACK (on_entry1_changed),
+//                    NULL);
+//  g_signal_connect ((gpointer) entry2, "changed",
+//                    G_CALLBACK (on_entry2_changed),
+//                    NULL);
+//  g_signal_connect ((gpointer) button6, "clicked",
+//                    G_CALLBACK (on_button6_clicked),
+//                    NULL);
   g_signal_connect ((gpointer) radiobutton14, "toggled",
                     G_CALLBACK (on_radiobutton14_toggled),
                     NULL);
@@ -509,9 +509,9 @@ create_window1 (void)
   g_signal_connect ((gpointer) button9, "clicked",
                     G_CALLBACK (on_button9_clicked),
                     NULL);
-  g_signal_connect ((gpointer) button10, "clicked",
-                    G_CALLBACK (on_button10_clicked),
-                    NULL);
+//  g_signal_connect ((gpointer) button10, "clicked",
+//                    G_CALLBACK (on_button10_clicked),
+//                    NULL);
   g_signal_connect ((gpointer) button16, "clicked",
                     G_CALLBACK (on_button16_clicked),
                     NULL);
