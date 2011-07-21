@@ -68,10 +68,42 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <widget class="GtkToggleButton" id="togglebutton1">
+                    <property name="label" translatable="yes">G</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="focus_on_click">False</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">4</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <widget class="GtkCheckButton" id="checkbutton_trf_show">
+                    <property name="label" translatable="yes">Trf</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkToggleButton" id="togglebutton2">
+                    <property name="label" translatable="yes">Tra</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">6</property>
+                  </packing>
                 </child>
               </widget>
               <packing>
@@ -316,7 +348,7 @@
         <child>
           <widget class="GtkLabel" id="label1">
             <property name="visible">True</property>
-            <property name="label" translatable="yes">Map</property>
+            <property name="label" translatable="yes">Main</property>
           </widget>
           <packing>
             <property name="tab_fill">False</property>
@@ -769,16 +801,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkCheckButton" id="checkbutton_trf_show">
-                            <property name="label" translatable="yes">Show traffic information</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="draw_indicator">True</property>
-                          </widget>
-                          <packing>
-                            <property name="position">2</property>
-                          </packing>
+                          <placeholder/>
                         </child>
                         <child>
                           <widget class="GtkCheckButton" id="checkbutton_trf_auto">
