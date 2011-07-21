@@ -80,7 +80,7 @@ gboolean	global_trf_show= TRUE;
 //--------------Traffic download & show----------------------
 //--------------layers show----------------------------------
 gboolean	global_grid_show= TRUE;
-gboolean	global_track_show= TRUE;
+gboolean	global_track_show= FALSE;
 gboolean	global_current_track_show= TRUE;
 //--------------layers show----------------------------------
 gboolean	global_mapmode = TRUE;

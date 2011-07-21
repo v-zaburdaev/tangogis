@@ -24,7 +24,7 @@
 #include "support.h"
 #include "callbacks.h"
 #include "wp.h"
-//#include "interface.h"
+#include "interface.h"
 
 FILE *fp = NULL;
 
@@ -707,8 +707,8 @@ void
 pre_init()
 {
 	GError	**err = NULL;
-
-	g_type_init();
+/* Мне кажется, что это не нужно */
+//	g_type_init();
 
 	global_home_dir = getenv("HOME");
 
@@ -743,7 +743,7 @@ pre_init()
 	
 
 
-
+/* Здесь нужно поставить координаты географического центра России - черезвычайно красивого озера ВИВИ на плато Путорана */
 	if(global_zoom <= 2) 
 	{
 		global_x = 890;
@@ -753,27 +753,66 @@ pre_init()
 	
 	if(gconf_client_get_bool(global_gconfclient, GCONF"/started_before", err))
 	{
-		global_auto_download = gconf_client_get_bool(
-					global_gconfclient, 
-					GCONF"/auto_download",
-					err);
-		global_trf_auto = gconf_client_get_bool(
-					global_gconfclient, 
-					GCONF"/trf_auto",
-					err);
-		global_trf_show = gconf_client_get_bool(
-					global_gconfclient, 
-					GCONF"/trf_show",
-					err);
+	// Чтение настроек автозагрузки карт
+		if (gconf_client_get_bool( global_gconfclient, GCONF"/auto_download", err))
+			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton2"),TRUE);
+		else
+			global_auto_download = FALSE;
 
+	// Чтение настроек автозагрузки пробок
+		if (gconf_client_get_bool( global_gconfclient, GCONF"/trf_auto", err))
+			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton_trf_auto"),TRUE);
+		else
+			global_trf_auto = FALSE;
+
+	// Чтение настроек показа пробок
+		if (gconf_client_get_bool( global_gconfclient, GCONF"/trf_show", err))
+			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton_trf_show"),TRUE);
+		else
+			global_trf_show = FALSE;
+
+	// Чтение настроек показа сетки
+		if (gconf_client_get_bool( global_gconfclient, GCONF"/grid_show", err))
+		{
+			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton1"),TRUE);
+			gtk_widget_show(glade_xml_get_widget(interface,"label7"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label8"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label9"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label10"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label11"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label12"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label13"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label14"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label15"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label16"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label17"));
+			gtk_widget_show(glade_xml_get_widget(interface,"label18"));
+//			if (global_grid_show) 
+//				for (int i=0;i<7;i+=2)
+//				{
+//					gtk_widget_show(label_grid_v[i]); 
+//					gtk_widget_show(label_grid_h[0][i]); 
+//					gtk_widget_show(label_grid_h[1][i]); 
+//				}
+//			else
+//				for (int i=0;i<7;i+=2)
+//				{
+//					gtk_widget_hide(label_grid_v[i]); 
+//					gtk_widget_hide(label_grid_h[0][i]); 
+//					gtk_widget_hide(label_grid_h[1][i]); 
+//				}
+		}
+		else
+			global_grid_show = FALSE;
 	}
 	else
 	{
 		gconf_client_set_bool(global_gconfclient, GCONF"/started_before", TRUE, err);
-		gconf_client_set_bool(global_gconfclient, GCONF"/auto_download", TRUE, err);
-		global_auto_download = TRUE;
-		global_trf_auto = TRUE;
-		global_trf_show = TRUE;
+//		gconf_client_set_bool(global_gconfclient, GCONF"/auto_download", TRUE, err);
+/*		Неуверен, но кажется это совсем ненужно*/
+//		global_auto_download = TRUE;
+//		global_trf_auto = TRUE;
+//		global_trf_show = TRUE;
 	}
 }
 
@@ -855,14 +894,14 @@ init()
 	global_myposition.lat = 0;
 	global_myposition.lon = 0;
 
-	widget = glade_xml_get_widget(interface, "checkbutton2");
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_auto_download);
+//	widget = glade_xml_get_widget(interface, "checkbutton2");
+//	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_auto_download);
 
 //-----------------------Traffic download-------------------
-	widget = glade_xml_get_widget(interface, "checkbutton_trf_auto");
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_auto);
-	widget = glade_xml_get_widget(interface, "checkbutton_trf_show");
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_show);
+//	widget = glade_xml_get_widget(interface, "checkbutton_trf_auto");
+//	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_auto);
+//	widget = glade_xml_get_widget(interface, "checkbutton_trf_show");
+//	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_show);
 //-----------------------Traffic download-------------------
 
 	

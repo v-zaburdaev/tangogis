@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 #PROJECT (prog C)
 PROJECT (tangogis C)
-add_definitions(-std=gnu99)
+add_definitions(-std=gnu99 -g -O0)
 # The version number.
 set (tangogis_VERSION_ 1.0.0)
 

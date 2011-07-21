@@ -749,3 +749,6 @@ on_button50_clicked                    (GtkButton       *button,
 void
 on_closebutton2_clicked                (GtkButton       *button,
                                         gpointer         user_data);
+
+void grid_show(GtkWidget* widget);
+
