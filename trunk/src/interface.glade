@@ -74,6 +74,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="focus_on_click">False</property>
+                    <signal name="toggled" handler="on_togglebutton1_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -99,6 +100,8 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="focus_on_click">False</property>
+                    <signal name="toggled" handler="on_togglebutton2_toggled"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -158,7 +161,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label7">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -170,7 +172,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label8">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -182,7 +183,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label9">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -194,7 +194,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label10">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -206,7 +205,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label11">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -220,7 +218,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label12">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -234,7 +231,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label13">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -248,7 +244,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label14">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                   </widget>
                   <packing>
@@ -262,7 +257,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label15">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                     <property name="angle">90</property>
                   </widget>
@@ -275,7 +269,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label16">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                     <property name="angle">90</property>
                   </widget>
@@ -288,7 +281,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label17">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                     <property name="angle">90</property>
                   </widget>
@@ -301,7 +293,6 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="label18">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">label</property>
                     <property name="angle">90</property>
                   </widget>

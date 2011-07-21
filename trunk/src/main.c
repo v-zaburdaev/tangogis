@@ -48,8 +48,6 @@ main (int argc, char *argv[])
   global_port	= g_strdup("2947");
 
 
-  pre_init();
-
 	interface = glade_xml_new(INTERFACE_INSTALL_PATH, NULL, NULL);
 	printf ("INTERFACE_NONINSTALL_PATH - %s\n",INTERFACE_NONINSTALL_PATH);
 	if (!interface)
@@ -60,14 +58,17 @@ main (int argc, char *argv[])
 		//g_free(interface_file_name);
 	}
 	if (interface)
+	{
+		pre_init();
+		window1 = create_window1 ();
 		glade_xml_signal_autoconnect(interface);
+	}
 	else
 	{
 		printf ("\n\n\nfile \"interface.glade\" not found\n\n\n");
 		return -10;
 	}
 
-  window1 = create_window1 ();
 
 //-----------geometry add-----------------------
 	if (argc>1)
@@ -112,7 +113,7 @@ main (int argc, char *argv[])
 				gtk_window_move(GTK_WINDOW(window1),x,y);
 			}
 		}
-	repaint_all();
+	//repaint_all();
 	}
   gtk_widget_show (window1);
 

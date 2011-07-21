@@ -54,6 +54,8 @@ tracks_open_tracks_dialog()
 	gtk_file_chooser_set_select_multiple(dialog,TRUE);
 	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
 		{
+			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton2"),TRUE);
+
 			GSList *filenames = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
 			g_slist_free(loaded_track);
 			loaded_track = NULL;

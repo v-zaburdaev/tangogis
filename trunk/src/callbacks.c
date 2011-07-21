@@ -66,13 +66,6 @@ print_track()
 	gdk_gc_set_line_attributes(gc,
 		5, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
 
-	
-			
-		
-		
-		
-	
-
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
 	for(list = trackpoint_list; list != NULL; list = list->next)
@@ -404,67 +397,7 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 
 		if (global_grid_show)
 		{
-		//---------horiz line grid----------
-			char i, temp[2][25],temp_pow[4]="";
-			float lat[5],lon[2];
-			for (i=0;i<5;i++)
-				lat[i]=pixel2lat(global_zoom,global_y+widget->allocation.height/4*i);
-				//lat[0]=TOP,lat[1]=1/4, ...1/2, 3/4, BOTTOM
-			lon[0]=pixel2lon(global_zoom,global_x);//LEFT
-			lon[1]=pixel2lon(global_zoom,global_x+widget->allocation.width);//RIGHT
-			float grid_dimension_h[2];
-			grid_dimension_h[0]=get_distance(lat[0],lon[0],lat[0],lon[1])/4;
-			grid_dimension_h[1]=get_distance(lat[4],lon[0],lat[4],lon[1])/4;
-			if (grid_dimension_h[0]>1)
-			{
-				strcat(temp_pow," km");
-			}
-			else 
-			{
-				grid_dimension_h[0]=grid_dimension_h[0]*1000;
-				grid_dimension_h[1]=grid_dimension_h[1]*1000;
-				strcat(temp_pow," m");
-			}
-			for (i=0;i<2;i++)
-			{
-				if (grid_dimension_h[i]<10)
-					sprintf(temp[i],"%1.1f",grid_dimension_h[i]);
-				else    
-					sprintf(temp[i],"%4d",(int)grid_dimension_h[i]);
-				strcat(temp[i],temp_pow);
-			}
-
-			for (i=0;i<4;i++)
-			{
-				if (i!=0)
-					gdk_draw_line (widget->window,
-							  widget->style->black_gc,
-							  widget->allocation.width/4*i,0,
-							  widget->allocation.width/4*i,widget->allocation.height
-							  );
-				gtk_label_set_text(label_grid_h[0][i*2],temp[0]);    
-				gtk_label_set_text(label_grid_h[1][i*2],temp[1]);    
-			}
-
-		//--------vert line grid-----------
-			for (i=0;i<4;i++)
-			{
-				if (i!=0)
-					gdk_draw_line (widget->window,
-								  widget->style->black_gc,
-								  0,widget->allocation.height/4*i,
-								  widget->allocation.width,widget->allocation.height/4*i
-								  );
-				grid_dimension_h[0]=get_distance(lat[i],lon[0],lat[i+1],lon[0]);
-				if (strstr(temp_pow," m")!=NULL) grid_dimension_h[0]=grid_dimension_h[0]*1000;
-				if (grid_dimension_h[0]<10)
-					sprintf(temp,"%1.1f",grid_dimension_h[0]);
-				else    
-					sprintf(temp,"%4d",(int)grid_dimension_h[0]);
-				strcat(temp,temp_pow);
-				gtk_label_set_text(label_grid_v[i*2],temp);    
-			}
-//-------end grid draw-------------
+			grid_show(widget);
 		}
 	}
 	
@@ -537,75 +470,7 @@ on_drawingarea1_expose_event           (GtkWidget       *widget,
 
 	if (global_grid_show)
 	{
-		//---------horiz line grid----------
-			char i, temp[2][25],temp_pow[4]="";
-			float lat[5],lon[2];
-			for (i=0;i<5;i++)
-				lat[i]=pixel2lat(global_zoom,global_y+widget->allocation.height/4*i);
-				//lat[0]=TOP,lat[1]=1/4, ...1/2, 3/4, BOTTOM
-			lon[0]=pixel2lon(global_zoom,global_x);//LEFT
-			lon[1]=pixel2lon(global_zoom,global_x+widget->allocation.width);//RIGHT
-			float grid_dimension_h[2];
-			grid_dimension_h[0]=get_distance(lat[0],lon[0],lat[0],lon[1])/4;
-			grid_dimension_h[1]=get_distance(lat[4],lon[0],lat[4],lon[1])/4;
-			if (grid_dimension_h[0]>1)
-			{
-				strcat(temp_pow," km");
-			}
-			else 
-			{
-				grid_dimension_h[0]=grid_dimension_h[0]*1000;
-				grid_dimension_h[1]=grid_dimension_h[1]*1000;
-				strcat(temp_pow," m");
-			}
-			for (i=0;i<2;i++)
-			{
-				if (grid_dimension_h[i]<10)
-					sprintf(temp[i],"%1.1f",grid_dimension_h[i]);
-				else    
-					sprintf(temp[i],"%4d",(int)grid_dimension_h[i]);
-				strcat(temp[i],temp_pow);
-			}
-
-			for (i=0;i<4;i++)
-			{
-				if (i!=0)
-					gdk_draw_line (widget->window,
-							  widget->style->black_gc,
-							  widget->allocation.width/4*i,0,
-							  widget->allocation.width/4*i,widget->allocation.height
-							  );
-				gtk_label_set_text(label_grid_h[0][i*2],temp[0]);    
-				gtk_label_set_text(label_grid_h[1][i*2],temp[1]);    
-		/*
-		//---------------lattitude--------------------
-			if (i!=0)
-			{
-				gtk_label_set_text(label_grid_h[0][i*2-1],"##");    
-					gtk_label_set_text(label_grid_h[1][i*2-1],"##");    
-			}
-		//---------------lattitude--------------------
-		*/    }
-
-		//--------vert line grid-----------
-			for (i=0;i<4;i++)
-			{
-				if (i!=0)
-					gdk_draw_line (widget->window,
-								  widget->style->black_gc,
-								  0,widget->allocation.height/4*i,
-								  widget->allocation.width,widget->allocation.height/4*i
-								  );
-				grid_dimension_h[0]=get_distance(lat[i],lon[0],lat[i+1],lon[0]);
-				if (strstr(temp_pow," m")!=NULL) grid_dimension_h[0]=grid_dimension_h[0]*1000;
-				if (grid_dimension_h[0]<10)
-					sprintf(temp,"%1.1f",grid_dimension_h[0]);
-				else    
-					sprintf(temp,"%4d",(int)grid_dimension_h[0]);
-				strcat(temp,temp_pow);
-				gtk_label_set_text(label_grid_v[i*2],temp);    
-			}
-		//-------end grid draw-------------
+		grid_show(widget);
 	}
 	return FALSE;
 }
@@ -1379,11 +1244,88 @@ void
 on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	global_mapmode = (gtk_toggle_button_get_active(togglebutton)) ? FALSE : TRUE;
-	if(!global_mapmode)
-		gtk_button_set_label(GTK_BUTTON(togglebutton), "tap");
-	else
-		gtk_button_set_label(GTK_BUTTON(togglebutton), "map");
+	gboolean	toggled;
+	gboolean success = FALSE;
+	GError **error = NULL;	
+	
+	printf("on_togglebutton1_toggled (GRID on/off)\n");
+	toggled = gtk_toggle_button_get_active(togglebutton);
+	global_grid_show = toggled;
+	
+	success = gconf_client_set_bool(
+				global_gconfclient, 
+				GCONF"/grid_show",
+				global_grid_show,
+				error);
+
+	if (global_grid_show) 
+	{
+		gtk_widget_show(glade_xml_get_widget(interface,"label7"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label8"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label9"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label10"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label11"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label12"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label13"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label14"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label15"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label16"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label17"));
+		gtk_widget_show(glade_xml_get_widget(interface,"label18"));
+	}
+	else 
+	{
+		gtk_widget_hide(glade_xml_get_widget(interface,"label7"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label8"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label9"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label10"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label11"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label12"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label13"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label14"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label15"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label16"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label17"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"label18"));
+	}
+
+//	if (global_grid_show) 
+//		for (int i=0;i<7;i+=2)
+//		{
+//			gtk_widget_show(label_grid_v[i]); 
+//			gtk_widget_show(label_grid_h[0][i]); 
+//			gtk_widget_show(label_grid_h[1][i]); 
+//		}
+//	else
+//		for (int i=0;i<7;i+=2)
+//		{
+//			gtk_widget_hide(label_grid_v[i]); 
+//			gtk_widget_hide(label_grid_h[0][i]); 
+//			gtk_widget_hide(label_grid_h[1][i]); 
+//		}
+
+	repaint_all();
+}
+
+void
+on_togglebutton2_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	gboolean	toggled;
+	gboolean success = FALSE;
+	GError **error = NULL;	
+	
+	printf("on_togglebutton2_toggled (TRACK on/off)");
+	toggled = gtk_toggle_button_get_active(togglebutton);
+	global_track_show = toggled;
+	
+/*	Можно записать показ трека в память, но для этого нужно сохранить и сам трек */
+//	success = gconf_client_set_bool(
+//				global_gconfclient, 
+//				GCONF"/track_show",
+//				global_track_show,
+//				error);
+	repaint_all();
 }
 
 void
@@ -3983,4 +3925,69 @@ on_closebutton2_clicked                (GtkButton       *button,
 {
 	GtkWidget *widget = lookup_widget(GTK_WIDGET(button), "dialog_geocode_result");	
 	gtk_widget_hide(widget);
+}
+
+void grid_show(GtkWidget* widget)
+{
+		//---------horiz line grid----------
+			char i, temp[2][25],temp_pow[4]="";
+			float lat[5],lon[2];
+			for (i=0;i<5;i++)
+				lat[i]=pixel2lat(global_zoom,global_y+widget->allocation.height/4*i);
+				//lat[0]=TOP,lat[1]=1/4, ...1/2, 3/4, BOTTOM
+			lon[0]=pixel2lon(global_zoom,global_x);//LEFT
+			lon[1]=pixel2lon(global_zoom,global_x+widget->allocation.width);//RIGHT
+			float grid_dimension_h[2];
+			grid_dimension_h[0]=get_distance(lat[0],lon[0],lat[0],lon[1])/4;
+			grid_dimension_h[1]=get_distance(lat[4],lon[0],lat[4],lon[1])/4;
+			if (grid_dimension_h[0]>1)
+			{
+				strcat(temp_pow," km");
+			}
+			else 
+			{
+				grid_dimension_h[0]=grid_dimension_h[0]*1000;
+				grid_dimension_h[1]=grid_dimension_h[1]*1000;
+				strcat(temp_pow," m");
+			}
+			for (i=0;i<2;i++)
+			{
+				if (grid_dimension_h[i]<10)
+					sprintf(temp[i],"%1.1f",grid_dimension_h[i]);
+				else    
+					sprintf(temp[i],"%4d",(int)grid_dimension_h[i]);
+				strcat(temp[i],temp_pow);
+			}
+
+			for (i=0;i<4;i++)
+			{
+				if (i!=0)
+					gdk_draw_line (widget->window,
+							  widget->style->black_gc,
+							  widget->allocation.width/4*i,0,
+							  widget->allocation.width/4*i,widget->allocation.height
+							  );
+				gtk_label_set_text(label_grid_h[0][i*2],temp[0]);    
+				gtk_label_set_text(label_grid_h[1][i*2],temp[1]);    
+			}
+
+		//--------vert line grid-----------
+			for (i=0;i<4;i++)
+			{
+				if (i!=0)
+					gdk_draw_line (widget->window,
+								  widget->style->black_gc,
+								  0,widget->allocation.height/4*i,
+								  widget->allocation.width,widget->allocation.height/4*i
+								  );
+				grid_dimension_h[0]=get_distance(lat[i],lon[0],lat[i+1],lon[0]);
+				if (strstr(temp_pow," m")!=NULL) grid_dimension_h[0]=grid_dimension_h[0]*1000;
+				if (grid_dimension_h[0]<10)
+					sprintf(temp,"%1.1f",grid_dimension_h[0]);
+				else    
+					sprintf(temp,"%4d",(int)grid_dimension_h[0]);
+				strcat(temp,temp_pow);
+				gtk_label_set_text(label_grid_v[i*2],temp);    
+			}
+//-------end grid draw-------------
 }
