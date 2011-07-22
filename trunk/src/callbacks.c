@@ -2915,9 +2915,9 @@ void
 repaint_all()
 {
 	fill_tiles_pixel(global_x, global_y, global_zoom);
-	print_track();
-	paint_friends();
-	paint_photos();
+//	print_track();
+//	paint_friends();
+//	paint_photos();
 	paint_pois();
 	paint_wp();
 	paint_myposition();

@@ -59,10 +59,18 @@ tracks_open_tracks_dialog()
 			GSList *filenames = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
 			g_slist_free(loaded_track);
 			loaded_track = NULL;
+			track_data* track_data_new = g_new0(track_data,1);
+			track_data_new->lat=0; 
+			track_data_new->lon=0; 
+			track_data_new->max_lat=-90; 
+			track_data_new->max_lon=-180; 
+			track_data_new->min_lat=90; 
+			track_data_new->min_lon=180; 
 			for (int i=0;i<g_slist_length(filenames);i++)
 			{
-				tracks_read(g_slist_nth_data(filenames,i));
+				tracks_read(g_slist_nth_data(filenames,i),track_data_new);
 			}
+			g_free(track_data_new);
 			g_slist_free (filenames);
 		}
 	gtk_widget_destroy (dialog);
@@ -79,14 +87,12 @@ make_file_label(const char *file, char *full_file)
 	return label;
 }
 
-gboolean
-tracks_read      ( char* file)
+track_data* tracks_read (char* file,track_data* data)
 {
 	GtkWidget *drawingarea, *range;
 	char line[121];
 	char **arr;
 	FILE *fd;
-	float lat=0, lon=0, max_lat=-90, max_lon=-180, min_lat=90, min_lon=180, lat_tmp, lon_tmp;
 	gboolean first_point = TRUE;
 	int track_zoom, width, height;
 	
@@ -107,23 +113,23 @@ tracks_read      ( char* file)
 		
 		
 		
-		lat_tmp = atof(arr[0]);
-		lon_tmp = atof(arr[1]);
+		data->lat_tmp = atof(arr[0]);
+		data->lon_tmp = atof(arr[1]);
 		
-		tp->lat = deg2rad(lat_tmp);
-		tp->lon = deg2rad(lon_tmp);
+		tp->lat = deg2rad(data->lat_tmp);
+		tp->lon = deg2rad(data->lon_tmp);
 		
 		if(first_point)
 		{
-			lat = atof(arr[0]);
-			lon = atof(arr[1]);
+			data->lat = atof(arr[0]);
+			data->lon = atof(arr[1]);
 			first_point = FALSE;
 		}
 		
-		max_lat = (lat_tmp>max_lat) ? lat_tmp : max_lat;
-		min_lat = (lat_tmp<min_lat) ? lat_tmp : min_lat;
-		max_lon = (lon_tmp>max_lon) ? lon_tmp : max_lon;
-		min_lon = (lon_tmp<min_lon) ? lon_tmp : min_lon;
+		data->max_lat = (data->lat_tmp>data->max_lat) ? data->lat_tmp : data->max_lat;
+		data->min_lat = (data->lat_tmp<data->min_lat) ? data->lat_tmp : data->min_lat;
+		data->max_lon = (data->lon_tmp>data->max_lon) ? data->lon_tmp : data->max_lon;
+		data->min_lon = (data->lon_tmp<data->min_lon) ? data->lon_tmp : data->min_lon;
 		
 		loaded_track = g_slist_append(loaded_track, tp);
 	}
@@ -132,18 +138,18 @@ tracks_read      ( char* file)
 
 	
 	
-	track_zoom = get_zoom_covering(width, height, max_lat, min_lon, min_lat, max_lon);
+	track_zoom = get_zoom_covering(width, height, data->max_lat, data->min_lon, data->min_lat, data->max_lon);
 	track_zoom = (track_zoom > 15) ? 15 : track_zoom;
 	
-	if(lat!=0 && lon!=0)
-		set_mapcenter((max_lat+min_lat)/2, (max_lon+min_lon)/2, track_zoom);
+	if(data->lat!=0 && data->lon!=0)
+		set_mapcenter((data->max_lat+data->min_lat)/2, (data->max_lon+data->min_lon)/2, track_zoom);
 
-printf("%.0f - %.0f ## %.0f - %.0f\n, zoom=%d\n",max_lat,max_lon,min_lat,min_lon,track_zoom);
+printf("%.0f - %.0f ## %.0f - %.0f\n, zoom=%d\n",data->max_lat,data->max_lon,data->min_lat,data->min_lon,track_zoom);
 		
 			range = glade_xml_get_widget(interface, "vscale1");
 		gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
 	
-	return FALSE;	
+	return data;	
 }
 
 
