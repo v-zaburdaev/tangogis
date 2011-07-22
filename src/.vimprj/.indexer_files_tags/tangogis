@@ -180,7 +180,9 @@ grid_show	/home/leha/tangogps/tangogis/src/callbacks.c	/^void grid_show(GtkWidge
 host_failed	/home/leha/tangogps/tangogis/src/globals.c	/^extern gboolean host_failed = FALSE;\/\/ошибка разрешения имени хоста, скорее всего нет инета$/;"	v
 ht	/home/leha/tangogps/tangogis/src/globals.c	/^GHashTable *ht = NULL;$/;"	v
 init	/home/leha/tangogps/tangogis/src/init.c	/^init()$/;"	f
+lat	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
 lat2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lat2pixel(	float zoom,$/;"	f
+lat_tmp	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
 latdeg2latmin	/home/leha/tangogps/tangogis/src/converter.c	/^latdeg2latmin(	float lat)$/;"	f
 latdeg2latsec	/home/leha/tangogps/tangogis/src/converter.c	/^latdeg2latsec(	float lat)$/;"	f
 list_store	/home/leha/tangogps/tangogis/src/poi.c	/^GtkListStore *list_store;$/;"	v
@@ -190,7 +192,9 @@ load_tracks	/home/leha/tangogps/tangogis/src/map_management.c	/^load_tracks(data
 load_trf	/home/leha/tangogps/tangogis/src/map_management.c	/^load_trf(data_of_thread *local)$/;"	f
 local_x	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_x = 0;$/;"	v	file:
 local_y	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_y = 0;$/;"	v	file:
+lon	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
 lon2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lon2pixel(	float zoom,$/;"	f
+lon_tmp	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
 londeg2lonmin	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonmin(	float lon)$/;"	f
 londeg2lonsec	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonsec(	float lon)$/;"	f
 lookup_widget	/home/leha/tangogps/tangogis/src/support.c	/^lookup_widget                          (GtkWidget       *widget,$/;"	f
@@ -200,10 +204,14 @@ maina	/home/leha/tangogps/tangogis/src/exif.c	/^int maina(int argc, char **argv)
 make_file_label	/home/leha/tangogps/tangogis/src/tracks.c	/^make_file_label(const char *file, char *full_file)$/;"	f
 map_drawable	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *map_drawable = NULL;$/;"	v
 map_redraw	/home/leha/tangogps/tangogis/src/tile_management.c	/^map_redraw(void *p)$/;"	f
+max_lat	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
+max_lon	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
 mem_struct	/home/leha/tangogps/tangogis/src/friends.c	/^struct mem_struct {$/;"	s	file:
 memory	/home/leha/tangogps/tangogis/src/friends.c	/^	char *memory;$/;"	m	struct:mem_struct	file:
 menu1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *menu1 = NULL;$/;"	v
 mercator_offset	/home/leha/tangogps/tangogis/src/map_management.c	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)$/;"	f
+min_lat	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
+min_lon	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon1
 mouse_dx	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dx = 0; $/;"	v
 mouse_dy	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dy = 0;$/;"	v
 mouse_x	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_x = 0;$/;"	v
@@ -432,12 +440,13 @@ tile_download_list	/home/leha/tangogps/tangogis/src/tile_management.c	/^static G
 tile_url	/home/leha/tangogps/tangogis/src/tile_management.c	/^	char *tile_url;$/;"	m	struct:__anon2	file:
 timer_tile_download	/home/leha/tangogps/tangogis/src/tile_management.c	/^timer_tile_download(gpointer data)$/;"	f
 tm_photo	/home/leha/tangogps/tangogis/src/geo_photos.c	/^struct tm tm_photo;$/;"	v	typeref:struct:tm
+track_data	/home/leha/tangogps/tangogis/src/tracks.h	/^} track_data;$/;"	t	typeref:struct:__anon1
 track_log	/home/leha/tangogps/tangogis/src/init.c	/^track_log()$/;"	f
 track_log_close	/home/leha/tangogps/tangogis/src/init.c	/^track_log_close()$/;"	f
 track_log_open	/home/leha/tangogps/tangogis/src/init.c	/^track_log_open()$/;"	f
 trackpoint_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*trackpoint_list = NULL;$/;"	v
 tracks_open_tracks_dialog	/home/leha/tangogps/tangogis/src/tracks.c	/^tracks_open_tracks_dialog()$/;"	f
-tracks_read	/home/leha/tangogps/tangogis/src/tracks.c	/^tracks_read      ( char* file)$/;"	f
+tracks_read	/home/leha/tangogps/tangogis/src/tracks.c	/^track_data* tracks_read (char* file,track_data* data)$/;"	f
 traffic_old_factor	/home/leha/tangogps/tangogis/src/globals.c	/^int traffic_old_factor=0;$/;"	v
 trf_is_failed	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trf_is_failed = FALSE;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
 trf_next	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean trf_next=FALSE;\/\/флаг запроса на загрузку свежих пробок$/;"	v
