@@ -767,7 +767,7 @@ pre_init()
 
 	// Чтение настроек показа пробок
 		if (gconf_client_get_bool( global_gconfclient, GCONF"/trf_show", err))
-			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton_trf_show"),TRUE);
+			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton_trf_show"),TRUE);
 		else
 			global_trf_show = FALSE;
 
@@ -900,7 +900,7 @@ init()
 //-----------------------Traffic download-------------------
 //	widget = glade_xml_get_widget(interface, "checkbutton_trf_auto");
 //	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_auto);
-//	widget = glade_xml_get_widget(interface, "checkbutton_trf_show");
+//	widget = glade_xml_get_widget(interface, "togglebutton_trf_show");
 //	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_show);
 //-----------------------Traffic download-------------------
 
