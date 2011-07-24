@@ -253,7 +253,7 @@ create_window1 (void)
 //  GtkWidget *label88 = glade_xml_get_widget(interface, "label88");
 //  GtkWidget *label44 = glade_xml_get_widget(interface, "label44");
   GtkWidget *checkbutton_trf_auto = glade_xml_get_widget(interface, "checkbutton_trf_auto");
-  GtkWidget *checkbutton_trf_show = glade_xml_get_widget(interface, "checkbutton_trf_show");
+  GtkWidget *togglebutton_trf_show = glade_xml_get_widget(interface, "togglebutton_trf_show");
   GtkWidget *combobox_trf_repo = glade_xml_get_widget(interface, "combobox_trf_repo");
 
 
@@ -445,8 +445,8 @@ create_window1 (void)
                     G_CALLBACK (on_checkbutton2_toggled),
                     NULL);
 //------------------Traffic callbacks-------------		    
-  g_signal_connect ((gpointer) checkbutton_trf_show, "toggled",
-                    G_CALLBACK (on_checkbutton_trf_show_toggled),
+  g_signal_connect ((gpointer) togglebutton_trf_show, "toggled",
+                    G_CALLBACK (on_togglebutton_trf_show_toggled),
                     NULL);
   g_signal_connect ((gpointer) checkbutton_trf_auto, "toggled",
                     G_CALLBACK (on_checkbutton_trf_auto_toggled),

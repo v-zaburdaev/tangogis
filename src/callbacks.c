@@ -1053,14 +1053,14 @@ on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,
 
 //-----------------Traffic auto download & show------------
 void
-on_checkbutton_trf_show_toggled                (GtkToggleButton *togglebutton,
+on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
 	gboolean success = FALSE;
 	GError **error = NULL;	
 	
-	printf("on_checkbutton_trf_show_toggled");
+	printf("on_togglebutton_trf_show_toggled");
 	toggled = gtk_toggle_button_get_active(togglebutton);
 	global_trf_show = toggled;
 	
@@ -3165,7 +3165,7 @@ on_drawingarea1_key_press_event        (GtkWidget       *widget,
 //-------------Traffic show------------------	
 	else if(event->keyval == 's')
 	{
-		widget = glade_xml_get_widget(interface, "checkbutton_trf_show");
+		widget = glade_xml_get_widget(interface, "togglebutton_trf_show");
 		gboolean state;
 		state = gtk_toggle_button_get_active(GTK_CHECK_BUTTON(widget));
 		if (state) 
