@@ -487,7 +487,7 @@ gconf_get_repolist()
 		global_repo_list = g_slist_append(global_repo_list, repo7);
 
 		repo8->name = g_strdup("Yandex Map");
-		repo8->uri  = g_strdup("http://vec01.maps.yandex.ru/tiles?l=map&v=2.7.1&x=%d&y=%d&z=%d");
+		repo8->uri  = g_strdup("http://vec03.maps.yandex.ru/tiles?l=map&v=2.15.0&x=%d&y=%d&z=%d");
 		repo8->dir  = g_strdup_printf("%s/Maps/yandexmap",global_home_dir);
 		repo8->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo8);

@@ -1,2 +1,3 @@
 [tangogis]
 $INDEXER_PROJECT_ROOT/*.c
+$INDEXER_PROJECT_ROOT/*.h
