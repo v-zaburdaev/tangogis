@@ -361,7 +361,7 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 
 				drag_started = 1;				
 			}
-			global_autocenter = FALSE;
+			 gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_autocenter"),FALSE);
 				
 			mouse_dx = x - mouse_x;	
 			mouse_dy = y - mouse_y;
@@ -604,20 +604,21 @@ void
 on_button3_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
-	global_autocenter = TRUE;
-	
-	if(gpsdata) 
-	{
-		if(isnan(gpsdata->fix.latitude) == 0	&&
-		   isnan(gpsdata->fix.longitude)== 0	&&
-		   gpsdata->fix.latitude !=0		&&
-		   gpsdata->fix.longitude!=0) 
-		{
-			set_mapcenter(gpsdata->fix.latitude, gpsdata->fix.longitude, global_zoom);
-		}
-	}
-	else
-		printf("Not autocentering map due to missing gps data\n");
+//	global_autocenter = TRUE;
+//			 gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_autocenter"),TRUE);
+//	
+//	if(gpsdata) 
+//	{
+//		if(isnan(gpsdata->fix.latitude) == 0	&&
+//		   isnan(gpsdata->fix.longitude)== 0	&&
+//		   gpsdata->fix.latitude !=0		&&
+//		   gpsdata->fix.longitude!=0) 
+//		{
+//			set_mapcenter(gpsdata->fix.latitude, gpsdata->fix.longitude, global_zoom);
+//		}
+//	}
+//	else
+//		printf("Not autocentering map due to missing gps data\n");
 }
 
 gboolean
@@ -1308,6 +1309,47 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
 }
 
 void
+on_togglebutton_autocenter_toggled     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	gboolean	toggled;
+	gboolean success = FALSE;
+	GError **error = NULL;	
+	
+	printf("on_togglebutton_autocenter (autocenter)");
+	toggled = gtk_toggle_button_get_active(togglebutton);
+	global_autocenter = toggled;
+	
+	if(gpsdata && global_autocenter) 
+	{
+		if(isnan(gpsdata->fix.latitude) == 0	&&
+		   isnan(gpsdata->fix.longitude)== 0	&&
+		   gpsdata->fix.latitude !=0		&&
+		   gpsdata->fix.longitude!=0) 
+		{
+			set_mapcenter(gpsdata->fix.latitude, gpsdata->fix.longitude, global_zoom);
+		}
+	}
+	else
+		printf("Not autocentering map due to missing gps data\n");
+}
+
+void
+on_togglebutton_reload_toggled     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	gboolean	toggled;
+	gboolean success = FALSE;
+	GError **error = NULL;	
+	
+	printf("on_togglebutton_reload (reload existing MAP tiles!!!!)");
+	toggled = gtk_toggle_button_get_active(togglebutton);
+	global_map_reload = toggled;
+	
+	repaint_all();
+}
+
+void
 on_togglebutton2_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
@@ -1319,7 +1361,7 @@ on_togglebutton2_toggled               (GtkToggleButton *togglebutton,
 	toggled = gtk_toggle_button_get_active(togglebutton);
 	global_track_show = toggled;
 	
-/*	Можно записать показ трека в память, но для этого нужно сохранить и сам трек */
+/*	Можно записать показ трека в память, но для этого нужно сохранить и сам трек :) */
 //	success = gconf_client_set_bool(
 //				global_gconfclient, 
 //				GCONF"/track_show",
@@ -3159,6 +3201,7 @@ on_drawingarea1_key_press_event        (GtkWidget       *widget,
 //-------------Traffic updater------------------	
 	else if(event->keyval == 'u')
 	{
+		printf("\"u\" key pressed \n");
 		repaint_all();
 	}
 //-------------Traffic updater------------------	

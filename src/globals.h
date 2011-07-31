@@ -184,6 +184,7 @@ gboolean	global_current_track_show;
 //------------Threads--------------------------	
 	int number_threads;
 //------------Threads--------------------------	
+extern gboolean		global_map_reload;
 extern gboolean		global_mapmode;
 extern gboolean		global_autocenter;
 extern gboolean		global_reconnect_gpsd;
