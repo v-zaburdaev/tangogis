@@ -83,6 +83,7 @@ gboolean	global_grid_show= TRUE;
 gboolean	global_track_show= FALSE;
 gboolean	global_current_track_show= TRUE;
 //--------------layers show----------------------------------
+gboolean	global_map_reload = FALSE;
 gboolean	global_mapmode = TRUE;
 gboolean	global_autocenter = FALSE;
 gboolean	global_reconnect_gpsd = TRUE;

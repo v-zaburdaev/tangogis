@@ -24,7 +24,7 @@ int load_trf (data_of_thread* local);
 gboolean auto_load_trf_timer();
 
 int
-load_tile(data_of_thread* local);
+load_map(data_of_thread* local);
 
 void
 fill_tiles_pixel(	int pixel_x,

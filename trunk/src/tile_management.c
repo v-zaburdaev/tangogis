@@ -62,12 +62,12 @@ map_redraw(void *p)
 	else if (number_threads == 0)
 */	{
 		printf("REPAINTING.............\n");
-		fill_tiles_pixel(global_x, global_y, global_zoom);
-		print_track();
-		paint_friends();
-		paint_photos();
-		paint_pois();
-		paint_wp();
+//		fill_tiles_pixel(global_x, global_y, global_zoom);
+//		print_track();
+//		paint_friends();
+//		paint_photos();
+//		paint_pois();
+//		paint_wp();
 		paint_myposition();
 		osd_speed();
 		return FALSE;

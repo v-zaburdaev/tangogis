@@ -20,11 +20,12 @@
 #include "poi.h"
 #include "wp.h"
 
-#define ERR_ZOOM -1
-#define ERR_LOAD -2
-#define ERR_REPO -3
-#define ERR_DOWN -4
-#define LOAD_OK  1
+#define ERR_ZOOM   -1
+#define ERR_LOAD   -2
+#define ERR_REPO   -3
+#define ERR_DOWN   -4
+#define ERR_LIMITS -5
+#define LOAD_OK     1
 
 static GtkWidget	*drawingarea11 = NULL;
 
@@ -72,12 +73,11 @@ view_tile(data_of_thread /*tile_threads* data*/ *local)
 	local->offset_x += TILESIZE*local->i;
 	local->offset_y += TILESIZE*local->j;
 
-//	if (load_tile(&local))
-//	{
-//number_threads = update_thread_number(-1);
-//		return;
-//	}
-	load_tile(local);
+	if (load_map(local)==ERR_LIMITS)
+	{
+number_threads = update_thread_number(-1);
+		return;
+	}
 /*
 gdk_threads_enter();
 	showed_tiles=g_slist_append(showed_tiles,filename);
@@ -114,7 +114,7 @@ gdk_threads_leave();
 
 		if (load_trf(local)==LOAD_OK)
 		{
-			load_tile(local);
+			load_map(local);
 			load_trf(local);
 		}
 //----------Trafic visualization---------------
@@ -258,7 +258,7 @@ return 0;
 }
 
 int
-load_tile(data_of_thread *local)
+load_map(data_of_thread *local)
 {
 GdkPixbuf	*pixbuf=NULL;
 GError		*error = NULL;
@@ -267,7 +267,7 @@ GdkGC		*gc_map = NULL;
 //static GtkWidget	*drawingarea11 = NULL;
 	gchar filename[256];
 
-	printf("* load tile()\n");
+	printf("* load MAP()\n");
 	
 /*	if(gc_map)
 		g_object_unref(gc_map);
@@ -283,9 +283,10 @@ GdkGC		*gc_map = NULL;
 			
 		widget = glade_xml_get_widget(interface, "drawingarea1");
 			
-	if(pixbuf == NULL || ((local->x < 0) || (local->y < 0) || (local->x > exp(local->zoom * M_LN2)) || (local->y > exp(local->zoom * M_LN2))))
+	if(pixbuf == NULL)
 	{
 		printf("*** Not downloading tile \n");
+		printf("ERROR: %s\n",error->message);
 gdk_threads_enter();
 		gdk_draw_rectangle (
 			pixmap,
@@ -302,23 +303,64 @@ gdk_threads_leave();
 		
 		printf("load_tile: error loading png\n");
 		error = NULL;
-
-		if (global_auto_download && !host_failed)
-		{
-			download_tile(local->repo,local->zoom,local->x,local->y);
-			if (local->zoom!=global_zoom) return ERR_ZOOM;
-			if (local->repo!=global_curr_repo->data) return ERR_REPO;
-			pixbuf = gdk_pixbuf_new_from_file (       // ?????????
-					filename,
-					&error);
-			if (pixbuf==NULL)
+	}
+	else
+	{
+		if (global_map_reload)
+//		if (gtk_toggle_button_get_active(glade_xml_get_widget(interface,"togglebutton_reload")))
+			if (!host_failed)
+			{
+				download_tile(local->repo,local->zoom,local->x,local->y);
+				if (local->zoom!=global_zoom) return ERR_ZOOM;
+				if (local->repo!=global_curr_repo->data) return ERR_REPO;
+				pixbuf = gdk_pixbuf_new_from_file (       // ?????????
+						filename,
+						&error);
+				if (pixbuf==NULL)
+					return ERR_LOAD;
+			}
+			else
+			{
 				return ERR_LOAD;
-		}
-		else
-		{
+			}
+		gdk_threads_enter();
+			gdk_draw_pixbuf (
+					pixmap,
+					gc_map,
+					pixbuf,
+					0,0,
+					local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
+					TILESIZE,TILESIZE,
+					GDK_RGB_DITHER_NONE, 0, 0);
+
+				g_object_unref (pixbuf);
+			
+			gtk_widget_queue_draw_area (
+				widget, 
+				local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
+				TILESIZE,TILESIZE);
+		gdk_threads_leave();
+		return LOAD_OK;
+	}
+
+	if ((local->x < 0) || (local->y < 0) || (local->x > exp(local->zoom * M_LN2)) || (local->y > exp(local->zoom * M_LN2)))
+		return ERR_LIMITS;
+
+	if (global_auto_download && !host_failed)
+	{
+		download_tile(local->repo,local->zoom,local->x,local->y);
+		if (local->zoom!=global_zoom) return ERR_ZOOM;
+		if (local->repo!=global_curr_repo->data) return ERR_REPO;
+		pixbuf = gdk_pixbuf_new_from_file (       // ?????????
+				filename,
+				&error);
+		if (pixbuf==NULL)
 			return ERR_LOAD;
-		}
-	}	
+	}
+	else
+	{
+		return ERR_LOAD;
+	}
 gdk_threads_enter();
 	gdk_draw_pixbuf (
 			pixmap,
@@ -338,7 +380,7 @@ gdk_threads_enter();
 		local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
 		TILESIZE,TILESIZE);
 gdk_threads_leave();
-return 0;
+return LOAD_OK;
 }
 
 void
