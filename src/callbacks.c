@@ -1309,6 +1309,13 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
 }
 
 void
+on_button_update_clicked                    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+	repaint_all();
+}
+
+void
 on_togglebutton_autocenter_toggled     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
@@ -1361,7 +1368,7 @@ on_togglebutton2_toggled               (GtkToggleButton *togglebutton,
 	toggled = gtk_toggle_button_get_active(togglebutton);
 	global_track_show = toggled;
 	
-/*	Можно записать показ трека в память, но для этого нужно сохранить и сам трек :) */
+/*	Можно записать показ трека в настройки, но для этого нужно сохранить и сам трек :) */
 //	success = gconf_client_set_bool(
 //				global_gconfclient, 
 //				GCONF"/track_show",
@@ -1880,14 +1887,40 @@ void
 on_button20_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *dialog3, *entry;
-	printf("*** %s(): \n",__PRETTY_FUNCTION__);
-
-	dialog3 = create_dialog3();
-	entry = lookup_widget(dialog3, "entry12");
-	gtk_entry_set_text(GTK_ENTRY(entry), global_track_dir);
-	
-	gtk_widget_show(dialog3);
+	GtkWidget *dialog;
+	dialog = gtk_file_chooser_dialog_new ("Save File",
+				      NULL,
+				      GTK_FILE_CHOOSER_ACTION_SAVE,
+				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+				      GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+				      NULL);
+	gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (dialog), TRUE);
+	gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), global_track_dir);
+	gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (dialog), "log.log");
+	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
+	{
+//		printf("size of trackpoint_t = %d\n size of gps_fix_t = %d\n",sizeof(trackpoint_t),sizeof(gps_fix_t));
+		char *filename;
+		filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
+		printf("%s\n",filename);
+		GSList* track_save = trackpoint_list;
+		FILE *fp = fopen(filename,"w");
+		if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+		{
+			printf("Track is empty!!!!");
+			return;
+		}
+		
+		while(track_save)
+		{
+			trackpoint_t *temp = track_save->data;
+			fprintf(fp,"%f,%f\n",rad2deg(temp->lat),rad2deg(temp->lon));
+			track_save = g_slist_next(track_save); 
+		}
+		fclose(fp);
+		g_free (filename);
+	}
+	gtk_widget_destroy (dialog);
 }
 
 void

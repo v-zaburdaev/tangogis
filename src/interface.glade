@@ -18,7 +18,7 @@
                 <property name="visible">True</property>
                 <child>
                   <widget class="GtkButton" id="button1">
-                    <property name="label" translatable="yes">fullscreen</property>
+                    <property name="label" translatable="yes">FScr</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="receives_default">True</property>
@@ -57,7 +57,7 @@
                 </child>
                 <child>
                   <widget class="GtkToggleButton" id="togglebutton_autocenter">
-                    <property name="label" translatable="yes">Autocenter</property>
+                    <property name="label" translatable="yes">Autocen</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -125,7 +125,18 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <widget class="GtkButton" id="button_update">
+                    <property name="label" translatable="yes">U</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button_update_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">8</property>
+                  </packing>
                 </child>
                 <child>
                   <placeholder/>
@@ -591,6 +602,7 @@
                         <child>
                           <widget class="GtkLabel" id="label38">
                             <property name="visible">True</property>
+                            <property name="use_markup">True</property>
                           </widget>
                           <packing>
                             <property name="left_attach">1</property>
@@ -708,7 +720,7 @@
                         </child>
                         <child>
                           <widget class="GtkButton" id="button20">
-                            <property name="label" translatable="yes">Configure...</property>
+                            <property name="label" translatable="yes">Save...</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
@@ -720,7 +732,7 @@
                         </child>
                         <child>
                           <widget class="GtkButton" id="button36">
-                            <property name="label" translatable="yes">Load</property>
+                            <property name="label" translatable="yes">Open...</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>

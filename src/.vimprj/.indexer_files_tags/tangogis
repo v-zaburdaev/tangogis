@@ -33,7 +33,7 @@ POI_DB	/home/leha/tangogps/tangogis/src/poi.c	24;"	d	file:
 POI_DB_CREATE	/home/leha/tangogps/tangogis/src/poi.c	44;"	d	file:
 Q_	/home/leha/tangogps/tangogis/src/support.h	18;"	d
 Q_	/home/leha/tangogps/tangogis/src/support.h	31;"	d
-Repo_data_t	/home/leha/tangogps/tangogis/src/tile_management.c	/^} Repo_data_t;$/;"	t	typeref:struct:__anon1	file:
+Repo_data_t	/home/leha/tangogps/tangogis/src/tile_management.c	/^} Repo_data_t;$/;"	t	typeref:struct:__anon2	file:
 TILESIZE	/home/leha/tangogps/tangogis/src/converter.c	8;"	d	file:
 TILESIZE	/home/leha/tangogps/tangogis/src/globals.h	12;"	d
 WTFCOUNTER	/home/leha/tangogps/tangogis/src/callbacks.c	32;"	d	file:
@@ -50,14 +50,14 @@ _	/home/leha/tangogps/tangogis/src/support.h	17;"	d
 _	/home/leha/tangogps/tangogis/src/support.h	30;"	d
 add_pixmap_directory	/home/leha/tangogps/tangogis/src/support.c	/^add_pixmap_directory                   (const gchar     *directory)$/;"	f
 add_to_database	/home/leha/tangogps/tangogis/src/geo_photos.c	/^gboolean add_to_database = TRUE;$/;"	v
-altitude	/home/leha/tangogps/tangogis/src/globals.h	/^    double altitude;    \/* Altitude in meters (valid if mode == 3) *\/$/;"	m	struct:__anon7
+altitude	/home/leha/tangogps/tangogis/src/globals.h	/^    double altitude;    \/* Altitude in meters (valid if mode == 3) *\/$/;"	m	struct:__anon10
 auto_load_trf_timer	/home/leha/tangogps/tangogis/src/map_management.c	/^gboolean auto_load_trf_timer()$/;"	f
-away_msg	/home/leha/tangogps/tangogis/src/globals.h	/^	char *away_msg;$/;"	m	struct:__anon4
+away_msg	/home/leha/tangogps/tangogis/src/globals.h	/^	char *away_msg;$/;"	m	struct:__anon7
 bbox_pixel_t	/home/leha/tangogps/tangogis/src/tile_management.h	/^} bbox_pixel_t;$/;"	t	typeref:struct:__anon15
 bbox_t	/home/leha/tangogps/tangogis/src/tile_management.h	/^} bbox_t;$/;"	t	typeref:struct:__anon14
-bearing	/home/leha/tangogps/tangogis/src/globals.h	/^    double bearing;	\/* in radian *\/$/;"	m	struct:__anon7
+bearing	/home/leha/tangogps/tangogis/src/globals.h	/^    double bearing;	\/* in radian *\/$/;"	m	struct:__anon10
 bindtextdomain	/home/leha/tangogps/tangogis/src/support.h	29;"	d
-category	/home/leha/tangogps/tangogis/src/globals.h	/^	int category;$/;"	m	struct:__anon6
+category	/home/leha/tangogps/tangogis/src/globals.h	/^	int category;$/;"	m	struct:__anon9
 cb_download_maps	/home/leha/tangogps/tangogis/src/tile_management.c	/^cb_download_maps(GtkWidget *dialog)$/;"	f
 cb_gps_timer	/home/leha/tangogps/tangogis/src/init.c	/^cb_gps_timer() $/;"	f
 cb_gpsd_data	/home/leha/tangogps/tangogis/src/gps_functions.c	/^cb_gpsd_data(GIOChannel *src, GIOCondition condition, gpointer data)$/;"	f	file:
@@ -100,12 +100,12 @@ create_window9	/home/leha/tangogps/tangogis/src/interface.c	/^create_window9 (vo
 curl_threads	/home/leha/tangogps/tangogis/src/globals.h	/^GList *curl_threads;\/\/таблица закачек$/;"	v
 curr_trf	/home/leha/tangogps/tangogis/src/globals.h	/^repo_t		*curr_trf;\/\/указатель на текущий репозиторий$/;"	v
 curr_trf_name	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*curr_trf_name = NULL;$/;"	v
-data_of_thread	/home/leha/tangogps/tangogis/src/map_management.h	/^} data_of_thread;$/;"	t	typeref:struct:__anon2
+data_of_thread	/home/leha/tangogps/tangogis/src/map_management.h	/^} data_of_thread;$/;"	t	typeref:struct:__anon13
 dcgettext	/home/leha/tangogps/tangogis/src/support.h	28;"	d
 deg2rad	/home/leha/tangogps/tangogis/src/converter.c	/^deg2rad(float deg)$/;"	f
 delete_poi	/home/leha/tangogps/tangogis/src/poi.c	/^delete_poi(poi_t *p)$/;"	f
-desc	/home/leha/tangogps/tangogis/src/globals.h	/^	char *desc;$/;"	m	struct:__anon5
-desc	/home/leha/tangogps/tangogis/src/globals.h	/^	char *desc;$/;"	m	struct:__anon6
+desc	/home/leha/tangogps/tangogis/src/globals.h	/^	char *desc;$/;"	m	struct:__anon8
+desc	/home/leha/tangogps/tangogis/src/globals.h	/^	char *desc;$/;"	m	struct:__anon9
 destroy_all_threads	/home/leha/tangogps/tangogis/src/globals.c	/^int destroy_all_threads=0;$/;"	v
 dgettext	/home/leha/tangogps/tangogis/src/support.h	27;"	d
 dialog1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *dialog1 = NULL;$/;"	v
@@ -113,7 +113,7 @@ dialog8	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *dialog8 = NULL;$
 dialog_geocode_result	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GtkWidget *dialog_geocode_result = NULL;$/;"	v
 dialog_image_data	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GtkWidget *dialog_image_data = NULL;$/;"	v
 dialog_photo_correlate	/home/leha/tangogps/tangogis/src/geo_photos.c	/^GtkWidget *dialog_photo_correlate = NULL;$/;"	v
-dir	/home/leha/tangogps/tangogis/src/globals.h	/^	char *dir;$/;"	m	struct:__anon3
+dir	/home/leha/tangogps/tangogis/src/globals.h	/^	char *dir;$/;"	m	struct:__anon6
 dl_thread	/home/leha/tangogps/tangogis/src/tile_management.c	/^dl_thread(void *ptr)$/;"	f
 do_paint_myposition	/home/leha/tangogps/tangogis/src/wp.c	/^do_paint_myposition()$/;"	f
 do_paint_wp	/home/leha/tangogps/tangogis/src/wp.c	/^do_paint_wp()$/;"	f
@@ -121,17 +121,17 @@ download_maps	/home/leha/tangogps/tangogis/src/tile_management.c	/^download_maps
 download_tile	/home/leha/tangogps/tangogis/src/tile_management.c	/^download_tile(	repo_t *repo,$/;"	f
 drag_started	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int drag_started = 0;$/;"	v	file:
 drawingarea11	/home/leha/tangogps/tangogis/src/map_management.c	/^static GtkWidget	*drawingarea11 = NULL;$/;"	v	file:
-extended_open	/home/leha/tangogps/tangogis/src/globals.h	/^	int extended_open;$/;"	m	struct:__anon6
+extended_open	/home/leha/tangogps/tangogis/src/globals.h	/^	int extended_open;$/;"	m	struct:__anon9
 file_type_test	/home/leha/tangogps/tangogis/src/geo_photos.c	/^file_type_test(const char *file, char *type)$/;"	f
-filename	/home/leha/tangogps/tangogis/src/globals.h	/^	char *filename;$/;"	m	struct:__anon5
+filename	/home/leha/tangogps/tangogis/src/globals.h	/^	char *filename;$/;"	m	struct:__anon8
 fill_tiles_latlon	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_latlon(	float lat,$/;"	f
 fill_tiles_latlon_hack	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_latlon_hack(	float lat,$/;"	f
 fill_tiles_pixel	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_pixel(	int pixel_x,$/;"	f
 find_pixmap_file	/home/leha/tangogps/tangogis/src/support.c	/^find_pixmap_file                       (const gchar     *filename)$/;"	f	file:
-fix	/home/leha/tangogps/tangogis/src/globals.h	/^	gps_fix_t fix;$/;"	m	struct:__anon8
+fix	/home/leha/tangogps/tangogis/src/globals.h	/^	gps_fix_t fix;$/;"	m	struct:__anon11
 fp	/home/leha/tangogps/tangogis/src/init.c	/^FILE *fp = NULL;$/;"	v
 friend_icon	/home/leha/tangogps/tangogis/src/friends.c	/^static GdkPixbuf	*friend_icon = NULL;$/;"	v	file:
-friend_t	/home/leha/tangogps/tangogis/src/globals.h	/^} friend_t;$/;"	t	typeref:struct:__anon4
+friend_t	/home/leha/tangogps/tangogis/src/globals.h	/^} friend_t;$/;"	t	typeref:struct:__anon7
 friendfinder_timer	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int friendfinder_timer = 0;$/;"	v	file:
 friends_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*friends_list = NULL;$/;"	v
 gc_map	/home/leha/tangogps/tangogis/src/friends.c	/^static GdkGC		*gc_map = NULL;$/;"	v	file:
@@ -225,63 +225,63 @@ global_wp_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_wp_on 
 global_x	/home/leha/tangogps/tangogis/src/globals.c	/^int global_x = 890;$/;"	v
 global_y	/home/leha/tangogps/tangogis/src/globals.c	/^int global_y = 515;$/;"	v
 global_zoom	/home/leha/tangogps/tangogis/src/globals.c	/^int global_zoom = 3;$/;"	v
-gps_data_t	/home/leha/tangogps/tangogis/src/globals.h	/^} gps_data_t;$/;"	t	typeref:struct:__anon8
-gps_fix_t	/home/leha/tangogps/tangogis/src/globals.h	/^} gps_fix_t;$/;"	t	typeref:struct:__anon7
+gps_data_t	/home/leha/tangogps/tangogis/src/globals.h	/^} gps_data_t;$/;"	t	typeref:struct:__anon11
+gps_fix_t	/home/leha/tangogps/tangogis/src/globals.h	/^} gps_fix_t;$/;"	t	typeref:struct:__anon10
 gpsd_io_channel	/home/leha/tangogps/tangogis/src/gps_functions.c	/^static GIOChannel *gpsd_io_channel =NULL;$/;"	v	file:
 gpsdata	/home/leha/tangogps/tangogis/src/globals.c	/^gps_data_t *gpsdata = NULL;$/;"	v
 grid_show	/home/leha/tangogps/tangogis/src/callbacks.c	/^void grid_show(GtkWidget* widget)$/;"	f
-hdop	/home/leha/tangogps/tangogis/src/globals.h	/^	double hdop;$/;"	m	struct:__anon8
-head	/home/leha/tangogps/tangogis/src/globals.h	/^	int head;$/;"	m	struct:__anon4
+hdop	/home/leha/tangogps/tangogis/src/globals.h	/^	double hdop;$/;"	m	struct:__anon11
+head	/home/leha/tangogps/tangogis/src/globals.h	/^	int head;$/;"	m	struct:__anon7
 host_failed	/home/leha/tangogps/tangogis/src/globals.c	/^extern gboolean host_failed = FALSE;\/\/ошибка разрешения имени хоста, скорее всего нет инета$/;"	v
 ht	/home/leha/tangogps/tangogis/src/globals.c	/^GHashTable *ht = NULL;$/;"	v
 ht	/home/leha/tangogps/tangogis/src/globals.h	/^GHashTable *ht;\/\/таблица состояние тайла$/;"	v
-i	/home/leha/tangogps/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon1
-i	/home/leha/tangogps/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon2
-idmd5	/home/leha/tangogps/tangogis/src/globals.h	/^	char *idmd5;$/;"	m	struct:__anon6
+i	/home/leha/tangogps/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon12
+i	/home/leha/tangogps/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon13
+idmd5	/home/leha/tangogps/tangogis/src/globals.h	/^	char *idmd5;$/;"	m	struct:__anon9
 init	/home/leha/tangogps/tangogis/src/init.c	/^init()$/;"	f
 interface	/home/leha/tangogps/tangogis/src/globals.h	/^GladeXML* interface;$/;"	v
-inverted_zoom	/home/leha/tangogps/tangogis/src/globals.h	/^	int inverted_zoom;$/;"	m	struct:__anon3
-j	/home/leha/tangogps/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon1
-j	/home/leha/tangogps/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon2
+inverted_zoom	/home/leha/tangogps/tangogis/src/globals.h	/^	int inverted_zoom;$/;"	m	struct:__anon6
+j	/home/leha/tangogps/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon12
+j	/home/leha/tangogps/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon13
 key	/home/leha/tangogps/tangogis/src/tile_management.h	/^static gchar* key;$/;"	v
-keywords	/home/leha/tangogps/tangogis/src/globals.h	/^	char *keywords;$/;"	m	struct:__anon6
+keywords	/home/leha/tangogps/tangogis/src/globals.h	/^	char *keywords;$/;"	m	struct:__anon9
 label_grid_h	/home/leha/tangogps/tangogis/src/interface.h	/^    GtkWidget *label_grid_h[2][7];$/;"	v
 label_grid_v	/home/leha/tangogps/tangogis/src/interface.h	/^    GtkWidget *label_grid_v[7];$/;"	v
-lastseen	/home/leha/tangogps/tangogis/src/globals.h	/^	char *lastseen;$/;"	m	struct:__anon4
-lat	/home/leha/tangogps/tangogis/src/globals.h	/^	double lat;$/;"	m	struct:__anon2
+lastseen	/home/leha/tangogps/tangogis/src/globals.h	/^	char *lastseen;$/;"	m	struct:__anon7
 lat	/home/leha/tangogps/tangogis/src/globals.h	/^	double lat;$/;"	m	struct:__anon5
-lat	/home/leha/tangogps/tangogis/src/globals.h	/^	float lat;$/;"	m	struct:__anon1
+lat	/home/leha/tangogps/tangogis/src/globals.h	/^	double lat;$/;"	m	struct:__anon8
 lat	/home/leha/tangogps/tangogis/src/globals.h	/^	float lat;$/;"	m	struct:__anon4
+lat	/home/leha/tangogps/tangogis/src/globals.h	/^	float lat;$/;"	m	struct:__anon7
 lat	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon17
 lat1	/home/leha/tangogps/tangogis/src/tile_management.h	/^	double lat1;$/;"	m	struct:__anon14
 lat2	/home/leha/tangogps/tangogis/src/tile_management.h	/^	double lat2;$/;"	m	struct:__anon14
 lat2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lat2pixel(	float zoom,$/;"	f
-lat_deg	/home/leha/tangogps/tangogis/src/globals.h	/^	double lat_deg;$/;"	m	struct:__anon6
+lat_deg	/home/leha/tangogps/tangogis/src/globals.h	/^	double lat_deg;$/;"	m	struct:__anon9
 lat_tmp	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon17
 latdeg2latmin	/home/leha/tangogps/tangogis/src/converter.c	/^latdeg2latmin(	float lat)$/;"	f
 latdeg2latsec	/home/leha/tangogps/tangogis/src/converter.c	/^latdeg2latsec(	float lat)$/;"	f
-latitude	/home/leha/tangogps/tangogis/src/globals.h	/^    double latitude;    \/* Latitude in degrees (valid if mode >= 2) *\/$/;"	m	struct:__anon7
+latitude	/home/leha/tangogps/tangogis/src/globals.h	/^    double latitude;    \/* Latitude in degrees (valid if mode >= 2) *\/$/;"	m	struct:__anon10
 list_store	/home/leha/tangogps/tangogis/src/poi.c	/^GtkListStore *list_store;$/;"	v
 load_current_track	/home/leha/tangogps/tangogis/src/map_management.c	/^load_current_track(data_of_thread *local)$/;"	f
 load_map	/home/leha/tangogps/tangogis/src/map_management.c	/^load_map(data_of_thread *local)$/;"	f
 load_tracks	/home/leha/tangogps/tangogis/src/map_management.c	/^load_tracks(data_of_thread *local)$/;"	f
 load_trf	/home/leha/tangogps/tangogis/src/map_management.c	/^load_trf(data_of_thread *local)$/;"	f
-loaded_track	/home/leha/tangogps/tangogis/src/globals.h	/^GSList *loaded_track; \/\/track points latlon information$/;"	v
+loaded_track	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*loaded_track = NULL; \/\/track points latlon information$/;"	v
 local_x	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_x = 0;$/;"	v	file:
 local_y	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_y = 0;$/;"	v	file:
-lon	/home/leha/tangogps/tangogis/src/globals.h	/^	double lon;$/;"	m	struct:__anon2
 lon	/home/leha/tangogps/tangogis/src/globals.h	/^	double lon;$/;"	m	struct:__anon5
-lon	/home/leha/tangogps/tangogis/src/globals.h	/^	float lon;$/;"	m	struct:__anon1
+lon	/home/leha/tangogps/tangogis/src/globals.h	/^	double lon;$/;"	m	struct:__anon8
 lon	/home/leha/tangogps/tangogis/src/globals.h	/^	float lon;$/;"	m	struct:__anon4
+lon	/home/leha/tangogps/tangogis/src/globals.h	/^	float lon;$/;"	m	struct:__anon7
 lon	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon17
 lon1	/home/leha/tangogps/tangogis/src/tile_management.h	/^	double lon1;$/;"	m	struct:__anon14
 lon2	/home/leha/tangogps/tangogis/src/tile_management.h	/^	double lon2;$/;"	m	struct:__anon14
 lon2pixel	/home/leha/tangogps/tangogis/src/converter.c	/^lon2pixel(	float zoom,$/;"	f
-lon_deg	/home/leha/tangogps/tangogis/src/globals.h	/^	double lon_deg;$/;"	m	struct:__anon6
+lon_deg	/home/leha/tangogps/tangogis/src/globals.h	/^	double lon_deg;$/;"	m	struct:__anon9
 lon_tmp	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon17
 londeg2lonmin	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonmin(	float lon)$/;"	f
 londeg2lonsec	/home/leha/tangogps/tangogis/src/converter.c	/^londeg2lonsec(	float lon)$/;"	f
-longitude	/home/leha/tangogps/tangogis/src/globals.h	/^    double longitude;   \/* Longitude in degrees (valid if mode >= 2) *\/$/;"	m	struct:__anon7
+longitude	/home/leha/tangogps/tangogis/src/globals.h	/^    double longitude;   \/* Longitude in degrees (valid if mode >= 2) *\/$/;"	m	struct:__anon10
 lookup_widget	/home/leha/tangogps/tangogis/src/support.c	/^lookup_widget                          (GtkWidget       *widget,$/;"	f
 main	/home/leha/tangogps/tangogis/src/main.c	/^main (int argc, char *argv[])$/;"	f
 maina	/home/leha/tangogps/tangogis/src/exif.c	/^int maina(int argc, char **argv)$/;"	f
@@ -296,7 +296,7 @@ menu1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *menu1 = NULL;$/;"	
 mercator_offset	/home/leha/tangogps/tangogis/src/map_management.c	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)$/;"	f
 min_lat	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon17
 min_lon	/home/leha/tangogps/tangogis/src/tracks.h	/^	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;$/;"	m	struct:__anon17
-mode	/home/leha/tangogps/tangogis/src/globals.h	/^    int    mode;        \/* Mode of fix *\/$/;"	m	struct:__anon7
+mode	/home/leha/tangogps/tangogis/src/globals.h	/^    int    mode;        \/* Mode of fix *\/$/;"	m	struct:__anon10
 mouse_dx	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dx = 0; $/;"	v
 mouse_dy	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dy = 0;$/;"	v
 mouse_x	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_x = 0;$/;"	v
@@ -304,13 +304,13 @@ mouse_y	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_y = 0;$/;"	v
 my_strescape	/home/leha/tangogps/tangogis/src/poi.c	/^my_strescape (const gchar *source,$/;"	f
 my_strescape_back	/home/leha/tangogps/tangogis/src/poi.c	/^my_strescape_back (const gchar *source,$/;"	f
 myposition_icon	/home/leha/tangogps/tangogis/src/wp.c	/^static GdkPixbuf	*myposition_icon = NULL;$/;"	v	file:
-name	/home/leha/tangogps/tangogis/src/globals.h	/^	char *name;$/;"	m	struct:__anon3
-name	/home/leha/tangogps/tangogis/src/globals.h	/^	char *name;$/;"	m	struct:__anon5
+name	/home/leha/tangogps/tangogis/src/globals.h	/^	char *name;$/;"	m	struct:__anon6
+name	/home/leha/tangogps/tangogis/src/globals.h	/^	char *name;$/;"	m	struct:__anon8
 new_dialog	/home/leha/tangogps/tangogis/src/poi.c	/^static gboolean new_dialog = TRUE;$/;"	v	file:
-nick	/home/leha/tangogps/tangogis/src/globals.h	/^	char *nick;$/;"	m	struct:__anon4
+nick	/home/leha/tangogps/tangogis/src/globals.h	/^	char *nick;$/;"	m	struct:__anon7
 number_threads	/home/leha/tangogps/tangogis/src/globals.h	/^	int number_threads;$/;"	v
-offset_x	/home/leha/tangogps/tangogis/src/map_management.h	/^	int offset_x;$/;"	m	struct:__anon2
-offset_y	/home/leha/tangogps/tangogis/src/map_management.h	/^	int offset_y;$/;"	m	struct:__anon2
+offset_x	/home/leha/tangogps/tangogis/src/map_management.h	/^	int offset_x;$/;"	m	struct:__anon13
+offset_y	/home/leha/tangogps/tangogis/src/map_management.h	/^	int offset_y;$/;"	m	struct:__anon13
 on_button10_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button10_clicked                    (GtkButton       *button,$/;"	f
 on_button11_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button11_clicked                    (GtkButton       *button,$/;"	f
 on_button11_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button11_expose_event               (GtkWidget       *widget,$/;"	f
@@ -356,6 +356,7 @@ on_button6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button6_cli
 on_button7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button7_clicked                     (GtkButton       *button,$/;"	f
 on_button8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button8_clicked                     (GtkButton       *button,$/;"	f
 on_button9_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button9_clicked                     (GtkButton       *button,$/;"	f
+on_button_update_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button_update_clicked                    (GtkButton       *button,$/;"	f
 on_cancelbutton1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton1_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton2_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton3_clicked               (GtkButton       *button,$/;"	f
@@ -492,7 +493,7 @@ parse_nmea_gsv	/home/leha/tangogps/tangogis/src/gps_functions.c	/^parse_nmea_gsv
 parse_nmea_rmc	/home/leha/tangogps/tangogis/src/gps_functions.c	/^parse_nmea_rmc(char *nmea)$/;"	f
 pause_all_threads	/home/leha/tangogps/tangogis/src/globals.h	/^int pause_all_threads;$/;"	v
 photo_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*photo_list = NULL;$/;"	v
-photo_t	/home/leha/tangogps/tangogis/src/globals.h	/^} photo_t;$/;"	t	typeref:struct:__anon5
+photo_t	/home/leha/tangogps/tangogis/src/globals.h	/^} photo_t;$/;"	t	typeref:struct:__anon8
 pixbuf_is_null	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	pixbuf_is_null = FALSE;\/\/нету такого тайла в хеше$/;"	v
 pixbuf_is_null	/home/leha/tangogps/tangogis/src/globals.h	/^gboolean        pixbuf_is_null;\/\/нету такого тайла в хеше$/;"	v
 pixel2lat	/home/leha/tangogps/tangogis/src/converter.c	/^pixel2lat(	float zoom,$/;"	f
@@ -502,32 +503,32 @@ pixmap_photo	/home/leha/tangogps/tangogis/src/callbacks.c	/^static	GdkPixmap *pi
 pixmap_photo_big	/home/leha/tangogps/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo_big = NULL;$/;"	v	file:
 pixmaps_directories	/home/leha/tangogps/tangogis/src/support.c	/^static GList *pixmaps_directories = NULL;$/;"	v	file:
 poi_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*poi_list = NULL;$/;"	v
-poi_t	/home/leha/tangogps/tangogis/src/globals.h	/^} poi_t;$/;"	t	typeref:struct:__anon6
+poi_t	/home/leha/tangogps/tangogis/src/globals.h	/^} poi_t;$/;"	t	typeref:struct:__anon9
 pre_init	/home/leha/tangogps/tangogis/src/init.c	/^pre_init()$/;"	f
 prepare_perl	/home/leha/tangogps/tangogis/src/geo_photos.c	/^prepare_perl()$/;"	f
-price_range	/home/leha/tangogps/tangogis/src/globals.h	/^	int price_range;$/;"	m	struct:__anon6
+price_range	/home/leha/tangogps/tangogis/src/globals.h	/^	int price_range;$/;"	m	struct:__anon9
 print_track	/home/leha/tangogps/tangogis/src/callbacks.c	/^print_track()$/;"	f
 queue_tile_dl_for_bbox	/home/leha/tangogps/tangogis/src/tile_management.c	/^queue_tile_dl_for_bbox(bbox_pixel_t bbox_pixel, int zoom)$/;"	f
 rad2deg	/home/leha/tangogps/tangogis/src/converter.c	/^rad2deg(float rad)$/;"	f
 register_nick	/home/leha/tangogps/tangogis/src/friends.c	/^register_nick()$/;"	f
 register_nick_thread	/home/leha/tangogps/tangogis/src/friends.c	/^register_nick_thread(void *ptr)$/;"	f
 repaint_all	/home/leha/tangogps/tangogis/src/callbacks.c	/^repaint_all()$/;"	f
-repo	/home/leha/tangogps/tangogis/src/map_management.h	/^	repo_t* repo;$/;"	m	struct:__anon2
+repo	/home/leha/tangogps/tangogis/src/map_management.h	/^	repo_t* repo;$/;"	m	struct:__anon13
 repo	/home/leha/tangogps/tangogis/src/tile_management.h	/^	repo_t *repo;$/;"	m	struct:__anon16
-repo_t	/home/leha/tangogps/tangogis/src/globals.h	/^} repo_t;$/;"	t	typeref:struct:__anon3
+repo_t	/home/leha/tangogps/tangogis/src/globals.h	/^} repo_t;$/;"	t	typeref:struct:__anon6
 repoconfig__create_dropdown	/home/leha/tangogps/tangogis/src/init.c	/^repoconfig__create_dropdown()$/;"	f
 repoconfig__populate_dialog	/home/leha/tangogps/tangogis/src/init.c	/^repoconfig__populate_dialog()$/;"	f
 repoconfig__set_current_list_pointer	/home/leha/tangogps/tangogis/src/init.c	/^repoconfig__set_current_list_pointer()$/;"	f
 reset_gpsd_io	/home/leha/tangogps/tangogis/src/gps_functions.c	/^reset_gpsd_io()$/;"	f
-satellites_inview	/home/leha/tangogps/tangogis/src/globals.h	/^	int satellites_inview;$/;"	m	struct:__anon8
-satellites_used	/home/leha/tangogps/tangogis/src/globals.h	/^	int satellites_used;$/;"	m	struct:__anon8
-screen_x	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon4
-screen_x	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon5
-screen_x	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon6
-screen_y	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon4
-screen_y	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon5
-screen_y	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon6
-seen_vaild	/home/leha/tangogps/tangogis/src/globals.h	/^	gboolean seen_vaild; \/* ever had a vaild fix? *\/$/;"	m	struct:__anon8
+satellites_inview	/home/leha/tangogps/tangogis/src/globals.h	/^	int satellites_inview;$/;"	m	struct:__anon11
+satellites_used	/home/leha/tangogps/tangogis/src/globals.h	/^	int satellites_used;$/;"	m	struct:__anon11
+screen_x	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon7
+screen_x	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon8
+screen_x	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_x;$/;"	m	struct:__anon9
+screen_y	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon7
+screen_y	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon8
+screen_y	/home/leha/tangogps/tangogis/src/globals.h	/^	int screen_y;$/;"	m	struct:__anon9
+seen_vaild	/home/leha/tangogps/tangogis/src/globals.h	/^	gboolean seen_vaild; \/* ever had a vaild fix? *\/$/;"	m	struct:__anon11
 set_combobox_subcat	/home/leha/tangogps/tangogis/src/poi.c	/^void set_combobox_subcat(GtkWidget *widget, int choice)$/;"	f
 set_current_wp	/home/leha/tangogps/tangogis/src/wp.c	/^set_current_wp(double lat, double lon)$/;"	f
 set_label	/home/leha/tangogps/tangogis/src/gps_functions.c	/^set_label()$/;"	f
@@ -544,28 +545,28 @@ showed_tiles_index	/home/leha/tangogps/tangogis/src/globals.h	/^int showed_tiles
 sid1	/home/leha/tangogps/tangogis/src/gps_functions.c	/^static guint sid1,  sid3; $/;"	v	file:
 sid3	/home/leha/tangogps/tangogis/src/gps_functions.c	/^static guint sid1,  sid3; $/;"	v	file:
 size	/home/leha/tangogps/tangogis/src/friends.c	/^	size_t size;$/;"	m	struct:mem_struct	file:
-speed	/home/leha/tangogps/tangogis/src/globals.h	/^	int speed;$/;"	m	struct:__anon4
-speed	/home/leha/tangogps/tangogis/src/globals.h	/^    double speed;       \/* Speed over ground, meters\/sec *\/$/;"	m	struct:__anon7
+speed	/home/leha/tangogps/tangogis/src/globals.h	/^	int speed;$/;"	m	struct:__anon7
+speed	/home/leha/tangogps/tangogis/src/globals.h	/^    double speed;       \/* Speed over ground, meters\/sec *\/$/;"	m	struct:__anon10
 sql_cb__photo	/home/leha/tangogps/tangogis/src/geo_photos.c	/^sql_cb__photo(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
 sql_cb__poi_get	/home/leha/tangogps/tangogis/src/poi.c	/^sql_cb__poi_get(void *unused, int colc, char **colv, char **col_names)$/;"	f	file:
 sql_execute	/home/leha/tangogps/tangogis/src/util.c	/^sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))$/;"	f
-subcategory	/home/leha/tangogps/tangogis/src/globals.h	/^	int subcategory;$/;"	m	struct:__anon6
+subcategory	/home/leha/tangogps/tangogis/src/globals.h	/^	int subcategory;$/;"	m	struct:__anon9
 tangogis_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*tangogis_dir = NULL;$/;"	v
 textdomain	/home/leha/tangogps/tangogis/src/support.h	25;"	d
 tile_download_list	/home/leha/tangogps/tangogis/src/tile_management.c	/^static GSList *tile_download_list = NULL;$/;"	v	file:
 tile_t	/home/leha/tangogps/tangogis/src/tile_management.h	/^} tile_t;$/;"	t	typeref:struct:__anon16
-tile_threads	/home/leha/tangogps/tangogis/src/map_management.h	/^} tile_threads;$/;"	t	typeref:struct:__anon1
-tile_url	/home/leha/tangogps/tangogis/src/tile_management.c	/^	char *tile_url;$/;"	m	struct:__anon1	file:
-time	/home/leha/tangogps/tangogis/src/globals.h	/^    double time;        \/* Time of update, seconds since Unix epoch *\/$/;"	m	struct:__anon7
+tile_threads	/home/leha/tangogps/tangogis/src/map_management.h	/^} tile_threads;$/;"	t	typeref:struct:__anon12
+tile_url	/home/leha/tangogps/tangogis/src/tile_management.c	/^	char *tile_url;$/;"	m	struct:__anon2	file:
+time	/home/leha/tangogps/tangogis/src/globals.h	/^    double time;        \/* Time of update, seconds since Unix epoch *\/$/;"	m	struct:__anon10
 timer_tile_download	/home/leha/tangogps/tangogis/src/tile_management.c	/^timer_tile_download(gpointer data)$/;"	f
 tm_photo	/home/leha/tangogps/tangogis/src/geo_photos.c	/^struct tm tm_photo;$/;"	v	typeref:struct:tm
-track	/home/leha/tangogps/tangogis/src/globals.h	/^    double track;       \/* Course made good (relative to true north) *\/$/;"	m	struct:__anon7
+track	/home/leha/tangogps/tangogis/src/globals.h	/^    double track;       \/* Course made good (relative to true north) *\/$/;"	m	struct:__anon10
 track_data	/home/leha/tangogps/tangogis/src/tracks.h	/^} track_data;$/;"	t	typeref:struct:__anon17
 track_log	/home/leha/tangogps/tangogis/src/init.c	/^track_log()$/;"	f
 track_log_close	/home/leha/tangogps/tangogis/src/init.c	/^track_log_close()$/;"	f
 track_log_open	/home/leha/tangogps/tangogis/src/init.c	/^track_log_open()$/;"	f
-trackpoint_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*trackpoint_list = NULL;$/;"	v
-trackpoint_t	/home/leha/tangogps/tangogis/src/globals.h	/^} trackpoint_t;$/;"	t	typeref:struct:__anon1
+trackpoint_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*trackpoint_list = NULL; \/\/current track latlon information$/;"	v
+trackpoint_t	/home/leha/tangogps/tangogis/src/globals.h	/^} trackpoint_t;$/;"	t	typeref:struct:__anon4
 tracks_open_tracks_dialog	/home/leha/tangogps/tangogis/src/tracks.c	/^tracks_open_tracks_dialog()$/;"	f
 tracks_read	/home/leha/tangogps/tangogis/src/tracks.c	/^track_data* tracks_read (char* file,track_data* data)$/;"	f
 traffic_old_factor	/home/leha/tangogps/tangogis/src/globals.c	/^int traffic_old_factor=0;$/;"	v
@@ -584,34 +585,34 @@ trip_logger_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trip_logger
 trip_maxspeed	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_maxspeed = 0;$/;"	v
 trip_starttime	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_starttime = 0;$/;"	v
 trip_time	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_time = 0;$/;"	v
-type	/home/leha/tangogps/tangogis/src/globals.h	/^	int type;$/;"	m	struct:__anon4
+type	/home/leha/tangogps/tangogis/src/globals.h	/^	int type;$/;"	m	struct:__anon7
 update_gps_time_label	/home/leha/tangogps/tangogis/src/geo_photos.c	/^update_gps_time_label()$/;"	f
 update_poi	/home/leha/tangogps/tangogis/src/poi.c	/^update_poi(GtkWidget *dialog)$/;"	f
 update_position	/home/leha/tangogps/tangogis/src/friends.c	/^update_position()$/;"	f
 update_position0	/home/leha/tangogps/tangogis/src/friends.c	/^update_position0()$/;"	f
 update_position_thread	/home/leha/tangogps/tangogis/src/friends.c	/^update_position_thread(void *ptr)$/;"	f
 update_thread_number	/home/leha/tangogps/tangogis/src/tile_management.c	/^update_thread_number (int change)$/;"	f
-uri	/home/leha/tangogps/tangogis/src/globals.h	/^	char *uri;$/;"	m	struct:__anon3
-valid	/home/leha/tangogps/tangogis/src/globals.h	/^	gboolean valid;$/;"	m	struct:__anon8
+uri	/home/leha/tangogps/tangogis/src/globals.h	/^	char *uri;$/;"	m	struct:__anon6
+valid	/home/leha/tangogps/tangogis/src/globals.h	/^	gboolean valid;$/;"	m	struct:__anon11
 view_tile	/home/leha/tangogps/tangogis/src/map_management.c	/^view_tile(data_of_thread \/*tile_threads* data*\/ *local)$/;"	f
-visibility	/home/leha/tangogps/tangogis/src/globals.h	/^	int visibility;$/;"	m	struct:__anon6
+visibility	/home/leha/tangogps/tangogis/src/globals.h	/^	int visibility;$/;"	m	struct:__anon9
 watchdog	/home/leha/tangogps/tangogis/src/gps_functions.c	/^guint watchdog;$/;"	v
-waypoint_t	/home/leha/tangogps/tangogis/src/globals.h	/^} waypoint_t;$/;"	t	typeref:struct:__anon2
-widget	/home/leha/tangogps/tangogis/src/globals.h	/^	GtkWidget *widget;$/;"	m	struct:__anon6
+waypoint_t	/home/leha/tangogps/tangogis/src/globals.h	/^} waypoint_t;$/;"	t	typeref:struct:__anon5
+widget	/home/leha/tangogps/tangogis/src/globals.h	/^	GtkWidget *widget;$/;"	m	struct:__anon9
 window1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window1 = NULL;$/;"	v
 window2	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window2 = NULL;$/;"	v
 window3	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window3 = NULL;$/;"	v
 wp_icon	/home/leha/tangogps/tangogis/src/wp.c	/^static GdkPixbuf	*wp_icon = NULL;$/;"	v	file:
 wtfcounter	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int wtfcounter=0; $/;"	v	file:
-x	/home/leha/tangogps/tangogis/src/map_management.h	/^	int x;$/;"	m	struct:__anon2
+x	/home/leha/tangogps/tangogis/src/map_management.h	/^	int x;$/;"	m	struct:__anon13
 x	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int x;$/;"	m	struct:__anon16
 x1	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int x1;$/;"	m	struct:__anon15
 x2	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int x2;$/;"	m	struct:__anon15
-x_glob	/home/leha/tangogps/tangogis/src/map_management.h	/^	int x_glob;$/;"	m	struct:__anon2
-y	/home/leha/tangogps/tangogis/src/map_management.h	/^	int y;$/;"	m	struct:__anon2
+x_glob	/home/leha/tangogps/tangogis/src/map_management.h	/^	int x_glob;$/;"	m	struct:__anon13
+y	/home/leha/tangogps/tangogis/src/map_management.h	/^	int y;$/;"	m	struct:__anon13
 y	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int y;$/;"	m	struct:__anon16
 y1	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int y1;$/;"	m	struct:__anon15
 y2	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int y2;$/;"	m	struct:__anon15
-y_glob	/home/leha/tangogps/tangogis/src/map_management.h	/^	int y_glob;$/;"	m	struct:__anon2
-zoom	/home/leha/tangogps/tangogis/src/map_management.h	/^	int zoom;$/;"	m	struct:__anon2
+y_glob	/home/leha/tangogps/tangogis/src/map_management.h	/^	int y_glob;$/;"	m	struct:__anon13
+zoom	/home/leha/tangogps/tangogis/src/map_management.h	/^	int zoom;$/;"	m	struct:__anon13
 zoom	/home/leha/tangogps/tangogis/src/tile_management.h	/^	int zoom;$/;"	m	struct:__anon16

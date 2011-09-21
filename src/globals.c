@@ -36,7 +36,8 @@ int global_latlon_unit	= 0;
 
 gps_data_t *gpsdata = NULL;
 
-GSList		*trackpoint_list = NULL;
+GSList		*trackpoint_list = NULL; //current track latlon information
+GSList		*loaded_track = NULL; //track points latlon information
 GSList		*friends_list = NULL;
 GSList		*photo_list = NULL;
 GSList		*poi_list = NULL;

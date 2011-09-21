@@ -105,7 +105,6 @@ typedef struct {
 
 extern GdkPixmap 	*pixmap;
 //extern GdkPixbuf 	*pixbuf_tracks; //pixbuf for tracks
-GSList *loaded_track; //track points latlon information
 extern GtkWidget	*window1, *window2;
 extern GtkWidget	*map_drawable;
 extern GtkWidget	*dialog1;
@@ -134,7 +133,8 @@ extern gps_data_t *gpsdata;
 
 //extern trackpoint_t global_track_arr[10];
 
-extern GSList		*trackpoint_list;
+extern GSList		*loaded_track; //track points latlon information
+extern GSList		*trackpoint_list; //current track latlon information
 extern GSList		*friends_list;
 extern GSList		*photo_list;
 extern GSList		*poi_list;

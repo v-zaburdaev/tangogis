@@ -616,10 +616,11 @@ get_gps()
 	if(gpsdata)
 	{
 		res = 5;
-		if (res==-1){
-			printf("POLL ERROR \n");
-			gpsdata=NULL;
-		}
+//		if (res==-1)
+//		{
+//			printf("POLL ERROR \n");
+//			gpsdata=NULL;
+//		}
 	}
 	else printf("NOGPS");
 }
