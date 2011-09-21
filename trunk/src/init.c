@@ -28,8 +28,6 @@
 
 FILE *fp = NULL;
 
-
-
 void
 track_log()
 {
@@ -78,13 +76,8 @@ track_log_open()
 	
 	time_epoch_sec = time(NULL);
 	tm_struct = localtime(&time_epoch_sec);
-	
-	
-	
 
 	strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S.log", tm_struct);
-	
-
 	
 	filename = g_strconcat(global_track_dir, buffer,NULL);
 	
@@ -101,7 +94,7 @@ track_log_open()
 		}
 		else 
 		{
-			labeltext = g_strconcat("<b><span foreground='#0000ff'>Log: ",buffer,"</span></b>",NULL);
+			labeltext = g_strconcat("<b><span foreground='#0000ff'>Log: %s",buffer,"</span></b>",NULL);
 			gtk_label_set_label(label76,labeltext);
 			g_free(labeltext);	
 		}
@@ -446,49 +439,49 @@ gconf_get_repolist()
 		printf("REPOLIST == NULL\n");
 		repo1->name = g_strdup("OSM");
 		repo1->uri  = g_strdup("http://tile.openstreetmap.org/%d/%d/%d.png");
-		repo1->dir  = g_strdup_printf("%s/Maps/OSM",global_home_dir);
+		repo1->dir  = g_strdup_printf("%s/Maps/OSM",tangogis_dir);
 		repo1->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo1);
 
 		repo2->name = g_strdup("Topo");
 		repo2->uri  = g_strdup("maps-for-free");
-		repo2->dir  = g_strdup_printf("%s/Maps/maps4free",global_home_dir);
+		repo2->dir  = g_strdup_printf("%s/Maps/maps4free",tangogis_dir);
 		repo2->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo2);
 		
 		repo3->name = g_strdup("Aerial");
 		repo3->uri  = g_strdup("openaerial");
-		repo3->dir  = g_strdup_printf("%s/Maps/openaerial",global_home_dir);
+		repo3->dir  = g_strdup_printf("%s/Maps/openaerial",tangogis_dir);
 		repo3->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo3);
 		
 		repo4->name = g_strdup("Opencyclemap");
 		repo4->uri  = g_strdup("http://a.andy.sandbox.cloudmade.com/tiles/cycle/%d/%d/%d.png");
-		repo4->dir  = g_strdup_printf("%s/Maps/opencyclemap",global_home_dir);
+		repo4->dir  = g_strdup_printf("%s/Maps/opencyclemap",tangogis_dir);
 		repo4->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo4);
 		
 		repo5->name = g_strdup("Google Sat (testing only)");
 		repo5->uri  = g_strdup("http://khm1.google.com/kh?v=34&hl=en&x=%d&s=&y=%d&z=%d");
-		repo5->dir  = g_strdup_printf("%s/Maps/googlesat",global_home_dir);
+		repo5->dir  = g_strdup_printf("%s/Maps/googlesat",tangogis_dir);
 		repo5->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo5);
 
 		repo6->name = g_strdup("Google Map");
 		repo6->uri  = g_strdup("http://mt1.google.com/vt/v=w2.101&hl=ru&x=%d&y=%d&z=%d");
-		repo6->dir  = g_strdup_printf("%s/Maps/googlemap",global_home_dir);
+		repo6->dir  = g_strdup_printf("%s/Maps/googlemap",tangogis_dir);
 		repo6->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo6);
 
 		repo7->name = g_strdup("Yandex Sat");
 		repo7->uri  = g_strdup("http://sat01.maps.yandex.ru/tiles?l=sat&v=1.10.0&x=%d&y=%d&z=%d");
-		repo7->dir  = g_strdup_printf("%s/Maps/yandexsat",global_home_dir);
+		repo7->dir  = g_strdup_printf("%s/Maps/yandexsat",tangogis_dir);
 		repo7->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo7);
 
 		repo8->name = g_strdup("Yandex Map");
 		repo8->uri  = g_strdup("http://vec03.maps.yandex.ru/tiles?l=map&v=2.15.0&x=%d&y=%d&z=%d");
-		repo8->dir  = g_strdup_printf("%s/Maps/yandexmap",global_home_dir);
+		repo8->dir  = g_strdup_printf("%s/Maps/yandexmap",tangogis_dir);
 		repo8->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo8);
 		
@@ -889,7 +882,13 @@ init()
 	
 	global_track_dir	= gconf_client_get_string(global_gconfclient, GCONF"/track_dir",&err);
 	if(!global_track_dir)
-		global_track_dir = g_strdup_printf("%s/Maps/",global_home_dir);
+		global_track_dir = g_strdup_printf("%s/Tracks/",tangogis_dir);
+	
+	if (g_mkdir_with_parents(global_track_dir,0700)) {
+		perror("mkdir()");
+		printf("MKDIR ERROR: %s\n", global_track_dir);
+	}
+	
 	
 	global_myposition.lat = 0;
 	global_myposition.lon = 0;
