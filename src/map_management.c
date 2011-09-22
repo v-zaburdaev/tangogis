@@ -130,6 +130,7 @@ gdk_threads_leave();
 
 //g_object_unref(data);
 number_threads = update_thread_number(-1);
+global_repaint = 0; //Обновление возможно!!!
 }
 
 int
@@ -384,10 +385,12 @@ return LOAD_OK;
 }
 
 void
-fill_tiles_pixel(	int pixel_x,
-			int pixel_y,
-			int zoom)
+fill_tiles_pixel()
 {
+	int pixel_x = global_x;
+	int pixel_y = global_y;
+	int zoom = global_zoom;
+
 	int i,j, tile_count_x, tile_count_y;
 	gboolean success = FALSE;
 	GError **error = NULL;

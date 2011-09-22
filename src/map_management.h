@@ -27,9 +27,7 @@ int
 load_map(data_of_thread* local);
 
 void
-fill_tiles_pixel(	int pixel_x,
-			int pixel_y,
-			int zoom);
+fill_tiles_pixel();
 
 void
 fill_tiles_latlon(	float lat,
