@@ -1,3 +1,5 @@
 [tangogis]
 $INDEXER_PROJECT_ROOT/*.c
 $INDEXER_PROJECT_ROOT/*.h
+/usr/include/gtk-2.0**/*.h
+/usr/include/glib-2.0**/*.h
