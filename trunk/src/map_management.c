@@ -31,10 +31,12 @@ static GtkWidget	*drawingarea11 = NULL;
 
 
 void
-view_tile(data_of_thread /*tile_threads* data*/ *local)
+view_tile(data_of_thread  *local)
 {
 	gchar filename[256];
+	printf("local = %d\n",local);
 
+	local->progress = 0;
 	local->x_glob=global_x;
 	local->y_glob=global_y;//Чтобы отследить изменилось ли положение карты
 	local->zoom=global_zoom;
@@ -45,6 +47,7 @@ view_tile(data_of_thread /*tile_threads* data*/ *local)
 	if(!pixmap)
 	{
 		printf("no drawable -> NULL\n");
+		local->thread_id = 0;
 		return;
 	}
 	int mercator_x,mercator_y;	
@@ -75,14 +78,10 @@ view_tile(data_of_thread /*tile_threads* data*/ *local)
 
 	if (load_map(local)==ERR_LIMITS)
 	{
-number_threads = update_thread_number(-1);
+		number_threads = update_thread_number(-1);
+		local->thread_id = 0;
 		return;
 	}
-/*
-gdk_threads_enter();
-	showed_tiles=g_slist_append(showed_tiles,filename);
-gdk_threads_leave();
-*/
 	gchar* key;
 	key = g_strdup_printf("%s/%d/%d/%d", local->repo->dir, local->zoom, local->x, local->y);
 	g_hash_table_replace(ht,key,"MAP showing okay");
@@ -128,14 +127,14 @@ gdk_threads_leave();
 			printf ("load_tracks returned %d",load_current_track(local));
 	}
 
-//g_object_unref(data);
 number_threads = update_thread_number(-1);
-global_repaint = 0; //Обновление возможно!!!
+	local->thread_id = 0;
 }
 
 int
 load_current_track(data_of_thread *local)
 {
+	local->progress = 3;
 	printf("* load current track()\n");
 	GSList *list;
 	int pixel_x, pixel_y, x,y, last_x = 0, last_y = 0;
@@ -190,6 +189,7 @@ gdk_threads_leave();
 int
 load_tracks(data_of_thread *local)
 {
+	local->progress = 2;
 	printf("* load tracks()\n");
 	GSList *list;
 	int pixel_x, pixel_y, x,y, last_x = 0, last_y = 0;
@@ -266,6 +266,7 @@ GError		*error = NULL;
 GdkGC		*gc_map = NULL;
 
 //static GtkWidget	*drawingarea11 = NULL;
+	local->progress = 1;
 	gchar filename[256];
 
 	printf("* load MAP()\n");
@@ -385,13 +386,11 @@ return LOAD_OK;
 }
 
 void
-fill_tiles_pixel()
+fill_tiles_pixel(	int pixel_x,
+			int pixel_y,
+			int zoom)
 {
-	int pixel_x = global_x;
-	int pixel_y = global_y;
-	int zoom = global_zoom;
-
-	int i,j, tile_count_x, tile_count_y;
+	int tile_count_x, tile_count_y;
 	gboolean success = FALSE;
 	GError **error = NULL;
 //		if (gpsdata!=NULL)
@@ -416,89 +415,42 @@ fill_tiles_pixel()
 	tile_count_x = map_drawable->allocation.width / TILESIZE + 2;
 	tile_count_y = map_drawable->allocation.height / TILESIZE + 2;
 	
-	for (i=0; i<tile_count_x;i++)
+//------------------double dinamic array--------------------------1
+	static data_of_thread*** threads_data;
+	static int threads_data_size_x,threads_data_size_y;
+	if ((threads_data_size_x != tile_count_x) || (threads_data_size_y != tile_count_y))
 	{
-		for (j=0;  j<tile_count_y; j++)
+		if (number_threads)
+			return;
+		threads_data_size_x = tile_count_x;
+		threads_data_size_y = tile_count_y;
+		threads_data = realloc(threads_data, threads_data_size_x*sizeof(int)); 
+		memset(threads_data,0,threads_data_size_x*sizeof(int));
+		for (int i=0;i<threads_data_size_x;i++)
 		{
-				key = g_strdup_printf("%s/%d/%d/%d", curr_trf->dir, zoom, i, j);
-				gchar* found=g_hash_table_lookup(ht,key);
-				printf("found = %s\n",found);
-//			if (!found)
-				{
-					g_hash_table_replace(ht,key,"load_tile()");
-//-------------------create thread_data------------------
-//					tile_threads *thread_data = g_new0(tile_threads, 1);
-					data_of_thread *thread_data = g_new0(data_of_thread, 1);
-					thread_data->i = i;
-					thread_data->j = j;
-//-------------------create thread_data------------------
-
-					if (!g_thread_create(&view_tile, thread_data, FALSE, NULL) != 0)
-					{	
-						g_warning("can't create VIEW TILE thread");
-					}
-				}
+			threads_data[i] = realloc(threads_data[i],threads_data_size_y*sizeof(int));
+			memset(threads_data[i],0,threads_data_size_y*sizeof(int));
+			for (int j=0;  j<threads_data_size_y; j++)
+			{
+				threads_data[i][j] = realloc(threads_data[i][j],sizeof(data_of_thread));
+				memset(threads_data[i][j],0,sizeof(data_of_thread));
+				threads_data[i][j]->i=i;
+				threads_data[i][j]->j=j;
+			}
 		}
 	}
-	
-/*	
-	
-		if (offset_x > 0) offset_x -= 256;
-		if (offset_y > 0) offset_y -= 256;
-		global_x = pixel_x;
-		global_y = pixel_y;
-		global_zoom = zoom;
-	
-		offset_xn = offset_x; 
-		offset_yn = offset_y;
-	
-		width  = map_drawable->allocation.width;
-		height = map_drawable->allocation.height;
-
-		tiles_nx = floor((width  - offset_x) / TILESIZE) + 1;
-		tiles_ny = floor((height - offset_y) / TILESIZE) + 1;
-	
-	   	if (strcasestr(curr_trf->name,"Yandex")!=NULL)
+	for (int i=0; i<tile_count_x;i++)
+	{
+		for (int j=0;  j<tile_count_y; j++)
 		{
-			tile_x0 =  floor((float)(pixel_x + merkator_offset_x) / (float)TILESIZE);
-			tile_y0 =  floor((float)(pixel_y + merkator_offset_y) / (float)TILESIZE);
+			if (!threads_data[i][j]->thread_id)
+				threads_data[i][j]->thread_id = g_thread_create(&view_tile, threads_data[i][j], FALSE, NULL);
 		}
-		else
-		{
-			tile_x0 =  floor((float)(pixel_x) / (float)TILESIZE);
-			tile_y0 =  floor((float)(pixel_y) / (float)TILESIZE);
-		}
+	}
+//------------------double dinamic array--------------------------1
 
-		for (i=tile_x0; i<(tile_x0+tiles_nx);i++)
-		{
-			for (j=tile_y0;  j<(tile_y0+tiles_ny); j++)
-			{
-				printf("---i,j,x,y,offsetx,y: %d,%d -- %d,%d -- %d,%d\n",i,j,pixel_x,pixel_y,offset_x,offset_y);
 
-				key = g_strdup_printf("%s/%d/%d/%d", curr_trf->dir, zoom, i, j);
-				gchar* found=g_hash_table_lookup(ht,key);
-				printf("found = %s\n",found);
-	
-//--------------------create thread_data--------------------
-	tile_threads *thread_data = g_new0(tile_threads, 1);
-	thread_data->x = i;
-	thread_data->y = j;
-	thread_data->offset_x = offset_xn;
-	thread_data->offset_y = offset_yn;
-//--------------------create thread_data--------------------
-
-//		if (!g_thread_create(&load_trf, thread_data, FALSE, NULL) != 0)
-//		{	
-//			g_warning("can't create DL thread");
-//		}
-		
-//						load_trf(thread_data);
-				offset_yn += TILESIZE;
-			}
-			offset_xn += TILESIZE;
-			offset_yn = offset_y;
-		}	
-
+/*
 //		if (trf_old) traffic_old_factor++;
 		if (global_trf_auto)
 		{
@@ -507,7 +459,6 @@ fill_tiles_pixel()
 		}
 	}	
 */
-//----------Trafic visualization---------------
 
 	success = gconf_client_set_int(
 				global_gconfclient, 

@@ -227,9 +227,6 @@ printf("host_failed = %d\n",host_failed);
 void *
 dl_thread(void *ptr)
 {
-
-
-
 	CURL *curl;
 	CURLcode res;
 	FILE *outfile;

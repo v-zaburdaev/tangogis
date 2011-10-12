@@ -2,11 +2,8 @@
 typedef struct {
 	int i;
 	int j;
-} tile_threads;
-
-typedef struct {
-	int i;
-	int j;
+	int thread_id;
+	int progress;
 	int x;
 	int y;
 	int x_glob;
@@ -27,7 +24,9 @@ int
 load_map(data_of_thread* local);
 
 void
-fill_tiles_pixel();
+fill_tiles_pixel(	int pixel_x,
+			int pixel_y,
+			int zoom);
 
 void
 fill_tiles_latlon(	float lat,

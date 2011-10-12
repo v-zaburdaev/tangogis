@@ -33,7 +33,6 @@ int global_speed_unit	= 0;
 int global_alt_unit	= 0;	
 int global_latlon_unit	= 0;	
 
-
 gps_data_t *gpsdata = NULL;
 
 GSList		*trackpoint_list = NULL; //current track latlon information
@@ -63,7 +62,6 @@ GConfClient	*global_gconfclient = NULL;
 gboolean	global_auto_download = TRUE;
 
 //----------flags----------------------------
-int global_repaint = 0; //Флаг запроса на обновление изображения (если !=0 то обновление уже в очереди, если =0 то очередь свободна)
 gboolean trf_old=FALSE;//флаг запроса изменения показателя старости
 gboolean trf_next=FALSE;//флаг запроса на загрузку свежих пробок
 //----------------------------------------------------------
