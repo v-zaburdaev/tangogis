@@ -431,22 +431,19 @@ if(pixmap) printf("pixmap created\n");
 else printf("aieee: pixmap NULL\n");
 
 	
-	gdk_draw_rectangle (
-		pixmap,
-		widget->style->white_gc,
-		TRUE,
-		0, 0,
-		widget->allocation.width+260,
-		widget->allocation.height+260);
-				
-	gtk_widget_queue_draw_area (
-		widget, 
-		0,0,widget->allocation.width+260,widget->allocation.height+260);
+//	gdk_draw_rectangle (
+//		pixmap,
+//		widget->style->white_gc,
+//		TRUE,
+//		0, 0,
+//		widget->allocation.width+260,
+//		widget->allocation.height+260);
+//				
+//	gtk_widget_queue_draw_area (
+//		widget, 
+//		0,0,widget->allocation.width+260,widget->allocation.height+260);
 
-
-	
-	
-//	fill_tiles_pixel(global_x, global_y, global_zoom);
+	repaint_all();
 	
 return FALSE;
 }
@@ -1304,6 +1301,7 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
 //			gtk_widget_hide(label_grid_h[0][i]); 
 //			gtk_widget_hide(label_grid_h[1][i]); 
 //		}
+
 	repaint_all();
 }
 
@@ -2988,12 +2986,7 @@ on_item9_activate                      (GtkMenuItem     *menuitem,
 void
 repaint_all()
 {
-	printf("global_repaint %d\n",global_repaint);
-	if (global_repaint == 0)
-	{
-		fill_tiles_pixel(); 
-		//global_repaint = g_idle_add(fill_tiles_pixel,NULL);
-	}
+	fill_tiles_pixel(global_x, global_y, global_zoom);
 //	print_track();
 //	paint_friends();
 //	paint_photos();

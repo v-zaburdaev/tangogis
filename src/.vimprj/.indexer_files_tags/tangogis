@@ -16,10 +16,15 @@ COLUMN_STRING	/home/leha/tangogis/src/poi.c	/^	COLUMN_STRING,$/;"	e	enum:__anon1
 C_	/usr/include/glib-2.0/glib/gi18n-lib.h	35;"	d
 C_	/usr/include/glib-2.0/glib/gi18n.h	31;"	d
 ERR_DOWN	/home/leha/tangogis/src/map_management.c	26;"	d	file:
+ERR_DOWN	/home/leha/tangogps/tangogis/src/map_management.c	26;"	d	file:
 ERR_LIMITS	/home/leha/tangogis/src/map_management.c	27;"	d	file:
+ERR_LIMITS	/home/leha/tangogps/tangogis/src/map_management.c	27;"	d	file:
 ERR_LOAD	/home/leha/tangogis/src/map_management.c	24;"	d	file:
+ERR_LOAD	/home/leha/tangogps/tangogis/src/map_management.c	24;"	d	file:
 ERR_REPO	/home/leha/tangogis/src/map_management.c	25;"	d	file:
+ERR_REPO	/home/leha/tangogps/tangogis/src/map_management.c	25;"	d	file:
 ERR_ZOOM	/home/leha/tangogis/src/map_management.c	23;"	d	file:
+ERR_ZOOM	/home/leha/tangogps/tangogis/src/map_management.c	23;"	d	file:
 FALSE	/usr/include/glib-2.0/glib/gmacros.h	190;"	d
 GAllocator	/usr/include/glib-2.0/glib/gmem.h	/^typedef struct _GAllocator GAllocator;$/;"	t	typeref:struct:_GAllocator
 GAppInfo	/usr/include/glib-2.0/gio/giotypes.h	/^typedef struct _GAppInfo                      GAppInfo; \/* Dummy typedef *\/$/;"	t	typeref:struct:_GAppInfo
@@ -9318,6 +9323,7 @@ GtkWindowPosition	/usr/include/gtk-2.0/gtk/gtkenums.h	/^} GtkWindowPosition;$/;"
 GtkWindowType	/usr/include/gtk-2.0/gtk/gtkenums.h	/^} GtkWindowType;$/;"	t	typeref:enum:__anon142
 GtkWrapMode	/usr/include/gtk-2.0/gtk/gtkenums.h	/^} GtkWrapMode;$/;"	t	typeref:enum:__anon143
 LOAD_OK	/home/leha/tangogis/src/map_management.c	28;"	d	file:
+LOAD_OK	/home/leha/tangogps/tangogis/src/map_management.c	28;"	d	file:
 MAX	/usr/include/glib-2.0/glib/gmacros.h	197;"	d
 MAX	/usr/include/glib-2.0/glib/gmacros.h	198;"	d
 MAXPATHLEN	/usr/include/glib-2.0/glib/gwin32.h	41;"	d
@@ -9359,6 +9365,7 @@ TILESIZE	/home/leha/tangogis/src/converter.c	8;"	d	file:
 TILESIZE	/home/leha/tangogis/src/globals.h	12;"	d
 TRUE	/usr/include/glib-2.0/glib/gmacros.h	194;"	d
 WTFCOUNTER	/home/leha/tangogis/src/callbacks.c	32;"	d	file:
+WTFCOUNTER	/home/leha/tangogps/tangogis/src/callbacks.c	32;"	d	file:
 XLIB_RGB_DITHER_MAX	/usr/include/gtk-2.0/gdk-pixbuf-xlib/gdk-pixbuf-xlibrgb.h	/^  XLIB_RGB_DITHER_MAX$/;"	e	enum:__anon75
 XLIB_RGB_DITHER_NONE	/usr/include/gtk-2.0/gdk-pixbuf-xlib/gdk-pixbuf-xlibrgb.h	/^  XLIB_RGB_DITHER_NONE,$/;"	e	enum:__anon75
 XLIB_RGB_DITHER_NORMAL	/usr/include/gtk-2.0/gdk-pixbuf-xlib/gdk-pixbuf-xlibrgb.h	/^  XLIB_RGB_DITHER_NORMAL,$/;"	e	enum:__anon75
@@ -16299,6 +16306,7 @@ attr	/usr/include/gtk-2.0/gdk/gdkpango.h	/^  PangoAttribute attr;$/;"	m	struct:_
 attr	/usr/include/gtk-2.0/gtk/gtktextlayout.h	/^  PangoAttribute attr;$/;"	m	struct:_GtkTextAttrAppearance	access:public
 auto_load_trf_timer	/home/leha/tangogis/src/map_management.c	/^gboolean auto_load_trf_timer()$/;"	f
 auto_load_trf_timer	/home/leha/tangogis/src/map_management.h	/^gboolean auto_load_trf_timer();$/;"	p	signature:()
+auto_load_trf_timer	/home/leha/tangogps/tangogis/src/map_management.c	/^gboolean auto_load_trf_timer()$/;"	f
 auto_resize	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  guint auto_resize    : 1;$/;"	m	struct:_GtkCListColumn	access:public
 away_msg	/home/leha/tangogis/src/globals.h	/^	char *away_msg;$/;"	m	struct:__anon7	access:public
 axes	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble *axes;$/;"	m	struct:_GdkEventButton	access:public
@@ -16727,6 +16735,7 @@ ctlpoint	/usr/include/gtk-2.0/gtk/gtkcurve.h	/^  gfloat (*ctlpoint)[2];        \
 curl_threads	/home/leha/tangogis/src/globals.h	/^GList *curl_threads;\/\/таблица закачек$/;"	v
 curr_trf	/home/leha/tangogis/src/globals.h	/^repo_t		*curr_trf;\/\/указатель на текущий репозиторий$/;"	v
 curr_trf_name	/home/leha/tangogis/src/globals.c	/^gchar		*curr_trf_name = NULL;$/;"	v
+curr_trf_name	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*curr_trf_name = NULL;$/;"	v
 current	/usr/include/gtk-2.0/gtk/gtkbindings.h	/^  GtkBindingEntry	*current;$/;"	m	struct:_GtkBindingSet	access:public
 current_button	/usr/include/gtk-2.0/gtk/gtkcombo.h	/^        guint16 current_button;$/;"	m	struct:_GtkCombo	access:public
 current_font	/usr/include/gtk-2.0/gtk/gtktext.h	/^  GtkTextFont *current_font;	\/* Text font for current style *\/$/;"	m	struct:_GtkText	access:public
@@ -16781,6 +16790,7 @@ data	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  } data;$/;"	m	struct:_GdkEventClie
 data	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gpointer data;$/;"	m	struct:_GtkCListRow	access:public
 data_format	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gushort data_format;$/;"	m	struct:_GdkEventClient	access:public
 data_of_thread	/home/leha/tangogis/src/map_management.h	/^} data_of_thread;$/;"	t	typeref:struct:__anon13
+data_of_thread	/home/leha/tangogps/tangogis/src/map_management.h	/^} data_of_thread;$/;"	t	typeref:struct:__anon1
 day	/usr/include/glib-2.0/glib/gdate.h	/^  guint day    : 6;$/;"	m	struct:_GDate	access:public
 day_selected	/usr/include/gtk-2.0/gtk/gtkcalendar.h	/^  void (* day_selected)			(GtkCalendar *calendar);$/;"	m	struct:_GtkCalendarClass	access:public
 day_selected_double_click	/usr/include/gtk-2.0/gtk/gtkcalendar.h	/^  void (* day_selected_double_click)	(GtkCalendar *calendar);$/;"	m	struct:_GtkCalendarClass	access:public
@@ -16840,6 +16850,7 @@ destroy	/usr/include/glib-2.0/glib/ghook.h	/^  GDestroyNotify destroy;$/;"	m	str
 destroy	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  GDestroyNotify destroy;$/;"	m	struct:_GtkCListRow	access:public
 destroy	/usr/include/gtk-2.0/gtk/gtkobject.h	/^  void (*destroy)  (GtkObject *object);$/;"	m	struct:_GtkObjectClass	access:public
 destroy_all_threads	/home/leha/tangogis/src/globals.c	/^int destroy_all_threads=0;$/;"	v
+destroy_all_threads	/home/leha/tangogps/tangogis/src/globals.c	/^int destroy_all_threads=0;$/;"	v
 destroy_event	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  gboolean (* destroy_event)		(GtkWidget	     *widget,$/;"	m	struct:_GtkWidgetClass	access:public
 destroyed	/usr/include/gtk-2.0/gdk/gdkwindow.h	/^  guint destroyed : 2;$/;"	m	struct:_GdkWindowObject	access:public
 destroyed	/usr/include/gtk-2.0/gtk/gtkbindings.h	/^  guint			destroyed : 1;$/;"	m	struct:_GtkBindingEntry	access:public
@@ -16852,7 +16863,9 @@ device	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  GdkDevice *device;$/;"	m	struct:
 dgettext	/home/leha/tangogis/src/support.h	27;"	d
 dialog	/usr/include/gtk-2.0/gtk/gtkinputdialog.h	/^  GtkDialog dialog;$/;"	m	struct:_GtkInputDialog	access:public
 dialog1	/home/leha/tangogis/src/globals.c	/^GtkWidget *dialog1 = NULL;$/;"	v
+dialog1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *dialog1 = NULL;$/;"	v
 dialog8	/home/leha/tangogis/src/globals.c	/^GtkWidget *dialog8 = NULL;$/;"	v
+dialog8	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *dialog8 = NULL;$/;"	v
 dialog_geocode_result	/home/leha/tangogis/src/geo_photos.c	/^GtkWidget *dialog_geocode_result = NULL;$/;"	v
 dialog_image_data	/home/leha/tangogis/src/geo_photos.c	/^GtkWidget *dialog_image_data = NULL;$/;"	v
 dialog_photo_correlate	/home/leha/tangogis/src/geo_photos.c	/^GtkWidget *dialog_photo_correlate = NULL;$/;"	v
@@ -16923,6 +16936,7 @@ drag_pos	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint drag_pos;$/;"	m	struct:_Gt
 drag_pos	/usr/include/gtk-2.0/gtk/gtklist.h	/^  gint drag_pos;$/;"	m	struct:_GtkList	access:public
 drag_selection	/usr/include/gtk-2.0/gtk/gtklist.h	/^  guint drag_selection:1;$/;"	m	struct:_GtkList	access:public
 drag_started	/home/leha/tangogis/src/callbacks.c	/^static int drag_started = 0;$/;"	v	file:
+drag_started	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int drag_started = 0;$/;"	v	file:
 draw_arc	/usr/include/gtk-2.0/gdk/gdkdrawable.h	/^  void (*draw_arc)       (GdkDrawable  *drawable,$/;"	m	struct:_GdkDrawableClass	access:public
 draw_arrow	/usr/include/gtk-2.0/gtk/gtkstyle.h	/^  void (*draw_arrow)		(GtkStyle		*style,$/;"	m	struct:_GtkStyleClass	access:public
 draw_bg	/usr/include/gtk-2.0/gtk/gtktexttag.h	/^  guint draw_bg : 1;$/;"	m	struct:_GtkTextAppearance	access:public
@@ -16970,6 +16984,7 @@ draw_trapezoids	/usr/include/gtk-2.0/gdk/gdkdrawable.h	/^  void (*draw_trapezoid
 draw_value	/usr/include/gtk-2.0/gtk/gtkscale.h	/^  void (* draw_value) (GtkScale *scale);$/;"	m	struct:_GtkScaleClass	access:public
 draw_vline	/usr/include/gtk-2.0/gtk/gtkstyle.h	/^  void (*draw_vline)		(GtkStyle		*style,$/;"	m	struct:_GtkStyleClass	access:public
 drawingarea11	/home/leha/tangogis/src/map_management.c	/^static GtkWidget	*drawingarea11 = NULL;$/;"	v	file:
+drawingarea11	/home/leha/tangogps/tangogis/src/map_management.c	/^static GtkWidget	*drawingarea11 = NULL;$/;"	v	file:
 drive_changed	/usr/include/glib-2.0/gio/gvolumemonitor.h	/^  void      (* drive_changed)        (GVolumeMonitor *volume_monitor,$/;"	m	struct:_GVolumeMonitorClass	access:public
 drive_connected	/usr/include/glib-2.0/gio/gvolumemonitor.h	/^  void      (* drive_connected)      (GVolumeMonitor *volume_monitor,$/;"	m	struct:_GVolumeMonitorClass	access:public
 drive_disconnected	/usr/include/glib-2.0/gio/gvolumemonitor.h	/^  void      (* drive_disconnected)   (GVolumeMonitor *volume_monitor,$/;"	m	struct:_GVolumeMonitorClass	access:public
@@ -17114,10 +17129,13 @@ fill_async	/usr/include/glib-2.0/gio/gbufferedinputstream.h	/^  void     (* fill
 fill_finish	/usr/include/glib-2.0/gio/gbufferedinputstream.h	/^  gssize   (* fill_finish) (GBufferedInputStream *stream,$/;"	m	struct:_GBufferedInputStreamClass	access:public
 fill_tiles_latlon	/home/leha/tangogis/src/map_management.c	/^fill_tiles_latlon(	float lat,$/;"	f	signature:( float lat, float lon, int zoom)
 fill_tiles_latlon	/home/leha/tangogis/src/map_management.h	/^fill_tiles_latlon(	float lat,$/;"	p	signature:( float lat, float lon, int zoom)
+fill_tiles_latlon	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_latlon(	float lat,$/;"	f
 fill_tiles_latlon_hack	/home/leha/tangogis/src/map_management.c	/^fill_tiles_latlon_hack(	float lat,$/;"	f	signature:( float lat, float lon, int zoom)
 fill_tiles_latlon_hack	/home/leha/tangogis/src/map_management.h	/^fill_tiles_latlon_hack(	float lat,$/;"	p	signature:( float lat, float lon, int zoom)
+fill_tiles_latlon_hack	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_latlon_hack(	float lat,$/;"	f
 fill_tiles_pixel	/home/leha/tangogis/src/map_management.c	/^fill_tiles_pixel()$/;"	f
 fill_tiles_pixel	/home/leha/tangogis/src/map_management.h	/^fill_tiles_pixel();$/;"	p	signature:()
+fill_tiles_pixel	/home/leha/tangogps/tangogis/src/map_management.c	/^fill_tiles_pixel(	int pixel_x,$/;"	f
 filter_keypress	/usr/include/gtk-2.0/gtk/gtkimcontext.h	/^  gboolean (*filter_keypress)     (GtkIMContext   *context,$/;"	m	struct:_GtkIMContextClass	access:public
 filters	/usr/include/gtk-2.0/gdk/gdkwindow.h	/^  GList *filters;$/;"	m	struct:_GdkWindowObject	access:public
 finalize	/usr/include/glib-2.0/glib/gmain.h	/^  void     (*finalize) (GSource    *source); \/* Can be NULL *\/$/;"	m	struct:_GSourceFuncs	access:public
@@ -17186,7 +17204,9 @@ freeze_count	/usr/include/gtk-2.0/gtk/gtktext.h	/^  guint freeze_count;$/;"	m	st
 friend_icon	/home/leha/tangogis/src/friends.c	/^static GdkPixbuf	*friend_icon = NULL;$/;"	v	file:
 friend_t	/home/leha/tangogis/src/globals.h	/^} friend_t;$/;"	t	typeref:struct:__anon7
 friendfinder_timer	/home/leha/tangogis/src/callbacks.c	/^static int friendfinder_timer = 0;$/;"	v	file:
+friendfinder_timer	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int friendfinder_timer = 0;$/;"	v	file:
 friends_list	/home/leha/tangogis/src/globals.c	/^GSList		*friends_list = NULL;$/;"	v
+friends_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*friends_list = NULL;$/;"	v
 from_tokens	/usr/include/glib-2.0/gio/gicon.h	/^  GIcon *     (* from_tokens) (gchar  **tokens,$/;"	m	struct:_GIconIface	access:public
 func	/usr/include/glib-2.0/glib/gcompletion.h	/^  GCompletionFunc func;$/;"	m	struct:_GCompletion	access:public
 func	/usr/include/glib-2.0/glib/ghook.h	/^  gpointer	 func;$/;"	m	struct:_GHook	access:public
@@ -21003,58 +21023,105 @@ glib_mem_profiler_table	/usr/include/glib-2.0/glib/gmem.h	/^GLIB_VAR GMemVTable	
 glib_micro_version	/usr/include/glib-2.0/glib/gutils.h	/^GLIB_VAR const guint glib_micro_version;$/;"	v
 glib_minor_version	/usr/include/glib-2.0/glib/gutils.h	/^GLIB_VAR const guint glib_minor_version;$/;"	v
 global_alt_unit	/home/leha/tangogis/src/globals.c	/^int global_alt_unit	= 0;	$/;"	v
+global_alt_unit	/home/leha/tangogps/tangogis/src/globals.c	/^int global_alt_unit	= 0;	$/;"	v
 global_auto_download	/home/leha/tangogis/src/globals.c	/^gboolean	global_auto_download = TRUE;$/;"	v
+global_auto_download	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_auto_download = TRUE;$/;"	v
 global_autocenter	/home/leha/tangogis/src/globals.c	/^gboolean	global_autocenter = FALSE;$/;"	v
+global_autocenter	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_autocenter = FALSE;$/;"	v
 global_curr_repo	/home/leha/tangogis/src/globals.c	/^GSList		*global_curr_repo = NULL;$/;"	v
+global_curr_repo	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*global_curr_repo = NULL;$/;"	v
 global_curr_reponame	/home/leha/tangogis/src/globals.c	/^gchar		*global_curr_reponame = NULL;$/;"	v
+global_curr_reponame	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_curr_reponame = NULL;$/;"	v
 global_curr_trf_repo	/home/leha/tangogis/src/globals.c	/^GSList		*global_curr_trf_repo = NULL;$/;"	v
+global_curr_trf_repo	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*global_curr_trf_repo = NULL;$/;"	v
 global_current_track_show	/home/leha/tangogis/src/globals.c	/^gboolean	global_current_track_show= TRUE;$/;"	v
 global_current_track_show	/home/leha/tangogis/src/globals.h	/^gboolean	global_current_track_show;$/;"	v
+global_current_track_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_current_track_show= TRUE;$/;"	v
 global_drawingarea_height	/home/leha/tangogis/src/globals.c	/^int global_drawingarea_height = 0;$/;"	v
+global_drawingarea_height	/home/leha/tangogps/tangogis/src/globals.c	/^int global_drawingarea_height = 0;$/;"	v
 global_drawingarea_width	/home/leha/tangogis/src/globals.c	/^int global_drawingarea_width  = 0;$/;"	v
+global_drawingarea_width	/home/leha/tangogps/tangogis/src/globals.c	/^int global_drawingarea_width  = 0;$/;"	v
 global_ffcm_friends	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffcm_friends = TRUE;$/;"	v
+global_ffcm_friends	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcm_friends = TRUE;$/;"	v
 global_ffcm_public	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffcm_public = TRUE;$/;"	v
+global_ffcm_public	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcm_public = TRUE;$/;"	v
 global_ffcm_registered	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffcm_registered = TRUE;$/;"	v
+global_ffcm_registered	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcm_registered = TRUE;$/;"	v
 global_ffcu_friends	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffcu_friends = TRUE;$/;"	v
+global_ffcu_friends	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcu_friends = TRUE;$/;"	v
 global_ffcu_public	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffcu_public = TRUE;$/;"	v
+global_ffcu_public	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcu_public = TRUE;$/;"	v
 global_ffcu_registered	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffcu_registered = TRUE;$/;"	v
+global_ffcu_registered	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffcu_registered = TRUE;$/;"	v
 global_fftimer_running	/home/leha/tangogis/src/globals.c	/^gboolean 	global_fftimer_running = FALSE;$/;"	v
+global_fftimer_running	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean 	global_fftimer_running = FALSE;$/;"	v
 global_ffupdate_auto	/home/leha/tangogis/src/globals.c	/^gboolean	global_ffupdate_auto = FALSE;$/;"	v
+global_ffupdate_auto	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_ffupdate_auto = FALSE;$/;"	v
 global_ffupdate_interval	/home/leha/tangogis/src/globals.c	/^int		global_ffupdate_interval = 900000;$/;"	v
+global_ffupdate_interval	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_ffupdate_interval = 900000;$/;"	v
 global_ffupdate_interval_minutes	/home/leha/tangogis/src/globals.c	/^double		global_ffupdate_interval_minutes = 15;$/;"	v
+global_ffupdate_interval_minutes	/home/leha/tangogps/tangogis/src/globals.c	/^double		global_ffupdate_interval_minutes = 15;$/;"	v
 global_gconfclient	/home/leha/tangogis/src/globals.c	/^GConfClient	*global_gconfclient = NULL;$/;"	v
+global_gconfclient	/home/leha/tangogps/tangogis/src/globals.c	/^GConfClient	*global_gconfclient = NULL;$/;"	v
 global_grid_show	/home/leha/tangogis/src/globals.c	/^gboolean	global_grid_show= TRUE;$/;"	v
 global_grid_show	/home/leha/tangogis/src/globals.h	/^gboolean	global_grid_show;$/;"	v
+global_grid_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_grid_show= TRUE;$/;"	v
 global_home_dir	/home/leha/tangogis/src/globals.c	/^gchar		*global_home_dir = NULL;$/;"	v
+global_home_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_home_dir = NULL;$/;"	v
 global_latlon_unit	/home/leha/tangogis/src/globals.c	/^int global_latlon_unit	= 0;	$/;"	v
+global_latlon_unit	/home/leha/tangogps/tangogis/src/globals.c	/^int global_latlon_unit	= 0;	$/;"	v
 global_map_reload	/home/leha/tangogis/src/globals.c	/^gboolean	global_map_reload = FALSE;$/;"	v
+global_map_reload	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_map_reload = FALSE;$/;"	v
 global_mapmode	/home/leha/tangogis/src/globals.c	/^gboolean	global_mapmode = TRUE;$/;"	v
+global_mapmode	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_mapmode = TRUE;$/;"	v
 global_myposition	/home/leha/tangogis/src/globals.c	/^trackpoint_t	global_myposition;$/;"	v
+global_myposition	/home/leha/tangogps/tangogis/src/globals.c	/^trackpoint_t	global_myposition;$/;"	v
 global_poi_cat	/home/leha/tangogis/src/globals.c	/^int		global_poi_cat = 0;$/;"	v
+global_poi_cat	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_poi_cat = 0;$/;"	v
 global_port	/home/leha/tangogis/src/globals.c	/^gchar		*global_port	= NULL;$/;"	v
+global_port	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_port	= NULL;$/;"	v
 global_reconnect_gpsd	/home/leha/tangogis/src/globals.c	/^gboolean	global_reconnect_gpsd = TRUE;$/;"	v
+global_reconnect_gpsd	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_reconnect_gpsd = TRUE;$/;"	v
 global_repaint	/home/leha/tangogis/src/globals.c	/^int global_repaint = 0; \/\/Флаг запроса на обновление изображения (если !=0 то обновление уже в очереди, если =0 то очередь свободна)$/;"	v
 global_repaint	/home/leha/tangogis/src/globals.h	/^int global_repaint; \/\/Флаг запроса на обновление изображения (если !=0 то обновление уже в очереди, если =0 то очередь свободна)$/;"	v
 global_repo_cnt	/home/leha/tangogis/src/globals.c	/^int		global_repo_cnt = 0;$/;"	v
+global_repo_cnt	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_repo_cnt = 0;$/;"	v
 global_repo_list	/home/leha/tangogis/src/globals.c	/^GSList 		*global_repo_list = NULL;$/;"	v
+global_repo_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList 		*global_repo_list = NULL;$/;"	v
 global_server	/home/leha/tangogis/src/globals.c	/^gchar		*global_server	= NULL;$/;"	v
+global_server	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*global_server	= NULL;$/;"	v
 global_show_friends	/home/leha/tangogis/src/globals.c	/^gboolean	global_show_friends = FALSE;$/;"	v
+global_show_friends	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_show_friends = FALSE;$/;"	v
 global_show_photos	/home/leha/tangogis/src/globals.c	/^gboolean	global_show_photos = FALSE;$/;"	v
+global_show_photos	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_show_photos = FALSE;$/;"	v
 global_show_pois	/home/leha/tangogis/src/globals.c	/^gboolean	global_show_pois = FALSE;$/;"	v
+global_show_pois	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_show_pois = FALSE;$/;"	v
 global_speed_unit	/home/leha/tangogis/src/globals.c	/^int global_speed_unit	= 0;	$/;"	v
+global_speed_unit	/home/leha/tangogps/tangogis/src/globals.c	/^int global_speed_unit	= 0;	$/;"	v
 global_tiles_in_dl_queue	/home/leha/tangogis/src/globals.c	/^int		global_tiles_in_dl_queue = 0;$/;"	v
+global_tiles_in_dl_queue	/home/leha/tangogps/tangogis/src/globals.c	/^int		global_tiles_in_dl_queue = 0;$/;"	v
 global_time	/home/leha/tangogis/src/globals.h	/^time_t		global_time;\/\/время$/;"	v
 global_track_dir	/home/leha/tangogis/src/globals.c	/^char *global_track_dir = NULL;$/;"	v
+global_track_dir	/home/leha/tangogps/tangogis/src/globals.c	/^char *global_track_dir = NULL;$/;"	v
 global_track_show	/home/leha/tangogis/src/globals.c	/^gboolean	global_track_show= FALSE;$/;"	v
 global_track_show	/home/leha/tangogis/src/globals.h	/^gboolean	global_track_show;$/;"	v
+global_track_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_track_show= FALSE;$/;"	v
 global_trf_auto	/home/leha/tangogis/src/globals.c	/^gboolean	global_trf_auto = TRUE;$/;"	v
+global_trf_auto	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_trf_auto = TRUE;$/;"	v
 global_trf_list	/home/leha/tangogis/src/globals.c	/^GSList 		*global_trf_list = NULL;$/;"	v
+global_trf_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList 		*global_trf_list = NULL;$/;"	v
 global_trf_show	/home/leha/tangogis/src/globals.c	/^gboolean	global_trf_show= TRUE;$/;"	v
+global_trf_show	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_trf_show= TRUE;$/;"	v
 global_wp	/home/leha/tangogis/src/globals.c	/^waypoint_t	global_wp;$/;"	v
+global_wp	/home/leha/tangogps/tangogis/src/globals.c	/^waypoint_t	global_wp;$/;"	v
 global_wp_on	/home/leha/tangogis/src/globals.c	/^gboolean	global_wp_on = FALSE;$/;"	v
+global_wp_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	global_wp_on = FALSE;$/;"	v
 global_x	/home/leha/tangogis/src/globals.c	/^int global_x = 890;$/;"	v
+global_x	/home/leha/tangogps/tangogis/src/globals.c	/^int global_x = 890;$/;"	v
 global_y	/home/leha/tangogis/src/globals.c	/^int global_y = 515;$/;"	v
+global_y	/home/leha/tangogps/tangogis/src/globals.c	/^int global_y = 515;$/;"	v
 global_zoom	/home/leha/tangogis/src/globals.c	/^int global_zoom = 3;$/;"	v
+global_zoom	/home/leha/tangogps/tangogis/src/globals.c	/^int global_zoom = 3;$/;"	v
 glong	/usr/include/glib-2.0/glib/gtypes.h	/^typedef long   glong;$/;"	t
 got_completion_data	/usr/include/glib-2.0/gio/gfilenamecompleter.h	/^  void (* got_completion_data) (GFilenameCompleter *filename_completer);$/;"	m	struct:_GFilenameCompleterClass	access:public
 got_page_size	/usr/include/gtk-2.0/gtk/gtkprintoperationpreview.h	/^  void              (*got_page_size)  (GtkPrintOperationPreview *preview,$/;"	m	struct:_GtkPrintOperationPreviewIface	access:public
@@ -21063,6 +21130,7 @@ gps_data_t	/home/leha/tangogis/src/globals.h	/^} gps_data_t;$/;"	t	typeref:struc
 gps_fix_t	/home/leha/tangogis/src/globals.h	/^} gps_fix_t;$/;"	t	typeref:struct:__anon10
 gpsd_io_channel	/home/leha/tangogis/src/gps_functions.c	/^static GIOChannel *gpsd_io_channel =NULL;$/;"	v	file:
 gpsdata	/home/leha/tangogis/src/globals.c	/^gps_data_t *gpsdata = NULL;$/;"	v
+gpsdata	/home/leha/tangogps/tangogis/src/globals.c	/^gps_data_t *gpsdata = NULL;$/;"	v
 grab_broken	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  GdkEventGrabBroken        grab_broken;$/;"	m	union:_GdkEvent	access:public
 grab_broken_event	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  gboolean (*grab_broken_event) (GtkWidget	     *widget,$/;"	m	struct:_GtkWidgetClass	access:public
 grab_focus	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  void     (* grab_focus)      (GtkWidget        *widget);$/;"	m	struct:_GtkWidgetClass	access:public
@@ -21077,6 +21145,7 @@ green_prec	/usr/include/gtk-2.0/gdk/gdkvisual.h	/^  gint green_prec;$/;"	m	struc
 green_shift	/usr/include/gtk-2.0/gdk/gdkvisual.h	/^  gint green_shift;$/;"	m	struct:_GdkVisual	access:public
 grid_show	/home/leha/tangogis/src/callbacks.c	/^void grid_show(GtkWidget* widget)$/;"	f	signature:(GtkWidget* widget)
 grid_show	/home/leha/tangogis/src/callbacks.h	/^void grid_show(GtkWidget* widget);$/;"	p	signature:(GtkWidget* widget)
+grid_show	/home/leha/tangogps/tangogis/src/callbacks.c	/^void grid_show(GtkWidget* widget)$/;"	f
 group	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  guint8 group;$/;"	m	struct:_GdkEventKey	access:public
 group	/usr/include/gtk-2.0/gdk/gdkkeys.h	/^  gint  group;$/;"	m	struct:_GdkKeymapKey	access:public
 group_changed	/usr/include/gtk-2.0/gtk/gtkradiobutton.h	/^  void (*group_changed) (GtkRadioButton *radio_button);$/;"	m	struct:_GtkRadioButtonClass	access:public
@@ -24689,12 +24758,15 @@ horizontal	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint16 horizontal;$/;"	m	stru
 horizontal	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint16 horizontal;$/;"	m	struct:_GtkCellText	access:public
 horizontal	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint16 horizontal;$/;"	m	struct:_GtkCellWidget	access:public
 host_failed	/home/leha/tangogis/src/globals.c	/^extern gboolean host_failed = FALSE;\/\/ошибка разрешения имени хоста, скорее всего нет инета$/;"	v
+host_failed	/home/leha/tangogps/tangogis/src/globals.c	/^extern gboolean host_failed = FALSE;\/\/ошибка разрешения имени хоста, скорее всего нет инета$/;"	v
 ht	/home/leha/tangogis/src/globals.c	/^GHashTable *ht = NULL;$/;"	v
 ht	/home/leha/tangogis/src/globals.h	/^GHashTable *ht;\/\/таблица состояние тайла$/;"	v
+ht	/home/leha/tangogps/tangogis/src/globals.c	/^GHashTable *ht = NULL;$/;"	v
 htimer	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint htimer;$/;"	m	struct:_GtkCList	access:public
 htimer	/usr/include/gtk-2.0/gtk/gtklist.h	/^  guint htimer;$/;"	m	struct:_GtkList	access:public
 i	/home/leha/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon12	access:public
 i	/home/leha/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon13	access:public
+i	/home/leha/tangogps/tangogis/src/map_management.h	/^	int i;$/;"	m	struct:__anon1
 icon	/usr/include/gtk-2.0/gtk/gtkimage.h	/^  GIcon *icon;$/;"	m	struct:_GtkImageGIconData	access:public
 icon	/usr/include/gtk-2.0/gtk/gtktoolbar.h	/^  GtkWidget *icon;$/;"	m	struct:_GtkToolbarChild	access:public
 icon_factories	/usr/include/gtk-2.0/gtk/gtkrc.h	/^  GSList *icon_factories;$/;"	m	struct:_GtkRcStyle	access:public
@@ -24825,6 +24897,7 @@ iter_parent	/usr/include/gtk-2.0/gtk/gtktreemodel.h	/^  gboolean     (* iter_par
 itype	/usr/include/glib-2.0/gobject/gsignal.h	/^  GType		itype;$/;"	m	struct:_GSignalQuery	access:public
 j	/home/leha/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon12	access:public
 j	/home/leha/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon13	access:public
+j	/home/leha/tangogps/tangogis/src/map_management.h	/^	int j;$/;"	m	struct:__anon1
 join_style	/usr/include/gtk-2.0/gdk/gdkgc.h	/^  GdkJoinStyle	    join_style;$/;"	m	struct:_GdkGCValues	access:public
 joinable	/usr/include/glib-2.0/glib/gthread.h	/^  gboolean joinable;$/;"	m	struct:_GThread	access:public
 julian	/usr/include/glib-2.0/glib/gdate.h	/^  guint julian : 1;    \/* julian is valid *\/$/;"	m	struct:_GDate	access:public
@@ -24941,21 +25014,28 @@ load	/usr/include/gtk-2.0/gdk-pixbuf/gdk-pixbuf-io.h	/^        GdkPixbuf *(* loa
 load_animation	/usr/include/gtk-2.0/gdk-pixbuf/gdk-pixbuf-io.h	/^	GdkPixbufAnimation *(* load_animation) (FILE    *f,$/;"	m	struct:_GdkPixbufModule	access:public
 load_async	/usr/include/glib-2.0/gio/gloadableicon.h	/^  void           (* load_async)  (GLoadableIcon       *icon,$/;"	m	struct:_GLoadableIconIface	access:public
 load_current_track	/home/leha/tangogis/src/map_management.c	/^load_current_track(data_of_thread *local)$/;"	f	signature:(data_of_thread *local)
+load_current_track	/home/leha/tangogps/tangogis/src/map_management.c	/^load_current_track(data_of_thread *local)$/;"	f
 load_finish	/usr/include/glib-2.0/gio/gloadableicon.h	/^  GInputStream * (* load_finish) (GLoadableIcon       *icon,$/;"	m	struct:_GLoadableIconIface	access:public
 load_increment	/usr/include/gtk-2.0/gdk-pixbuf/gdk-pixbuf-io.h	/^        gboolean (* load_increment) (gpointer      context,$/;"	m	struct:_GdkPixbufModule	access:public
 load_map	/home/leha/tangogis/src/map_management.c	/^load_map(data_of_thread *local)$/;"	f	signature:(data_of_thread *local)
 load_map	/home/leha/tangogis/src/map_management.h	/^load_map(data_of_thread* local);$/;"	p	signature:(data_of_thread* local)
+load_map	/home/leha/tangogps/tangogis/src/map_management.c	/^load_map(data_of_thread *local)$/;"	f
 load_tracks	/home/leha/tangogis/src/map_management.c	/^load_tracks(data_of_thread *local)$/;"	f	signature:(data_of_thread *local)
+load_tracks	/home/leha/tangogps/tangogis/src/map_management.c	/^load_tracks(data_of_thread *local)$/;"	f
 load_trf	/home/leha/tangogis/src/map_management.c	/^load_trf(data_of_thread *local)$/;"	f	signature:(data_of_thread *local)
 load_trf	/home/leha/tangogis/src/map_management.h	/^int load_trf (data_of_thread* local);$/;"	p	signature:(data_of_thread* local)
+load_trf	/home/leha/tangogps/tangogis/src/map_management.c	/^load_trf(data_of_thread *local)$/;"	f
 load_xpm_data	/usr/include/gtk-2.0/gdk-pixbuf/gdk-pixbuf-io.h	/^        GdkPixbuf *(* load_xpm_data) (const char **data);$/;"	m	struct:_GdkPixbufModule	access:public
 loaded_track	/home/leha/tangogis/src/globals.c	/^GSList		*loaded_track = NULL; \/\/track points latlon information$/;"	v
+loaded_track	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*loaded_track = NULL; \/\/track points latlon information$/;"	v
 local_file_add_info	/usr/include/glib-2.0/gio/gvfs.h	/^  void                  (* local_file_add_info)       (GVfs       *vfs,$/;"	m	struct:_GVfsClass	access:public
 local_file_moved	/usr/include/glib-2.0/gio/gvfs.h	/^  void                  (* local_file_moved)          (GVfs       *vfs,$/;"	m	struct:_GVfsClass	access:public
 local_file_removed	/usr/include/glib-2.0/gio/gvfs.h	/^  void                  (* local_file_removed)        (GVfs       *vfs,$/;"	m	struct:_GVfsClass	access:public
 local_file_set_attributes	/usr/include/glib-2.0/gio/gvfs.h	/^  gboolean              (* local_file_set_attributes) (GVfs       *vfs,$/;"	m	struct:_GVfsClass	access:public
 local_x	/home/leha/tangogis/src/callbacks.c	/^static int local_x = 0;$/;"	v	file:
+local_x	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_x = 0;$/;"	v	file:
 local_y	/home/leha/tangogis/src/callbacks.c	/^static int local_y = 0;$/;"	v	file:
+local_y	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int local_y = 0;$/;"	v	file:
 log_type	/usr/include/glib-2.0/glib/gtestutils.h	/^  GTestLogType  log_type;$/;"	m	struct:__anon295	access:public
 lon	/home/leha/tangogis/src/globals.h	/^	double lon;$/;"	m	struct:__anon5	access:public
 lon	/home/leha/tangogis/src/globals.h	/^	double lon;$/;"	m	struct:__anon8	access:public
@@ -25010,6 +25090,7 @@ mantissa_low	/usr/include/glib-2.0/glib/gtypes.h	/^    guint mantissa_low : 32;$
 mantissa_low	/usr/include/glib-2.0/glib/gtypes.h	/^    guint mantissa_low : 32;$/;"	m	struct:_GDoubleIEEE754::__anon303	access:public
 map	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  void (* map)		       (GtkWidget        *widget);$/;"	m	struct:_GtkWidgetClass	access:public
 map_drawable	/home/leha/tangogis/src/globals.c	/^GtkWidget *map_drawable = NULL;$/;"	v
+map_drawable	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *map_drawable = NULL;$/;"	v
 map_event	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  gboolean (* map_event)		(GtkWidget	     *widget,$/;"	m	struct:_GtkWidgetClass	access:public
 map_redraw	/home/leha/tangogis/src/tile_management.c	/^map_redraw(void *p)$/;"	f	signature:(void *p)
 mark_deleted	/usr/include/gtk-2.0/gtk/gtktextbuffer.h	/^  void (* mark_deleted)       (GtkTextBuffer *buffer,$/;"	m	struct:_GtkTextBufferClass	access:public
@@ -25054,6 +25135,7 @@ mem_struct::size	/home/leha/tangogis/src/friends.c	/^	size_t size;$/;"	m	struct:
 memory	/home/leha/tangogis/src/friends.c	/^	char *memory;$/;"	m	struct:mem_struct	file:	access:public
 menu	/usr/include/gtk-2.0/gtk/gtkoptionmenu.h	/^  GtkWidget *menu;$/;"	m	struct:_GtkOptionMenu	access:public
 menu1	/home/leha/tangogis/src/globals.c	/^GtkWidget *menu1 = NULL;$/;"	v
+menu1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *menu1 = NULL;$/;"	v
 menu_item	/usr/include/gtk-2.0/gtk/gtkcheckmenuitem.h	/^  GtkMenuItem menu_item;$/;"	m	struct:_GtkCheckMenuItem	access:public
 menu_item	/usr/include/gtk-2.0/gtk/gtkimagemenuitem.h	/^  GtkMenuItem menu_item;$/;"	m	struct:_GtkImageMenuItem	access:public
 menu_item	/usr/include/gtk-2.0/gtk/gtkoptionmenu.h	/^  GtkWidget *menu_item;$/;"	m	struct:_GtkOptionMenu	access:public
@@ -25063,6 +25145,7 @@ menu_item_type	/usr/include/gtk-2.0/gtk/gtkaction.h	/^  GType      menu_item_typ
 menu_shell	/usr/include/gtk-2.0/gtk/gtkmenubar.h	/^  GtkMenuShell menu_shell;$/;"	m	struct:_GtkMenuBar	access:public
 mercator_offset	/home/leha/tangogis/src/map_management.c	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)$/;"	f	signature:(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)
 mercator_offset	/home/leha/tangogis/src/map_management.h	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y);$/;"	p	signature:(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)
+mercator_offset	/home/leha/tangogps/tangogis/src/map_management.c	/^void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)$/;"	f
 merge	/usr/include/gtk-2.0/gtk/gtkrc.h	/^  void      (*merge)  (GtkRcStyle *dest,$/;"	m	struct:_GtkRcStyleClass	access:public
 message	/usr/include/glib-2.0/glib/gerror.h	/^  gchar       *message;$/;"	m	struct:_GError	access:public
 message_type	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  GdkAtom message_type;$/;"	m	struct:_GdkEventClient	access:public
@@ -25136,9 +25219,13 @@ mount_mountable_finish	/usr/include/glib-2.0/gio/gfile.h	/^  GFile *            
 mount_pre_unmount	/usr/include/glib-2.0/gio/gvolumemonitor.h	/^  void      (* mount_pre_unmount)    (GVolumeMonitor *volume_monitor,$/;"	m	struct:_GVolumeMonitorClass	access:public
 mount_removed	/usr/include/glib-2.0/gio/gvolumemonitor.h	/^  void      (* mount_removed)        (GVolumeMonitor *volume_monitor,$/;"	m	struct:_GVolumeMonitorClass	access:public
 mouse_dx	/home/leha/tangogis/src/globals.c	/^int mouse_dx = 0; $/;"	v
+mouse_dx	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dx = 0; $/;"	v
 mouse_dy	/home/leha/tangogis/src/globals.c	/^int mouse_dy = 0;$/;"	v
+mouse_dy	/home/leha/tangogps/tangogis/src/globals.c	/^int mouse_dy = 0;$/;"	v
 mouse_x	/home/leha/tangogis/src/globals.c	/^int		mouse_x = 0;$/;"	v
+mouse_x	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_x = 0;$/;"	v
 mouse_y	/home/leha/tangogis/src/globals.c	/^int		mouse_y = 0;$/;"	v
+mouse_y	/home/leha/tangogps/tangogis/src/globals.c	/^int		mouse_y = 0;$/;"	v
 move	/usr/include/glib-2.0/gio/gfile.h	/^  gboolean            (* move)                        (GFile                *source,$/;"	m	struct:_GFileIface	access:public
 move	/usr/include/gtk-2.0/gtk/gtkhsv.h	/^  void (* move)    (GtkHSV          *hsv,$/;"	m	struct:_GtkHSVClass	access:public
 move_current	/usr/include/gtk-2.0/gtk/gtkmenushell.h	/^  void (*move_current)     (GtkMenuShell        *menu_shell,$/;"	m	struct:_GtkMenuShellClass	access:public
@@ -25265,349 +25352,518 @@ object_size	/usr/include/gtk-2.0/gtk/gtktypeutils.h	/^  guint			 object_size;$/;
 offscreen_pixmap	/usr/include/gtk-2.0/gtk/gtkprogress.h	/^  GdkPixmap     *offscreen_pixmap;$/;"	m	struct:_GtkProgress	access:public
 offset	/usr/include/gtk-2.0/gtk/gtktext.h	/^  guint offset;$/;"	m	struct:_GtkPropertyMark	access:public
 offset_x	/home/leha/tangogis/src/map_management.h	/^	int offset_x;$/;"	m	struct:__anon13	access:public
+offset_x	/home/leha/tangogps/tangogis/src/map_management.h	/^	int offset_x;$/;"	m	struct:__anon1
 offset_x	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  gint16     offset_x;$/;"	m	struct:_GtkWidgetShapeInfo	access:public
 offset_y	/home/leha/tangogis/src/map_management.h	/^	int offset_y;$/;"	m	struct:__anon13	access:public
+offset_y	/home/leha/tangogps/tangogis/src/map_management.h	/^	int offset_y;$/;"	m	struct:__anon1
 offset_y	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  gint16     offset_y;$/;"	m	struct:_GtkWidgetShapeInfo	access:public
 ok_button	/usr/include/gtk-2.0/gtk/gtkfilesel.h	/^  GtkWidget *ok_button;$/;"	m	struct:_GtkFileSelection	access:public
 ok_if_empty	/usr/include/gtk-2.0/gtk/gtkcombo.h	/^	guint ok_if_empty:1;$/;"	m	struct:_GtkCombo	access:public
 old_editable	/usr/include/gtk-2.0/gtk/gtktext.h	/^  GtkOldEditable old_editable;$/;"	m	struct:_GtkText	access:public
 on_button10_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button10_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button10_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button10_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button10_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button10_clicked                    (GtkButton       *button,$/;"	f
 on_button11_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button11_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button11_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button11_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button11_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button11_clicked                    (GtkButton       *button,$/;"	f
 on_button11_expose_event	/home/leha/tangogis/src/callbacks.c	/^on_button11_expose_event               (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
 on_button11_expose_event	/home/leha/tangogis/src/callbacks.h	/^on_button11_expose_event               (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
+on_button11_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button11_expose_event               (GtkWidget       *widget,$/;"	f
 on_button12_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button12_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button12_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button12_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button12_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button12_clicked                    (GtkButton       *button,$/;"	f
 on_button13_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button13_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button13_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button13_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button13_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button13_clicked                    (GtkButton       *button,$/;"	f
 on_button14_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button14_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button14_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button14_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button14_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button14_clicked                    (GtkButton       *button,$/;"	f
 on_button15_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button15_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button15_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button15_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button15_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button15_clicked                    (GtkButton       *button,$/;"	f
 on_button16_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button16_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button16_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button16_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button16_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button16_clicked                    (GtkButton       *button,$/;"	f
 on_button17_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button17_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button17_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button17_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button17_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button17_clicked                    (GtkButton       *button,$/;"	f
 on_button18_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button18_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button18_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button18_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button18_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button18_clicked                    (GtkButton       *button,$/;"	f
 on_button19_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button19_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button19_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button19_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button19_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button19_clicked                    (GtkButton       *button,$/;"	f
 on_button1_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button1_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button1_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button1_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button1_clicked                     (GtkButton       *button,$/;"	f
 on_button20_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button20_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button20_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button20_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button20_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button20_clicked                    (GtkButton       *button,$/;"	f
 on_button21_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button21_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button21_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button21_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button21_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button21_clicked                    (GtkButton       *button,$/;"	f
 on_button22_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button22_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button22_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button22_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button22_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button22_clicked                    (GtkButton       *button,$/;"	f
 on_button23_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button23_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button23_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button23_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button23_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button23_clicked                    (GtkButton       *button,$/;"	f
 on_button26_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button26_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button26_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button26_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button26_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button26_clicked                    (GtkButton       *button,$/;"	f
 on_button27_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button27_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button27_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button27_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button27_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button27_clicked                    (GtkButton       *button,$/;"	f
 on_button28_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button28_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button28_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button28_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button28_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button28_clicked                    (GtkButton       *button,$/;"	f
 on_button29_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button29_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button29_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button29_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button29_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button29_clicked                    (GtkButton       *button,$/;"	f
 on_button2_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button2_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button2_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button2_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button2_clicked                     (GtkButton       *button,$/;"	f
 on_button30_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button30_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button30_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button30_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button30_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button30_clicked                    (GtkButton       *button,$/;"	f
 on_button33_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button33_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button33_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button33_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button33_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button33_clicked                    (GtkButton       *button,$/;"	f
 on_button34_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button34_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button34_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button34_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button34_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button34_clicked                    (GtkButton       *button,$/;"	f
 on_button35_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button35_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button35_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button35_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button35_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button35_clicked                    (GtkButton       *button,$/;"	f
 on_button36_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button36_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button36_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button36_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button36_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button36_clicked                    (GtkButton       *button,$/;"	f
 on_button37_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button37_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button37_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button37_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button37_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button37_clicked                    (GtkButton       *button,$/;"	f
 on_button38_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button38_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button38_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button38_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button38_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button38_clicked                    (GtkButton       *button,$/;"	f
 on_button39_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button39_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button39_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button39_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button39_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button39_clicked                    (GtkButton       *button,$/;"	f
 on_button3_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button3_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button3_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button3_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button3_clicked                     (GtkButton       *button,$/;"	f
 on_button40_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button40_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button40_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button40_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button40_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button40_clicked                    (GtkButton       *button,$/;"	f
 on_button41_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button41_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button41_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button41_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button41_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button41_clicked                    (GtkButton       *button,$/;"	f
 on_button44_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button44_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button44_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button44_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button44_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button44_clicked                    (GtkButton       *button,$/;"	f
 on_button45_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button45_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button45_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button45_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button45_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button45_clicked                    (GtkButton       *button,$/;"	f
 on_button46_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button46_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button46_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button46_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button46_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button46_clicked                    (GtkButton       *button,$/;"	f
 on_button47_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button47_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button47_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button47_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button47_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button47_clicked                    (GtkButton       *button,$/;"	f
 on_button48_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button48_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button48_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button48_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button48_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button48_clicked                    (GtkButton       *button,$/;"	f
 on_button49_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button49_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button49_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button49_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button49_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button49_clicked                    (GtkButton       *button,$/;"	f
 on_button4_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button4_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button4_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button4_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button4_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button4_clicked                     (GtkButton       *button,$/;"	f
 on_button50_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button50_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button50_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button50_clicked                    (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button50_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button50_clicked                    (GtkButton       *button,$/;"	f
 on_button5_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button5_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button5_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button5_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button5_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button5_clicked                     (GtkButton       *button,$/;"	f
 on_button6_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button6_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button6_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button6_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button6_clicked                     (GtkButton       *button,$/;"	f
 on_button7_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button7_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button7_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button7_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button7_clicked                     (GtkButton       *button,$/;"	f
 on_button8_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button8_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button8_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button8_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button8_clicked                     (GtkButton       *button,$/;"	f
 on_button9_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button9_clicked                     (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_button9_clicked	/home/leha/tangogis/src/callbacks.h	/^on_button9_clicked                     (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_button9_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button9_clicked                     (GtkButton       *button,$/;"	f
 on_button_update_clicked	/home/leha/tangogis/src/callbacks.c	/^on_button_update_clicked                    (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
+on_button_update_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_button_update_clicked                    (GtkButton       *button,$/;"	f
 on_cancelbutton1_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton1_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton1_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton1_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton1_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton2_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton2_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton2_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton2_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton2_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton3_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton3_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton3_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton3_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton3_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton4_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton4_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton4_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton4_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton4_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton4_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton5_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton5_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton5_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton5_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton5_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton5_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton5a_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton5a_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton5a_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton5a_clicked              (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton5a_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton5a_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton6_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton6_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton6_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton6_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton6_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton7_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton7_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton7_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton7_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton7_clicked               (GtkButton       *button,$/;"	f
 on_cancelbutton8_clicked	/home/leha/tangogis/src/callbacks.c	/^on_cancelbutton8_clicked               (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_cancelbutton8_clicked	/home/leha/tangogis/src/callbacks.h	/^on_cancelbutton8_clicked               (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_cancelbutton8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_cancelbutton8_clicked               (GtkButton       *button,$/;"	f
 on_checkbutton12_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton12_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton12_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton12_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton12_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton12_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton13_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton13_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton13_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton13_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton14_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton14_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton14_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton14_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton1_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton1_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton1_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton1_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton2_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton2_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton2_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton2_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton2_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton2_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton3_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton3_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton3_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton3_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton3_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton3_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton4_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton4_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton4_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton4_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton4_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton4_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton5_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton5_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton5_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton5_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton5_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton5_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton6_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton6_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton6_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton6_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton6_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton6_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton7_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton7_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton7_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton7_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton7_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton7_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton8_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton8_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton8_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton8_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton8_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton8_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_checkbutton9_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton9_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton_trf_auto_toggled	/home/leha/tangogis/src/callbacks.c	/^on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_checkbutton_trf_auto_toggled	/home/leha/tangogis/src/callbacks.h	/^on_checkbutton_trf_auto_toggled        (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_checkbutton_trf_auto_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_closebutton2_clicked	/home/leha/tangogis/src/callbacks.c	/^on_closebutton2_clicked                (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_closebutton2_clicked	/home/leha/tangogis/src/callbacks.h	/^on_closebutton2_clicked                (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_closebutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_closebutton2_clicked                (GtkButton       *button,$/;"	f
 on_combobox1_changed	/home/leha/tangogis/src/callbacks.c	/^on_combobox1_changed                   (GtkComboBox     *combobox,$/;"	f	signature:(GtkComboBox *combobox, gpointer user_data)
 on_combobox1_changed	/home/leha/tangogis/src/callbacks.h	/^on_combobox1_changed                   (GtkComboBox     *combobox,$/;"	p	signature:(GtkComboBox *combobox, gpointer user_data)
+on_combobox1_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox1_changed                   (GtkComboBox     *combobox,$/;"	f
 on_combobox2_changed	/home/leha/tangogis/src/callbacks.c	/^on_combobox2_changed                   (GtkComboBox     *combobox,$/;"	f	signature:(GtkComboBox *combobox, gpointer user_data)
 on_combobox2_changed	/home/leha/tangogis/src/callbacks.h	/^on_combobox2_changed                   (GtkComboBox     *combobox,$/;"	p	signature:(GtkComboBox *combobox, gpointer user_data)
+on_combobox2_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox2_changed                   (GtkComboBox     *combobox,$/;"	f
 on_combobox7_changed	/home/leha/tangogis/src/callbacks.c	/^on_combobox7_changed                   (GtkComboBox     *combobox,$/;"	f	signature:(GtkComboBox *combobox, gpointer user_data)
 on_combobox7_changed	/home/leha/tangogis/src/callbacks.h	/^on_combobox7_changed                   (GtkComboBox     *combobox,$/;"	p	signature:(GtkComboBox *combobox, gpointer user_data)
+on_combobox7_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox7_changed                   (GtkComboBox     *combobox,$/;"	f
 on_combobox_cat_changed	/home/leha/tangogis/src/poi.c	/^on_combobox_cat_changed(GtkComboBox     *combobox)$/;"	f	signature:(GtkComboBox *combobox)
 on_combobox_cat_changed	/home/leha/tangogis/src/poi.h	/^on_combobox_cat_changed(GtkComboBox     *combobox);$/;"	p	signature:(GtkComboBox *combobox)
 on_combobox_subcat_changed	/home/leha/tangogis/src/poi.c	/^on_combobox_subcat_changed                   (GtkComboBox     *combobox,$/;"	f	signature:(GtkComboBox *combobox, gpointer user_data)
 on_combobox_trf_repo_changed	/home/leha/tangogis/src/callbacks.c	/^on_combobox_trf_repo_changed        (GtkComboBox     *combobox,$/;"	f	signature:(GtkComboBox *combobox, gpointer user_data)
 on_combobox_trf_repo_changed	/home/leha/tangogis/src/callbacks.h	/^on_combobox_trf_repo_changed        (GtkComboBox     *combobox,$/;"	p	signature:(GtkComboBox *combobox, gpointer user_data)
+on_combobox_trf_repo_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_combobox_trf_repo_changed        (GtkComboBox     *combobox,$/;"	f
 on_currently_loading_frame	/usr/include/gtk-2.0/gdk-pixbuf/gdk-pixbuf-animation.h	/^        gboolean   (*on_currently_loading_frame) (GdkPixbufAnimationIter *iter);$/;"	m	struct:_GdkPixbufAnimationIterClass	access:public
 on_dialog1_close	/home/leha/tangogis/src/callbacks.c	/^on_dialog1_close                       (GtkDialog       *dialog,$/;"	f	signature:(GtkDialog *dialog, gpointer user_data)
 on_dialog1_close	/home/leha/tangogis/src/callbacks.h	/^on_dialog1_close                       (GtkDialog       *dialog,$/;"	p	signature:(GtkDialog *dialog, gpointer user_data)
+on_dialog1_close	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog1_close                       (GtkDialog       *dialog,$/;"	f
 on_dialog1_response	/home/leha/tangogis/src/callbacks.c	/^on_dialog1_response                    (GtkDialog       *dialog,$/;"	f	signature:(GtkDialog *dialog, gint response_id, gpointer user_data)
 on_dialog1_response	/home/leha/tangogis/src/callbacks.h	/^on_dialog1_response                    (GtkDialog       *dialog,$/;"	p	signature:(GtkDialog *dialog, gint response_id, gpointer user_data)
+on_dialog1_response	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog1_response                    (GtkDialog       *dialog,$/;"	f
 on_dialog5_close	/home/leha/tangogis/src/callbacks.c	/^on_dialog5_close                       (GtkDialog       *dialog,$/;"	f	signature:(GtkDialog *dialog, gpointer user_data)
 on_dialog5_close	/home/leha/tangogis/src/callbacks.h	/^on_dialog5_close                       (GtkDialog       *dialog,$/;"	p	signature:(GtkDialog *dialog, gpointer user_data)
+on_dialog5_close	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog5_close                       (GtkDialog       *dialog,$/;"	f
 on_dialog5_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_dialog5_delete_event                (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_dialog5_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_dialog5_delete_event                (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_dialog5_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog5_delete_event                (GtkWidget       *widget,$/;"	f
 on_dialog6_close	/home/leha/tangogis/src/callbacks.c	/^on_dialog6_close                       (GtkDialog       *dialog,$/;"	f	signature:(GtkDialog *dialog, gpointer user_data)
 on_dialog6_close	/home/leha/tangogis/src/callbacks.h	/^on_dialog6_close                       (GtkDialog       *dialog,$/;"	p	signature:(GtkDialog *dialog, gpointer user_data)
+on_dialog6_close	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog6_close                       (GtkDialog       *dialog,$/;"	f
 on_dialog6_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_dialog6_delete_event                (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_dialog6_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_dialog6_delete_event                (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_dialog6_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog6_delete_event                (GtkWidget       *widget,$/;"	f
 on_dialog7_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_dialog7_delete_event                (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_dialog7_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_dialog7_delete_event                (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_dialog7_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog7_delete_event                (GtkWidget       *widget,$/;"	f
 on_dialog_geocode_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_dialog_geocode_delete_event         (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_dialog_geocode_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_dialog_geocode_delete_event         (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_dialog_geocode_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog_geocode_delete_event         (GtkWidget       *widget,$/;"	f
 on_dialog_image_data_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_dialog_image_data_delete_event      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_dialog_image_data_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_dialog_image_data_delete_event      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_dialog_image_data_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_dialog_image_data_delete_event      (GtkWidget       *widget,$/;"	f
 on_drawingarea1_button_press_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_button_press_event     (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_drawingarea1_button_press_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_button_press_event     (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_drawingarea1_button_press_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_button_press_event     (GtkWidget       *widget,$/;"	f
 on_drawingarea1_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_button_release_event   (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_drawingarea1_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_button_release_event   (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_drawingarea1_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_button_release_event   (GtkWidget       *widget,$/;"	f
 on_drawingarea1_configure_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_configure_event        (GtkWidget         *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventConfigure *event, gpointer user_data)
 on_drawingarea1_configure_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_configure_event        (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventConfigure *event, gpointer user_data)
+on_drawingarea1_configure_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_configure_event        (GtkWidget         *widget,$/;"	f
 on_drawingarea1_expose_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_expose_event           (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
 on_drawingarea1_expose_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_expose_event           (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
+on_drawingarea1_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_expose_event           (GtkWidget       *widget,$/;"	f
 on_drawingarea1_key_press_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_key_press_event        (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 on_drawingarea1_key_press_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_key_press_event        (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
+on_drawingarea1_key_press_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_key_press_event        (GtkWidget       *widget,$/;"	f
 on_drawingarea1_motion_notify_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_motion_notify_event    (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventMotion *event, gpointer user_data)
 on_drawingarea1_motion_notify_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_motion_notify_event    (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventMotion *event, gpointer user_data)
+on_drawingarea1_motion_notify_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_motion_notify_event    (GtkWidget       *widget,$/;"	f
 on_drawingarea1_scroll_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea1_scroll_event            (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
 on_drawingarea1_scroll_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea1_scroll_event            (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
+on_drawingarea1_scroll_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea1_scroll_event            (GtkWidget       *widget,$/;"	f
 on_drawingarea2_configure_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea2_configure_event        (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventConfigure *event, gpointer user_data)
 on_drawingarea2_configure_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea2_configure_event        (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventConfigure *event, gpointer user_data)
+on_drawingarea2_configure_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea2_configure_event        (GtkWidget       *widget,$/;"	f
 on_drawingarea2_expose_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea2_expose_event           (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
 on_drawingarea2_expose_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea2_expose_event           (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
+on_drawingarea2_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea2_expose_event           (GtkWidget       *widget,$/;"	f
 on_drawingarea3_configure_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea3_configure_event        (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventConfigure *event, gpointer user_data)
 on_drawingarea3_configure_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea3_configure_event        (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventConfigure *event, gpointer user_data)
+on_drawingarea3_configure_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea3_configure_event        (GtkWidget       *widget,$/;"	f
 on_drawingarea3_expose_event	/home/leha/tangogis/src/callbacks.c	/^on_drawingarea3_expose_event           (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
 on_drawingarea3_expose_event	/home/leha/tangogis/src/callbacks.h	/^on_drawingarea3_expose_event           (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventExpose *event, gpointer user_data)
+on_drawingarea3_expose_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_drawingarea3_expose_event           (GtkWidget       *widget,$/;"	f
 on_entry16_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry16_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry16_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry16_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry16_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry16_changed                     (GtkEditable     *editable,$/;"	f
 on_entry1_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry1_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry1_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry1_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry1_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry1_changed                      (GtkEditable     *editable,$/;"	f
 on_entry20_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry20_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry20_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry20_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry20_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry20_changed                     (GtkEditable     *editable,$/;"	f
 on_entry21_activate	/home/leha/tangogis/src/callbacks.c	/^on_entry21_activate                    (GtkEntry        *entry,$/;"	f	signature:(GtkEntry *entry, gpointer user_data)
 on_entry21_activate	/home/leha/tangogis/src/callbacks.h	/^on_entry21_activate                    (GtkEntry        *entry,$/;"	p	signature:(GtkEntry *entry, gpointer user_data)
+on_entry21_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry21_activate                    (GtkEntry        *entry,$/;"	f
 on_entry21_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry21_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry21_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry21_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry21_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry21_changed                     (GtkEditable     *editable,$/;"	f
 on_entry24_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry24_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry24_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry24_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry24_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry24_changed                     (GtkEditable     *editable,$/;"	f
 on_entry25_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry25_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry25_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry25_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry25_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry25_changed                     (GtkEditable     *editable,$/;"	f
 on_entry26_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry26_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry26_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry26_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry26_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry26_changed                     (GtkEditable     *editable,$/;"	f
 on_entry28_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry28_changed                     (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry28_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry28_changed                     (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry28_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry28_changed                     (GtkEditable     *editable,$/;"	f
 on_entry2_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry2_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry2_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry2_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry2_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry2_changed                      (GtkEditable     *editable,$/;"	f
 on_entry3_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry3_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry3_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry3_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry3_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry3_changed                      (GtkEditable     *editable,$/;"	f
 on_entry4_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry4_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry4_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry4_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry4_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry4_changed                      (GtkEditable     *editable,$/;"	f
 on_entry5_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry5_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry5_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry5_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry5_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry5_changed                      (GtkEditable     *editable,$/;"	f
 on_entry7_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry7_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry7_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry7_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry7_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry7_changed                      (GtkEditable     *editable,$/;"	f
 on_entry8_changed	/home/leha/tangogis/src/callbacks.c	/^on_entry8_changed                      (GtkEditable     *editable,$/;"	f	signature:(GtkEditable *editable, gpointer user_data)
 on_entry8_changed	/home/leha/tangogis/src/callbacks.h	/^on_entry8_changed                      (GtkEditable     *editable,$/;"	p	signature:(GtkEditable *editable, gpointer user_data)
+on_entry8_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_entry8_changed                      (GtkEditable     *editable,$/;"	f
 on_eventbox1_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_eventbox1_button_release_event      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_eventbox1_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_eventbox1_button_release_event      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_eventbox1_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox1_button_release_event      (GtkWidget       *widget,$/;"	f
 on_eventbox2_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_eventbox2_button_release_event      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_eventbox2_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_eventbox2_button_release_event      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_eventbox2_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox2_button_release_event      (GtkWidget       *widget,$/;"	f
 on_eventbox3_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_eventbox3_button_release_event      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_eventbox3_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_eventbox3_button_release_event      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_eventbox3_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox3_button_release_event      (GtkWidget       *widget,$/;"	f
 on_eventbox4_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_eventbox4_button_release_event      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_eventbox4_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_eventbox4_button_release_event      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_eventbox4_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_eventbox4_button_release_event      (GtkWidget       *widget,$/;"	f
 on_item10_activate	/home/leha/tangogis/src/callbacks.c	/^on_item10_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item10_activate	/home/leha/tangogis/src/callbacks.h	/^on_item10_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item10_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item10_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item11_activate	/home/leha/tangogis/src/callbacks.c	/^on_item11_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item11_activate	/home/leha/tangogis/src/callbacks.h	/^on_item11_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item11_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item11_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item12_activate	/home/leha/tangogis/src/callbacks.c	/^on_item12_activate                     (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_item12_activate	/home/leha/tangogis/src/callbacks.h	/^on_item12_activate                     (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_item12_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item12_activate                     (GtkWidget       *widget,$/;"	f
 on_item14_activate	/home/leha/tangogis/src/callbacks.c	/^on_item14_activate                     (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_item14_activate	/home/leha/tangogis/src/callbacks.h	/^on_item14_activate                     (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_item14_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item14_activate                     (GtkWidget       *widget,$/;"	f
 on_item15_activate	/home/leha/tangogis/src/callbacks.c	/^on_item15_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item15_activate	/home/leha/tangogis/src/callbacks.h	/^on_item15_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item15_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item15_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item17_activate	/home/leha/tangogis/src/callbacks.c	/^on_item17_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item17_activate	/home/leha/tangogis/src/callbacks.h	/^on_item17_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item17_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item17_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item18_activate	/home/leha/tangogis/src/callbacks.c	/^on_item18_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item18_activate	/home/leha/tangogis/src/callbacks.h	/^on_item18_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item18_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item18_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item19_activate	/home/leha/tangogis/src/callbacks.c	/^on_item19_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item19_activate	/home/leha/tangogis/src/callbacks.h	/^on_item19_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item19_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item19_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item1_activate	/home/leha/tangogis/src/callbacks.c	/^on_item1_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item1_activate	/home/leha/tangogis/src/callbacks.h	/^on_item1_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item1_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item20_activate	/home/leha/tangogis/src/callbacks.c	/^on_item20_activate                     (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item20_activate	/home/leha/tangogis/src/callbacks.h	/^on_item20_activate                     (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item20_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item20_activate                     (GtkMenuItem     *menuitem,$/;"	f
 on_item2_activate	/home/leha/tangogis/src/callbacks.c	/^on_item2_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item2_activate	/home/leha/tangogis/src/callbacks.h	/^on_item2_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item2_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item2_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item3_activate	/home/leha/tangogis/src/callbacks.c	/^on_item3_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item3_activate	/home/leha/tangogis/src/callbacks.h	/^on_item3_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item3_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item3_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item4_activate	/home/leha/tangogis/src/callbacks.c	/^on_item4_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item4_activate	/home/leha/tangogis/src/callbacks.h	/^on_item4_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item4_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item4_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item5_activate	/home/leha/tangogis/src/callbacks.c	/^on_item5_activate                      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_item5_activate	/home/leha/tangogis/src/callbacks.h	/^on_item5_activate                      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_item5_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item5_activate                      (GtkWidget       *widget,$/;"	f
 on_item6_activate	/home/leha/tangogis/src/callbacks.c	/^on_item6_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item6_activate	/home/leha/tangogis/src/callbacks.h	/^on_item6_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item6_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item6_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item7_activate	/home/leha/tangogis/src/callbacks.c	/^on_item7_activate                      (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_item7_activate	/home/leha/tangogis/src/callbacks.h	/^on_item7_activate                      (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_item7_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item7_activate                      (GtkWidget       *widget,$/;"	f
 on_item8_activate	/home/leha/tangogis/src/callbacks.c	/^on_item8_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item8_activate	/home/leha/tangogis/src/callbacks.h	/^on_item8_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item8_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item8_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item9_activate	/home/leha/tangogis/src/callbacks.c	/^on_item9_activate                      (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_item9_activate	/home/leha/tangogis/src/callbacks.h	/^on_item9_activate                      (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_item9_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item9_activate                      (GtkMenuItem     *menuitem,$/;"	f
 on_item9_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_item9_button_release_event          (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_item9_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_item9_button_release_event          (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_item9_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_item9_button_release_event          (GtkWidget       *widget,$/;"	f
 on_itemgeocode1_activate	/home/leha/tangogis/src/callbacks.c	/^on_itemgeocode1_activate               (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_itemgeocode1_activate	/home/leha/tangogis/src/callbacks.h	/^on_itemgeocode1_activate               (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_itemgeocode1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_itemgeocode1_activate               (GtkMenuItem     *menuitem,$/;"	f
 on_itemimport1_activate	/home/leha/tangogis/src/callbacks.c	/^on_itemimport1_activate                (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_itemimport1_activate	/home/leha/tangogis/src/callbacks.h	/^on_itemimport1_activate                (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_itemimport1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_itemimport1_activate                (GtkMenuItem     *menuitem,$/;"	f
 on_itemselect1_activate	/home/leha/tangogis/src/callbacks.c	/^on_itemselect1_activate                (GtkMenuItem     *menuitem,$/;"	f	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_itemselect1_activate	/home/leha/tangogis/src/callbacks.h	/^on_itemselect1_activate                (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
+on_itemselect1_activate	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_itemselect1_activate                (GtkMenuItem     *menuitem,$/;"	f
 on_null_activate	/home/leha/tangogis/src/callbacks.h	/^on_null_activate                       (GtkMenuItem     *menuitem,$/;"	p	signature:(GtkMenuItem *menuitem, gpointer user_data)
 on_okbutton1_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton1_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton1_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton1_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton1_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton1_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton2_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton2_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton2_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton2_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton2_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton2_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton3_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton3_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton3_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton3_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton3_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton3_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton4_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton4_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton4_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton4_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton4_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton4_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton5_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton5_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton5_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton5_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton5_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton5_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton5a_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton5a_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton5a_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton5a_clicked                  (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton5a_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton5a_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton6_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton6_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton6_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton6_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton6_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton6_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton7_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton7_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton7_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton7_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton7_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton7_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton8_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton8_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton8_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton8_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton8_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton8_clicked                   (GtkButton       *button,$/;"	f
 on_okbutton9_clicked	/home/leha/tangogis/src/callbacks.c	/^on_okbutton9_clicked                   (GtkButton       *button,$/;"	f	signature:(GtkButton *button, gpointer user_data)
 on_okbutton9_clicked	/home/leha/tangogis/src/callbacks.h	/^on_okbutton9_clicked                   (GtkButton       *button,$/;"	p	signature:(GtkButton *button, gpointer user_data)
+on_okbutton9_clicked	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_okbutton9_clicked                   (GtkButton       *button,$/;"	f
 on_radiobutton13_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton13_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton13_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton13_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton13_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton14_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton14_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton14_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton14_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton14_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton15_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton15_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton15_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton15_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton15_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton15_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton16_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton16_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton16_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton16_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton16_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton16_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton17_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton17_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton17_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton17_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton17_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton17_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton18_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton18_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton18_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton18_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton18_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton18_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton19_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton19_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton19_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton19_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton19_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton19_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton1_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton1_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton1_toggled                (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton1_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton1_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton20_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton20_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton20_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton20_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton20_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton20_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_radiobutton21_toggled	/home/leha/tangogis/src/callbacks.c	/^on_radiobutton21_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_radiobutton21_toggled	/home/leha/tangogis/src/callbacks.h	/^on_radiobutton21_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_radiobutton21_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_radiobutton21_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_togglebutton1_toggled	/home/leha/tangogis/src/callbacks.c	/^on_togglebutton1_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_togglebutton1_toggled	/home/leha/tangogis/src/callbacks.h	/^on_togglebutton1_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_togglebutton1_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_togglebutton1_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_togglebutton2_toggled	/home/leha/tangogis/src/callbacks.c	/^on_togglebutton2_toggled               (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_togglebutton2_toggled	/home/leha/tangogis/src/callbacks.h	/^on_togglebutton2_toggled               (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_togglebutton2_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_togglebutton2_toggled               (GtkToggleButton *togglebutton,$/;"	f
 on_togglebutton_autocenter_toggled	/home/leha/tangogis/src/callbacks.c	/^on_togglebutton_autocenter_toggled     (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_togglebutton_autocenter_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_togglebutton_autocenter_toggled     (GtkToggleButton *togglebutton,$/;"	f
 on_togglebutton_reload_toggled	/home/leha/tangogis/src/callbacks.c	/^on_togglebutton_reload_toggled     (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_togglebutton_reload_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_togglebutton_reload_toggled     (GtkToggleButton *togglebutton,$/;"	f
 on_togglebutton_trf_show_toggled	/home/leha/tangogis/src/callbacks.c	/^on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,$/;"	f	signature:(GtkToggleButton *togglebutton, gpointer user_data)
 on_togglebutton_trf_show_toggled	/home/leha/tangogis/src/callbacks.h	/^on_togglebutton_trf_show_toggled        (GtkToggleButton *togglebutton,$/;"	p	signature:(GtkToggleButton *togglebutton, gpointer user_data)
+on_togglebutton_trf_show_toggled	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,$/;"	f
 on_vscale1_button_press_event	/home/leha/tangogis/src/callbacks.c	/^on_vscale1_button_press_event          (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_vscale1_button_press_event	/home/leha/tangogis/src/callbacks.h	/^on_vscale1_button_press_event          (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_vscale1_button_press_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_button_press_event          (GtkWidget       *widget,$/;"	f
 on_vscale1_button_release_event	/home/leha/tangogis/src/callbacks.c	/^on_vscale1_button_release_event        (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 on_vscale1_button_release_event	/home/leha/tangogis/src/callbacks.h	/^on_vscale1_button_release_event        (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+on_vscale1_button_release_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_button_release_event        (GtkWidget       *widget,$/;"	f
 on_vscale1_change_value	/home/leha/tangogis/src/callbacks.c	/^on_vscale1_change_value                (GtkRange        *range,$/;"	f	signature:(GtkRange *range, GtkScrollType scroll, gdouble value, gpointer user_data)
 on_vscale1_change_value	/home/leha/tangogis/src/callbacks.h	/^on_vscale1_change_value                (GtkRange        *range,$/;"	p	signature:(GtkRange *range, GtkScrollType scroll, gdouble value, gpointer user_data)
+on_vscale1_change_value	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_change_value                (GtkRange        *range,$/;"	f
 on_vscale1_value_changed	/home/leha/tangogis/src/callbacks.c	/^on_vscale1_value_changed               (GtkRange        *range,$/;"	f	signature:(GtkRange *range, gpointer user_data)
 on_vscale1_value_changed	/home/leha/tangogis/src/callbacks.h	/^on_vscale1_value_changed               (GtkRange        *range,$/;"	p	signature:(GtkRange *range, gpointer user_data)
+on_vscale1_value_changed	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_vscale1_value_changed               (GtkRange        *range,$/;"	f
 on_window12_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_window12_delete_event               (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_window12_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_window12_delete_event               (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_window12_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window12_delete_event               (GtkWidget       *widget,$/;"	f
 on_window1_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_window1_delete_event                (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_window1_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_window1_delete_event                (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_window1_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window1_delete_event                (GtkWidget       *widget,$/;"	f
 on_window1_destroy_event	/home/leha/tangogis/src/callbacks.c	/^on_window1_destroy_event               (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_window1_destroy_event	/home/leha/tangogis/src/callbacks.h	/^on_window1_destroy_event               (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_window1_destroy_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window1_destroy_event               (GtkWidget       *widget,$/;"	f
 on_window2_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_window2_delete_event                (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_window2_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_window2_delete_event                (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_window2_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window2_delete_event                (GtkWidget       *widget,$/;"	f
 on_window3_delete_event	/home/leha/tangogis/src/callbacks.c	/^on_window3_delete_event                (GtkWidget       *widget,$/;"	f	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 on_window3_delete_event	/home/leha/tangogis/src/callbacks.h	/^on_window3_delete_event                (GtkWidget       *widget,$/;"	p	signature:(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+on_window3_delete_event	/home/leha/tangogps/tangogis/src/callbacks.c	/^on_window3_delete_event                (GtkWidget       *widget,$/;"	f
 one_display_cache	/usr/include/gtk-2.0/gtk/gtktextlayout.h	/^  GtkTextLineDisplay *one_display_cache;$/;"	m	struct:_GtkTextLayout	access:public
 one_style_cache	/usr/include/gtk-2.0/gtk/gtktextlayout.h	/^  GtkTextAttributes *one_style_cache;$/;"	m	struct:_GtkTextLayout	access:public
 open_readwrite	/usr/include/glib-2.0/gio/gfile.h	/^  GFileIOStream *     (* open_readwrite)              (GFile                *file,$/;"	m	struct:_GFileIface	access:public
@@ -26104,6 +26360,7 @@ pdummy	/usr/include/glib-2.0/gobject/gobject.h	/^  gpointer	pdummy[6];$/;"	m	str
 pg_bg_color	/usr/include/gtk-2.0/gtk/gtktextlayout.h	/^  GdkColor *pg_bg_color;$/;"	m	struct:_GtkTextLineDisplay	access:public
 pg_bg_color	/usr/include/gtk-2.0/gtk/gtktexttag.h	/^  GdkColor *pg_bg_color;$/;"	m	struct:_GtkTextAttributes	access:public
 photo_list	/home/leha/tangogis/src/globals.c	/^GSList		*photo_list = NULL;$/;"	v
+photo_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*photo_list = NULL;$/;"	v
 photo_t	/home/leha/tangogis/src/globals.h	/^} photo_t;$/;"	t	typeref:struct:__anon8
 pixbuf	/usr/include/gtk-2.0/gtk/gtkimage.h	/^    GtkImagePixbufData pixbuf;$/;"	m	union:_GtkImage::__anon165	access:public
 pixbuf	/usr/include/gtk-2.0/gtk/gtkimage.h	/^  GdkPixbuf *pixbuf;$/;"	m	struct:_GtkImageGIconData	access:public
@@ -26111,6 +26368,7 @@ pixbuf	/usr/include/gtk-2.0/gtk/gtkimage.h	/^  GdkPixbuf *pixbuf;$/;"	m	struct:_
 pixbuf	/usr/include/gtk-2.0/gtk/gtkimage.h	/^  GdkPixbuf *pixbuf;$/;"	m	struct:_GtkImagePixbufData	access:public
 pixbuf_is_null	/home/leha/tangogis/src/globals.c	/^gboolean	pixbuf_is_null = FALSE;\/\/нету такого тайла в хеше$/;"	v
 pixbuf_is_null	/home/leha/tangogis/src/globals.h	/^gboolean        pixbuf_is_null;\/\/нету такого тайла в хеше$/;"	v
+pixbuf_is_null	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	pixbuf_is_null = FALSE;\/\/нету такого тайла в хеше$/;"	v
 pixdata_type	/usr/include/gtk-2.0/gdk-pixbuf/gdk-pixdata.h	/^  guint32 pixdata_type; \/* GdkPixdataType *\/$/;"	m	struct:_GdkPixdata	access:public
 pixel	/usr/include/gtk-2.0/gdk/gdkcolor.h	/^  guint32 pixel;$/;"	m	struct:_GdkColor	access:public
 pixel2lat	/home/leha/tangogis/src/converter.c	/^pixel2lat(	float zoom,$/;"	f	signature:( float zoom, int pixel_y)
@@ -26123,6 +26381,7 @@ pixels_below_lines	/usr/include/gtk-2.0/gtk/gtktexttag.h	/^  gint pixels_below_l
 pixels_inside_wrap	/usr/include/gtk-2.0/gtk/gtktexttag.h	/^  gint pixels_inside_wrap;$/;"	m	struct:_GtkTextAttributes	access:public
 pixels_per_unit	/usr/include/gtk-2.0/gtk/gtkruler.h	/^  gdouble pixels_per_unit;$/;"	m	struct:_GtkRulerMetric	access:public
 pixmap	/home/leha/tangogis/src/globals.c	/^GdkPixmap *pixmap = NULL;$/;"	v
+pixmap	/home/leha/tangogps/tangogis/src/globals.c	/^GdkPixmap *pixmap = NULL;$/;"	v
 pixmap	/usr/include/gtk-2.0/gtk/gtkclist.h	/^      GdkPixmap *pixmap;$/;"	m	struct:_GtkCell::__anon88::__anon89	access:public
 pixmap	/usr/include/gtk-2.0/gtk/gtkclist.h	/^      GdkPixmap *pixmap;$/;"	m	struct:_GtkCell::__anon88::__anon90	access:public
 pixmap	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  GdkPixmap *pixmap;$/;"	m	struct:_GtkCellPixText	access:public
@@ -26135,7 +26394,9 @@ pixmap_closed	/usr/include/gtk-2.0/gtk/gtkctree.h	/^  GdkPixmap *pixmap_closed;$
 pixmap_insensitive	/usr/include/gtk-2.0/gtk/gtkpixmap.h	/^  GdkPixmap *pixmap_insensitive;$/;"	m	struct:_GtkPixmap	access:public
 pixmap_opened	/usr/include/gtk-2.0/gtk/gtkctree.h	/^  GdkPixmap *pixmap_opened;$/;"	m	struct:_GtkCTreeRow	access:public
 pixmap_photo	/home/leha/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo = NULL;$/;"	v	file:
+pixmap_photo	/home/leha/tangogps/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo = NULL;$/;"	v	file:
 pixmap_photo_big	/home/leha/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo_big = NULL;$/;"	v	file:
+pixmap_photo_big	/home/leha/tangogps/tangogis/src/callbacks.c	/^static	GdkPixmap *pixmap_photo_big = NULL;$/;"	v	file:
 pixmaps	/usr/include/gtk-2.0/gtk/gtktreeitem.h	/^  GList *pixmaps;		\/* pixmap node for this items color depth *\/$/;"	m	struct:_GtkTreeItem	access:public
 pixmaps_box	/usr/include/gtk-2.0/gtk/gtktreeitem.h	/^  GtkWidget *pixmaps_box;$/;"	m	struct:_GtkTreeItem	access:public
 pixmaps_directories	/home/leha/tangogis/src/support.c	/^static GList *pixmaps_directories = NULL;$/;"	v	file:
@@ -26144,6 +26405,7 @@ plug_removed	/usr/include/gtk-2.0/gtk/gtksocket.h	/^  gboolean (*plug_removed) (
 plus_pix_widget	/usr/include/gtk-2.0/gtk/gtktreeitem.h	/^  GtkWidget *plus_pix_widget, *minus_pix_widget;$/;"	m	struct:_GtkTreeItem	access:public
 pm	/usr/include/gtk-2.0/gtk/gtkclist.h	/^    } pm;$/;"	m	union:_GtkCell::__anon88	typeref:struct:_GtkCell::__anon88::__anon89	access:public
 poi_list	/home/leha/tangogis/src/globals.c	/^GSList		*poi_list = NULL;$/;"	v
+poi_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*poi_list = NULL;$/;"	v
 poi_t	/home/leha/tangogis/src/globals.h	/^} poi_t;$/;"	t	typeref:struct:__anon9
 point	/usr/include/gtk-2.0/gtk/gtkcurve.h	/^  GdkPoint *point;$/;"	m	struct:_GtkCurve	access:public
 point	/usr/include/gtk-2.0/gtk/gtktext.h	/^  GtkPropertyMark point;$/;"	m	struct:_GtkText	access:public
@@ -26195,6 +26457,7 @@ preview	/usr/include/gtk-2.0/gtk/gtkprintoperation.h	/^  gboolean (*preview)	   
 price_range	/home/leha/tangogis/src/globals.h	/^	int price_range;$/;"	m	struct:__anon9	access:public
 print_track	/home/leha/tangogis/src/callbacks.c	/^print_track()$/;"	f
 print_track	/home/leha/tangogis/src/callbacks.h	/^print_track();$/;"	p	signature:()
+print_track	/home/leha/tangogps/tangogis/src/callbacks.c	/^print_track()$/;"	f
 priority	/usr/include/glib-2.0/glib/gmain.h	/^  gint priority;$/;"	m	struct:_GSource	access:public
 priority	/usr/include/glib-2.0/glib/gthread.h	/^  GThreadPriority priority;$/;"	m	struct:_GThread	access:public
 priority	/usr/include/gtk-2.0/gtk/gtkbindings.h	/^  gint			 priority;$/;"	m	struct:_GtkBindingSet	access:public
@@ -26252,6 +26515,7 @@ private_font_desc	/usr/include/gtk-2.0/gtk/gtkstyle.h	/^  PangoFontDescription *
 private_get	/usr/include/glib-2.0/glib/gthread.h	/^  gpointer  (*private_get)        (GPrivate             *private_key);$/;"	m	struct:_GThreadFunctions	access:public
 private_new	/usr/include/glib-2.0/glib/gthread.h	/^  GPrivate* (*private_new)        (GDestroyNotify        destructor);$/;"	m	struct:_GThreadFunctions	access:public
 private_set	/usr/include/glib-2.0/glib/gthread.h	/^  void      (*private_set)        (GPrivate             *private_key,$/;"	m	struct:_GThreadFunctions	access:public
+progress	/home/leha/tangogps/tangogis/src/map_management.h	/^	int progress;$/;"	m	struct:__anon1
 progress	/usr/include/gtk-2.0/gtk/gtkprogressbar.h	/^  GtkProgress progress;$/;"	m	struct:_GtkProgressBar	access:public
 properties	/usr/include/glib-2.0/gio/gdbusintrospection.h	/^  GDBusPropertyInfo   **properties;$/;"	m	struct:_GDBusInterfaceInfo	access:public
 property	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  GdkAtom property;$/;"	m	struct:_GdkEventSelection	access:public
@@ -26371,6 +26635,7 @@ reorder	/usr/include/gtk-2.0/gtk/gtkcelllayout.h	/^  void (* reorder)           
 reorder_tab	/usr/include/gtk-2.0/gtk/gtknotebook.h	/^  gboolean (* reorder_tab)     (GtkNotebook       *notebook,$/;"	m	struct:_GtkNotebookClass	access:public
 repaint_all	/home/leha/tangogis/src/callbacks.c	/^repaint_all()$/;"	f
 repaint_all	/home/leha/tangogis/src/callbacks.h	/^repaint_all();$/;"	p	signature:()
+repaint_all	/home/leha/tangogps/tangogis/src/callbacks.c	/^repaint_all()$/;"	f
 replace	/usr/include/glib-2.0/gio/gfile.h	/^  GFileOutputStream * (* replace)                     (GFile                *file,$/;"	m	struct:_GFileIface	access:public
 replace_async	/usr/include/glib-2.0/gio/gfile.h	/^  void                (* replace_async)               (GFile                *file,$/;"	m	struct:_GFileIface	access:public
 replace_finish	/usr/include/glib-2.0/gio/gfile.h	/^  GFileOutputStream * (* replace_finish)              (GFile                *file,$/;"	m	struct:_GFileIface	access:public
@@ -26380,6 +26645,7 @@ replace_readwrite_finish	/usr/include/glib-2.0/gio/gfile.h	/^  GFileIOStream *  
 reply	/usr/include/glib-2.0/gio/gmountoperation.h	/^  void (* reply)        (GMountOperation       *op,$/;"	m	struct:_GMountOperationClass	access:public
 repo	/home/leha/tangogis/src/map_management.h	/^	repo_t* repo;$/;"	m	struct:__anon13	access:public
 repo	/home/leha/tangogis/src/tile_management.h	/^	repo_t *repo;$/;"	m	struct:__anon16	access:public
+repo	/home/leha/tangogps/tangogis/src/map_management.h	/^	repo_t* repo;$/;"	m	struct:__anon1
 repo_t	/home/leha/tangogis/src/globals.h	/^} repo_t;$/;"	t	typeref:struct:__anon6
 repoconfig__create_dropdown	/home/leha/tangogis/src/init.c	/^repoconfig__create_dropdown()$/;"	f
 repoconfig__populate_dialog	/home/leha/tangogis/src/init.c	/^repoconfig__populate_dialog()$/;"	f
@@ -26600,6 +26866,7 @@ set_label_nogps	/home/leha/tangogis/src/gps_functions.c	/^set_label_nogps()$/;"	
 set_label_nogps	/home/leha/tangogis/src/gps_functions.h	/^set_label_nogps();$/;"	p	signature:()
 set_mapcenter	/home/leha/tangogis/src/map_management.c	/^set_mapcenter(	float lat,$/;"	f	signature:( float lat, float lon, int zoom)
 set_mapcenter	/home/leha/tangogis/src/map_management.h	/^set_mapcenter(	float lat,$/;"	p	signature:( float lat, float lon, int zoom)
+set_mapcenter	/home/leha/tangogps/tangogis/src/map_management.c	/^set_mapcenter(	float lat,$/;"	f
 set_name	/usr/include/gtk-2.0/gtk/gtkbindings.h	/^  gchar			*set_name;$/;"	m	struct:_GtkBindingSet	access:public
 set_name	/usr/include/gtk-2.0/gtk/gtkbuildable.h	/^  void          (* set_name)               (GtkBuildable  *buildable,$/;"	m	struct:_GtkBuildableIface	access:public
 set_next	/usr/include/gtk-2.0/gtk/gtkbindings.h	/^  GtkBindingEntry	*set_next;$/;"	m	struct:_GtkBindingEntry	access:public
@@ -26653,6 +26920,7 @@ show_window6	/home/leha/tangogis/src/poi.c	/^show_window6()$/;"	f
 show_window6	/home/leha/tangogis/src/poi.h	/^show_window6();$/;"	p	signature:()
 showed_tiles	/home/leha/tangogis/src/globals.c	/^GSList *showed_tiles = NULL;$/;"	v
 showed_tiles	/home/leha/tangogis/src/globals.h	/^GSList *showed_tiles;$/;"	v
+showed_tiles	/home/leha/tangogps/tangogis/src/globals.c	/^GSList *showed_tiles = NULL;$/;"	v
 showed_tiles_index	/home/leha/tangogis/src/globals.h	/^int showed_tiles_index;$/;"	v
 shrink	/usr/include/gtk-2.0/gtk/gtktable.h	/^  guint shrink : 1;$/;"	m	struct:_GtkTableRowCol	access:public
 sibling	/usr/include/gtk-2.0/gtk/gtkctree.h	/^  GtkCTreeNode *sibling;$/;"	m	struct:_GtkCTreeRow	access:public
@@ -26798,6 +27066,7 @@ tag_changed	/usr/include/gtk-2.0/gtk/gtktexttagtable.h	/^  void (* tag_changed) 
 tag_removed	/usr/include/gtk-2.0/gtk/gtktexttagtable.h	/^  void (* tag_removed) (GtkTextTagTable *table, GtkTextTag *tag);$/;"	m	struct:_GtkTextTagTableClass	access:public
 tail	/usr/include/glib-2.0/glib/gqueue.h	/^  GList *tail;$/;"	m	struct:_GQueue	access:public
 tangogis_dir	/home/leha/tangogis/src/globals.c	/^gchar		*tangogis_dir = NULL;$/;"	v
+tangogis_dir	/home/leha/tangogps/tangogis/src/globals.c	/^gchar		*tangogis_dir = NULL;$/;"	v
 target	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  GdkAtom target;$/;"	m	struct:_GdkEventSelection	access:public
 target	/usr/include/gtk-2.0/gtk/gtkselection.h	/^  GdkAtom   target;$/;"	m	struct:_GtkTargetPair	access:public
 target	/usr/include/gtk-2.0/gtk/gtkselection.h	/^  gchar *target;$/;"	m	struct:_GtkTargetEntry	access:public
@@ -26839,6 +27108,7 @@ theme_change_id	/usr/include/gtk-2.0/gtk/gtkimage.h	/^  guint theme_change_id;$/
 thread_create	/usr/include/glib-2.0/glib/gthread.h	/^  void      (*thread_create)      (GThreadFunc           func,$/;"	m	struct:_GThreadFunctions	access:public
 thread_equal	/usr/include/glib-2.0/glib/gthread.h	/^  gboolean  (*thread_equal)       (gpointer              thread1,$/;"	m	struct:_GThreadFunctions	access:public
 thread_exit	/usr/include/glib-2.0/glib/gthread.h	/^  void      (*thread_exit)        (void);$/;"	m	struct:_GThreadFunctions	access:public
+thread_id	/home/leha/tangogps/tangogis/src/map_management.h	/^	int thread_id;$/;"	m	struct:__anon1
 thread_join	/usr/include/glib-2.0/glib/gthread.h	/^  void      (*thread_join)        (gpointer              thread);$/;"	m	struct:_GThreadFunctions	access:public
 thread_self	/usr/include/glib-2.0/glib/gthread.h	/^  void      (*thread_self)        (gpointer              thread);$/;"	m	struct:_GThreadFunctions	access:public
 thread_set_priority	/usr/include/glib-2.0/glib/gthread.h	/^  void      (*thread_set_priority)(gpointer              thread,$/;"	m	struct:_GThreadFunctions	access:public
@@ -26918,6 +27188,7 @@ track_log_close	/home/leha/tangogis/src/init.h	/^track_log_close();$/;"	p	signat
 track_log_open	/home/leha/tangogis/src/init.c	/^track_log_open()$/;"	f
 track_log_open	/home/leha/tangogis/src/init.h	/^track_log_open();$/;"	p	signature:()
 trackpoint_list	/home/leha/tangogis/src/globals.c	/^GSList		*trackpoint_list = NULL; \/\/current track latlon information$/;"	v
+trackpoint_list	/home/leha/tangogps/tangogis/src/globals.c	/^GSList		*trackpoint_list = NULL; \/\/current track latlon information$/;"	v
 trackpoint_t	/home/leha/tangogis/src/globals.h	/^} trackpoint_t;$/;"	t	typeref:struct:__anon4
 tracks_on_file_button_release_event	/home/leha/tangogis/src/tracks.h	/^tracks_on_file_button_release_event      (	GtkWidget       *widget,$/;"	p	signature:( GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 tracks_open_tracks_dialog	/home/leha/tangogis/src/tracks.c	/^tracks_open_tracks_dialog()$/;"	f
@@ -26926,6 +27197,7 @@ tracks_read	/home/leha/tangogis/src/tracks.c	/^track_data* tracks_read (char* fi
 tracks_read	/home/leha/tangogis/src/tracks.h	/^track_data* tracks_read (char* file,track_data* data);$/;"	p	signature:(char* file,track_data* data)
 traffic_old_factor	/home/leha/tangogis/src/globals.c	/^int traffic_old_factor=0;$/;"	v
 traffic_old_factor	/home/leha/tangogis/src/globals.h	/^int traffic_old_factor;$/;"	v
+traffic_old_factor	/home/leha/tangogps/tangogis/src/globals.c	/^int traffic_old_factor=0;$/;"	v
 traffic_time	/home/leha/tangogis/src/globals.h	/^time_t		traffic_time;\/\/время создания пробоК$/;"	v
 translate_data	/usr/include/gtk-2.0/gtk/gtkitemfactory.h	/^  gpointer               translate_data;$/;"	m	struct:_GtkItemFactory	access:public
 translate_func	/usr/include/gtk-2.0/gtk/gtkitemfactory.h	/^  GtkTranslateFunc       translate_func;$/;"	m	struct:_GtkItemFactory	access:public
@@ -26943,17 +27215,26 @@ tree_spacing	/usr/include/gtk-2.0/gtk/gtkctree.h	/^  gint tree_spacing;$/;"	m	st
 tree_unselect_row	/usr/include/gtk-2.0/gtk/gtkctree.h	/^  void (*tree_unselect_row) (GtkCTree     *ctree,$/;"	m	struct:_GtkCTreeClass	access:public
 trf_is_failed	/home/leha/tangogis/src/globals.c	/^gboolean	trf_is_failed = FALSE;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
 trf_is_failed	/home/leha/tangogis/src/globals.h	/^gboolean        trf_is_failed;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
+trf_is_failed	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trf_is_failed = FALSE;\/\/ошибка загрузки пробки по причине отсутствия$/;"	v
 trf_next	/home/leha/tangogis/src/globals.c	/^gboolean trf_next=FALSE;\/\/флаг запроса на загрузку свежих пробок$/;"	v
 trf_next	/home/leha/tangogis/src/globals.h	/^gboolean trf_next;\/\/флаг запроса на загрузку свежих пробок$/;"	v
+trf_next	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean trf_next=FALSE;\/\/флаг запроса на загрузку свежих пробок$/;"	v
 trf_old	/home/leha/tangogis/src/globals.c	/^gboolean trf_old=FALSE;\/\/флаг запроса изменения показателя старости$/;"	v
 trf_old	/home/leha/tangogis/src/globals.h	/^gboolean trf_old;\/\/флаг запроса изменения показателя старости$/;"	v
+trf_old	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean trf_old=FALSE;\/\/флаг запроса изменения показателя старости$/;"	v
 trim_spaces	/home/leha/tangogis/src/exif.c	/^static void trim_spaces(char *buf)$/;"	f	file:	signature:(char *buf)
 trip_counter_on	/home/leha/tangogis/src/globals.c	/^gboolean	trip_counter_on = TRUE;$/;"	v
+trip_counter_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trip_counter_on = TRUE;$/;"	v
 trip_distance	/home/leha/tangogis/src/globals.c	/^float		trip_distance = 0;$/;"	v
+trip_distance	/home/leha/tangogps/tangogis/src/globals.c	/^float		trip_distance = 0;$/;"	v
 trip_logger_on	/home/leha/tangogis/src/globals.c	/^gboolean	trip_logger_on = FALSE;$/;"	v
+trip_logger_on	/home/leha/tangogps/tangogis/src/globals.c	/^gboolean	trip_logger_on = FALSE;$/;"	v
 trip_maxspeed	/home/leha/tangogis/src/globals.c	/^double		trip_maxspeed = 0;$/;"	v
+trip_maxspeed	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_maxspeed = 0;$/;"	v
 trip_starttime	/home/leha/tangogis/src/globals.c	/^double		trip_starttime = 0;$/;"	v
+trip_starttime	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_starttime = 0;$/;"	v
 trip_time	/home/leha/tangogis/src/globals.c	/^double		trip_time = 0;$/;"	v
+trip_time	/home/leha/tangogps/tangogis/src/globals.c	/^double		trip_time = 0;$/;"	v
 truncate_fn	/usr/include/glib-2.0/gio/gfileiostream.h	/^  gboolean    (* truncate_fn)       (GFileIOStream    *stream,$/;"	m	struct:_GFileIOStreamClass	access:public
 truncate_fn	/usr/include/glib-2.0/gio/gfileoutputstream.h	/^  gboolean    (* truncate_fn)       (GFileOutputStream    *stream,$/;"	m	struct:_GFileOutputStreamClass	access:public
 truncate_fn	/usr/include/glib-2.0/gio/gseekable.h	/^  gboolean    (* truncate_fn)    (GSeekable    *seekable,$/;"	m	struct:_GSeekableIface	access:public
@@ -27160,6 +27441,7 @@ vertical	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint16 vertical;$/;"	m	struct:_
 view_line	/usr/include/gtk-2.0/gtk/gtktree.h	/^  guint view_line : 1;$/;"	m	struct:_GtkTree	access:public
 view_mode	/usr/include/gtk-2.0/gtk/gtktree.h	/^  guint view_mode : 1;$/;"	m	struct:_GtkTree	access:public
 view_tile	/home/leha/tangogis/src/map_management.c	/^view_tile(data_of_thread \/*tile_threads* data*\/ *local)$/;"	f	signature:(data_of_thread *local)
+view_tile	/home/leha/tangogps/tangogis/src/map_management.c	/^view_tile(data_of_thread  *local)$/;"	f
 visibility	/home/leha/tangogis/src/globals.h	/^	int visibility;$/;"	m	struct:__anon9	access:public
 visibility	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  GdkEventVisibility	    visibility;$/;"	m	union:_GdkEvent	access:public
 visibility_notify_event	/usr/include/gtk-2.0/gtk/gtkwidget.h	/^  gboolean (* visibility_notify_event)	(GtkWidget	     *widget,$/;"	m	struct:_GtkWidgetClass	access:public
@@ -27250,8 +27532,11 @@ window	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  GdkWindow *window;$/;"	m	struct:_
 window	/usr/include/gtk-2.0/gtk/gtkdialog.h	/^  GtkWindow window;$/;"	m	struct:_GtkDialog	access:public
 window	/usr/include/gtk-2.0/gtk/gtkplug.h	/^  GtkWindow window;$/;"	m	struct:_GtkPlug	access:public
 window1	/home/leha/tangogis/src/globals.c	/^GtkWidget *window1 = NULL;$/;"	v
+window1	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window1 = NULL;$/;"	v
 window2	/home/leha/tangogis/src/globals.c	/^GtkWidget *window2 = NULL;$/;"	v
+window2	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window2 = NULL;$/;"	v
 window3	/home/leha/tangogis/src/globals.c	/^GtkWidget *window3 = NULL;$/;"	v
+window3	/home/leha/tangogps/tangogis/src/globals.c	/^GtkWidget *window3 = NULL;$/;"	v
 window_at_pointer	/usr/include/gtk-2.0/gdk/gdkdisplay.h	/^  GdkWindow* (*window_at_pointer)  (GdkDisplay      *display,$/;"	m	struct:_GdkDisplayPointerHooks	access:public
 window_at_pointer	/usr/include/gtk-2.0/gdk/gdkwindow.h	/^  GdkWindow* (*window_at_pointer) (GdkScreen       *screen, \/* unused *\/$/;"	m	struct:_GdkPointerHooks	access:public
 window_get_pointer	/usr/include/gtk-2.0/gdk/gdkdisplay.h	/^  GdkWindow* (*window_get_pointer) (GdkDisplay      *display,$/;"	m	struct:_GdkDisplayPointerHooks	access:public
@@ -27282,8 +27567,10 @@ write_finish	/usr/include/glib-2.0/gio/goutputstream.h	/^  gssize      (* write_
 write_fn	/usr/include/glib-2.0/gio/goutputstream.h	/^  gssize      (* write_fn)      (GOutputStream            *stream,$/;"	m	struct:_GOutputStreamClass	access:public
 write_tree	/usr/include/glib-2.0/gio/gsettingsbackend.h	/^  gboolean      (*write_tree)       (GSettingsBackend    *backend,$/;"	m	struct:_GSettingsBackendClass	access:public
 wtfcounter	/home/leha/tangogis/src/callbacks.c	/^static int wtfcounter=0; $/;"	v	file:
+wtfcounter	/home/leha/tangogps/tangogis/src/callbacks.c	/^static int wtfcounter=0; $/;"	v	file:
 x	/home/leha/tangogis/src/map_management.h	/^	int x;$/;"	m	struct:__anon13	access:public
 x	/home/leha/tangogis/src/tile_management.h	/^	int x;$/;"	m	struct:__anon16	access:public
+x	/home/leha/tangogps/tangogis/src/map_management.h	/^	int x;$/;"	m	struct:__anon1
 x	/usr/include/glib-2.0/glib/gvariant.h	/^  gsize x[16];$/;"	m	struct:_GVariantBuilder	access:public
 x	/usr/include/glib-2.0/glib/gvariant.h	/^  gsize x[16];$/;"	m	struct:_GVariantIter	access:public
 x	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble x;$/;"	m	struct:_GdkEventButton	access:public
@@ -27310,6 +27597,7 @@ x22	/usr/include/gtk-2.0/gdk/gdkdrawable.h	/^  double y1, x11, x21, y2, x12, x22
 x_align	/usr/include/gtk-2.0/gtk/gtkprogress.h	/^  gfloat         x_align;$/;"	m	struct:_GtkProgress	access:public
 x_drag	/usr/include/gtk-2.0/gtk/gtkclist.h	/^  gint x_drag;$/;"	m	struct:_GtkCList	access:public
 x_glob	/home/leha/tangogis/src/map_management.h	/^	int x_glob;$/;"	m	struct:__anon13	access:public
+x_glob	/home/leha/tangogps/tangogis/src/map_management.h	/^	int x_glob;$/;"	m	struct:__anon1
 x_offset	/usr/include/gtk-2.0/gtk/gtktextlayout.h	/^  gint x_offset;$/;"	m	struct:_GtkTextLineDisplay	access:public
 x_root	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble x_root, y_root;$/;"	m	struct:_GdkEventButton	access:public
 x_root	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble x_root, y_root;$/;"	m	struct:_GdkEventMotion	access:public
@@ -27348,6 +27636,7 @@ xthickness	/usr/include/gtk-2.0/gtk/gtkrc.h	/^  gint xthickness;$/;"	m	struct:_G
 xthickness	/usr/include/gtk-2.0/gtk/gtkstyle.h	/^  gint xthickness;$/;"	m	struct:_GtkStyle	access:public
 y	/home/leha/tangogis/src/map_management.h	/^	int y;$/;"	m	struct:__anon13	access:public
 y	/home/leha/tangogis/src/tile_management.h	/^	int y;$/;"	m	struct:__anon16	access:public
+y	/home/leha/tangogps/tangogis/src/map_management.h	/^	int y;$/;"	m	struct:__anon1
 y	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble y;$/;"	m	struct:_GdkEventButton	access:public
 y	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble y;$/;"	m	struct:_GdkEventCrossing	access:public
 y	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble y;$/;"	m	struct:_GdkEventMotion	access:public
@@ -27369,6 +27658,7 @@ y2	/usr/include/gtk-2.0/gdk/gdkdrawable.h	/^  double y1, x11, x21, y2, x12, x22;
 y2	/usr/include/gtk-2.0/gdk/gdktypes.h	/^  gint y2;$/;"	m	struct:_GdkSegment	access:public
 y_align	/usr/include/gtk-2.0/gtk/gtkprogress.h	/^  gfloat         y_align;$/;"	m	struct:_GtkProgress	access:public
 y_glob	/home/leha/tangogis/src/map_management.h	/^	int y_glob;$/;"	m	struct:__anon13	access:public
+y_glob	/home/leha/tangogps/tangogis/src/map_management.h	/^	int y_glob;$/;"	m	struct:__anon1
 y_root	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble x_root, y_root;$/;"	m	struct:_GdkEventButton	access:public
 y_root	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble x_root, y_root;$/;"	m	struct:_GdkEventMotion	access:public
 y_root	/usr/include/gtk-2.0/gdk/gdkevents.h	/^  gdouble x_root, y_root;$/;"	m	struct:_GdkEventScroll	access:public
@@ -27384,3 +27674,4 @@ ythickness	/usr/include/gtk-2.0/gtk/gtkrc.h	/^  gint ythickness;$/;"	m	struct:_G
 ythickness	/usr/include/gtk-2.0/gtk/gtkstyle.h	/^  gint ythickness;$/;"	m	struct:_GtkStyle	access:public
 zoom	/home/leha/tangogis/src/map_management.h	/^	int zoom;$/;"	m	struct:__anon13	access:public
 zoom	/home/leha/tangogis/src/tile_management.h	/^	int zoom;$/;"	m	struct:__anon16	access:public
+zoom	/home/leha/tangogps/tangogis/src/map_management.h	/^	int zoom;$/;"	m	struct:__anon1
