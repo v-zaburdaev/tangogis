@@ -287,8 +287,6 @@ dl_thread(void *ptr)
 		if (res==0)
 		{
 			printf("########## curl res=0, tile download ok\n");
-//		map_redraw(NULL);
-//		g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка	
 		}
 		else
 		{	

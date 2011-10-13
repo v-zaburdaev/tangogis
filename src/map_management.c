@@ -424,15 +424,15 @@ fill_tiles_pixel(	int pixel_x,
 			return;
 		threads_data_size_x = tile_count_x;
 		threads_data_size_y = tile_count_y;
-		threads_data = realloc(threads_data, threads_data_size_x*sizeof(int)); 
-		memset(threads_data,0,threads_data_size_x*sizeof(int));
+		threads_data = realloc(threads_data, threads_data_size_x*sizeof(void*)); 
+		memset(threads_data,0,threads_data_size_x*sizeof(void*));
 		for (int i=0;i<threads_data_size_x;i++)
 		{
-			threads_data[i] = realloc(threads_data[i],threads_data_size_y*sizeof(int));
-			memset(threads_data[i],0,threads_data_size_y*sizeof(int));
+			threads_data[i] = realloc(threads_data[i],threads_data_size_y*sizeof(void*));
+			memset(threads_data[i],0,threads_data_size_y*sizeof(void*));
 			for (int j=0;  j<threads_data_size_y; j++)
 			{
-				threads_data[i][j] = realloc(threads_data[i][j],sizeof(data_of_thread));
+				threads_data[ i][j] = realloc(threads_data[i][j],sizeof(data_of_thread));
 				memset(threads_data[i][j],0,sizeof(data_of_thread));
 				threads_data[i][j]->i=i;
 				threads_data[i][j]->j=j;
