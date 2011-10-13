@@ -386,9 +386,7 @@ return LOAD_OK;
 }
 
 void
-fill_tiles_pixel(	int pixel_x,
-			int pixel_y,
-			int zoom)
+fill_tiles_pixel()
 {
 	int tile_count_x, tile_count_y;
 	gboolean success = FALSE;
@@ -422,17 +420,26 @@ fill_tiles_pixel(	int pixel_x,
 	{
 		if (number_threads)
 			return;
+		if (threads_data)
+		{
+			for (int i=0; i<threads_data_size_x;i++)
+			{
+				for (int j=0;j<threads_data_size_y;j++)
+					free(threads_data[i][j]);
+				free(threads_data[i]);
+			}
+			free(threads_data);
+		}
+		threads_data = malloc(threads_data_size_x*sizeof(void*)); 
 		threads_data_size_x = tile_count_x;
 		threads_data_size_y = tile_count_y;
-		threads_data = realloc(threads_data, threads_data_size_x*sizeof(void*)); 
-		memset(threads_data,0,threads_data_size_x*sizeof(void*));
 		for (int i=0;i<threads_data_size_x;i++)
 		{
-			threads_data[i] = realloc(threads_data[i],threads_data_size_y*sizeof(void*));
+			threads_data[i] = malloc(threads_data_size_y*sizeof(void*));
 			memset(threads_data[i],0,threads_data_size_y*sizeof(void*));
 			for (int j=0;  j<threads_data_size_y; j++)
 			{
-				threads_data[ i][j] = realloc(threads_data[i][j],sizeof(data_of_thread));
+				threads_data[i][j] = malloc(sizeof(data_of_thread));
 				memset(threads_data[i][j],0,sizeof(data_of_thread));
 				threads_data[i][j]->i=i;
 				threads_data[i][j]->j=j;
