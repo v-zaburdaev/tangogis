@@ -91,7 +91,6 @@ message(STATUS "Version:      " ${${PROJECT_NAME}_VERSION_})
 
 add_definitions(-DHAVE_CONFIG_H)
 include(CheckIncludeFile)
-check_include_file("config.h" CONF_H)
 set(PACKAGE_LOCALE_DIR 1)
 set(PACKAGE_DATA_DIR 1)
 set(PACKAGE_PIXMAPS_DIR 1)
@@ -119,7 +118,11 @@ set (VERSION 1)
 #set(HAVE_UNISTD_H 1)
 #set(STDC_HEADERS 1)
 configure_file(config.h.in config.h) 
+check_include_file("config.h" CONF_H)
 include_directories(${PROJECT_BINARY_DIR})
 
-install(TARGETS tangogis RUNTIME DESTINATION bin)
-install(FILES ${PROJECT_SOURCE_DIR}/src/interface.glade DESTINATION ${SHARE}${PROJECT_NAME})
+install(targets tangogis runtime destination bin)
+install(files ${project_source_dir}/src/interface.glade destination ${share}${project_name})
+
+#add_custom_target(uninstall rm -rf ${share}${project_name})
+
