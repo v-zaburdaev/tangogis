@@ -121,8 +121,10 @@ configure_file(config.h.in config.h)
 check_include_file("config.h" CONF_H)
 include_directories(${PROJECT_BINARY_DIR})
 
-install(targets tangogis runtime destination bin)
-install(files ${project_source_dir}/src/interface.glade destination ${share}${project_name})
+INSTALL_FILES(/share/tangogis FILES ${project_source_dir}src/interface.glade)
+INSTALL_TARGETS(/bin tangogis)
 
-#add_custom_target(uninstall rm -rf ${share}${project_name})
+
+add_custom_target(uninstall 
+	COMMAND	rm -rf ${CMAKE_INSTALL_PREFIX}/{bin/tangogis,share/tangogis/})
 
