@@ -430,9 +430,9 @@ fill_tiles_pixel()
 			}
 			free(threads_data);
 		}
-		threads_data = malloc(threads_data_size_x*sizeof(void*)); 
 		threads_data_size_x = tile_count_x;
 		threads_data_size_y = tile_count_y;
+		threads_data = malloc(threads_data_size_x*sizeof(void*)); 
 		for (int i=0;i<threads_data_size_x;i++)
 		{
 			threads_data[i] = malloc(threads_data_size_y*sizeof(void*));
