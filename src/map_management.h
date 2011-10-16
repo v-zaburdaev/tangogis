@@ -2,7 +2,7 @@
 typedef struct {
 	int i;
 	int j;
-	int thread_id;
+	void* thread_id;
 	int progress;
 	int x;
 	int y;

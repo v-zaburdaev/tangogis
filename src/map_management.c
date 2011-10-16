@@ -433,11 +433,12 @@ fill_tiles_pixel()
 		threads_data_size_x = tile_count_x;
 		threads_data_size_y = tile_count_y;
 		threads_data = malloc(threads_data_size_x*sizeof(void*)); 
+		memset(threads_data,0,threads_data_size_y*sizeof(void*));
 		for (int i=0;i<threads_data_size_x;i++)
 		{
 			threads_data[i] = malloc(threads_data_size_y*sizeof(void*));
 			memset(threads_data[i],0,threads_data_size_y*sizeof(void*));
-			for (int j=0;  j<threads_data_size_y; j++)
+			for (int j=0;j<threads_data_size_y;j++)
 			{
 				threads_data[i][j] = malloc(sizeof(data_of_thread));
 				memset(threads_data[i][j],0,sizeof(data_of_thread));
