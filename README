@@ -10,8 +10,10 @@ cmake ..
 make
 
 		Install
-/*
-*/
+sudo make install
+
+		Uninstall
+sudo make uninstall
 
 		Local run in build directory
 ./tangogis
