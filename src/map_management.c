@@ -36,6 +36,17 @@ view_tile(data_of_thread  *local)
 	gchar filename[256];
 	printf("local = %d\n",local);
 
+	if (local->thread_id)
+		if (local->zoom==global_zoom || 
+			abs(local->x_glob - global_x)>256 ||
+			abs(local->y_glob - global_y)>256
+			)
+		{
+			g_thread_join(local->thread_id);
+		}
+
+	local->thread_id=g_thread_self();
+			
 	local->progress = 0;
 	local->x_glob=global_x;
 	local->y_glob=global_y;//Чтобы отследить изменилось ли положение карты
@@ -451,8 +462,8 @@ fill_tiles_pixel()
 	{
 		for (int j=0;  j<tile_count_y; j++)
 		{
-			if (!threads_data[i][j]->thread_id)
-				threads_data[i][j]->thread_id = g_thread_create(&view_tile, threads_data[i][j], FALSE, NULL);
+			//if (!threads_data[i][j]->thread_id)
+			g_thread_create(&view_tile, threads_data[i][j], FALSE, NULL);
 		}
 	}
 //------------------double dinamic array--------------------------1

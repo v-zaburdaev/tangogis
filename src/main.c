@@ -125,7 +125,6 @@ main (int argc, char *argv[])
   
   init();
   
-	g_idle_add(repaint_all,NULL);
   gtk_main ();
   
   gdk_threads_leave ();
