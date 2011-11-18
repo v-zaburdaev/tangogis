@@ -18,6 +18,7 @@ GtkWidget *menu1 = NULL;
 
 
 char *global_track_dir = NULL;
+char *global_map_dir = NULL;
 
 int global_x = 890;
 int global_y = 515;

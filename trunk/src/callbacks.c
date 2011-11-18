@@ -1,5 +1,3 @@
-
-
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
 #endif
@@ -915,9 +913,25 @@ on_button7_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	dialog1 = create_dialog1();
-
+//	dialog1 = glade_xml_get_widget(interface,"dialog4");
 	gtk_widget_show(dialog1);
-	printf("*** %s(): \n",__PRETTY_FUNCTION__);
+
+
+//	GtkWidget *dialog;
+//	dialog = gtk_file_chooser_dialog_new ("New map repository...",
+//				      NULL,
+//				      GTK_FILE_CHOOSER_ACTION_OPEN,
+//				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+//				      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+//				      NULL);
+//
+//	gtk_file_chooser_set_current_folder(dialog,global_map_dir);
+//	gtk_file_chooser_set_select_multiple(dialog,TRUE);
+//	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
+//		{
+//		}
+//	gtk_widget_destroy (dialog);
+	
 }
 
 void
@@ -1049,6 +1063,60 @@ on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,
 
 }
 
+void
+on_togglebutton_cam1_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	if (gtk_toggle_button_get_active(togglebutton))
+		if (!fork())
+
+		execlp("mplayer", "tv://",NULL);
+//			system("mplayer tv:// ");
+//		gtk_widget_show(glade_xml_get_widget(interface,"dialog3"));
+//	else
+//		gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+}
+
+void
+on_togglebutton_cam2_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+//	if (gtk_toggle_button_get_active(togglebutton))
+//		gtk_widget_show(glade_xml_get_widget(interface,"dialog3"));
+//	else
+//		gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+}
+
+void
+on_togglebutton_tracks_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	if (gtk_toggle_button_get_active(togglebutton))
+		gtk_widget_show(glade_xml_get_widget(interface,"dialog3"));
+	else
+		gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+}
+
+void
+on_togglebutton_info_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	if (gtk_toggle_button_get_active(togglebutton))
+		gtk_widget_show(glade_xml_get_widget(interface,"dialog2"));
+	else
+		gtk_widget_hide(glade_xml_get_widget(interface,"dialog2"));
+}
+
+void
+on_togglebutton_opt_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+	if (gtk_toggle_button_get_active(togglebutton))
+		gtk_widget_show(glade_xml_get_widget(interface,"dialog1"));
+	else
+		gtk_widget_hide(glade_xml_get_widget(interface,"dialog1"));
+}
+
 //-----------------Traffic auto download & show------------
 void
 on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,
@@ -1118,6 +1186,32 @@ on_combobox_trf_repo_changed        (GtkComboBox     *combobox,
 	repaint_all();
 //	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
 }
+
+void
+on_button_tracks_close_clicked                     (GtkButton       *button,
+                                        gpointer         user_data)
+{
+	gtk_widget_hide(gtk_widget_get_toplevel(button));
+	//gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+	gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_tracks"),FALSE);
+}
+
+void
+on_button_info_close_clicked                     (GtkButton       *button,
+                                        gpointer         user_data)
+{
+	gtk_widget_hide(gtk_widget_get_toplevel(button));
+	gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_info"),FALSE);
+}
+
+void
+on_button_opt_close_clicked                     (GtkButton       *button,
+                                        gpointer         user_data)
+{
+	gtk_widget_hide(gtk_widget_get_toplevel(button));
+	gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_opt"),FALSE);
+}
+
 //-----------------Traffic reponame choise---------------------
 void
 on_button9_clicked                     (GtkButton       *button,
@@ -1223,20 +1317,6 @@ on_button11_clicked                    (GtkButton       *button,
 	global_show_friends = TRUE;
 }
 
-
-void
-on_button12_clicked                    (GtkButton       *button,
-                                        gpointer         user_data)
-{
-	
-	
-	
-	
-	
-	
-	
-	
-}
 
 void
 on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
