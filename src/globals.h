@@ -113,6 +113,7 @@ extern GtkWidget	*window3;
 extern GtkWidget	*menu1;
 //extern char repo_dir[]; //FIXME: delete me
 extern char *global_track_dir;
+extern char *global_map_dir;
 
 extern int global_x;
 extern int global_y;

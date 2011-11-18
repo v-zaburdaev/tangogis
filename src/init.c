@@ -880,6 +880,14 @@ init()
 	widget = glade_xml_get_widget(interface, "vscale1");
 	gtk_range_set_value(GTK_RANGE(widget), (double) global_zoom);
 	
+	global_map_dir	= gconf_client_get_string(global_gconfclient, GCONF"/map_dir",&err);
+	if(!global_map_dir)
+		global_map_dir = g_strdup_printf("%s/Maps/",tangogis_dir);
+	if (g_mkdir_with_parents(global_map_dir,0700)) {
+		perror("mkdir()");
+		printf("MKDIR ERROR: %s\n", global_map_dir);
+	}
+	
 	global_track_dir	= gconf_client_get_string(global_gconfclient, GCONF"/track_dir",&err);
 	if(!global_track_dir)
 		global_track_dir = g_strdup_printf("%s/Tracks/",tangogis_dir);

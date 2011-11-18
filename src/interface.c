@@ -801,12 +801,6 @@ create_dialog1 (void)
   GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
   gtk_tooltips_set_tip (tooltips, okbutton1, _("All fields must be filled in"), NULL);
 
-  g_signal_connect ((gpointer) dialog1, "close",
-                    G_CALLBACK (on_dialog1_close),
-                    NULL);
-  g_signal_connect ((gpointer) dialog1, "response",
-                    G_CALLBACK (on_dialog1_response),
-                    NULL);
   g_signal_connect ((gpointer) entry5, "changed",
                     G_CALLBACK (on_entry5_changed),
                     NULL);
