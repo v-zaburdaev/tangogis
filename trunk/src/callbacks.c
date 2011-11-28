@@ -1064,27 +1064,87 @@ on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,
 }
 
 void
-on_togglebutton_cam1_toggled                (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
+on_togglebutton_cam2_toggled                (GtkToggleButton *togglebutton, gpointer user_data)
 {
+	static int pid = 0;  
 	if (gtk_toggle_button_get_active(togglebutton))
-		if (!fork())
-
-		execlp("mplayer", "tv://",NULL);
-//			system("mplayer tv:// ");
-//		gtk_widget_show(glade_xml_get_widget(interface,"dialog3"));
-//	else
-//		gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+	{
+		printf("\ncam device - %d\n",atoi(gtk_button_get_label(togglebutton))-1);
+		char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
+		pid = fork();
+		if (!pid)
+		{
+			printf("device = %s\n",dev);
+			struct stat *buf; 
+//			if (stat(dev,buf)==-1)
+//			{
+//				printf("stat is = %d\n",stat(dev,buf));
+//				//GtkWidget *dialog=gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,"Device file %s not exist!!",dev);
+//				//gtk_dialog_run (GTK_DIALOG (dialog));
+//				//gtk_widget_destroy (dialog);
+//				//gtk_main_quit();
+////				return;
+//			}
+			char *arg = g_strdup_printf("tv:// -tv device=%s",dev);
+			printf("mplayer args: %s\n",arg);
+			execlp("mplayer", "mplayer", arg,NULL);
+		}
+	}
+	else
+	{
+		if (pid)
+		{
+			if (!kill(pid,0))
+				{
+					kill(pid,9);
+					pid = 0;
+				}
+			else 
+				gtk_toggle_button_set_active(togglebutton,TRUE);
+		}
+	}
 }
 
 void
-on_togglebutton_cam2_toggled                (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
+on_togglebutton_cam1_toggled                (GtkToggleButton *togglebutton, gpointer user_data)
 {
-//	if (gtk_toggle_button_get_active(togglebutton))
-//		gtk_widget_show(glade_xml_get_widget(interface,"dialog3"));
-//	else
-//		gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+	static int pid = 0;  
+	if (gtk_toggle_button_get_active(togglebutton))
+	{
+		printf("\ncam device - %d\n",atoi(gtk_button_get_label(togglebutton))-1);
+		char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
+		pid = fork();
+		if (!pid)
+		{
+			printf("device = %s\n",dev);
+			struct stat *buf; 
+			if (stat(dev,buf)==-1)
+			{
+				printf("stat is = %d\n",stat(dev,buf));
+				//GtkWidget *dialog=gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,"Device file %s not exist!!",dev);
+				//gtk_dialog_run (GTK_DIALOG (dialog));
+				//gtk_widget_destroy (dialog);
+				//gtk_main_quit();
+				return;
+			}
+			char *arg = g_strdup_printf("tv:// -tv device=%s",dev);
+			printf("mplayer args: %s\n",arg);
+			execlp("mplayer", "mplayer", arg,NULL);
+		}
+	}
+	else
+	{
+		if (pid)
+		{
+			if (!kill(pid,0))
+				{
+					kill(pid,9);
+					pid = 0;
+				}
+			else 
+				gtk_toggle_button_set_active(togglebutton,TRUE);
+		}
+	}
 }
 
 void

@@ -1,7 +1,3 @@
-
-
-
-
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
 #endif
@@ -71,8 +67,9 @@ main (int argc, char *argv[])
 
 
 //-----------geometry add-----------------------
-	if (argc>1)
-	{
+	int geometry_flag=0;
+//	if (argc>1)
+//	{
 		int i;
 		for (i=1; i<argc; i++)
 		{
@@ -109,12 +106,17 @@ main (int argc, char *argv[])
 				g_strfreev(temp);
 				g_strfreev(temp1);
 				printf ("width = %d, height = %d, x = %d, y = %d\n",w,h,x,y);
+				geometry_flag = 1;
 				gtk_window_resize(GTK_WINDOW(window1), w, h);
 				gtk_window_move(GTK_WINDOW(window1),x,y);
 			}
 		}
-	//repaint_all();
-	}
+		if (!geometry_flag)
+		{
+			gtk_window_resize(GTK_WINDOW(window1), 320, 480);
+			gtk_window_move(GTK_WINDOW(window1),350,100);
+		}
+//	}
   gtk_widget_show (window1);
 
 //-----------geometry add-----------------------
