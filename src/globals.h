@@ -219,3 +219,4 @@ extern gchar		*tangogis_dir;
 
 extern int		mouse_x;
 extern int		mouse_y;
+

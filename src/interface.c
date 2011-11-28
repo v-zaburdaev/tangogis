@@ -320,7 +320,15 @@ create_window1 (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton21), radiobutton19_group);
   radiobutton19_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton21));
 //
-//
+
+//---------------------Videocam togglebuttons---------------
+//	for (int i=1;i<=4;i++)
+//	{
+//		GtkWidget *cam_button[i] = gtk_button_new_with_label("i");
+//	}
+//---------------------Videocam togglebuttons---------------
+
+
   g_signal_connect ((gpointer) window1, "delete_event",
                     G_CALLBACK (on_window1_delete_event),
                     NULL);
