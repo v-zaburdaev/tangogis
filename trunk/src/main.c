@@ -46,15 +46,15 @@ main (int argc, char *argv[])
 
 	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.glade");
 	interface = glade_xml_new( main_interface_file, NULL, NULL);
+	printf("\ninterface file - %s\n",main_interface_file);
 	if (!interface)
 	{
 		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.glade");
-		printf("interface file - %s\n",main_interface_file);
 		interface = glade_xml_new(main_interface_file, NULL, NULL);
 	}
 	if (interface)
 	{
-		free(main_interface_file);
+		g_free(main_interface_file);
 		pre_init();
 		window1 = create_window1 ();
 		glade_xml_signal_autoconnect(interface);
