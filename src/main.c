@@ -44,17 +44,17 @@ main (int argc, char *argv[])
   global_port	= g_strdup("2947");
 
 
-	interface = glade_xml_new(INTERFACE_INSTALL_PATH, NULL, NULL);
-	printf ("INTERFACE_NONINSTALL_PATH - %s\n",INTERFACE_NONINSTALL_PATH);
+	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.glade");
+	interface = glade_xml_new( main_interface_file, NULL, NULL);
 	if (!interface)
 	{
-		//gchar* interface_file_name = g_strdup_printf("%s%s",g_path_get_dirname(argv[0]),"/interface.glade");
-		interface = glade_xml_new(INTERFACE_NONINSTALL_PATH, NULL, NULL);
-	printf ("INTERFACE_INSTALL_PATH - %s\n",INTERFACE_INSTALL_PATH);
-		//g_free(interface_file_name);
+		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.glade");
+		printf("interface file - %s\n",main_interface_file);
+		interface = glade_xml_new(main_interface_file, NULL, NULL);
 	}
 	if (interface)
 	{
+		free(main_interface_file);
 		pre_init();
 		window1 = create_window1 ();
 		glade_xml_signal_autoconnect(interface);

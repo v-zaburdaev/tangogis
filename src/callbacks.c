@@ -827,8 +827,7 @@ void
 on_dialog1_close                       (GtkDialog       *dialog,
                                         gpointer         user_data)
 {
-	printf("*** %s(): \n",__PRETTY_FUNCTION__);
-
+	gtk_widget_hide(glade_xml_get_widget(interface,"dialog1"));
 }
 
 
