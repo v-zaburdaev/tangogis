@@ -103,6 +103,6 @@
 //#undef VERSION
 #cmakedefine VERSION PACKAGE_STRING
 
-#cmakedefine INTERFACE_NONINSTALL_PATH "${PROJECT_SOURCE_DIR}/src/interface.glade"
-#cmakedefine INTERFACE_INSTALL_PATH "${SHARE}${PROJECT_NAME}/interface.glade"
+#cmakedefine INTERFACE_NONINSTALL_INTERFACE_PATH "${PROJECT_SOURCE_DIR}/src/interface/"
+#cmakedefine INTERFACE_INSTALL_INTERFACE_PATH "${SHARE}${PROJECT_NAME}/interface/"
 
