@@ -2,11 +2,15 @@
 <glade-interface>
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy project-wide -->
-  <widget class="GtkDialog" id="dialog1">
+  <widget class="GtkDialog" id="dialog101">
+    <property name="events"></property>
     <property name="border_width">5</property>
     <property name="type_hint">normal</property>
     <property name="deletable">False</property>
     <property name="has_separator">False</property>
+    <signal name="destroy" handler="on_dialog101_destroy"/>
+    <signal name="destroy_event" handler="on_dialog101_destroy_event"/>
+    <signal name="close" handler="on_dialog101_close"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox1">
         <property name="visible">True</property>
@@ -1074,7 +1078,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="update_policy">discontinuous</property>
-                <property name="adjustment">17 2 17 0 1 1</property>
+                <property name="adjustment">17 2 16 0 1 1</property>
                 <property name="inverted">True</property>
                 <property name="lower_stepper_sensitivity">on</property>
                 <property name="upper_stepper_sensitivity">on</property>

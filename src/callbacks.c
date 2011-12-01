@@ -1167,13 +1167,26 @@ on_togglebutton_info_toggled                (GtkToggleButton *togglebutton,
 }
 
 void
+on_dialog101_destroy(GtkDialog *dialog)
+{
+	printf("\n\n\n DIALOG 101 destroy\n\n\n");
+	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
+}
+
+void
+on_dialog101_close (GtkDialog *dialog)
+{
+	printf("\n\n\n DIALOG 101 close \n\n\n");
+}
+
+void
 on_togglebutton_opt_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(glade_xml_get_widget(interface,"dialog1"));
+		gtk_widget_show(glade_xml_get_widget(interface,"dialog101"));
 	else
-		gtk_widget_hide(glade_xml_get_widget(interface,"dialog1"));
+		gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
 }
 
 //-----------------Traffic auto download & show------------
