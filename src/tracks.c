@@ -134,7 +134,7 @@ track_data* tracks_read (char* file,track_data* data)
 		loaded_track = g_slist_append(loaded_track, tp);
 	}
 	
-	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
+//	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
 
 	
 	

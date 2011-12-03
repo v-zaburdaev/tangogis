@@ -9,8 +9,8 @@
     <property name="deletable">False</property>
     <property name="has_separator">False</property>
     <signal name="destroy" handler="on_dialog101_destroy"/>
-    <signal name="destroy_event" handler="on_dialog101_destroy_event"/>
     <signal name="close" handler="on_dialog101_close"/>
+    <signal name="response" handler="on_dialog101_response"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox1">
         <property name="visible">True</property>
@@ -921,7 +921,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkButton" id="button1">
                 <property name="label" translatable="yes">FScr</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
               </widget>
               <packing>
@@ -935,7 +935,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                 <property name="label" translatable="yes">+</property>
                 <property name="width_request">30</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
               </widget>
               <packing>
@@ -948,7 +948,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                 <property name="label" translatable="yes">-</property>
                 <property name="width_request">30</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
               </widget>
               <packing>
@@ -960,7 +960,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_autocenter">
                 <property name="label" translatable="yes">Autocen</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_autocenter_toggled"/>
@@ -974,7 +974,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton1">
                 <property name="label" translatable="yes">G</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton1_toggled"/>
@@ -988,7 +988,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton2">
                 <property name="label" translatable="yes">Tra</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton2_toggled"/>
@@ -1002,7 +1002,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_trf_show">
                 <property name="label" translatable="yes">Trf</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
               </widget>
@@ -1015,7 +1015,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_reload">
                 <property name="label" translatable="yes">R</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_reload_toggled"/>
@@ -1029,7 +1029,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkButton" id="button_update">
                 <property name="label" translatable="yes">U</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <signal name="clicked" handler="on_button_update_clicked"/>
               </widget>
@@ -1061,6 +1061,8 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                 <property name="visible">True</property>
                 <property name="app_paintable">True</property>
                 <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="is_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="events">GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK | GDK_STRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK | GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK</property>
@@ -1078,7 +1080,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="update_policy">discontinuous</property>
-                <property name="adjustment">17 2 16 0 1 1</property>
+                <property name="adjustment">16 2 18 0 1 1</property>
                 <property name="inverted">True</property>
                 <property name="lower_stepper_sensitivity">on</property>
                 <property name="upper_stepper_sensitivity">on</property>
@@ -1275,7 +1277,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_opt">
                 <property name="label" translatable="yes">Options</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_opt_toggled"/>
@@ -1289,7 +1291,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_info">
                 <property name="label" translatable="yes">Info</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_info_toggled"/>
@@ -1303,7 +1305,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_tracks">
                 <property name="label" translatable="yes">Tracks</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_tracks_toggled"/>
@@ -1316,7 +1318,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
             <child>
               <widget class="GtkToggleButton" id="togglebutton_find">
                 <property name="label" translatable="yes">Find</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
               </widget>
@@ -1329,10 +1331,10 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_cam1">
                 <property name="label" translatable="yes">1</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
-                <signal name="toggled" handler="on_togglebutton_cam1_toggled"/>
+                <signal name="toggled" handler="on_togglebutton_cam_toggled"/>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -1343,10 +1345,10 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_cam2">
                 <property name="label" translatable="yes">2</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
-                <signal name="toggled" handler="on_togglebutton_cam2_toggled"/>
+                <signal name="toggled" handler="on_togglebutton_cam_toggled"/>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -1357,7 +1359,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_cam3">
                 <property name="label" translatable="yes">3</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_cam3_toggled"/>
@@ -1371,7 +1373,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
               <widget class="GtkToggleButton" id="togglebutton_cam4">
                 <property name="label" translatable="yes">4</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="focus_on_click">False</property>
                 <signal name="toggled" handler="on_togglebutton_cam4_toggled"/>

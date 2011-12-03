@@ -484,7 +484,7 @@ on_button1_clicked                     (GtkButton       *button,
 	{
 		
 			
-		gtk_notebook_set_show_tabs(GTK_NOTEBOOK(notebook), FALSE);
+//		gtk_notebook_set_show_tabs(GTK_NOTEBOOK(notebook), FALSE);
 		gtk_window_fullscreen(GTK_WINDOW(window1));
 		fill_tiles_pixel(global_x, global_y, global_zoom);
 
@@ -493,7 +493,7 @@ on_button1_clicked                     (GtkButton       *button,
 	else
 	{
 		gtk_window_unfullscreen(GTK_WINDOW(window1));
-		gtk_notebook_set_show_tabs(GTK_NOTEBOOK(notebook), TRUE);
+//		gtk_notebook_set_show_tabs(GTK_NOTEBOOK(notebook), TRUE);
 		
 		maximized = FALSE;
 	}
@@ -800,7 +800,7 @@ on_combobox1_changed                   (GtkComboBox     *combobox,
 	
 	
 	repaint_all();
-	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
+//	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
 
 }
 
@@ -1063,7 +1063,7 @@ on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,
 }
 
 void
-on_togglebutton_cam2_toggled                (GtkToggleButton *togglebutton, gpointer user_data)
+on_togglebutton_cam_toggled                (GtkToggleButton *togglebutton, gpointer user_data)
 {
 	static int pid = 0;  
 	if (gtk_toggle_button_get_active(togglebutton))
@@ -1084,51 +1084,9 @@ on_togglebutton_cam2_toggled                (GtkToggleButton *togglebutton, gpoi
 //				//gtk_main_quit();
 ////				return;
 //			}
-			char *arg = g_strdup_printf("tv:// -tv device=%s",dev);
+			char *arg = g_strdup_printf("device=%s",dev);
 			printf("mplayer args: %s\n",arg);
-			execlp("mplayer", "mplayer", arg,NULL);
-		}
-	}
-	else
-	{
-		if (pid)
-		{
-			if (!kill(pid,0))
-				{
-					kill(pid,9);
-					pid = 0;
-				}
-			else 
-				gtk_toggle_button_set_active(togglebutton,TRUE);
-		}
-	}
-}
-
-void
-on_togglebutton_cam1_toggled                (GtkToggleButton *togglebutton, gpointer user_data)
-{
-	static int pid = 0;  
-	if (gtk_toggle_button_get_active(togglebutton))
-	{
-		printf("\ncam device - %d\n",atoi(gtk_button_get_label(togglebutton))-1);
-		char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
-		pid = fork();
-		if (!pid)
-		{
-			printf("device = %s\n",dev);
-			struct stat *buf; 
-			if (stat(dev,buf)==-1)
-			{
-				printf("stat is = %d\n",stat(dev,buf));
-				//GtkWidget *dialog=gtk_message_dialog_new(NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,"Device file %s not exist!!",dev);
-				//gtk_dialog_run (GTK_DIALOG (dialog));
-				//gtk_widget_destroy (dialog);
-				//gtk_main_quit();
-				return;
-			}
-			char *arg = g_strdup_printf("tv:// -tv device=%s",dev);
-			printf("mplayer args: %s\n",arg);
-			execlp("mplayer", "mplayer", arg,NULL);
+			execlp("mplayer", "mplayer", "tv://", "-tv",arg,NULL);
 		}
 	}
 	else
@@ -1167,16 +1125,24 @@ on_togglebutton_info_toggled                (GtkToggleButton *togglebutton,
 }
 
 void
-on_dialog101_destroy(GtkDialog *dialog)
+on_dialog101_close(GtkDialog *dialog)
 {
-	printf("\n\n\n DIALOG 101 destroy\n\n\n");
+	printf("\n\n\n DIALOG 101 close\n\n\n");
 	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
 }
 
 void
-on_dialog101_close (GtkDialog *dialog)
+on_dialog101_response(GtkDialog *dialog)
 {
-	printf("\n\n\n DIALOG 101 close \n\n\n");
+	printf("\n\n\n DIALOG 101 response\n\n\n");
+	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
+}
+
+void
+on_dialog101_destroy(GtkDialog *dialog)
+{
+	printf("\n\n\n DIALOG 101 destroy\n\n\n");
+	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
 }
 
 void
