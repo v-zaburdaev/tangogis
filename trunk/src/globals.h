@@ -8,7 +8,7 @@
 #include <libglade-2.0/glade/glade-xml.h>
 
 
-#define GCONF "/apps/tangogps"
+#define GCONF "/apps/tangogis"
 #define TILESIZE 256
 #define PNAME "tangogis"
 

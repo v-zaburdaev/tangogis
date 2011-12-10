@@ -454,6 +454,7 @@ gconf_get_repolist()
 		repo3->dir  = g_strdup_printf("%s/Maps/openaerial",tangogis_dir);
 		repo3->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo3);
+		printf("\n\ntangogis_dir = %s\n\n",tangogis_dir);
 		
 		repo4->name = g_strdup("Opencyclemap");
 		repo4->uri  = g_strdup("http://a.andy.sandbox.cloudmade.com/tiles/cycle/%d/%d/%d.png");
@@ -704,6 +705,7 @@ pre_init()
 //	g_type_init();
 
 	global_home_dir = getenv("HOME");
+	tangogis_dir = g_strconcat(global_home_dir, "/.tangogis", NULL);
 
 	global_gconfclient	= gconf_client_get_default();
 	global_curr_reponame	= gconf_client_get_string(global_gconfclient, GCONF"/repo_name",err);
@@ -825,7 +827,6 @@ init()
 	
 	screen_height = gdk_screen_get_height(gdk_screen_get_default());
 	
-	tangogis_dir = g_strconcat(global_home_dir, "/.tangogis", NULL);
 	g_mkdir(tangogis_dir, 0700);
 
 	repoconfig__create_dropdown();
