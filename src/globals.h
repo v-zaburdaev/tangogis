@@ -3,14 +3,13 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gconf/gconf-client.h>
+//#include <gconf/gconf-client.h>
 #include <time.h>
 #include <libglade-2.0/glade/glade-xml.h>
 
 
-#define GCONF "/apps/tangogis"
+#define CONF_FILE PACKAGE".conf"
 #define TILESIZE 256
-#define PNAME "tangogis"
 
 #define YANDEX_Rn (6378137.0)
 #define YANDEX_E (0.0818191908426)
@@ -150,7 +149,7 @@ extern gboolean		trip_logger_on;
 extern gchar		*global_curr_reponame;
 extern int		global_repo_cnt;
 extern GSList	 	*global_repo_list, *global_curr_repo;//указатель на текущий репозиторий карт
-extern GConfClient	*global_gconfclient;
+extern GKeyFile *global_tangogis_config;
 
 extern gboolean		global_auto_download;
 //----------flags----------------------------
@@ -216,6 +215,7 @@ extern gchar		*global_port;
 
 extern gchar		*global_home_dir;
 extern gchar		*tangogis_dir;
+extern gchar		*tangogis_conf;
 
 extern int		mouse_x;
 extern int		mouse_y;

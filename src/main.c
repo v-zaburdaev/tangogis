@@ -4,6 +4,7 @@
  
 #include <locale.h>
 #include <string.h>
+#include <stdlib.h>
 #include <gtk/gtk.h>
 
 #include "interface.h"
@@ -36,7 +37,7 @@ main (int argc, char *argv[])
   
   setlocale (LC_NUMERIC, "C");
 	
-  add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
+  add_pixmap_directory (PACKAGE_DATA_DIR "" PACKAGE "pixmaps");
   printf("%s, %s",PACKAGE_DATA_DIR, PACKAGE);
 
 

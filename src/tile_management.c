@@ -5,7 +5,7 @@
 #include <glib/gprintf.h>
 #include <string.h>
 #include <curl/curl.h>
-#include <curl/types.h> 
+//#include <curl/types.h> 
 #include <curl/easy.h> 
 #include <math.h>
 #include "globals.h"
@@ -85,7 +85,7 @@ cb_write_func(void *ptr, size_t size, size_t nmemb, FILE *stream)
 	char test[255];
 	int test1;
 	test1=fileno(stream);
-	sprintf(test,"/proc/self/fd/%d",test1);
+	sprintf(test,"proc/self/fd/%d",test1);
 	printf("%s\n",test);
 	test1=readlink(test,test,255);
 	test[test1]='\0';
