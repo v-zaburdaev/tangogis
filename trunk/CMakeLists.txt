@@ -25,8 +25,6 @@ set (PROJECT_SOURCE_LIST src/main.c
 
 FIND_PACKAGE(GTK2 REQUIRED gtk)
 include_directories(${GTK2_INCLUDE_DIRS})
-include_directories("/usr/include/gconf/2/")
-
 
 
 FIND_PACKAGE(CURL REQUIRED)
@@ -81,8 +79,13 @@ target_link_libraries(tangogis
 								${LIBGLADE_LIBRARIES}
 								${CURL_LIBRARIES}
 								sqlite3
-								gconf-2
 								exif
+								m
+								gdk-x11-2.0
+								glib-2.0
+								gthread-2.0
+								gobject-2.0
+								X11
 								)
 
 

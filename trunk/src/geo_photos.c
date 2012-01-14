@@ -105,7 +105,7 @@ paint_photos()
 	if(!photo_icon)
 	{
 		photo_icon = gdk_pixbuf_new_from_file_at_size (
-			PACKAGE_PIXMAPS_DIR "/tangogps-photo.png", 24,24,
+			PACKAGE_PIXMAPS_DIR "tangogps-photo.png", 24,24,
 			&error);
 	}
 
@@ -196,7 +196,7 @@ get_photos()
 	char *sql, *db;
 	bbox_t bbox = get_bbox_deg();
 	
-	db = g_strconcat(tangogis_dir,"/", PHOTO_DB, NULL);
+	db = g_strconcat(tangogis_dir,"", PHOTO_DB, NULL);
 	
 	
 	
@@ -232,9 +232,9 @@ geo_photos_open_dialog_photo_correlate()
 		dialog_photo_correlate = create_dialog_geocode();
 		
 		
-		tmp   = gconf_client_get_int(global_gconfclient, GCONF"/geocode_timezone", NULL);
+		tmp   = gconf_client_get_int(global_tangogis_config,NULL, "geocode_timezone", NULL);
 		geocode_timezone = (tmp) ? tmp - 13 : 0 ;
-		geocode_correction = gconf_client_get_int(global_gconfclient, GCONF"/geocode_correction", NULL);
+		geocode_correction = gconf_client_get_int(global_tangogis_config,NULL, "geocode_correction", NULL);
 		
 		
 		label1 = lookup_widget(dialog_photo_correlate, "label172");
@@ -461,7 +461,7 @@ get_basename(char *file)
 	char *basename;
 	int i = 0;
 	
-	array = g_strsplit(file, "/", -1);
+	array = g_strsplit(file, "", -1);
 	while (array[i]) i++;
 		
 	basename = g_strdup(array[i-1]);
@@ -487,7 +487,7 @@ get_entries_from_dir(char *dirname)
 	
 	while (file)
 	{
-		char *fullfile = g_strconcat(dirname,"/",file,NULL);
+		char *fullfile = g_strconcat(dirname,"",file,NULL);
 		
 		isfile = g_file_test(fullfile, G_FILE_TEST_IS_REGULAR);
 		if(isfile &&
@@ -496,7 +496,7 @@ get_entries_from_dir(char *dirname)
 		)
 		{		
 			printf("pic: %s/%s \n", dirname, file);
-			list = g_list_insert_sorted(list, g_strconcat(dirname, "/", file, NULL), (GCompareFunc)g_strcmp0);
+			list = g_list_insert_sorted(list, g_strconcat(dirname, "", file, NULL), (GCompareFunc)g_strcmp0);
 		}
 		file = g_dir_read_name(dir);
 	}
@@ -656,8 +656,8 @@ geo_photo_close_dialog_image_data()
 	label_txt = g_strdup_printf("  %d:00h", geocode_timezone);
 	gtk_label_set_label(GTK_LABEL(label1), label_txt);
 	
-	gconf_client_set_int(global_gconfclient, GCONF"/geocode_correction", geocode_correction, NULL);
-	gconf_client_set_int(global_gconfclient, GCONF"/geocode_timezone", geocode_timezone+13, NULL);
+	gconf_client_set_int(global_tangogis_config,NULL, "geocode_correction", geocode_correction, NULL);
+	gconf_client_set_int(global_tangogis_config,NULL, "geocode_timezone", geocode_timezone+13, NULL);
 	
 	gtk_widget_hide(dialog_image_data);
 	gtk_widget_show(dialog_photo_correlate);
@@ -703,7 +703,7 @@ geo_photo_close_dialog_photo_correlate()
 	gtk_widget_show(dialog_geocode_result);
 	gtk_widget_hide(dialog_photo_correlate);
 
-	command_line = g_strdup_printf("/tmp/tangogps_geocode.pl '%s' '%s' '%d' '%d' '%d'", 
+	command_line = g_strdup_printf("tmp/tangogps_geocode.pl '%s' '%s' '%d' '%d' '%d'", 
 					geocode_trackname, 
 					geocode_photodir,
 					geocode_timezone,
@@ -1025,7 +1025,7 @@ command = g_strdup(
 "print OUTFILE $gpx;\n"
 "\n"
 "# set geocode_track to filename\n"
-"$geocode_track = \"/tmp/$$.gpx\";\n"
+"$geocode_track = \"tmp/$$.gpx\";\n"
 "\n"
 "print STDERR \"track: $geocode_track\\n\"\n"
 "}\n"
@@ -1135,7 +1135,7 @@ command = g_strdup(
 }
 
 
-fp = fopen("/tmp/tangogps_geocode.pl", "w+");
+fp = fopen("tmp/tangogps_geocode.pl", "w+");
 if (fp==0) 
 	printf("could not open tmp\n");	
 

@@ -130,7 +130,7 @@ paint_pois()
 	if(!photo_icon)
 	{
 		photo_icon = gdk_pixbuf_new_from_file_at_size (
-			PACKAGE_PIXMAPS_DIR "/tangogps-poi.png", 25,25,
+			PACKAGE_PIXMAPS_DIR "tangogps-poi.png", 25,25,
 			&error);
 	}
 
@@ -412,7 +412,7 @@ set_poi(GtkWidget *dialog)
 	rand2 = g_random_double_range (100000000,1000000000);
 
 	
-	db = g_strconcat(tangogis_dir, "/", POI_DB, NULL);	
+	db = g_strconcat(tangogis_dir, "", POI_DB, NULL);	
 	
 	sql = g_strdup_printf( 	
 			"INSERT INTO poi "
@@ -491,7 +491,7 @@ update_poi(GtkWidget *dialog)
 	desc = my_strescape(desc_raw, NULL);
 
 
-	db = g_strconcat(tangogis_dir, "/", POI_DB, NULL);	
+	db = g_strconcat(tangogis_dir, "", POI_DB, NULL);	
 	
 
 
@@ -545,7 +545,7 @@ delete_poi(poi_t *p)
 
 	
 
-	db = g_strconcat(tangogis_dir, "/", POI_DB, NULL);	
+	db = g_strconcat(tangogis_dir, "", POI_DB, NULL);	
 	
 	sql = g_strdup_printf( 	
 			"DELETE FROM "
@@ -580,7 +580,7 @@ get_pois()
 
 	bbox = get_bbox_deg();
 
-	db = g_strconcat(tangogis_dir, "/", POI_DB, NULL);
+	db = g_strconcat(tangogis_dir, "", POI_DB, NULL);
 
 	
 	if(poi_list) g_slist_free(poi_list);

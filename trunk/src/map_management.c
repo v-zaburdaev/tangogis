@@ -6,7 +6,6 @@
 #include <gtk/gtk.h>
 #include <glib/gstring.h>
 #include <glib/gprintf.h>
-#include <gconf/gconf.h>
 #include <math.h>
 #include "support.h"
 #include "globals.h"
@@ -479,19 +478,19 @@ fill_tiles_pixel()
 	}	
 */
 
-	success = gconf_client_set_int(
-				global_gconfclient, 
-				GCONF"/global_x",
+	success = g_key_file_set_int(
+				global_tangogis_config, 
+				"/global_x",
 				global_x,
 				error);
-	success = gconf_client_set_int(
-				global_gconfclient, 
-				GCONF"/global_y",
+	success = g_key_file_set_int(
+				global_tangogis_config, 
+				"/global_y",
 				global_y,
 				error);
-	success = gconf_client_set_int(
-				global_gconfclient, 
-				GCONF"/global_zoom",
+	success = g_key_file_set_int(
+				global_tangogis_config, 
+				"/global_zoom",
 				global_zoom,
 				error);
 

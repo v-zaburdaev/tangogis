@@ -13,7 +13,7 @@
 #include <gtk/gtk.h>
 
 #include <curl/curl.h>
-#include <curl/types.h>
+//#include <curl/types.h>
 #include <curl/easy.h>
 
 
@@ -356,7 +356,7 @@ paint_friends()
 	if(!friend_icon)
 	{
 		friend_icon = gdk_pixbuf_new_from_file_at_size (
-			PACKAGE_PIXMAPS_DIR "/tangogps-friend.png", 24,24,
+			PACKAGE_PIXMAPS_DIR "tangogps-friend.png", 24,24,
 			&error);
 	}
 	if (pixmap && !gc_map)	

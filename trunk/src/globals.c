@@ -58,7 +58,7 @@ int		global_repo_cnt = 0;
 GSList 		*global_repo_list = NULL;
 GSList		*global_curr_repo = NULL;
 GSList		*global_curr_trf_repo = NULL;
-GConfClient	*global_gconfclient = NULL;
+GKeyFile 	*global_tangogis_config = NULL;
 
 gboolean	global_auto_download = TRUE;
 
