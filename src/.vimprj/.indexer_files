@@ -4,4 +4,3 @@ $INDEXER_PROJECT_ROOT/*.h
 $INDEXER_PROJECT_ROOT/../build/config.h
 /usr/include/gtk-2.0**/*.h
 /usr/include/glib-2.0**/*.h
-/usr/include/gconf/2/gconf/*.h
