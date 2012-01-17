@@ -232,9 +232,9 @@ geo_photos_open_dialog_photo_correlate()
 		dialog_photo_correlate = create_dialog_geocode();
 		
 		
-		tmp   = gconf_client_get_int(global_tangogis_config,NULL, "geocode_timezone", NULL);
+		tmp   = g_key_file_get_integer(global_tangogis_config,NULL, "geocode_timezone", NULL);
 		geocode_timezone = (tmp) ? tmp - 13 : 0 ;
-		geocode_correction = gconf_client_get_int(global_tangogis_config,NULL, "geocode_correction", NULL);
+		geocode_correction = g_key_file_get_integer(global_tangogis_config,NULL, "geocode_correction", NULL);
 		
 		
 		label1 = lookup_widget(dialog_photo_correlate, "label172");
@@ -656,8 +656,8 @@ geo_photo_close_dialog_image_data()
 	label_txt = g_strdup_printf("  %d:00h", geocode_timezone);
 	gtk_label_set_label(GTK_LABEL(label1), label_txt);
 	
-	gconf_client_set_int(global_tangogis_config,NULL, "geocode_correction", geocode_correction, NULL);
-	gconf_client_set_int(global_tangogis_config,NULL, "geocode_timezone", geocode_timezone+13, NULL);
+	g_key_file_set_integer(global_tangogis_config, "geo_photos", "geocode_correction", geocode_correction);
+	g_key_file_set_integer(global_tangogis_config, "geo_photos", "geocode_timezone", geocode_timezone+13);
 	
 	gtk_widget_hide(dialog_image_data);
 	gtk_widget_show(dialog_photo_correlate);

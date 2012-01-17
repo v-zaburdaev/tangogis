@@ -478,17 +478,17 @@ fill_tiles_pixel()
 	}	
 */
 
-	success = g_key_file_set_int(
+	g_key_file_set_integer(
 				global_tangogis_config, 
 				"/global_x",
 				global_x,
 				error);
-	success = g_key_file_set_int(
+	g_key_file_set_integer(
 				global_tangogis_config, 
 				"/global_y",
 				global_y,
 				error);
-	success = g_key_file_set_int(
+	g_key_file_set_integer(
 				global_tangogis_config, 
 				"/global_zoom",
 				global_zoom,

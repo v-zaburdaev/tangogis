@@ -45,12 +45,12 @@ main (int argc, char *argv[])
   global_port	= g_strdup("2947");
 
 
-	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.glade");
+	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.glade",NULL);
 	interface = glade_xml_new( main_interface_file, NULL, NULL);
 	printf("\ninterface file - %s\n",main_interface_file);
 	if (!interface)
 	{
-		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.glade");
+		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.glade",NULL);
 		interface = glade_xml_new(main_interface_file, NULL, NULL);
 	}
 	if (interface)
