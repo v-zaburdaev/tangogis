@@ -232,9 +232,9 @@ geo_photos_open_dialog_photo_correlate()
 		dialog_photo_correlate = create_dialog_geocode();
 		
 		
-		tmp   = g_key_file_get_integer(global_tangogis_config,NULL, "geocode_timezone", NULL);
+		tmp   = g_key_file_get_integer(global_tangogis_config,"other", "geocode_timezone", NULL);
 		geocode_timezone = (tmp) ? tmp - 13 : 0 ;
-		geocode_correction = g_key_file_get_integer(global_tangogis_config,NULL, "geocode_correction", NULL);
+		geocode_correction = g_key_file_get_integer(global_tangogis_config,"other", "geocode_correction", NULL);
 		
 		
 		label1 = lookup_widget(dialog_photo_correlate, "label172");

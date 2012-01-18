@@ -480,7 +480,7 @@ fill_tiles_pixel()
 
 	g_key_file_set_integer(
 				global_tangogis_config, 
-				"/global_x",
+				"global_x",
 				global_x,
 				error);
 	g_key_file_set_integer(
