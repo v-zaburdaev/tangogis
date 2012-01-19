@@ -400,7 +400,7 @@ fill_tiles_pixel()
 {
 	int tile_count_x, tile_count_y;
 	gboolean success = FALSE;
-	GError **error = NULL;
+	GError *error = NULL;
 //		if (gpsdata!=NULL)
 //		{
 //			printf("time=%f\n",gpsdata->fix.time);
@@ -480,20 +480,23 @@ fill_tiles_pixel()
 
 	g_key_file_set_integer(
 				global_tangogis_config, 
-				"global_x",
-				global_x,
-				error);
+				"map coordinates",
+				"/global_x",
+				global_x
+				);
 	g_key_file_set_integer(
 				global_tangogis_config, 
+				"map coordinates",
 				"/global_y",
-				global_y,
-				error);
+				global_y
+				);
 	g_key_file_set_integer(
 				global_tangogis_config, 
+				"map coordinates",
 				"/global_zoom",
-				global_zoom,
-				error);
-
+				global_zoom
+				);
+	g_file_set_contents(tangogis_conf_file_name, g_key_file_to_data(global_tangogis_config,NULL,NULL),-1,NULL);
 }
 
 void

@@ -8,7 +8,7 @@
 #include <libglade-2.0/glade/glade-xml.h>
 
 
-#define CONF_FILE PACKAGE".conf"
+#define CONF_FILE "/"PACKAGE".conf"
 #define TILESIZE 256
 
 #define YANDEX_Rn (6378137.0)
@@ -150,6 +150,7 @@ extern gchar		*global_curr_reponame;
 extern int		global_repo_cnt;
 extern GSList	 	*global_repo_list, *global_curr_repo;//указатель на текущий репозиторий карт
 extern GKeyFile *global_tangogis_config;
+extern char* tangogis_conf_file_name;
 
 extern gboolean		global_auto_download;
 //----------flags----------------------------
