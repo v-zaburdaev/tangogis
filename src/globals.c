@@ -20,9 +20,9 @@ GtkWidget *menu1 = NULL;
 char *global_track_dir = NULL;
 char *global_map_dir = NULL;
 
-int global_x = 890;
-int global_y = 515;
-int global_zoom = 3;
+int global_x=79083;
+int global_y=40774;
+int global_zoom=9;
 		
 int mouse_dx = 0; 
 int mouse_dy = 0;
@@ -59,6 +59,7 @@ GSList 		*global_repo_list = NULL;
 GSList		*global_curr_repo = NULL;
 GSList		*global_curr_trf_repo = NULL;
 GKeyFile 	*global_tangogis_config = NULL;
+char* tangogis_conf_file_name;
 
 gboolean	global_auto_download = TRUE;
 

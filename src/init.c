@@ -701,16 +701,22 @@ j=0;i=0;
 void
 pre_init()
 {
-	GError	**err = NULL;
+	GError	*err = NULL;
 /* Мне кажется, что это не нужно */
 //	g_type_init();
 
 	global_home_dir = getenv("HOME");
 	tangogis_dir = g_strconcat(global_home_dir, "/.tangogis", NULL);
-
-	if (!g_key_file_load_from_file(global_tangogis_config, g_strconcat(tangogis_dir,CONF_FILE,NULL),G_KEY_FILE_NONE,NULL))
-		global_tangogis_config = g_key_file_new();
-
+	tangogis_conf_file_name = g_strconcat(tangogis_dir,CONF_FILE,NULL);
+	global_tangogis_config = g_key_file_new();
+	if (g_key_file_load_from_file(global_tangogis_config, 
+								tangogis_conf_file_name,
+								G_KEY_FILE_KEEP_COMMENTS|G_KEY_FILE_KEEP_TRANSLATIONS,
+								&err)
+		)
+		printf("Config loaded!\n\n");
+	else
+		printf("%s\n",err->message);
 	global_curr_reponame	= g_key_file_get_string(global_tangogis_config,"other", "/repo_name",err);
 	
 	curr_trf_name = g_key_file_get_string(global_tangogis_config,"other", "/curr_trf",err);
@@ -718,21 +724,21 @@ pre_init()
 	if(global_curr_reponame == NULL)
 	{
 		printf("gconf repo_name not set\n");
-		global_curr_reponame = g_strdup("OSM");
+		global_curr_reponame = g_strdup("Yandex Map");
 	}
 	gconf_get_repolist();	
 	repoconfig__set_current_list_pointer();
 	
 	global_x = g_key_file_get_integer(
-				global_tangogis_config,"other", 
+				global_tangogis_config,"map coordinates", 
 				"/global_x",
 				err);
 	global_y = g_key_file_get_integer(
-				global_tangogis_config,"other", 
+				global_tangogis_config,"map coordinates", 
 				"/global_y",
 				err);
 	global_zoom = g_key_file_get_integer(
-				global_tangogis_config,"other", 
+				global_tangogis_config,"map coordinates", 
 				"/global_zoom",
 				err);
 	//-----создаем хеш таблицу загрузки тайлов
@@ -744,9 +750,9 @@ pre_init()
 /* Здесь нужно поставить координаты географического центра России - черезвычайно красивого озера ВИВИ на плато Путорана */
 	if(global_zoom <= 2) 
 	{
-		global_x = 890;
-		global_y = 515;
-		global_zoom = 3;
+		global_x=79083;
+		global_y=40774;
+		global_zoom=9;
 	}
 	
 	if(g_key_file_get_boolean(global_tangogis_config,"other", "/started_before", err))
