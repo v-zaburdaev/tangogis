@@ -794,7 +794,7 @@ on_combobox1_changed                   (GtkComboBox     *combobox,
 	
 	g_key_file_set_string(
 					global_tangogis_config,
-					"other",
+					"repositories",
 					"repo_name",
 					global_curr_reponame
 					);
@@ -1036,8 +1036,8 @@ on_checkbutton2_toggled                (GtkToggleButton *togglebutton,
 	global_auto_download = toggled;
 	
 	g_key_file_set_boolean(
-				global_tangogis_config, "other", 
-				"/auto_download",
+				global_tangogis_config, "visual", 
+				"auto_download",
 				global_auto_download
 				);
 	
@@ -1055,8 +1055,8 @@ on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,
 	toggled = gtk_toggle_button_get_active(togglebutton);
 	global_trf_auto = toggled;
 	g_key_file_set_boolean(
-				global_tangogis_config, "other", 
-				"/trf_auto",
+				global_tangogis_config, "visual", 
+				"trf_auto",
 				global_trf_auto
 				);
 	repaint_all();
@@ -1170,8 +1170,8 @@ on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,
 	global_trf_show = toggled;
 	
 	g_key_file_set_boolean(
-				global_tangogis_config, "other", 
-				"/trf_show",
+				global_tangogis_config, "visual", 
+				"trf_show",
 				global_trf_show
 				);
 	repaint_all();
@@ -1216,8 +1216,8 @@ on_combobox_trf_repo_changed        (GtkComboBox     *combobox,
 	
 			printf("curr_trf = %s", curr_trf->name);
 	g_key_file_set_string(
-					global_tangogis_config, "other", 
-					"/curr_trf",
+					global_tangogis_config, "repositories", 
+					"curr_trf",
 					curr_trf->name
 					);
 	
@@ -1343,13 +1343,13 @@ on_button11_clicked                    (GtkButton       *button,
 	
 	g_key_file_set_boolean(
 		global_tangogis_config, "other", 
-		"/fftimer_running",
+		"fftimer_running",
 		global_fftimer_running
 		);
 	
 	g_key_file_set_boolean(
 			global_tangogis_config, "other", 
-			"/ffupdate_auto",
+			"ffupdate_auto",
 			global_ffupdate_auto
 			);
 	
@@ -1370,8 +1370,8 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
 	global_grid_show = toggled;
 	
 	g_key_file_set_boolean(
-				global_tangogis_config, "other", 
-				"/grid_show",
+				global_tangogis_config, "visual", 
+				"grid_show",
 				global_grid_show
 				);
 
@@ -1487,7 +1487,7 @@ on_togglebutton2_toggled               (GtkToggleButton *togglebutton,
 /*	Можно записать показ трека в настройки, но для этого нужно сохранить и сам трек :) */
 //	g_key_file_set_boolean(
 //				global_tangogis_config, "other", 
-//				"/track_show",
+//				"track_show",
 //				global_track_show,
 //				error);
 	repaint_all();
@@ -1895,7 +1895,7 @@ on_entry7_changed                      (GtkEditable     *editable,
 		
 	g_key_file_set_string(
 					global_tangogis_config, "other", 
-					"/nick",
+					"nick",
 					n
 					);
 }
@@ -1917,7 +1917,7 @@ on_entry8_changed                      (GtkEditable     *editable,
 	
 	g_key_file_set_string(
 					global_tangogis_config, "other", 
-					"/pass",
+					"pass",
 					p
 					);
 
@@ -1972,8 +1972,8 @@ on_button18_clicked                    (GtkButton       *button,
 		gtk_button_set_label(button, "            Stop              ");
 		track_log_open();
 		g_key_file_set_boolean(
-				global_tangogis_config, "other", 
-				"/tracklog_on",
+				global_tangogis_config, "tracks", 
+				"tracklog_on",
 				TRUE);
 	}
 	else
@@ -1981,8 +1981,8 @@ on_button18_clicked                    (GtkButton       *button,
 		gtk_button_set_label(button, "            Start             ");
 		track_log_close();
 		g_key_file_set_boolean(
-				global_tangogis_config, "other", 
-				"/tracklog_on",
+				global_tangogis_config, "tracks", 
+				"tracklog_on",
 				FALSE);
 	}
 }
@@ -2066,7 +2066,7 @@ on_okbutton2_clicked                   (GtkButton       *button,
 
 	
 	entry = (GtkEntry *)lookup_widget(GTK_WIDGET(button), "entry12");
-	global_track_dir = g_strconcat(gtk_entry_get_text(entry),"/",NULL);
+	global_track_dir = g_strconcat(gtk_entry_get_text(entry),"",NULL);
 
 	result = strncmp(global_track_dir, "~", 1); 
 	
@@ -2095,8 +2095,8 @@ on_okbutton2_clicked                   (GtkButton       *button,
 	}
 	
 	g_key_file_set_string(
-				global_tangogis_config, "other", 
-				"/track_dir",
+				global_tangogis_config, "tracks", 
+				"track_dir",
 				global_track_dir);
 	
 	dialog3 = lookup_widget(GTK_WIDGET(button), "dialog3");
@@ -2627,13 +2627,13 @@ on_radiobutton1_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffupdate_auto",
+				"ffupdate_auto",
 				global_ffupdate_auto
 				);
 	
 	g_key_file_set_boolean(
 		global_tangogis_config, "other", 
-		"/fftimer_running",
+		"fftimer_running",
 		global_fftimer_running
 		);
 }
@@ -2650,7 +2650,7 @@ on_radiobutton13_toggled               (GtkToggleButton *togglebutton,
 
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffupdate_auto",
+				"ffupdate_auto",
 				global_ffupdate_auto
 				);
 }
@@ -2685,12 +2685,12 @@ on_entry16_changed                     (GtkEditable     *editable,
 	
 	global_ffupdate_interval_minutes = g_key_file_get_double(
 			global_tangogis_config, "other", 
-			"/ffupdate_interval_minutes",
+			"ffupdate_interval_minutes",
 			error);
 	
 	g_key_file_set_boolean(
 			global_tangogis_config, "other", 
-			"/fftimer_running",
+			"fftimer_running",
 			global_fftimer_running
 			);
 
@@ -2709,7 +2709,7 @@ on_radiobutton14_toggled               (GtkToggleButton *togglebutton,
 
 	global_speed_unit= g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/speed_unit",
+				"speed_unit",
 				error);
 }
 
@@ -2725,7 +2725,7 @@ on_radiobutton15_toggled               (GtkToggleButton *togglebutton,
 	
 	global_speed_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/speed_unit",
+				"speed_unit",
 				error);
 }
 
@@ -2741,7 +2741,7 @@ on_radiobutton16_toggled               (GtkToggleButton *togglebutton,
 	
 	global_speed_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/speed_unit",
+				"speed_unit",
 				error);
 }
 
@@ -2757,7 +2757,7 @@ on_radiobutton17_toggled               (GtkToggleButton *togglebutton,
 	
 	global_alt_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/alt_unit",
+				"alt_unit",
 				error);
 }
 
@@ -2773,7 +2773,7 @@ on_radiobutton18_toggled               (GtkToggleButton *togglebutton,
 
 	global_alt_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/alt_unit",
+				"alt_unit",
 				error);
 }
 
@@ -2793,7 +2793,7 @@ on_radiobutton19_toggled               (GtkToggleButton *togglebutton,
 	
 	global_latlon_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/latlon_unit",
+				"latlon_unit",
 				error);
 }
 
@@ -2813,7 +2813,7 @@ on_radiobutton20_toggled               (GtkToggleButton *togglebutton,
 
 	global_latlon_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/latlon_unit",
+				"latlon_unit",
 				error);
 }
 
@@ -2832,7 +2832,7 @@ on_radiobutton21_toggled               (GtkToggleButton *togglebutton,
 	
 	global_latlon_unit = g_key_file_get_integer(
 				global_tangogis_config, "other", 
-				"/latlon_unit",
+				"latlon_unit",
 				error);
 }
 
@@ -2847,7 +2847,7 @@ on_checkbutton3_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffcm_public",
+				"ffcm_public",
 				global_ffcm_public
 				);
 }
@@ -2864,7 +2864,7 @@ on_checkbutton4_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffcm_registered",
+				"ffcm_registered",
 				global_ffcm_registered
 				);
 }
@@ -2881,7 +2881,7 @@ on_checkbutton5_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffcm_friends",
+				"ffcm_friends",
 				global_ffcm_friends
 				);
 }
@@ -2898,7 +2898,7 @@ on_checkbutton6_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffcu_public",
+				"ffcu_public",
 				global_ffcu_public
 				);
 }
@@ -2915,7 +2915,7 @@ on_checkbutton7_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffcu_registered",
+				"ffcu_registered",
 				global_ffcu_registered
 				);
 }
@@ -2932,7 +2932,7 @@ on_checkbutton8_toggled                (GtkToggleButton *togglebutton,
 	
 	g_key_file_set_boolean(
 				global_tangogis_config, "other", 
-				"/ffcu_friends",
+				"ffcu_friends",
 				global_ffcu_friends
 				);
 }
@@ -2966,7 +2966,7 @@ on_button23_clicked                    (GtkButton       *button,
 	
 	g_key_file_set_boolean(
 		global_tangogis_config, "other", 
-		"/fftimer_running",
+		"fftimer_running",
 		global_fftimer_running
 		);
 }
@@ -3467,8 +3467,8 @@ on_entry3_changed                      (GtkEditable     *editable,
 	widget = glade_xml_get_widget(interface, "entry3");
 	entry = gtk_entry_get_text(GTK_ENTRY(widget));
 	
-	g_key_file_set_string(	global_tangogis_config, "other", 
-					"/gpsd_host",
+	g_key_file_set_string(global_tangogis_config, "other", 
+					"gpsd_host",
 					entry
 					);
 }
@@ -3485,7 +3485,7 @@ on_entry4_changed                      (GtkEditable     *editable,
 	entry = gtk_entry_get_text(GTK_ENTRY(widget));
 	
 	g_key_file_set_string(	global_tangogis_config, "other", 
-					"/gpsd_port",
+					"gpsd_port",
 					entry
 					);
 }

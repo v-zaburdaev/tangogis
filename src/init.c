@@ -421,7 +421,7 @@ gconf_get_repolist()
 	
 	repo_list = NULL;
 //	repo_list = g_key_file_get_list(	global_tangogis_config,"other", 
-//						"/repos",
+//						"repos",
 //						_VALUE_STRING,
 //						error);
 	
@@ -589,7 +589,7 @@ gconf_set_repolist()
 	}
 	
 //	success = g_key_file_set_list(	global_tangogis_config,"other", 
-//						"/repos",
+//						"repos",
 //						_VALUE_STRING,
 //						gconf_list,
 //						error);
@@ -717,9 +717,9 @@ pre_init()
 		printf("Config loaded!\n\n");
 	else
 		printf("%s\n",err->message);
-	global_curr_reponame	= g_key_file_get_string(global_tangogis_config,"other", "/repo_name",err);
+	global_curr_reponame	= g_key_file_get_string(global_tangogis_config,"repositories", "repo_name",err);
 	
-	curr_trf_name = g_key_file_get_string(global_tangogis_config,"other", "/curr_trf",err);
+	curr_trf_name = g_key_file_get_string(global_tangogis_config,"repositories", "curr_trf",err);
 
 	if(global_curr_reponame == NULL)
 	{
@@ -731,15 +731,15 @@ pre_init()
 	
 	global_x = g_key_file_get_integer(
 				global_tangogis_config,"map coordinates", 
-				"/global_x",
+				"global_x",
 				err);
 	global_y = g_key_file_get_integer(
 				global_tangogis_config,"map coordinates", 
-				"/global_y",
+				"global_y",
 				err);
 	global_zoom = g_key_file_get_integer(
 				global_tangogis_config,"map coordinates", 
-				"/global_zoom",
+				"global_zoom",
 				err);
 	//-----создаем хеш таблицу загрузки тайлов
 	ht = g_hash_table_new (g_str_hash, g_str_equal);
@@ -755,28 +755,28 @@ pre_init()
 		global_zoom=9;
 	}
 	
-	if(g_key_file_get_boolean(global_tangogis_config,"other", "/started_before", err))
+	if(g_key_file_get_boolean(global_tangogis_config,"other", "started_before", err))
 	{
 	// Чтение настроек автозагрузки карт
-		if (g_key_file_get_boolean( global_tangogis_config,"other", "/auto_download", err))
+		if (g_key_file_get_boolean( global_tangogis_config,"visual", "auto_download", err))
 			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton2"),TRUE);
 		else
 			global_auto_download = FALSE;
 
 	// Чтение настроек автозагрузки пробок
-		if (g_key_file_get_boolean( global_tangogis_config,"other", "/trf_auto", err))
+		if (g_key_file_get_boolean( global_tangogis_config,"visual", "trf_auto", err))
 			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton_trf_auto"),TRUE);
 		else
 			global_trf_auto = FALSE;
 
 	// Чтение настроек показа пробок
-		if (g_key_file_get_boolean( global_tangogis_config,"other", "/trf_show", err))
+		if (g_key_file_get_boolean( global_tangogis_config,"visual", "trf_show", err))
 			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton_trf_show"),TRUE);
 		else
 			global_trf_show = FALSE;
 
 	// Чтение настроек показа сетки
-		if (g_key_file_get_boolean( global_tangogis_config,"other", "/grid_show", err))
+		if (g_key_file_get_boolean( global_tangogis_config,"visual", "grid_show", err))
 		{
 			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton1"),TRUE);
 			gtk_widget_show(glade_xml_get_widget(interface,"label7"));
@@ -811,8 +811,8 @@ pre_init()
 	}
 	else
 	{
-		g_key_file_set_boolean(global_tangogis_config, "init", "/started_before", TRUE);
-//		g_key_file_set_boolean(global_tangogis_config,"other", "/auto_download", TRUE, err);
+		g_key_file_set_boolean(global_tangogis_config, "other", "started_before", TRUE);
+		g_key_file_set_boolean(global_tangogis_config,"other", "auto_download", TRUE);
 /*		Неуверен, но кажется это совсем ненужно*/
 //		global_auto_download = TRUE;
 //		global_trf_auto = TRUE;
@@ -845,12 +845,12 @@ init()
 	pass_entry  = glade_xml_get_widget(interface, "entry8");
 
 	//global_tangogis_config,NULL	= g_key_file_get_default(); 
-	nick			= g_key_file_get_string(global_tangogis_config,"other", "/nick",&err);
-	pass			= g_key_file_get_string(global_tangogis_config,"other", "/pass",&err);
+	nick			= g_key_file_get_string(global_tangogis_config,"other", "nick",&err);
+	pass			= g_key_file_get_string(global_tangogis_config,"other", "pass",&err);
 	
-	global_speed_unit	= g_key_file_get_integer(global_tangogis_config,"other", "/speed_unit",&err);
-	global_alt_unit		= g_key_file_get_integer(global_tangogis_config,"other", "/alt_unit",&err);
-	global_latlon_unit	= g_key_file_get_integer(global_tangogis_config,"other", "/latlon_unit",&err);
+	global_speed_unit	= g_key_file_get_integer(global_tangogis_config,"other", "speed_unit",&err);
+	global_alt_unit		= g_key_file_get_integer(global_tangogis_config,"other", "alt_unit",&err);
+	global_latlon_unit	= g_key_file_get_integer(global_tangogis_config,"other", "latlon_unit",&err);
 	
 	switch (global_speed_unit)
 	{
@@ -890,7 +890,7 @@ init()
 	widget = glade_xml_get_widget(interface, "vscale1");
 	gtk_range_set_value(GTK_RANGE(widget), (double) global_zoom);
 	
-	global_map_dir	= g_key_file_get_string(global_tangogis_config,"other", "/map_dir",&err);
+	global_map_dir	= g_key_file_get_string(global_tangogis_config,"other", "map_dir",&err);
 	if(!global_map_dir)
 		global_map_dir = g_strdup_printf("%s/Maps/",tangogis_dir);
 	if (g_mkdir_with_parents(global_map_dir,0700)) {
@@ -898,7 +898,7 @@ init()
 		printf("MKDIR ERROR: %s\n", global_map_dir);
 	}
 	
-	global_track_dir	= g_key_file_get_string(global_tangogis_config,"other", "/track_dir",&err);
+	global_track_dir	= g_key_file_get_string(global_tangogis_config,"other", "track_dir",&err);
 	if(!global_track_dir)
 		global_track_dir = g_strdup_printf("%s/Tracks/",tangogis_dir);
 	
@@ -926,10 +926,10 @@ init()
 	
 	
 	
-	gconf_fftimer_running = g_key_file_get_boolean(global_tangogis_config,"other", "/fftimer_running",&err);
+	gconf_fftimer_running = g_key_file_get_boolean(global_tangogis_config,"other", "fftimer_running",&err);
 	
 	
-	global_ffupdate_interval_minutes = g_key_file_get_double(global_tangogis_config,"other", "/ffupdate_interval_minutes",&err);
+	global_ffupdate_interval_minutes = g_key_file_get_double(global_tangogis_config,"other", "ffupdate_interval_minutes",&err);
 	global_ffupdate_interval = (int)floor(global_ffupdate_interval_minutes) * 60000;
 	widget = glade_xml_get_widget(interface, "entry16");
 	if (global_ffupdate_interval_minutes<10)
@@ -939,7 +939,7 @@ init()
 	gtk_entry_set_text( GTK_ENTRY(widget), buffer );
 	
 	
-	global_ffupdate_auto	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffupdate_auto",&err);
+	global_ffupdate_auto	= g_key_file_get_boolean(global_tangogis_config,"other", "ffupdate_auto",&err);
 	if(global_ffupdate_auto)
 	{
 		widget = glade_xml_get_widget(interface, "radiobutton13");
@@ -954,9 +954,9 @@ init()
 	}
 		
 	
-	global_ffcm_public	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffcm_public",&err);
-	global_ffcm_registered	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffcm_registered",&err);
-	global_ffcm_friends	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffcm_friends",&err);
+	global_ffcm_public	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcm_public",&err);
+	global_ffcm_registered	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcm_registered",&err);
+	global_ffcm_friends	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcm_friends",&err);
 	
 	widget = glade_xml_get_widget(interface, "checkbutton3");
 	if(global_ffcm_public)
@@ -993,9 +993,9 @@ init()
 	
 	
 	
-	global_ffcu_public	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffcu_public",&err);
-	global_ffcu_registered	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffcu_registered",&err);
-	global_ffcu_friends	= g_key_file_get_boolean(global_tangogis_config,"other", "/ffcu_friends",&err);
+	global_ffcu_public	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcu_public",&err);
+	global_ffcu_registered	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcu_registered",&err);
+	global_ffcu_friends	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcu_friends",&err);
 	
 	widget = glade_xml_get_widget(interface, "checkbutton6");
 	if(global_ffcu_public)
@@ -1029,22 +1029,22 @@ init()
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
 	}	
 	
-	str = g_key_file_get_string(global_tangogis_config,"other", "/gpsd_host",&err);
+	str = g_key_file_get_string(global_tangogis_config,"other", "gpsd_host",&err);
 	widget = glade_xml_get_widget(interface, "entry3");
 	gtk_entry_set_text(GTK_ENTRY(widget), g_strdup(str));
 	g_free(str);
 	
-	str = g_key_file_get_string(global_tangogis_config,"other", "/gpsd_port",&err);
+	str = g_key_file_get_string(global_tangogis_config,"other", "gpsd_port",&err);
 	widget = glade_xml_get_widget(interface, "entry4");
 	gtk_entry_set_text(GTK_ENTRY(widget), g_strdup(str));
 	g_free(str);
 	
-	if (g_key_file_get_boolean(global_tangogis_config,"other", "/tracklog_on", NULL))
+	if (g_key_file_get_boolean(global_tangogis_config,"tracks", "tracklog_on", NULL))
 		gtk_button_clicked(GTK_BUTTON(glade_xml_get_widget(interface,"button18")));
 	
 	timer = g_timeout_add (1000,cb_gps_timer,data);
 	
-	gtk_window_set_icon_from_file(GTK_WINDOW(window1), PACKAGE_PIXMAPS_DIR "/" PACKAGE ".png" ,&err);
+	gtk_window_set_icon_from_file(GTK_WINDOW(window1), PACKAGE_PIXMAPS_DIR "" PACKAGE ".png" ,&err);
 	if (err)
 	{
 		fprintf (stderr, "Failed to load pixbuf file:  %s\n", err->message);
