@@ -181,16 +181,18 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkComboBox" id="combobox1">
+                          <object class="GtkComboBoxText" id="comboboxtext1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="button_sensitivity">on</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
                             <property name="fill">True</property>
                             <property name="position">1</property>
                           </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
                         </child>
                         <child>
                           <object class="GtkHBox" id="hbox3">
@@ -230,19 +232,18 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
                           <packing>
                             <property name="expand">True</property>
                             <property name="fill">True</property>
-                            <property name="position">2</property>
+                            <property name="position">3</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkComboBox" id="combobox_trf_repo">
+                          <object class="GtkComboBoxText" id="comboboxtext_trf">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="button_sensitivity">on</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
                             <property name="fill">True</property>
-                            <property name="position">3</property>
+                            <property name="position">4</property>
                           </packing>
                         </child>
                       </object>
@@ -1409,6 +1410,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
       <action-widget response="0">okbutton1</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkListStore" id="liststore1"/>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
     <child>
