@@ -150,7 +150,7 @@ void
 on_togglebutton_trf_show_toggled        (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 void
-on_comboboxtext_trf_repo_changed        (GtkComboBox     *combobox,
+on_comboboxtext_trf_changed        (GtkComboBox     *combobox,
                                         gpointer         user_data);
 //-----------Traffic auto & show---------------
 void

@@ -12,6 +12,7 @@
     <property name="can_focus">False</property>
     <property name="events"></property>
     <property name="border_width">5</property>
+    <property name="type">popup</property>
     <property name="type_hint">normal</property>
     <property name="deletable">False</property>
     <signal name="destroy" handler="on_dialog101_destroy" swapped="no"/>
@@ -709,8 +710,10 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="type">popup</property>
+    <property name="resizable">False</property>
     <property name="type_hint">normal</property>
-    <property name="deletable">False</property>
+    <property name="accept_focus">False</property>
+    <property name="focus_on_map">False</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox3">
         <property name="visible">True</property>
@@ -1100,12 +1103,15 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
   <object class="GtkDialog" id="dialog3">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
+    <property name="type">popup</property>
     <property name="type_hint">normal</property>
     <property name="deletable">False</property>
+    <property name="gravity">south-west</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox4">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="dialog-action_area4">
@@ -1238,11 +1244,15 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
   <object class="GtkDialog" id="dialog4">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
+    <property name="type">popup</property>
+    <property name="modal">True</property>
+    <property name="window_position">mouse</property>
     <property name="type_hint">normal</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox5">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="dialog-action_area5">
