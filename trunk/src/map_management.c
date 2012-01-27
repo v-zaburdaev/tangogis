@@ -258,7 +258,7 @@ gdk_threads_leave();
 //			TILESIZE,TILESIZE,
 //			GDK_RGB_DITHER_NONE, 0, 0);
 //
-//	drawingarea11 = glade_xml_get_widget(interface, "drawingarea1");
+//	drawingarea11 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 //	
 //	gtk_widget_queue_draw_area (
 //		drawingarea11, 
@@ -293,7 +293,7 @@ GdkGC		*gc_map = NULL;
 
 		GtkWidget *widget;
 			
-		widget = glade_xml_get_widget(interface, "drawingarea1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 			
 	if(pixbuf == NULL)
 	{
@@ -319,7 +319,7 @@ gdk_threads_leave();
 	else
 	{
 		if (global_map_reload)
-//		if (gtk_toggle_button_get_active(glade_xml_get_widget(interface,"togglebutton_reload")))
+//		if (gtk_toggle_button_get_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_reload"))))
 			if (!host_failed)
 			{
 				download_tile(local->repo,local->zoom,local->x,local->y);
@@ -385,7 +385,7 @@ gdk_threads_enter();
 
 		g_object_unref (pixbuf);
 	
-	drawingarea11 = glade_xml_get_widget(interface, "drawingarea1");
+	drawingarea11 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 	
 	gtk_widget_queue_draw_area (
 		drawingarea11, 
@@ -626,7 +626,7 @@ GdkGC		*gc_map = NULL;
 		
 			g_object_unref (pixbuf);
 				
-			drawingarea11 = glade_xml_get_widget(interface, "drawingarea1");
+			drawingarea11 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 			
 			gtk_widget_queue_draw_area (
 				drawingarea11, 
@@ -718,7 +718,7 @@ GdkGC		*gc_map = NULL;
 //
 //	g_object_unref (pixbuf);
 //		
-//	drawingarea11 = glade_xml_get_widget(interface, "drawingarea1");
+//	drawingarea11 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 //	
 //	gtk_widget_queue_draw_area (
 //		drawingarea11, 

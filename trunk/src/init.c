@@ -71,7 +71,7 @@ track_log_open()
 	GtkLabel *label76;
 	gchar *labeltext;
 	
-	label76 = GTK_LABEL(glade_xml_get_widget(interface, "label76"));
+	label76 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label76")));
 	
 	
 	time_epoch_sec = time(NULL);
@@ -109,7 +109,7 @@ track_log_close()
 {
 	int ret;
 	GtkLabel *label76;
-	label76 = GTK_LABEL(glade_xml_get_widget(interface, "label76"));
+	label76 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label76")));
 	gtk_label_set_label(label76,"");
 	
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
@@ -649,7 +649,7 @@ repoconfig__create_dropdown()
 	int		j = 0;
 	const gchar	*reponame;
 	
-	combobox = glade_xml_get_widget(interface, "combobox1");
+	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 	GtkTreeModel* model=gtk_combo_box_get_model(combobox);
 
 	for(list = global_repo_list; list != NULL; list = list->next)
@@ -657,7 +657,7 @@ repoconfig__create_dropdown()
 		repo_t	*repo;
 		repo = list->data;
 		reponame = g_strdup(repo->name);
-		gtk_combo_box_append_text (GTK_COMBO_BOX(combobox), g_strdup(repo->name));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX(combobox), g_strdup(repo->name));
 		
 		if(	strcmp(reponame,global_curr_reponame) == 0)
 		{
@@ -669,11 +669,11 @@ repoconfig__create_dropdown()
 	global_repo_cnt = i;
 	gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), j);
 //	g_signal_connect ((gpointer) combobox, "changed",
-//                    G_CALLBACK (on_combobox1_changed),
+//                    G_CALLBACK (on_comboboxtext1_changed),
 //                    NULL);
 //-------------Traffic combobox list------------------	
 j=0;i=0;
-	combobox = glade_xml_get_widget(interface, "combobox_trf_repo");
+	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
 	for(list = global_trf_list; list != NULL; list = list->next)
 	{
 		repo_t	*repo;
@@ -692,7 +692,7 @@ j=0;i=0;
 	}
 	gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), j);
 //	g_signal_connect ((gpointer) combobox, "changed",
-//                    G_CALLBACK (on_combobox_trf_repo_changed),
+//                    G_CALLBACK (on_comboboxtext_trf_repo_changed),
 //                    NULL);
 //-------------Traffic combobox list------------------	
 }
@@ -759,38 +759,38 @@ pre_init()
 	{
 	// Чтение настроек автозагрузки карт
 		if (g_key_file_get_boolean( global_tangogis_config,"visual", "auto_download", err))
-			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton2"),TRUE);
+			gtk_toggle_button_set_active (GTK_WIDGET (gtk_builder_get_object(interface,"checkbutton2")),TRUE);
 		else
 			global_auto_download = FALSE;
 
 	// Чтение настроек автозагрузки пробок
 		if (g_key_file_get_boolean( global_tangogis_config,"visual", "trf_auto", err))
-			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"checkbutton_trf_auto"),TRUE);
+			gtk_toggle_button_set_active (GTK_WIDGET (gtk_builder_get_object(interface,"checkbutton_trf_auto")),TRUE);
 		else
 			global_trf_auto = FALSE;
 
 	// Чтение настроек показа пробок
 		if (g_key_file_get_boolean( global_tangogis_config,"visual", "trf_show", err))
-			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton_trf_show"),TRUE);
+			gtk_toggle_button_set_active (GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_trf_show")),TRUE);
 		else
 			global_trf_show = FALSE;
 
 	// Чтение настроек показа сетки
 		if (g_key_file_get_boolean( global_tangogis_config,"visual", "grid_show", err))
 		{
-			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton1"),TRUE);
-			gtk_widget_show(glade_xml_get_widget(interface,"label7"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label8"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label9"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label10"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label11"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label12"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label13"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label14"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label15"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label16"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label17"));
-			gtk_widget_show(glade_xml_get_widget(interface,"label18"));
+			gtk_toggle_button_set_active (GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton1")),TRUE);
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label7")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label8")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label9")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label10")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label11")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label12")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label13")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label14")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label15")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label16")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label17")));
+			gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label18")));
 //			if (global_grid_show) 
 //				for (int i=0;i<7;i+=2)
 //				{
@@ -841,8 +841,8 @@ init()
 	repoconfig__create_dropdown();
 
 	
-	nick_entry  = glade_xml_get_widget(interface, "entry7");
-	pass_entry  = glade_xml_get_widget(interface, "entry8");
+	nick_entry  = GTK_WIDGET (gtk_builder_get_object(interface, "entry7"));
+	pass_entry  = GTK_WIDGET (gtk_builder_get_object(interface, "entry8"));
 
 	//global_tangogis_config,NULL	= g_key_file_get_default(); 
 	nick			= g_key_file_get_string(global_tangogis_config,"other", "nick",&err);
@@ -855,11 +855,11 @@ init()
 	switch (global_speed_unit)
 	{
 		case 1:
-			widget = glade_xml_get_widget(interface, "radiobutton15");
+			widget = GTK_WIDGET (gtk_builder_get_object(interface, "radiobutton15"));
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 			break;
 		case 2:
-			widget = glade_xml_get_widget(interface, "radiobutton16");
+			widget = GTK_WIDGET (gtk_builder_get_object(interface, "radiobutton16"));
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 			break;
 	}
@@ -867,7 +867,7 @@ init()
 	switch (global_alt_unit)
 	{
 		case 1:
-			widget = glade_xml_get_widget(interface, "radiobutton18");
+			widget = GTK_WIDGET (gtk_builder_get_object(interface, "radiobutton18"));
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 			break;
 	}
@@ -875,11 +875,11 @@ init()
 	switch (global_latlon_unit)
 	{
 		case 1:
-			widget = glade_xml_get_widget(interface, "radiobutton20");
+			widget = GTK_WIDGET (gtk_builder_get_object(interface, "radiobutton20"));
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 			break;
 		case 2:
-			widget = glade_xml_get_widget(interface, "radiobutton21");
+			widget = GTK_WIDGET (gtk_builder_get_object(interface, "radiobutton21"));
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 			break;
 	}
@@ -887,7 +887,7 @@ init()
 	gtk_entry_set_text( GTK_ENTRY(nick_entry), nick );
 	gtk_entry_set_text( GTK_ENTRY(pass_entry), pass );
 	
-	widget = glade_xml_get_widget(interface, "vscale1");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 	gtk_range_set_value(GTK_RANGE(widget), (double) global_zoom);
 	
 	global_map_dir	= g_key_file_get_string(global_tangogis_config,"other", "map_dir",&err);
@@ -911,13 +911,13 @@ init()
 	global_myposition.lat = 0;
 	global_myposition.lon = 0;
 
-//	widget = glade_xml_get_widget(interface, "checkbutton2");
+//	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton2"));
 //	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_auto_download);
 
 //-----------------------Traffic download-------------------
-//	widget = glade_xml_get_widget(interface, "checkbutton_trf_auto");
+//	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton_trf_auto"));
 //	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_auto);
-//	widget = glade_xml_get_widget(interface, "togglebutton_trf_show");
+//	widget = GTK_WIDGET (gtk_builder_get_object(interface, "togglebutton_trf_show"));
 //	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), global_trf_show);
 //-----------------------Traffic download-------------------
 
@@ -931,7 +931,7 @@ init()
 	
 	global_ffupdate_interval_minutes = g_key_file_get_double(global_tangogis_config,"other", "ffupdate_interval_minutes",&err);
 	global_ffupdate_interval = (int)floor(global_ffupdate_interval_minutes) * 60000;
-	widget = glade_xml_get_widget(interface, "entry16");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "entry16"));
 	if (global_ffupdate_interval_minutes<10)
 		g_sprintf(buffer, "%.1f", global_ffupdate_interval_minutes);
 	else
@@ -942,7 +942,7 @@ init()
 	global_ffupdate_auto	= g_key_file_get_boolean(global_tangogis_config,"other", "ffupdate_auto",&err);
 	if(global_ffupdate_auto)
 	{
-		widget = glade_xml_get_widget(interface, "radiobutton13");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "radiobutton13"));
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),TRUE);
 	}
 
@@ -958,7 +958,7 @@ init()
 	global_ffcm_registered	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcm_registered",&err);
 	global_ffcm_friends	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcm_friends",&err);
 	
-	widget = glade_xml_get_widget(interface, "checkbutton3");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton3"));
 	if(global_ffcm_public)
 	{
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
@@ -969,7 +969,7 @@ init()
 	}
 
 
-	widget = glade_xml_get_widget(interface, "checkbutton4");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton4"));
 	if(global_ffcm_registered)
 	{
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
@@ -980,7 +980,7 @@ init()
 	}
 
 	
-	widget = glade_xml_get_widget(interface, "checkbutton5");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton5"));
 	if(global_ffcm_friends)
 	{
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
@@ -997,7 +997,7 @@ init()
 	global_ffcu_registered	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcu_registered",&err);
 	global_ffcu_friends	= g_key_file_get_boolean(global_tangogis_config,"other", "ffcu_friends",&err);
 	
-	widget = glade_xml_get_widget(interface, "checkbutton6");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton6"));
 	if(global_ffcu_public)
 	{
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
@@ -1008,7 +1008,7 @@ init()
 	}
 	
 	
-	widget = glade_xml_get_widget(interface, "checkbutton7");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton7"));
 	if(global_ffcu_registered)
 	{
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
@@ -1019,7 +1019,7 @@ init()
 	}
 
 	
-	widget = glade_xml_get_widget(interface, "checkbutton8");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton8"));
 	if(global_ffcu_friends)
 	{
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
@@ -1030,17 +1030,17 @@ init()
 	}	
 	
 	str = g_key_file_get_string(global_tangogis_config,"other", "gpsd_host",&err);
-	widget = glade_xml_get_widget(interface, "entry3");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "entry3"));
 	gtk_entry_set_text(GTK_ENTRY(widget), g_strdup(str));
 	g_free(str);
 	
 	str = g_key_file_get_string(global_tangogis_config,"other", "gpsd_port",&err);
-	widget = glade_xml_get_widget(interface, "entry4");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "entry4"));
 	gtk_entry_set_text(GTK_ENTRY(widget), g_strdup(str));
 	g_free(str);
 	
 	if (g_key_file_get_boolean(global_tangogis_config,"tracks", "tracklog_on", NULL))
-		gtk_button_clicked(GTK_BUTTON(glade_xml_get_widget(interface,"button18")));
+		gtk_button_clicked(GTK_BUTTON(GTK_WIDGET (gtk_builder_get_object(interface,"button18"))));
 	
 	timer = g_timeout_add (1000,cb_gps_timer,data);
 	

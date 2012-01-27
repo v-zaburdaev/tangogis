@@ -45,20 +45,34 @@ main (int argc, char *argv[])
   global_port	= g_strdup("2947");
 
 
-	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.glade",NULL);
-	interface = glade_xml_new( main_interface_file, NULL, NULL);
+	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.ui",NULL);
+//	interface = glade_xml_new( main_interface_file, NULL, NULL);
 	printf("\ninterface file - %s\n",main_interface_file);
-	if (!interface)
+	if (!g_file_test (main_interface_file, G_FILE_TEST_EXISTS)) 
 	{
-		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.glade",NULL);
-		interface = glade_xml_new(main_interface_file, NULL, NULL);
+		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.ui",NULL);
+//		interface = glade_xml_new(main_interface_file, NULL, NULL);
 	}
+	if (!g_file_test (main_interface_file, G_FILE_TEST_EXISTS)) 
+	{
+		printf ("\n\n\nInterface file not found\n\n\n");
+		return -10;
+	}
+	GError* error = NULL;
+	interface = gtk_builder_new ();
+	if (!gtk_builder_add_from_file (interface, main_interface_file, &error))
+	  {
+		g_warning ("Couldn't load builder file: %s", error->message);
+		g_error_free (error);
+		return -20;
+	  }
 	if (interface)
 	{
 		g_free(main_interface_file);
 		pre_init();
 		window1 = create_window1 ();
-		glade_xml_signal_autoconnect(interface);
+		gtk_builder_connect_signals(interface,NULL);
+//		glade_xml_signal_autoconnect(interface);
 	}
 	else
 	{

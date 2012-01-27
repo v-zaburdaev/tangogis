@@ -3,9 +3,8 @@
 #endif
 
 #include <gtk/gtk.h>
-//#include <gconf/gconf-client.h>
 #include <time.h>
-#include <libglade-2.0/glade/glade-xml.h>
+//#include <libglade-2.0/glade/glade-xml.h>
 
 
 #define CONF_FILE "/"PACKAGE".conf"
@@ -20,7 +19,7 @@
 #define YANDEX_CB (0.00000001764564338702)
 #define YANDEX_DB (0.00000000005328478445)
 
-GladeXML* interface;
+GtkBuilder* interface;
 
 typedef struct {
 	float lat;

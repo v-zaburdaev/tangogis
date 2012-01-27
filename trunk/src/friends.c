@@ -72,7 +72,7 @@ gboolean
 update_position()
 {		
 	GtkLabel *label_msg;
-	label_msg = (GtkLabel *)glade_xml_get_widget(interface, "label51");
+	label_msg = (GtkLabel *)GTK_WIDGET (gtk_builder_get_object(interface, "label51"));
 	gtk_label_set_text(label_msg, "Connecting...");
 
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
@@ -113,18 +113,18 @@ update_position_thread(void *ptr)
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
 
-	label_msg = (GtkLabel *)glade_xml_get_widget(interface, "label51");
+	label_msg = (GtkLabel *)GTK_WIDGET (gtk_builder_get_object(interface, "label51"));
 
 	
-	v_public = (GtkToggleButton *)glade_xml_get_widget(interface, "checkbutton3");
-	v_member = (GtkToggleButton *)glade_xml_get_widget(interface, "checkbutton4");
-	v_friend = (GtkToggleButton *)glade_xml_get_widget(interface, "checkbutton5");
-	g_public = (GtkToggleButton *)glade_xml_get_widget(interface, "checkbutton6");
-	g_member = (GtkToggleButton *)glade_xml_get_widget(interface, "checkbutton7");
-	g_friend = (GtkToggleButton *)glade_xml_get_widget(interface, "checkbutton8");
-	nick  = (GtkEntry *)glade_xml_get_widget(interface, "entry7");
-	pass  = (GtkEntry *)glade_xml_get_widget(interface, "entry8");
-	email = (GtkEntry *)glade_xml_get_widget(interface, "entry9");
+	v_public = (GtkToggleButton *)GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton3"));
+	v_member = (GtkToggleButton *)GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton4"));
+	v_friend = (GtkToggleButton *)GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton5"));
+	g_public = (GtkToggleButton *)GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton6"));
+	g_member = (GtkToggleButton *)GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton7"));
+	g_friend = (GtkToggleButton *)GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton8"));
+	nick  = (GtkEntry *)GTK_WIDGET (gtk_builder_get_object(interface, "entry7"));
+	pass  = (GtkEntry *)GTK_WIDGET (gtk_builder_get_object(interface, "entry8"));
+	email = (GtkEntry *)GTK_WIDGET (gtk_builder_get_object(interface, "entry9"));
 
 	vp = (gtk_toggle_button_get_active(v_public)) ? g_strdup("y") : g_strdup("n");
 	vm = (gtk_toggle_button_get_active(v_member)) ? g_strdup("y") : g_strdup("n");
@@ -453,7 +453,7 @@ int
 register_nick()
 {		
 	GtkLabel *label_msg;
-	label_msg = (GtkLabel *)glade_xml_get_widget(interface, "label62");
+	label_msg = (GtkLabel *)GTK_WIDGET (gtk_builder_get_object(interface, "label62"));
 	gtk_label_set_text(label_msg, "Connecting...");
 
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
@@ -490,9 +490,9 @@ register_nick_thread(void *ptr)
 
 
 	
-	nick  = (GtkEntry *)glade_xml_get_widget(interface, "entry7");
-	pass  = (GtkEntry *)glade_xml_get_widget(interface, "entry8");
-	email = (GtkEntry *)glade_xml_get_widget(interface, "entry9");
+	nick  = (GtkEntry *)GTK_WIDGET (gtk_builder_get_object(interface, "entry7"));
+	pass  = (GtkEntry *)GTK_WIDGET (gtk_builder_get_object(interface, "entry8"));
+	email = (GtkEntry *)GTK_WIDGET (gtk_builder_get_object(interface, "entry9"));
 
 	n = gtk_entry_get_text(nick);
 	p = gtk_entry_get_text(pass);
@@ -543,7 +543,7 @@ register_nick_thread(void *ptr)
 		buffer = g_strdup("Oh. Some error occurred...");
 
 	gdk_threads_enter();
-	label_msg = (GtkLabel *)glade_xml_get_widget(interface, "label62");
+	label_msg = (GtkLabel *)GTK_WIDGET (gtk_builder_get_object(interface, "label62"));
 	gtk_label_set_text(label_msg, buffer); 
 	gdk_threads_leave();
 	

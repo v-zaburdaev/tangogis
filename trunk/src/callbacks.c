@@ -177,7 +177,7 @@ on_drawingarea1_button_release_event   (GtkWidget       *widget,
 			
 		if(global_zoom<17)
 		{	
-			range = glade_xml_get_widget(interface, "vscale1");
+			range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 			
 			width_center  = map_drawable->allocation.width 	/ 2;
 			height_center = map_drawable->allocation.height / 2;
@@ -359,7 +359,7 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 
 				drag_started = 1;				
 			}
-			 gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_autocenter"),FALSE);
+			 gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_autocenter")),FALSE);
 				
 			mouse_dx = x - mouse_x;	
 			mouse_dy = y - mouse_y;
@@ -561,7 +561,7 @@ on_button4_clicked                     (GtkButton       *button,
 
 	if(global_zoom<17)
 	{	
-		range = glade_xml_get_widget(interface, "vscale1");
+		range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 		
 		width_center  = map_drawable->allocation.width 	/ 2;
 		height_center = map_drawable->allocation.height / 2;
@@ -600,7 +600,7 @@ on_button3_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 //	global_autocenter = TRUE;
-//			 gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_autocenter"),TRUE);
+//			 gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_autocenter")),TRUE);
 //	
 //	if(gpsdata) 
 //	{
@@ -649,7 +649,7 @@ on_button5_clicked                     (GtkButton       *button,
 		GtkWidget *range;
 	if(global_zoom>2)
 	{
-		range = glade_xml_get_widget(interface, "vscale1");
+		range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 	
 		width_center  = map_drawable->allocation.width 	/ 2;
 		height_center = map_drawable->allocation.height / 2;
@@ -757,7 +757,7 @@ on_vscale1_button_release_event        (GtkWidget       *widget,
 
 
 void
-on_combobox1_changed                   (GtkComboBox     *combobox,
+on_comboboxtext1_changed                   (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {	
 	GSList	*list;
@@ -801,7 +801,7 @@ on_combobox1_changed                   (GtkComboBox     *combobox,
 	
 	
 	repaint_all();
-//	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
+//	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 
 }
 
@@ -828,7 +828,7 @@ void
 on_dialog1_close                       (GtkDialog       *dialog,
                                         gpointer         user_data)
 {
-	gtk_widget_hide(glade_xml_get_widget(interface,"dialog1"));
+	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog1")));
 }
 
 
@@ -875,7 +875,7 @@ on_okbutton1_clicked                   (GtkButton       *button,
 	entry_uri = lookup_widget(dialog1, "entry20");
 	entry_dir = lookup_widget(dialog1, "entry21");
 	togglebutton = lookup_widget(dialog1, "checkbutton12");
-	combobox = glade_xml_get_widget(interface, "combobox1");
+	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 
 	reponame = gtk_entry_get_text(GTK_ENTRY(entry_repo));
 	uri = gtk_entry_get_text(GTK_ENTRY(entry_uri));
@@ -913,7 +913,7 @@ on_button7_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	dialog1 = create_dialog1();
-//	dialog1 = glade_xml_get_widget(interface,"dialog4");
+//	dialog1 = GTK_WIDGET (gtk_builder_get_object(interface,"dialog4"));
 	gtk_widget_show(dialog1);
 
 
@@ -942,7 +942,7 @@ on_entry1_changed                      (GtkEditable     *editable,
 	const gchar	*uri;
 	repo_t *repo;
 	
-	entry_uri = glade_xml_get_widget(interface, "entry1");
+	entry_uri = GTK_WIDGET (gtk_builder_get_object(interface, "entry1"));
 	uri = gtk_entry_get_text(GTK_ENTRY(entry_uri));
 
 	repo = global_curr_repo->data;
@@ -966,7 +966,7 @@ on_entry2_changed                      (GtkEditable     *editable,
 	repo_t *repo;
 	int result;
 	
-	entry_dir = glade_xml_get_widget(interface, "entry2");
+	entry_dir = GTK_WIDGET (gtk_builder_get_object(interface, "entry2"));
 	dir = gtk_entry_get_text(GTK_ENTRY(entry_dir));
 
 	result = strncmp(dir, "~", 1);
@@ -1110,9 +1110,9 @@ on_togglebutton_tracks_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(glade_xml_get_widget(interface,"dialog3"));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog3")));
 	else
-		gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog3")));
 }
 
 void
@@ -1120,30 +1120,30 @@ on_togglebutton_info_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(glade_xml_get_widget(interface,"dialog2"));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog2")));
 	else
-		gtk_widget_hide(glade_xml_get_widget(interface,"dialog2"));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog2")));
 }
 
 void
 on_dialog101_close(GtkDialog *dialog)
 {
 	printf("\n\n\n DIALOG 101 close\n\n\n");
-	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
+	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
 }
 
 void
 on_dialog101_response(GtkDialog *dialog)
 {
 	printf("\n\n\n DIALOG 101 response\n\n\n");
-	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
+	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
 }
 
 void
 on_dialog101_destroy(GtkDialog *dialog)
 {
 	printf("\n\n\n DIALOG 101 destroy\n\n\n");
-	gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
+	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
 }
 
 void
@@ -1151,9 +1151,9 @@ on_togglebutton_opt_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(glade_xml_get_widget(interface,"dialog101"));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
 	else
-		gtk_widget_hide(glade_xml_get_widget(interface,"dialog101"));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
 }
 
 //-----------------Traffic auto download & show------------
@@ -1179,7 +1179,7 @@ on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,
 //-----------------Traffic auto download & show------------
 //-----------------Traffic reponame choise---------------------
 void
-on_combobox_trf_repo_changed        (GtkComboBox     *combobox,
+on_comboboxtext_trf_repo_changed        (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
 	GSList	*list;
@@ -1223,7 +1223,7 @@ on_combobox_trf_repo_changed        (GtkComboBox     *combobox,
 	
 	
 	repaint_all();
-//	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
+//	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 }
 
 void
@@ -1231,8 +1231,8 @@ on_button_tracks_close_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
-	//gtk_widget_hide(glade_xml_get_widget(interface,"dialog3"));
-	gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_tracks"),FALSE);
+	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog3")));
+	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
 }
 
 void
@@ -1240,7 +1240,7 @@ on_button_info_close_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
-	gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_info"),FALSE);
+	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_info")),FALSE);
 }
 
 void
@@ -1248,7 +1248,7 @@ on_button_opt_close_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
-	gtk_toggle_button_set_active(glade_xml_get_widget(interface,"togglebutton_opt"),FALSE);
+	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_opt")),FALSE);
 }
 
 //-----------------Traffic reponame choise---------------------
@@ -1261,8 +1261,8 @@ on_button9_clicked                     (GtkButton       *button,
 	
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
-	entry_server	= glade_xml_get_widget(interface, "entry3");
-	entry_port	= glade_xml_get_widget(interface, "entry4");
+	entry_server	= GTK_WIDGET (gtk_builder_get_object(interface, "entry3"));
+	entry_port	= GTK_WIDGET (gtk_builder_get_object(interface, "entry4"));
 	server	= gtk_entry_get_text(GTK_ENTRY(entry_server));
 	port	= gtk_entry_get_text(GTK_ENTRY(entry_port));
 	global_server	= g_strdup(server);
@@ -1280,7 +1280,7 @@ on_button10_clicked                    (GtkButton       *button,
 	
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
-	entry_command = glade_xml_get_widget(interface, "entry6");
+	entry_command = GTK_WIDGET (gtk_builder_get_object(interface, "entry6"));
 	command = gtk_entry_get_text(GTK_ENTRY(entry_command));
 	printf("cmd: %s\n",command);
 	system(command);
@@ -1315,7 +1315,7 @@ on_button11_clicked                    (GtkButton       *button,
 		
 		
 		
-		widget = glade_xml_get_widget(interface, "button23");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "button23"));
 		gtk_widget_set_sensitive(widget, TRUE);
 		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
 		
@@ -1327,7 +1327,7 @@ on_button11_clicked                    (GtkButton       *button,
 	
 	else if(global_ffupdate_auto && global_fftimer_running)
 	{
-		widget = glade_xml_get_widget(interface, "label97");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "label97"));
 		gtk_label_set_text(GTK_LABEL(widget), "");
 		
 		g_source_remove(friendfinder_timer);
@@ -1377,33 +1377,33 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
 
 	if (global_grid_show) 
 	{
-		gtk_widget_show(glade_xml_get_widget(interface,"label7"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label8"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label9"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label10"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label11"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label12"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label13"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label14"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label15"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label16"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label17"));
-		gtk_widget_show(glade_xml_get_widget(interface,"label18"));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label7")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label8")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label9")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label10")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label11")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label12")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label13")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label14")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label15")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label16")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label17")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"label18")));
 	}
 	else 
 	{
-		gtk_widget_hide(glade_xml_get_widget(interface,"label7"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label8"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label9"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label10"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label11"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label12"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label13"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label14"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label15"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label16"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label17"));
-		gtk_widget_hide(glade_xml_get_widget(interface,"label18"));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label7")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label8")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label9")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label10")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label11")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label12")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label13")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label14")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label15")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label16")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label17")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"label18")));
 	}
 
 //	if (global_grid_show) 
@@ -1803,7 +1803,7 @@ on_drawingarea1_scroll_event            (GtkWidget       *widget,
 			
 			if(global_zoom<17)
 			{	
-				range = glade_xml_get_widget(interface, "vscale1");
+				range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 				
 				width_center  = map_drawable->allocation.width 	/ 2;
 				height_center = map_drawable->allocation.height / 2;
@@ -1834,7 +1834,7 @@ on_drawingarea1_scroll_event            (GtkWidget       *widget,
 			
 			if(global_zoom>2)
 			{
-				range = glade_xml_get_widget(interface, "vscale1");
+				range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 			
 				width_center  = map_drawable->allocation.width 	/ 2;
 				height_center = map_drawable->allocation.height / 2;
@@ -1889,7 +1889,7 @@ on_entry7_changed                      (GtkEditable     *editable,
 	GError **error = NULL;
 	gboolean success = FALSE;
 	
-	nick  = glade_xml_get_widget(interface, "entry7");
+	nick  = GTK_WIDGET (gtk_builder_get_object(interface, "entry7"));
 	
 	n = gtk_entry_get_text(GTK_ENTRY(nick));
 		
@@ -1910,7 +1910,7 @@ on_entry8_changed                      (GtkEditable     *editable,
 	GError **error = NULL;
 	gboolean success = FALSE;
 	
-	pass  = glade_xml_get_widget(interface, "entry8");
+	pass  = GTK_WIDGET (gtk_builder_get_object(interface, "entry8"));
 	
 	p = gtk_entry_get_text(GTK_ENTRY(pass));
 	
@@ -1939,7 +1939,7 @@ on_button16_clicked                    (GtkButton       *button,
 	
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
-	entry_command = glade_xml_get_widget(interface, "entry10");
+	entry_command = GTK_WIDGET (gtk_builder_get_object(interface, "entry10"));
 	command = gtk_entry_get_text(GTK_ENTRY(entry_command));
 	printf("cmd: %s\n",command);
 	system(command);
@@ -1954,7 +1954,7 @@ on_button17_clicked                    (GtkButton       *button,
 	
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
-	entry_command = glade_xml_get_widget(interface, "entry11");
+	entry_command = GTK_WIDGET (gtk_builder_get_object(interface, "entry11"));
 	command = gtk_entry_get_text(GTK_ENTRY(entry_command));
 	printf("cmd: %s\n",command);
 	system(command);
@@ -2618,9 +2618,9 @@ on_radiobutton1_toggled                (GtkToggleButton *togglebutton,
 		global_fftimer_running = FALSE;
 		global_ffupdate_auto = FALSE;
 		
-		widget = glade_xml_get_widget(interface, "button23");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "button23"));
 		gtk_widget_set_sensitive(widget,FALSE);
-		widget = glade_xml_get_widget(interface, "button11");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "button11"));
 		gtk_widget_set_sensitive(widget, TRUE);
 	}
 	
@@ -2674,9 +2674,9 @@ on_entry16_changed                     (GtkEditable     *editable,
 	
 	
 	
-	widget = glade_xml_get_widget(interface, "button23");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "button23"));
 	gtk_widget_set_sensitive(widget,FALSE);
-	widget = glade_xml_get_widget(interface, "button11");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "button11"));
 	gtk_widget_set_sensitive(widget, TRUE);
 
 	if(friendfinder_timer) g_source_remove(friendfinder_timer);
@@ -2956,7 +2956,7 @@ on_button23_clicked                    (GtkButton       *button,
 	GError **error = NULL;
 	
 	gtk_widget_set_sensitive(GTK_WIDGET(button),FALSE);
-	widget = glade_xml_get_widget(interface, "button11");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "button11"));
 	gtk_widget_set_sensitive(widget, TRUE);
 
 			
@@ -3268,56 +3268,56 @@ on_drawingarea1_key_press_event        (GtkWidget       *widget,
 	else if(event->keyval == GDK_1)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 0);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_2)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 1);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_3)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 2);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_4)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 3);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_5)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 4);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_6)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 5);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_7)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 6);
 		repaint_all();
 	}
 	else if(event->keyval == GDK_8)
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox1");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 7);
 		repaint_all();
 	}
@@ -3325,14 +3325,14 @@ on_drawingarea1_key_press_event        (GtkWidget       *widget,
 	else if(event->keyval == 'y')
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox_trf_repo");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 0);
 //		repaint_all();
 	}
 	else if(event->keyval == 'g')
 	{
 		GtkWidget *widget;
-		widget = glade_xml_get_widget(interface, "combobox_trf_repo");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 1);
 //		repaint_all();
 	}
@@ -3347,7 +3347,7 @@ on_drawingarea1_key_press_event        (GtkWidget       *widget,
 //-------------Traffic show------------------	
 	else if(event->keyval == 's')
 	{
-		widget = glade_xml_get_widget(interface, "togglebutton_trf_show");
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "togglebutton_trf_show"));
 		gboolean state;
 		state = gtk_toggle_button_get_active(GTK_CHECK_BUTTON(widget));
 		if (state) 
@@ -3441,7 +3441,7 @@ on_button35_clicked                    (GtkButton       *button,
 {
 	GtkWidget *widget;
 	static gboolean visible=FALSE;
-	widget = glade_xml_get_widget(interface, "label132");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "label132"));
 	
 	if(visible)
 	{	
@@ -3464,7 +3464,7 @@ on_entry3_changed                      (GtkEditable     *editable,
 	GtkWidget *widget;
 	const char *entry;
 	
-	widget = glade_xml_get_widget(interface, "entry3");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "entry3"));
 	entry = gtk_entry_get_text(GTK_ENTRY(widget));
 	
 	g_key_file_set_string(global_tangogis_config, "other", 
@@ -3481,7 +3481,7 @@ on_entry4_changed                      (GtkEditable     *editable,
 	GtkWidget *widget;
 	const char *entry;
 	
-	widget = glade_xml_get_widget(interface, "entry4");
+	widget = GTK_WIDGET (gtk_builder_get_object(interface, "entry4"));
 	entry = gtk_entry_get_text(GTK_ENTRY(widget));
 	
 	g_key_file_set_string(	global_tangogis_config, "other", 
@@ -3582,7 +3582,7 @@ on_okbutton7_clicked                   (GtkButton       *button,
 	entry_uri = lookup_widget(dialog8, "entry25");
 	entry_dir = lookup_widget(dialog8, "entry26");
 	togglebutton = lookup_widget(dialog8, "checkbutton13");
-	combobox = GTK_COMBO_BOX(glade_xml_get_widget(interface, "combobox1"));
+	combobox = GTK_COMBO_BOX(GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1")));
 
 	reponame = gtk_entry_get_text(GTK_ENTRY(entry_repo));
 	uri = gtk_entry_get_text(GTK_ENTRY(entry_uri));

@@ -136,7 +136,7 @@ set_label_nogps()
 	int num_dl_threads = 0;
 
 	if(label == NULL)
-		label   = GTK_LABEL(glade_xml_get_widget(interface, "label4"));
+		label   = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label4")));
 	
 	num_dl_threads = update_thread_number(0);
 	if(num_dl_threads && !global_tiles_in_dl_queue)
@@ -221,17 +221,17 @@ set_label()
 	
 	if(label == NULL)
 	{
-		label   = GTK_LABEL(glade_xml_get_widget(interface, "label4"));
-		label45 = GTK_LABEL(glade_xml_get_widget(interface, "label45"));
-		label41 = GTK_LABEL(glade_xml_get_widget(interface, "label41"));
-		label31 = GTK_LABEL(glade_xml_get_widget(interface, "label31"));
-		label38 = GTK_LABEL(glade_xml_get_widget(interface, "label38"));
-		label39 = GTK_LABEL(glade_xml_get_widget(interface, "label39"));
-		label42 = GTK_LABEL(glade_xml_get_widget(interface, "label42"));
-		label43 = GTK_LABEL(glade_xml_get_widget(interface, "label43"));
-		label66 = GTK_LABEL(glade_xml_get_widget(interface, "label66"));
-		label68 = GTK_LABEL(glade_xml_get_widget(interface, "label68"));
-		label70 = GTK_LABEL(glade_xml_get_widget(interface, "label70"));
+		label   = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label4")));
+		label45 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label45")));
+		label41 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label41")));
+		label31 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label31")));
+		label38 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label38")));
+		label39 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label39")));
+		label42 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label42")));
+		label43 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label43")));
+		label66 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label66")));
+		label68 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label68")));
+		label70 = GTK_LABEL(GTK_WIDGET (gtk_builder_get_object(interface, "label70")));
 	}
 
 

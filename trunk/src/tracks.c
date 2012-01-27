@@ -54,7 +54,7 @@ tracks_open_tracks_dialog()
 	gtk_file_chooser_set_select_multiple(dialog,TRUE);
 	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
 		{
-			gtk_toggle_button_set_active (glade_xml_get_widget(interface,"togglebutton2"),TRUE);
+			gtk_toggle_button_set_active (GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton2")),TRUE);
 
 			GSList *filenames = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
 			g_slist_free(loaded_track);
@@ -96,7 +96,7 @@ track_data* tracks_read (char* file,track_data* data)
 	gboolean first_point = TRUE;
 	int track_zoom, width, height;
 	
-	drawingarea = glade_xml_get_widget(interface, "drawingarea1");
+	drawingarea = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 	width  = drawingarea->allocation.width;
 	height = drawingarea->allocation.height;
 	
@@ -134,7 +134,7 @@ track_data* tracks_read (char* file,track_data* data)
 		loaded_track = g_slist_append(loaded_track, tp);
 	}
 	
-//	gtk_notebook_set_current_page(GTK_NOTEBOOK(glade_xml_get_widget(interface,"notebook1")), 0);
+//	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 
 	
 	
@@ -146,7 +146,7 @@ track_data* tracks_read (char* file,track_data* data)
 
 printf("%.0f - %.0f ## %.0f - %.0f\n, zoom=%d\n",data->max_lat,data->max_lon,data->min_lat,data->min_lon,track_zoom);
 		
-			range = glade_xml_get_widget(interface, "vscale1");
+			range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 		gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
 	
 	return data;	

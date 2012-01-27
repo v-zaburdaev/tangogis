@@ -30,4 +30,4 @@ GtkWidget* create_dialog_image_data (void);
 GtkWidget* create_dialog_geocode_result (void);
     GtkWidget *label_grid_h[2][7];
     GtkWidget *label_grid_v[7];
-    GtkWidget *combobox_trf_repo;
+    GtkWidget *comboboxtext_trf_repo;
