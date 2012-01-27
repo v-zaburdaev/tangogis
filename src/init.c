@@ -650,8 +650,6 @@ repoconfig__create_dropdown()
 	const gchar	*reponame;
 	
 	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
-	GtkTreeModel* model=gtk_combo_box_get_model(combobox);
-
 	for(list = global_repo_list; list != NULL; list = list->next)
 	{
 		repo_t	*repo;
@@ -673,14 +671,14 @@ repoconfig__create_dropdown()
 //                    NULL);
 //-------------Traffic combobox list------------------	
 j=0;i=0;
-	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
+	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf"));
 	for(list = global_trf_list; list != NULL; list = list->next)
 	{
 		repo_t	*repo;
 		
 		repo = list->data;
 		reponame = g_strdup(repo->name);
-		gtk_combo_box_append_text (GTK_COMBO_BOX(combobox), g_strdup(repo->name));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX(combobox), g_strdup(repo->name));
 		
 		if(	g_strrstr(reponame,curr_trf->name) != NULL &&
 			strlen(reponame) == strlen(curr_trf->name)	
@@ -692,7 +690,7 @@ j=0;i=0;
 	}
 	gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), j);
 //	g_signal_connect ((gpointer) combobox, "changed",
-//                    G_CALLBACK (on_comboboxtext_trf_repo_changed),
+//                    G_CALLBACK (on_comboboxtext_trf_changed),
 //                    NULL);
 //-------------Traffic combobox list------------------	
 }

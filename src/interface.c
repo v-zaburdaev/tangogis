@@ -254,7 +254,7 @@ create_window1 (void)
 //  GtkWidget *label44 = GTK_WIDGET (gtk_builder_get_object(interface, "label44"));
   GtkWidget *checkbutton_trf_auto = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton_trf_auto"));
   GtkWidget *togglebutton_trf_show = GTK_WIDGET (gtk_builder_get_object(interface, "togglebutton_trf_show"));
-  GtkWidget *comboboxtext_trf_repo = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
+  GtkWidget *comboboxtext_trf = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf"));
 
 
 
@@ -459,8 +459,8 @@ create_window1 (void)
   g_signal_connect ((gpointer) checkbutton_trf_auto, "toggled",
                     G_CALLBACK (on_checkbutton_trf_auto_toggled),
                     NULL);
-  g_signal_connect ((gpointer) comboboxtext_trf_repo, "changed",
-                    G_CALLBACK (on_comboboxtext_trf_repo_changed),
+  g_signal_connect ((gpointer) comboboxtext_trf, "changed",
+                    G_CALLBACK (on_comboboxtext_trf_changed),
                     NULL);
 //------------------Traffic callbacks-------------		    
   g_signal_connect ((gpointer) comboboxtext1, "changed",

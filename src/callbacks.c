@@ -1126,20 +1126,6 @@ on_togglebutton_info_toggled                (GtkToggleButton *togglebutton,
 }
 
 void
-on_dialog101_close(GtkDialog *dialog)
-{
-	printf("\n\n\n DIALOG 101 close\n\n\n");
-	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
-}
-
-void
-on_dialog101_response(GtkDialog *dialog)
-{
-	printf("\n\n\n DIALOG 101 response\n\n\n");
-	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
-}
-
-void
 on_dialog101_destroy(GtkDialog *dialog)
 {
 	printf("\n\n\n DIALOG 101 destroy\n\n\n");
@@ -1179,7 +1165,7 @@ on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,
 //-----------------Traffic auto download & show------------
 //-----------------Traffic reponame choise---------------------
 void
-on_comboboxtext_trf_repo_changed        (GtkComboBox     *combobox,
+on_comboboxtext_trf_changed        (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
 	GSList	*list;
@@ -3325,14 +3311,14 @@ on_drawingarea1_key_press_event        (GtkWidget       *widget,
 	else if(event->keyval == 'y')
 	{
 		GtkWidget *widget;
-		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 0);
 //		repaint_all();
 	}
 	else if(event->keyval == 'g')
 	{
 		GtkWidget *widget;
-		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf_repo"));
+		widget = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf"));
 		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 1);
 //		repaint_all();
 	}
