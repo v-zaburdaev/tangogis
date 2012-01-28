@@ -1110,9 +1110,9 @@ on_togglebutton_tracks_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog3")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_tracks")));
 	else
-		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog3")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_tracks")));
 }
 
 void
@@ -1120,26 +1120,47 @@ on_togglebutton_info_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog2")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_info")));
 	else
-		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog2")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_info")));
 }
 
-void
-on_dialog101_destroy(GtkDialog *dialog)
+gboolean
+on_dialog_options_delete_event(GtkDialog *dialog)
 {
-	printf("\n\n\n DIALOG 101 destroy\n\n\n");
-	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
+	gtk_widget_hide(dialog);
+	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_opt")),FALSE);
+	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_options")));
+	return TRUE;
 }
+
+gboolean
+on_dialog_info_delete_event(GtkDialog *dialog)
+{
+	gtk_widget_hide(dialog);
+	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_info")),FALSE);
+	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_info")));
+	return TRUE;
+}
+
+gboolean
+on_dialog_tracks_delete_event(GtkDialog *dialog)
+{
+	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
+	gtk_widget_hide(dialog);
+	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_tracks")));
+	return TRUE;
+}
+
 
 void
 on_togglebutton_opt_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	if (gtk_toggle_button_get_active(togglebutton))
-		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
+		gtk_widget_show(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_options")));
 	else
-		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog101")));
+		gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_options")));
 }
 
 //-----------------Traffic auto download & show------------
@@ -1217,7 +1238,7 @@ on_button_tracks_close_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
-	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog3")));
+	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_tracks")));
 	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
 }
 
