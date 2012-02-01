@@ -895,7 +895,7 @@ on_okbutton1_clicked                   (GtkButton       *button,
 	global_repo_list = g_slist_prepend(global_repo_list, repo);
 	global_curr_repo = global_repo_list;
 	
-	gconf_set_repolist();
+	g_key_set_repolist();
 
 	gtk_widget_destroy(dialog1);
 
@@ -1006,7 +1006,7 @@ on_button6_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
-	gconf_set_repolist();
+	g_key_set_repolist();
 
 	gtk_widget_set_sensitive (GTK_WIDGET(button), FALSE);
 }
@@ -3608,7 +3608,7 @@ on_okbutton7_clicked                   (GtkButton       *button,
 	gtk_combo_box_set_active(combobox, 0);
 
 	printf("*** %s(): new repo: %s %s\n",__PRETTY_FUNCTION__, repo->name, global_curr_reponame);
-	gconf_set_repolist();
+	g_key_set_repolist();
 
 	gtk_widget_destroy(dialog8);
 

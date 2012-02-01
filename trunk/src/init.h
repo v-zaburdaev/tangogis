@@ -14,4 +14,4 @@ void
 repoconfig__populate_dialog();
 
 void
-gconf_set_repolist();
+g_key_set_repolist();
