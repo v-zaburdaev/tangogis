@@ -46,12 +46,10 @@ main (int argc, char *argv[])
 
 
 	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.ui",NULL);
-//	interface = glade_xml_new( main_interface_file, NULL, NULL);
 	printf("\ninterface file - %s\n",main_interface_file);
 	if (!g_file_test (main_interface_file, G_FILE_TEST_EXISTS)) 
 	{
 		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.ui",NULL);
-//		interface = glade_xml_new(main_interface_file, NULL, NULL);
 	}
 	if (!g_file_test (main_interface_file, G_FILE_TEST_EXISTS)) 
 	{
@@ -72,11 +70,10 @@ main (int argc, char *argv[])
 		pre_init();
 		window1 = create_window1 ();
 		gtk_builder_connect_signals(interface,NULL);
-//		glade_xml_signal_autoconnect(interface);
 	}
 	else
 	{
-		printf ("\n\n\nfile \"interface.glade\" not found\n\n\n");
+		printf ("\n\n\nfile \"interface.ui\" not found\n\n\n");
 		return -10;
 	}
 

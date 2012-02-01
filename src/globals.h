@@ -4,8 +4,6 @@
 
 #include <gtk/gtk.h>
 #include <time.h>
-//#include <libglade-2.0/glade/glade-xml.h>
-
 
 #define CONF_FILE "/"PACKAGE".conf"
 #define TILESIZE 256

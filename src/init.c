@@ -1,5 +1,3 @@
-
-
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
 #endif
@@ -12,7 +10,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <gdk/gdk.h>
-//#include <gconf/gconf.h>
 #include <math.h>
 #include <time.h>
 #include <errno.h>
@@ -410,22 +407,18 @@ cb_gps_timer()
 	return TRUE; 
 }
 
-GSList *
-gconf_get_repolist()
+void
+g_key_get_repolist()
 {
-	GSList	*repo_list;
-	
-	GSList	*list;
 	GError **error = NULL;
 	
+	int repo_arr_len;
+	char **repo_arr = g_key_file_get_keys(	global_tangogis_config,
+						"repolist",
+						&repo_arr_len,
+						error);
 	
-	repo_list = NULL;
-//	repo_list = g_key_file_get_list(	global_tangogis_config,"other", 
-//						"repos",
-//						_VALUE_STRING,
-//						error);
-	
-	if (repo_list == NULL)
+	if (repo_arr == NULL)
 	{
 		repo_t *repo1 = g_new0(repo_t, 1);
 		repo_t *repo2 = g_new0(repo_t, 1);
@@ -508,29 +501,33 @@ gconf_get_repolist()
 		{
 			global_trf_list =  g_slist_append(global_trf_list, repo_trf[i]);
 		}
-
 //-----------------Traffic repository------------------	
 	
-	for(list = repo_list; list != NULL; list = list->next)
+	for (int i=0; i<repo_arr_len; i++)
 	{
 		gchar **array;
-		gchar *str = list->data;
+		array = g_key_file_get_string_list(global_tangogis_config,
+											"repolist",
+											repo_arr[i],
+											NULL,
+											error);
 		repo_t *repo = g_new0(repo_t, 1);
 		
-		array = g_strsplit(str,"|",4);	
-		
-		repo->name = g_strdup(array[0]);
-		repo->uri  = g_strdup(array[1]);
-		repo->dir  = g_strdup(array[2]);
-		repo->inverted_zoom = (atoi(g_strdup(array[3])) == 1) ? TRUE : FALSE;
+		repo->name = g_strdup(repo_arr[i]);
+		repo->uri  = g_strdup(array[0]);
+		repo->dir  = g_strdup(array[1]);
+		repo->inverted_zoom = atoi(array[2]) == 1;
 		
 		global_repo_list = g_slist_append(global_repo_list, repo);
 
 		printf(": \n -- name: %s \n -- uri: %s \n -- dir: %s \n",
 			repo->name, repo->uri, repo->dir);
 	}
+	g_strfreev(repo_arr);
+
 
 //------------Traffic repo name remember------------	
+	GSList	*list;
 	if (curr_trf_name==NULL) 
 	{
 		curr_trf=repo_trf[0];
@@ -560,42 +557,29 @@ gconf_get_repolist()
 }
 
 void
-gconf_set_repolist()
+g_key_set_repolist()
 {
-	
 	GSList	*list;
-	GSList	*gconf_list = NULL;
-	GError **error = NULL;
-	gboolean success = FALSE;
-	
-	
 	
 	for(list = global_repo_list; list != NULL; list = list->next)
 	{
-		repo_t *repo;
-		gchar gconf_str[1024];
+		repo_t *repo = list->data;
 		
-		repo = list->data;
-		
-		
-		g_sprintf(	gconf_str, 
-				"%s|%s|%s|%i",
-				repo->name, repo->uri, repo->dir, repo->inverted_zoom);
-		
-		gconf_list = g_slist_append(gconf_list, g_strdup(gconf_str));
+		char *g_key_arr[3];
+		g_key_arr[0]=repo->uri;
+		g_key_arr[1]=repo->dir;
+		if (repo->inverted_zoom)
+			g_key_arr[2]="1";
+		else 
+			g_key_arr[2]="0";
 
-		printf("SAVE: \n -- name: %s \n -- uri: %s \n -- dir: %s \n -- zoom: %i \n\n %s \n",
-			repo->name, repo->uri, repo->dir, repo->inverted_zoom, gconf_str);
+		g_key_file_set_string_list(	global_tangogis_config,
+							"repolist", 
+							repo->name,
+							g_key_arr,
+							3);
 	}
-	
-//	success = g_key_file_set_list(	global_tangogis_config,"other", 
-//						"repos",
-//						_VALUE_STRING,
-//						gconf_list,
-//						error);
-	
-	printf("*** %s(): %i \n",__PRETTY_FUNCTION__, success);
-
+	g_file_set_contents(tangogis_conf_file_name, g_key_file_to_data(global_tangogis_config,NULL,NULL),-1,NULL);
 }
 
 
@@ -633,8 +617,6 @@ repoconfig__set_current_list_pointer()
 		
 		printf("Resetting repo_name and exiting now.\n\n");
 		printf("If problem persists after restart, \n");
-		printf("execute in a terminal: gconftool-2 -u /apps/tangogps/repos");
-		system("gconftool-2 -u /apps/tangogps/repo_name");
 		exit(EXIT_FAILURE);		
 	}
 }
@@ -720,11 +702,8 @@ pre_init()
 	curr_trf_name = g_key_file_get_string(global_tangogis_config,"repositories", "curr_trf",err);
 
 	if(global_curr_reponame == NULL)
-	{
-		printf("gconf repo_name not set\n");
 		global_curr_reponame = g_strdup("Yandex Map");
-	}
-	gconf_get_repolist();	
+	g_key_get_repolist();	
 	repoconfig__set_current_list_pointer();
 	
 	global_x = g_key_file_get_integer(
