@@ -1069,6 +1069,8 @@ on_togglebutton_cam_toggled                (GtkToggleButton *togglebutton, gpoin
 	static int pid = 0;  
 	if (gtk_toggle_button_get_active(togglebutton))
 	{
+		int width,height;
+		gtk_window_get_size(GTK_WINDOW(gtk_builder_get_object(interface,"window1")),&width,&height);
 		printf("\ncam device - %d\n",atoi(gtk_button_get_label(togglebutton))-1);
 		char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
 		pid = fork();

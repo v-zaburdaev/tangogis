@@ -218,3 +218,4 @@ extern gchar		*tangogis_conf;
 extern int		mouse_x;
 extern int		mouse_y;
 
+int  window1_w,window1_h,window1_x,window1_y;

@@ -79,6 +79,20 @@ main (int argc, char *argv[])
 
 
 //-----------geometry add-----------------------
+	int temp;
+	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_width",&error);
+	if (error == G_KEY_FILE_ERROR_INVALID_VALUE)
+		g_warning ("Couldn't load window position: %s", error->message);
+	else
+		window1_w=temp;
+
+	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_height",&error);
+//window1_h
+	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_x_pos",&error);
+//window1_x
+	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_y_pos",&error);
+//window1_y
+
 	int geometry_flag=0;
 //	if (argc>1)
 //	{
@@ -97,7 +111,6 @@ main (int argc, char *argv[])
 					printf ("USAGE -geometry option with argument [WxH][+x+y]\n");
 					return 1;
 				}
-				int  w,h,x,y;
 				char ** temp,**temp1;
 				temp=g_strsplit(argv[i+1],"x",2);
 				if (!temp[0] || !temp[1])
@@ -105,29 +118,33 @@ main (int argc, char *argv[])
 					printf ("incorrect --geometry option usage\n");
 					return 1;
 				}
-				w=atoi(temp[0]);
+				window1_w=atoi(temp[0]);
 				temp1=g_strsplit(temp[1],"+",3);
 				if (!temp1[0] || !temp1[1] || !temp1[2])
 				{
 					printf ("incorrect --geometry option usage\n");
 					return 1;
 				}
-				h=atoi(temp1[0]);
-				x=atoi(temp1[1]);
-				y=atoi(temp1[2]);
+				window1_h=atoi(temp1[0]);
+				window1_x=atoi(temp1[1]);
+				window1_y=atoi(temp1[2]);
 				g_strfreev(temp);
 				g_strfreev(temp1);
-				printf ("width = %d, height = %d, x = %d, y = %d\n",w,h,x,y);
+				printf ("width = %d, height = %d, x = %d, y = %d\n",window1_w,window1_h,window1_x,window1_y);
 				geometry_flag = 1;
-				gtk_window_resize(GTK_WINDOW(window1), w, h);
-				gtk_window_move(GTK_WINDOW(window1),x,y);
+				gtk_window_resize(GTK_WINDOW(window1), window1_w, window1_h);
+				gtk_window_move(GTK_WINDOW(window1),window1_x,window1_y);
 			}
 		}
 		if (!geometry_flag)
 		{
-			gtk_window_resize(GTK_WINDOW(window1), 320, 480);
-			gtk_window_move(GTK_WINDOW(window1),350,100);
+			gtk_window_resize(GTK_WINDOW(window1), window1_w, window1_h);
+			gtk_window_move(GTK_WINDOW(window1),window1_x,window1_y);
 		}
+		g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_width",window1_w);
+		g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_height",window1_h);
+		g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_x_pos",window1_x);
+		g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_y_pos",window1_y);
 //	}
   gtk_widget_show (window1);
 
