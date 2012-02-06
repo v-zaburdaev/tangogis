@@ -140,21 +140,12 @@ on_drawingarea1_button_press_event     (GtkWidget       *widget,
 	if ( event->type==GDK_2BUTTON_PRESS) 
 	{
 		printf("double click\n");
-		
-		
-		
-			
 	}
 	
 	mouse_x = (int) event->x;
 	mouse_y = (int) event->y;
 	local_x = global_x;
 	local_y = global_y;
-
-	
-	
-		
-		
   return FALSE;
 }
 
@@ -614,6 +605,18 @@ on_button3_clicked                     (GtkButton       *button,
 //	}
 //	else
 //		printf("Not autocentering map due to missing gps data\n");
+}
+
+viod
+on_window1_size_changed                (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data)
+{
+	gtk_widget_get_size_request(widget,);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_width",window1_w);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_height",window1_h);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_x_pos",window1_x);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_y_pos",window1_y);
 }
 
 gboolean
@@ -2172,8 +2175,6 @@ on_drawingarea2_configure_event        (GtkWidget       *widget,
 {
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 	
-
-	
 	if (!pixmap_photo)
 	pixmap_photo = gdk_pixmap_new (
 			widget->window,
@@ -2186,19 +2187,12 @@ on_drawingarea2_configure_event        (GtkWidget       *widget,
 	else
 		printf("aieee: pixmap_photo NULL\n");
 
-	
-	
-	
-	
-	
-	
 	return FALSE;
 }
 
 
 gboolean
 on_drawingarea2_expose_event           (GtkWidget       *widget,
-                                        GdkEventExpose  *event,
                                         gpointer         user_data)
 {
 	printf("** D2: expose event\n");
@@ -2211,11 +2205,8 @@ on_drawingarea2_expose_event           (GtkWidget       *widget,
 		event->area.x, event->area.y,
 		event->area.width, event->area.height);
 	
-	
 	return FALSE;
 }
-
-
 
 void
 on_item10_activate                     (GtkMenuItem     *menuitem,
@@ -3869,8 +3860,6 @@ on_drawingarea3_configure_event        (GtkWidget       *widget,
 {
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 	
-
-	
 	if (!pixmap_photo_big)
 	pixmap_photo = gdk_pixmap_new (
 			widget->window,
@@ -3883,12 +3872,6 @@ on_drawingarea3_configure_event        (GtkWidget       *widget,
 	else
 		printf("aieee: pixmap_photo NULL\n");
 
-	
-	
-	
-	
-	
-	
 	return FALSE;
 }
 

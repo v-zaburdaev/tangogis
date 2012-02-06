@@ -1420,6 +1420,7 @@ Developers: Marcus Bauer, Alexey Harkovsky&lt;/i&gt;</property>
   <object class="GtkListStore" id="liststore1"/>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
+    <signal name="state-changed" handler="on_window1_size_changed" swapped="no"/>
     <child>
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
