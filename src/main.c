@@ -81,17 +81,26 @@ main (int argc, char *argv[])
 //-----------geometry add-----------------------
 	int temp;
 	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_width",&error);
-	if (error == G_KEY_FILE_ERROR_INVALID_VALUE)
+	if (error)
 		g_warning ("Couldn't load window position: %s", error->message);
 	else
 		window1_w=temp;
 
 	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_height",&error);
-//window1_h
+	if (error)
+		g_warning ("Couldn't load window position: %s", error->message);
+	else
+		window1_h=temp;
 	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_x_pos",&error);
-//window1_x
+	if (error)
+		g_warning ("Couldn't load window position: %s", error->message);
+	else
+		window1_x=temp;
 	temp=g_key_file_get_integer(global_tangogis_config,"window size & position","main_window_y_pos",&error);
-//window1_y
+	if (error)
+		g_warning ("Couldn't load window position: %s", error->message);
+	else
+		window1_y=temp;
 
 	int geometry_flag=0;
 //	if (argc>1)
