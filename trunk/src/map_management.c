@@ -496,6 +496,7 @@ fill_tiles_pixel()
 				"global_zoom",
 				global_zoom
 				);
+	printf("%s",g_key_file_to_data(global_tangogis_config,NULL,NULL)); 
 	g_file_set_contents(tangogis_conf_file_name, g_key_file_to_data(global_tangogis_config,NULL,NULL),-1,NULL);
 }
 

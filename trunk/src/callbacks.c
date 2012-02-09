@@ -607,18 +607,6 @@ on_button3_clicked                     (GtkButton       *button,
 //		printf("Not autocentering map due to missing gps data\n");
 }
 
-viod
-on_window1_size_changed                (GtkWidget       *widget,
-                                        GdkEvent        *event,
-                                        gpointer         user_data)
-{
-	gtk_widget_get_size_request(widget,);
-	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_width",window1_w);
-	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_height",window1_h);
-	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_x_pos",window1_x);
-	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_y_pos",window1_y);
-}
-
 gboolean
 on_window1_delete_event                (GtkWidget       *widget,
                                         GdkEvent        *event,
@@ -626,6 +614,14 @@ on_window1_delete_event                (GtkWidget       *widget,
 {
 	printf("%s()\n",__PRETTY_FUNCTION__);
 	gtk_main_quit();
+	gtk_window_get_size(widget,&window1_w,&window1_h);
+	gtk_window_get_position(widget,&window1_x,&window1_y);
+printf("size-allocate - %d,%d,%d,%d\n",window1_x,window1_y,window1_w,window1_h);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_width",window1_w);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_height",window1_h);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_x_pos",window1_x);
+	g_key_file_set_integer(global_tangogis_config,"window size & position","main_window_y_pos",window1_y);
+	g_file_set_contents(tangogis_conf_file_name, g_key_file_to_data(global_tangogis_config,NULL,NULL),-1,NULL);
 	
 	return FALSE; 
 }
@@ -1074,6 +1070,10 @@ on_togglebutton_cam_toggled                (GtkToggleButton *togglebutton, gpoin
 	{
 		int width,height;
 		gtk_window_get_size(GTK_WINDOW(gtk_builder_get_object(interface,"window1")),&width,&height);
+
+		GError **err;
+		gchar **opts = g_key_file_get_string_list(global_tangogis_config,"VideoCams",gtk_button_get_label(togglebutton),NULL,&err);
+
 		printf("\ncam device - %d\n",atoi(gtk_button_get_label(togglebutton))-1);
 		char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
 		pid = fork();
@@ -2193,6 +2193,7 @@ on_drawingarea2_configure_event        (GtkWidget       *widget,
 
 gboolean
 on_drawingarea2_expose_event           (GtkWidget       *widget,
+                                        GdkEventExpose  *event,
                                         gpointer         user_data)
 {
 	printf("** D2: expose event\n");
