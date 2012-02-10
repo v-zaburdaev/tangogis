@@ -481,11 +481,11 @@ g_key_get_repolist()
 		repo8->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo8);
 		
-//		repo9->name = g_strdup("Marshruty.ru");
-//		repo9->uri  = g_strdup("http://maps.marshruty.ru/ml.ashx?x=%d&y=%d&z=%d&i=1&ss=be9bbf");
-//		repo9->dir  = g_strdup_printf("%s/Maps/marshruty",tangogis_dir);
-//		repo9->inverted_zoom = 1;
-//		global_repo_list = g_slist_append(global_repo_list, repo9);
+		repo9->name = g_strdup("Marshruty.ru");
+		repo9->uri  = g_strdup("http://maps.marshruty.ru/ml.ashx?x=%d&y=%d&z=%d&i=1&ss=be9bbf");
+		repo9->dir  = g_strdup_printf("%s/Maps/marshruty",tangogis_dir);
+		repo9->inverted_zoom = 1;
+		global_repo_list = g_slist_append(global_repo_list, repo9);
 		
 	}
 	else

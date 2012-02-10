@@ -398,6 +398,12 @@ return LOAD_OK;
 void
 fill_tiles_pixel()
 {
+	static int fill_tiles_pixel_flag=0; //Флаг выплняющегося запроса по перерисовке
+	if(fill_tiles_pixel_flag) 
+		return;
+	else
+		fill_tiles_pixel_flag=1;
+
 	int tile_count_x, tile_count_y;
 	gboolean success = FALSE;
 	GError *error = NULL;
@@ -416,7 +422,6 @@ fill_tiles_pixel()
 		while(g_slist_length(showed_tiles))
 		{
 			showed_tiles=g_slist_delete_link(showed_tiles,showed_tiles);
-			printf("Длина списка - %d\n",g_slist_length(showed_tiles));
 		}
 	}
 	
@@ -496,8 +501,7 @@ fill_tiles_pixel()
 				"global_zoom",
 				global_zoom
 				);
-	printf("%s",g_key_file_to_data(global_tangogis_config,NULL,NULL)); 
-	g_file_set_contents(tangogis_conf_file_name, g_key_file_to_data(global_tangogis_config,NULL,NULL),-1,NULL);
+	fill_tiles_pixel_flag=0;
 }
 
 void
