@@ -281,6 +281,7 @@ dl_thread(void *ptr)
 		curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, Bar);
 		curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, err_buffer);
 		curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1); 
+		curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
 		res = curl_easy_perform(curl);
 
 		printf("err_buffer: %s\n",err_buffer);

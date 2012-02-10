@@ -429,6 +429,7 @@ g_key_get_repolist()
 		repo_t *repo7 = g_new0(repo_t, 1);
 		repo_t *repo8 = g_new0(repo_t, 1);
 		repo_t *repo9 = g_new0(repo_t, 1);
+		printf("\n\ntangogis_dir = %s\n\n",tangogis_dir);
 
 		
 		printf("REPOLIST == NULL\n");
@@ -449,7 +450,6 @@ g_key_get_repolist()
 		repo3->dir  = g_strdup_printf("%s/Maps/openaerial",tangogis_dir);
 		repo3->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo3);
-		printf("\n\ntangogis_dir = %s\n\n",tangogis_dir);
 		
 		repo4->name = g_strdup("Opencyclemap");
 		repo4->uri  = g_strdup("http://a.andy.sandbox.cloudmade.com/tiles/cycle/%d/%d/%d.png");
@@ -481,12 +481,37 @@ g_key_get_repolist()
 		repo8->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo8);
 		
-		repo9->name = g_strdup("Marshruty.ru");
-		repo9->uri  = g_strdup("http://maps.marshruty.ru/ml.ashx?x=%d&y=%d&z=%d&i=1&ss=be9bbf");
-		repo9->dir  = g_strdup_printf("%s/Maps/marshruty",tangogis_dir);
-		repo9->inverted_zoom = 1;
-		global_repo_list = g_slist_append(global_repo_list, repo9);
+//		repo9->name = g_strdup("Marshruty.ru");
+//		repo9->uri  = g_strdup("http://maps.marshruty.ru/ml.ashx?x=%d&y=%d&z=%d&i=1&ss=be9bbf");
+//		repo9->dir  = g_strdup_printf("%s/Maps/marshruty",tangogis_dir);
+//		repo9->inverted_zoom = 1;
+//		global_repo_list = g_slist_append(global_repo_list, repo9);
 		
+	}
+	else
+	{
+		for (int i=0; i<repo_arr_len; i++)
+		{
+			gchar **array;
+			array = g_key_file_get_string_list(global_tangogis_config,
+												"repolist",
+												repo_arr[i],
+												NULL,
+												error);
+			repo_t *repo = g_new0(repo_t, 1);
+			
+			repo->name = g_strdup(repo_arr[i]);
+			repo->uri  = g_strdup(array[0]);
+			repo->dir  = g_strdup(array[1]);
+			repo->inverted_zoom = atoi(array[2]) == 1;
+			
+			global_repo_list = g_slist_append(global_repo_list, repo);
+
+			printf(": \n -- name: %s \n -- uri: %s \n -- dir: %s \n",
+				repo->name, repo->uri, repo->dir);
+		}
+		g_strfreev(repo_arr);
+
 	}
 //-----------------Traffic repository------------------	
 		const int amount_trf_repo=2;
@@ -510,28 +535,6 @@ g_key_get_repolist()
 		}
 //-----------------Traffic repository------------------	
 	
-	for (int i=0; i<repo_arr_len; i++)
-	{
-		gchar **array;
-		array = g_key_file_get_string_list(global_tangogis_config,
-											"repolist",
-											repo_arr[i],
-											NULL,
-											error);
-		repo_t *repo = g_new0(repo_t, 1);
-		
-		repo->name = g_strdup(repo_arr[i]);
-		repo->uri  = g_strdup(array[0]);
-		repo->dir  = g_strdup(array[1]);
-		repo->inverted_zoom = atoi(array[2]) == 1;
-		
-		global_repo_list = g_slist_append(global_repo_list, repo);
-
-		printf(": \n -- name: %s \n -- uri: %s \n -- dir: %s \n",
-			repo->name, repo->uri, repo->dir);
-	}
-	g_strfreev(repo_arr);
-
 
 //------------Traffic repo name remember------------	
 	GSList	*list;
