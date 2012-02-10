@@ -428,6 +428,7 @@ g_key_get_repolist()
 		repo_t *repo6 = g_new0(repo_t, 1);
 		repo_t *repo7 = g_new0(repo_t, 1);
 		repo_t *repo8 = g_new0(repo_t, 1);
+		repo_t *repo9 = g_new0(repo_t, 1);
 
 		
 		printf("REPOLIST == NULL\n");
@@ -479,6 +480,12 @@ g_key_get_repolist()
 		repo8->dir  = g_strdup_printf("%s/Maps/yandexmap",tangogis_dir);
 		repo8->inverted_zoom = 1;
 		global_repo_list = g_slist_append(global_repo_list, repo8);
+		
+		repo9->name = g_strdup("Marshruty.ru");
+		repo9->uri  = g_strdup("http://marshruty.ru/ml.ashx?x=%d&y=%d&z=%di=1&ss=be9bbf");
+		repo9->dir  = g_strdup_printf("%s/Maps/marshruty",tangogis_dir);
+		repo9->inverted_zoom = 1;
+		global_repo_list = g_slist_append(global_repo_list, repo9);
 		
 	}
 //-----------------Traffic repository------------------	
