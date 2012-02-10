@@ -1071,11 +1071,20 @@ on_togglebutton_cam_toggled                (GtkToggleButton *togglebutton, gpoin
 		int width,height;
 		gtk_window_get_size(GTK_WINDOW(gtk_builder_get_object(interface,"window1")),&width,&height);
 
+	
 		GError **err;
+		char *dev;
 		gchar **opts = g_key_file_get_string_list(global_tangogis_config,"VideoCams",gtk_button_get_label(togglebutton),NULL,&err);
+		if (opts)
+		{
+			dev = opts[1];
+		}
+		else
+		{
+			char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
+		}
 
 		printf("\ncam device - %d\n",atoi(gtk_button_get_label(togglebutton))-1);
-		char *dev = g_strdup_printf("/dev/video%d",atoi(gtk_button_get_label(togglebutton))-1);
 		pid = fork();
 		if (!pid)
 		{
