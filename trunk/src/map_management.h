@@ -1,19 +1,28 @@
 //--------New struct data for threads--------------
 typedef struct {
-	int i;
-	int j;
+	int i;//координата тайла
+	int j;//координата тайла
 	void* thread_id;
-	int progress;
-	int x;
-	int y;
-	int x_glob;
-	int y_glob;
+	int progress;//Флаг места выполнения
+	int x;		//Для показа
+	int y;		//Для показа
+	int zoom;		//Для показа
+	int last_x;		//Для отслеживания изменений между вызовами перерисовки
+	int last_y;		//Для отслеживания изменений между вызовами перерисовки
+	int last_zoom;	//Для отслеживания изменений между вызовами перерисовки
+	int x_glob;		//Для отслеживания изменений в пределах перерисовки
+	int y_glob;		//Для отслеживания изменений в пределах перерисовки
 	int offset_x;
 	int offset_y;
-	int zoom;
 	repo_t* repo;
+	int download_map_flag;
+	int download_trf_flag;
+	GdkPixbuf *pixbuf_map;
+	GdkPixbuf *pixbuf_trf;
 } data_of_thread;
 //--------New struct data for threads--------------
+typedef struct {
+} data_of_download_thread;
 
 void show_tile(int offset_x, int offset_y);
 int load_trf (data_of_thread* local);

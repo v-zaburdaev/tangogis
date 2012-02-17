@@ -193,11 +193,6 @@ osd_wp()
 		
 		gdk_gc_set_rgb_fg_color (gc, &color);
 	
-	
-		
-		
-		
-		
 		gdk_draw_drawable (
 			map_drawable->window,
 			map_drawable->style->fg_gc[GTK_WIDGET_STATE (map_drawable)],
@@ -207,21 +202,14 @@ osd_wp()
 			global_drawingarea_width - width - 10, 
 			global_drawingarea_height - height - 10,
 			width+10,height+10);
-
-
 		
 		pango_layout_get_pixel_size(layout, &width, &height);
-		
-		
 		
 			gdk_draw_layout(map_drawable->window,
 					gc,
 					global_drawingarea_width - width - 10, 
 					global_drawingarea_height - height -10,
 					layout);
-		
-
-	
 	
 		g_free(buffer);
 		pango_font_description_free (desc);
