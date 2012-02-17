@@ -555,7 +555,6 @@ cb_gpsd_data(GIOChannel *src, GIOCondition condition, gpointer data)
 void
 get_gps()
 {
-	int res;
 	static int sock = 0;
 	int conn, len;
 	char buffer[501]; 
@@ -613,14 +612,6 @@ get_gps()
 		}
 	}
 	
-	if(gpsdata)
-	{
-		res = 5;
-//		if (res==-1)
-//		{
-//			printf("POLL ERROR \n");
-//			gpsdata=NULL;
-//		}
-	}
-	else printf("NOGPS");
+	if(!gpsdata)
+		printf("NOGPS");
 }

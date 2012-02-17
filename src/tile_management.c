@@ -131,14 +131,8 @@ cb_progress_func(GtkWidget *Bar,
 
 
 gboolean
-download_tile(	repo_t *repo,
-		int zoom,
-		int x,
-		int y)
+download_tile(repo_t *repo,int zoom,int x,int y)
 {
-
-
-	
 	gchar *tile_data;
 	gchar tile_data_tmp[1512];
 	gchar tile_url[256];
@@ -149,7 +143,17 @@ download_tile(	repo_t *repo,
 	
 	
 	if (!repo->inverted_zoom)
-		g_sprintf(tile_url, repo->uri, zoom, x, y);
+	{
+			if (strcmp(repo->uri,"Topo"))
+			{
+
+					g_sprintf(tile_url, repo->uri, zoom, y, zoom, x, y);
+					maxzoom=12;
+			}
+
+			else
+				g_sprintf(tile_url, repo->uri, zoom, x, y);
+	}
 	else
 		g_sprintf(tile_url, repo->uri, x, y, zoom, strstr(repo->dir,"TRF/yandex")!=NULL?traffic_time-(240*traffic_old_factor):NULL); 
 	
@@ -160,31 +164,8 @@ download_tile(	repo_t *repo,
 			repo->dir, zoom, x, y,
 			repo->dir, zoom, x);
 	
-	if(strcmp(repo->uri,"maps-for-free")==0)
-	{
-		g_sprintf(tile_data_tmp, 
-				"http://maps-for-free.com/layer/relief/z%d/row%d/%d_%d-%d.jpg"
-				"|%s/%d/%d/%d.png|%s/%d/%d/",
-				zoom,y,zoom,x,y,
-				repo->dir, zoom, x, y,
-				repo->dir, zoom, x);
-		maxzoom=12;
-	}
-	
-	if(strcmp(repo->uri,"openaerial")==0)
-	{
-		g_sprintf(tile_data_tmp, 
-				"http://tile.openaerialmap.org/tiles/1.0.0/openaerialmap-900913/%d/%d/%d.jpg"
-				"|%s/%d/%d/%d.png|%s/%d/%d/",
-				zoom,x,y,
-				repo->dir, zoom, x, y,
-				repo->dir, zoom, x);
-	}
-
-
 	tile_data = g_strdup(tile_data_tmp);
 	
-	key = g_strdup_printf("%s/%d/%d/%d", repo->dir, zoom, x, y);
 	found = g_hash_table_lookup (ht, key);
 
 	printf("key = %s, value = %s\n",key,found);

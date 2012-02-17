@@ -129,282 +129,272 @@ track_log_close()
 gboolean
 cb_gps_timer() 
 {
-	int pixel_x, pixel_y, x, y, last_x, last_y;
-	static float lat, lon;
-	static float lat_tmp=0, lon_tmp=0;
-	float trip_delta=0;
-	
-	static double trip_time_accumulated = 0;
-
-
-	static gboolean trip_counter_got_stopped = FALSE;
-
-
-	GdkColor color;
-	static GdkGC *gc=NULL, *gc_2=NULL, *gc_3=NULL, *gc_4=NULL, *gc_5=NULL;
-	
-	if(gc == NULL)
-	{
-		gc   = gdk_gc_new(pixmap);
-		gc_2 = gdk_gc_new(pixmap);
-		gc_3 = gdk_gc_new(pixmap);
-		gc_4 = gdk_gc_new(pixmap);
-		gc_5 = gdk_gc_new(pixmap);
-	}
-	
-	color.red = 60000;
-	color.green = 0;
-	color.blue = 0;
-	gdk_gc_set_rgb_fg_color(gc, &color);
-        gdk_gc_set_line_attributes(gc,
-                        5, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
-			
-	color.red = 5000;
-	color.green = 5000;
-	color.blue = 55000;
-	gdk_gc_set_rgb_fg_color(gc_2, &color);
-	        
-        gdk_gc_set_line_attributes(gc_2,
-                        2, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
-
-	color.red = 25500; 
-	color.green = 35000;
-	color.blue = 65500;
-	gdk_gc_set_rgb_fg_color(gc_3, &color);
-        gdk_gc_set_line_attributes(gc_3,
-                        2, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
-	
-	
-	color.red = 35500; 
-	color.green = 5000;
-	color.blue = 500;
-	gdk_gc_set_rgb_fg_color(gc_4, &color);
-        gdk_gc_set_line_attributes(gc_4,
-                        7, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
-			
-			
-	color.red = 65500; 
-	color.green = 65500;
-	color.blue = 65500;
-	gdk_gc_set_rgb_fg_color(gc_5, &color);
-        gdk_gc_set_line_attributes(gc_5,
-                        11, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
-			
 
 	get_gps();
+	fill_tiles_pixel();
+	return TRUE; 
+}
 
-	if(gpsdata) 
+void gps_info_show()
+{
+int pixel_x, pixel_y, x, y, last_x, last_y;
+static float lat, lon;
+static float lat_tmp=0, lon_tmp=0;
+float trip_delta=0;
+
+static double trip_time_accumulated = 0;
+
+
+static gboolean trip_counter_got_stopped = FALSE;
+
+
+GdkColor color;
+static GdkGC *gc=NULL, *gc_2=NULL, *gc_3=NULL, *gc_4=NULL, *gc_5=NULL;
+
+if(gc == NULL)
+{
+	gc   = gdk_gc_new(pixmap);
+	gc_2 = gdk_gc_new(pixmap);
+	gc_3 = gdk_gc_new(pixmap);
+	gc_4 = gdk_gc_new(pixmap);
+	gc_5 = gdk_gc_new(pixmap);
+}
+
+color.red = 60000;
+color.green = 0;
+color.blue = 0;
+gdk_gc_set_rgb_fg_color(gc, &color);
+	gdk_gc_set_line_attributes(gc,
+					5, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
+		
+color.red = 5000;
+color.green = 5000;
+color.blue = 55000;
+gdk_gc_set_rgb_fg_color(gc_2, &color);
+		
+	gdk_gc_set_line_attributes(gc_2,
+					2, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
+
+color.red = 25500; 
+color.green = 35000;
+color.blue = 65500;
+gdk_gc_set_rgb_fg_color(gc_3, &color);
+	gdk_gc_set_line_attributes(gc_3,
+					2, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
+
+
+color.red = 35500; 
+color.green = 5000;
+color.blue = 500;
+gdk_gc_set_rgb_fg_color(gc_4, &color);
+	gdk_gc_set_line_attributes(gc_4,
+					7, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
+		
+		
+color.red = 65500; 
+color.green = 65500;
+color.blue = 65500;
+gdk_gc_set_rgb_fg_color(gc_5, &color);
+	gdk_gc_set_line_attributes(gc_5,
+					11, GDK_LINE_SOLID, GDK_CAP_ROUND, GDK_JOIN_ROUND);
+
+	trackpoint_t *tp = g_new0(trackpoint_t,1);
+	static int counter = 0;
+
+	lat = deg2rad(gpsdata->fix.latitude);
+	lon = deg2rad(gpsdata->fix.longitude);
+	
+	printf("** %s() \n", __PRETTY_FUNCTION__);
+	
+	pixel_x = lon2pixel(global_zoom, lon);
+	pixel_y = lat2pixel(global_zoom, lat);
+	
+	x = pixel_x - global_x;
+	y = pixel_y - global_y;
+	
+	pixel_x = lon2pixel(global_zoom, lon_tmp);
+	pixel_y = lat2pixel(global_zoom, lat_tmp);
+	
+	last_x = pixel_x - global_x;
+	last_y = pixel_y - global_y;
+	
+	if(gpsdata->seen_vaild)
 	{
-		trackpoint_t *tp = g_new0(trackpoint_t,1);
-		static int counter = 0;
+		int hand_x, hand_y, hand_wp_x, hand_wp_y;
+		double heading_rad, bearing;
+		
+		heading_rad = (gpsdata->fix.track * (1.0 / 180.0)) * M_PI;
 
-		lat = deg2rad(gpsdata->fix.latitude);
-		lon = deg2rad(gpsdata->fix.longitude);
-		
-		printf("** %s() \n", __PRETTY_FUNCTION__);
-		
-		pixel_x = lon2pixel(global_zoom, lon);
-		pixel_y = lat2pixel(global_zoom, lat);
-		
-		x = pixel_x - global_x;
-		y = pixel_y - global_y;
-		
-		pixel_x = lon2pixel(global_zoom, lon_tmp);
-		pixel_y = lat2pixel(global_zoom, lat_tmp);
-		
-		last_x = pixel_x - global_x;
-		last_y = pixel_y - global_y;
-		
-		if(gpsdata->seen_vaild)
+		if(gpsdata->fix.speed>0.3) 
 		{
-			int hand_x, hand_y, hand_wp_x, hand_wp_y;
-			double heading_rad, bearing;
-			
-			heading_rad = (gpsdata->fix.track * (1.0 / 180.0)) * M_PI;
+			hand_x =  25 * sinf(heading_rad);
+			hand_y = -25 * cosf(heading_rad);
+		}
+		else
+		{
+			hand_x = 0;
+			hand_y = 0;
+		}
+		
+		gdk_draw_drawable (
+			map_drawable->window,
+			map_drawable->style->fg_gc[GTK_WIDGET_STATE (map_drawable)],
+			pixmap,
+			last_x-29, last_y-29,
+			last_x-29 + mouse_dx, last_y-29 + mouse_dy,
+			58,58);
+		if (lat_tmp && lon_tmp)
+			gdk_draw_line(pixmap, gc, last_x, last_y, x, y);
+		gdk_window_process_all_updates();
 
-			if(gpsdata->fix.speed>0.3) 
-			{
-				hand_x =  25 * sinf(heading_rad);
-				hand_y = -25 * cosf(heading_rad);
-			}
-			else
-			{
-				hand_x = 0;
-				hand_y = 0;
-			}
+
+		if(mouse_dx == 0 && mouse_dy == 0)
+		{
 			
-			gdk_draw_drawable (
+			gdk_draw_arc (
 				map_drawable->window,
-				map_drawable->style->fg_gc[GTK_WIDGET_STATE (map_drawable)],
-				pixmap,
-				last_x-29, last_y-29,
-				last_x-29 + mouse_dx, last_y-29 + mouse_dy,
-				58,58);
-
+				
+				gc_2,
+				FALSE,			
+				x-15 + mouse_dx, y-15 + mouse_dy,		
+				30,30,			
+				0, 360*64);		
 			
 			
-			if (lat_tmp && lon_tmp)
-				gdk_draw_line(pixmap, gc, last_x, last_y, x, y);
-			
-
-
-			gdk_window_process_all_updates();
-
-			
-			if(mouse_dx == 0 && mouse_dy == 0)
+			if(global_wp_on && gpsdata->valid)
 			{
 				
-				gdk_draw_arc (
-					map_drawable->window,
-					
-					gc_2,
-					FALSE,			
-					x-15 + mouse_dx, y-15 + mouse_dy,		
-					30,30,			
-					0, 360*64);		
-				
-				
-				if(global_wp_on && gpsdata->valid)
-				{
-					
-					bearing = get_bearing(lat, lon, global_wp.lat, global_wp.lon);
-					gpsdata->fix.bearing = bearing;
-					printf("BEARING: %f\n", bearing);
-					hand_wp_x =  25 * sinf(bearing);
-					hand_wp_y = -25 * cosf(bearing);
-					
-					gdk_draw_line(map_drawable->window,
-							gc_5,
-							x + mouse_dx,
-							y + mouse_dy,
-							x + mouse_dx + hand_wp_x,
-							y + mouse_dy + hand_wp_y);
-
-					gdk_draw_line(map_drawable->window,
-							gc_4,
-							x + mouse_dx,
-							y + mouse_dy,
-							x + mouse_dx + hand_wp_x,
-							y + mouse_dy + hand_wp_y);
-					
-					osd_wp();
-					
-				}
+				bearing = get_bearing(lat, lon, global_wp.lat, global_wp.lon);
+				gpsdata->fix.bearing = bearing;
+				printf("BEARING: %f\n", bearing);
+				hand_wp_x =  25 * sinf(bearing);
+				hand_wp_y = -25 * cosf(bearing);
 				
 				gdk_draw_line(map_drawable->window,
 						gc_5,
 						x + mouse_dx,
 						y + mouse_dy,
-						x + mouse_dx + hand_x,
-						y + mouse_dy + hand_y);
-				
+						x + mouse_dx + hand_wp_x,
+						y + mouse_dy + hand_wp_y);
+
 				gdk_draw_line(map_drawable->window,
-						gc_3,
+						gc_4,
 						x + mouse_dx,
 						y + mouse_dy,
-						x + mouse_dx + hand_x,
-						y + mouse_dy + hand_y);
-			}
-		}
-		
-		if(global_autocenter)
-		{
-			if(    (x < (global_drawingarea_width /2 - global_drawingarea_width /8) ||
-				x > (global_drawingarea_width /2 + global_drawingarea_width /8) ||
-				y < (global_drawingarea_height /2 - global_drawingarea_height /8) ||
-				y > (global_drawingarea_height /2 + global_drawingarea_height /8) ) &&
-				isnan(gpsdata->fix.latitude) ==0 &&
-				isnan(gpsdata->fix.longitude)==0 &&
-				gpsdata->fix.latitude  !=0 &&
-				gpsdata->fix.longitude !=0
-				)
-			{
-				set_mapcenter(gpsdata->fix.latitude, gpsdata->fix.longitude, global_zoom);
-			}
-		}
-		
-		if(trip_counter_on)
-		{
-			if( gpsdata->valid && lat_tmp!=0 && lon_tmp!=0) 
-			{
-				trip_delta = 6371.0 * acos(sin(lat) * sin(lat_tmp) + 
-								cos(lat) * cos(lat_tmp) * cos(lon_tmp-lon) );
-				if(isnan(trip_delta))
-				{
-					printf("WTF??? %f %f %f %f %f \n",lat,lon,lat_tmp,lon_tmp,trip_delta);
-				}
-				else
-				{
-					trip_distance += trip_delta;
-					if(trip_distance > 0.005)
-					{
-						counter++;
-						if(counter % 5 == 0)
-						{
-							tp->lat = lat;
-							tp->lon = lon;
-							trackpoint_list = g_slist_append(trackpoint_list, tp);
-						}	
-					}
-				}
+						x + mouse_dx + hand_wp_x,
+						y + mouse_dy + hand_wp_y);
+				
+				osd_wp();
+				
 			}
 			
-			if(gpsdata->valid && gpsdata->fix.speed > trip_maxspeed)
-				trip_maxspeed = gpsdata->fix.speed;
+			gdk_draw_line(map_drawable->window,
+					gc_5,
+					x + mouse_dx,
+					y + mouse_dy,
+					x + mouse_dx + hand_x,
+					y + mouse_dy + hand_y);
 			
-			if(trip_time == 0) 
-				trip_time_accumulated = 0;
-			
-			if(trip_counter_got_stopped)
-			{
-				printf("counter had been stopped \n");
-				trip_counter_got_stopped = FALSE;
-				trip_time_accumulated = trip_time;
-				trip_starttime = 0;
-			}
-			
-			if(trip_starttime == 0 && gpsdata->seen_vaild)
-			{
-				trip_starttime = gpsdata->fix.time;
-			}
-			
-			if(trip_starttime > 0 && gpsdata->seen_vaild)
-			{
-				trip_time = gpsdata->fix.time - trip_starttime + trip_time_accumulated;
-			}
-			
-			if(trip_time < 0)
-			{
-				trip_time = 0;
-				trip_starttime = 0;
-				trip_distance = 0;
-				trip_maxspeed = 0;
-			}
-		}
-		else
-		{
-			printf("trip counter halted\n");
-			trip_counter_got_stopped = TRUE;
-			lat_tmp = lon_tmp = 0;
-		}
-		
-		set_label();
-		
-		if(trip_logger_on && gpsdata->valid)
-			track_log();
-		
-		if(gpsdata->valid)
-		{	
-			lat_tmp = lat;
-			lon_tmp = lon;
+			gdk_draw_line(map_drawable->window,
+					gc_3,
+					x + mouse_dx,
+					y + mouse_dy,
+					x + mouse_dx + hand_x,
+					y + mouse_dy + hand_y);
 		}
 	}
-	else 
+	
+	if(global_autocenter)
 	{
-		printf("no gpsdata for timer\n");
-		set_label_nogps();
+		if(    (x < (global_drawingarea_width /2 - global_drawingarea_width /8) ||
+			x > (global_drawingarea_width /2 + global_drawingarea_width /8) ||
+			y < (global_drawingarea_height /2 - global_drawingarea_height /8) ||
+			y > (global_drawingarea_height /2 + global_drawingarea_height /8) ) &&
+			isnan(gpsdata->fix.latitude) ==0 &&
+			isnan(gpsdata->fix.longitude)==0 &&
+			gpsdata->fix.latitude  !=0 &&
+			gpsdata->fix.longitude !=0
+			)
+		{
+			set_mapcenter(gpsdata->fix.latitude, gpsdata->fix.longitude, global_zoom);
+		}
 	}
-	return TRUE; 
+	
+	if(trip_counter_on)
+	{
+		if( gpsdata->valid && lat_tmp!=0 && lon_tmp!=0) 
+		{
+			trip_delta = 6371.0 * acos(sin(lat) * sin(lat_tmp) + 
+							cos(lat) * cos(lat_tmp) * cos(lon_tmp-lon) );
+			if(isnan(trip_delta))
+			{
+				printf("WTF??? %f %f %f %f %f \n",lat,lon,lat_tmp,lon_tmp,trip_delta);
+			}
+			else
+			{
+				trip_distance += trip_delta;
+				if(trip_distance > 0.005)
+				{
+					counter++;
+					if(counter % 5 == 0)
+					{
+						tp->lat = lat;
+						tp->lon = lon;
+						trackpoint_list = g_slist_append(trackpoint_list, tp);
+					}	
+				}
+			}
+		}
+		
+		if(gpsdata->valid && gpsdata->fix.speed > trip_maxspeed)
+			trip_maxspeed = gpsdata->fix.speed;
+		
+		if(trip_time == 0) 
+			trip_time_accumulated = 0;
+		
+		if(trip_counter_got_stopped)
+		{
+			printf("counter had been stopped \n");
+			trip_counter_got_stopped = FALSE;
+			trip_time_accumulated = trip_time;
+			trip_starttime = 0;
+		}
+		
+		if(trip_starttime == 0 && gpsdata->seen_vaild)
+		{
+			trip_starttime = gpsdata->fix.time;
+		}
+		
+		if(trip_starttime > 0 && gpsdata->seen_vaild)
+		{
+			trip_time = gpsdata->fix.time - trip_starttime + trip_time_accumulated;
+		}
+		
+		if(trip_time < 0)
+		{
+			trip_time = 0;
+			trip_starttime = 0;
+			trip_distance = 0;
+			trip_maxspeed = 0;
+		}
+	}
+	else
+	{
+		printf("trip counter halted\n");
+		trip_counter_got_stopped = TRUE;
+		lat_tmp = lon_tmp = 0;
+	}
+	
+	set_label();
+	
+	if(trip_logger_on && gpsdata->valid)
+		track_log();
+	
+	if(gpsdata->valid)
+	{	
+		lat_tmp = lat;
+		lon_tmp = lon;
+	}
 }
 
 void
@@ -440,13 +430,13 @@ g_key_get_repolist()
 		global_repo_list = g_slist_append(global_repo_list, repo1);
 
 		repo2->name = g_strdup("Topo");
-		repo2->uri  = g_strdup("maps-for-free");
+		repo2->uri  = g_strdup("http://maps-for-free.com/layer/relief/z%d/row%d/%d_%d-%d.jpg");
 		repo2->dir  = g_strdup_printf("%s/Maps/maps4free",tangogis_dir);
 		repo2->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo2);
 		
 		repo3->name = g_strdup("Aerial");
-		repo3->uri  = g_strdup("openaerial");
+		repo3->uri  = g_strdup("http://tile.openaerialmap.org/tiles/1.0.0/openaerialmap-900913/%d/%d/%d.jpg");
 		repo3->dir  = g_strdup_printf("%s/Maps/openaerial",tangogis_dir);
 		repo3->inverted_zoom = 0;
 		global_repo_list = g_slist_append(global_repo_list, repo3);
