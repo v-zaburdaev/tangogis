@@ -15,3 +15,7 @@ repoconfig__populate_dialog();
 
 void
 g_key_set_repolist();
+
+
+void gps_info_show();
+

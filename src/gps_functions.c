@@ -559,7 +559,7 @@ get_gps()
 	int conn, len;
 	char buffer[501]; 
 	struct sockaddr_in server;
-	char buffer_send[] = "r";
+	char buffer_send[] = "?WATCH={\"class\":\"WATCH\",\"enable\":true,\"json\":false,\"nmea\":true,\"raw\":0,\"scaled\":false,\"timing\":false}\n";
 
 	if(!gpsdata  || global_reconnect_gpsd)
 	{

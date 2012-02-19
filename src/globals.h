@@ -17,6 +17,8 @@
 #define YANDEX_CB (0.00000001764564338702)
 #define YANDEX_DB (0.00000000005328478445)
 
+//#define M_PI 3.1415926535897932384626433832795
+
 GtkBuilder* interface;
 
 typedef struct {
@@ -24,6 +26,9 @@ typedef struct {
 	float lon;
 //	int pixel_x;
 //	int pixel_y;
+	time_t datetime;
+	float tpspeed;
+	float vector;
 } trackpoint_t;
 
 typedef struct {
@@ -174,6 +179,7 @@ extern gboolean	global_trf_show;//показ пробок
 repo_t		*curr_trf;//указатель на текущий репозиторий
 time_t		global_time;//время
 time_t		traffic_time;//время создания пробоК
+extern gboolean host_failed;//ошибка разрешения имени хоста, скорее всего нет инета
 //--------------Traffic download & show----------------------
 //--------------layers show----------------------------------
 gboolean	global_grid_show;
@@ -187,7 +193,8 @@ extern gboolean		global_map_reload;
 extern gboolean		global_mapmode;
 extern gboolean		global_autocenter;
 extern gboolean		global_reconnect_gpsd;
-extern int		global_tiles_in_dl_queue;
+extern int			global_tiles_in_dl_queue;
+extern int			global_tiles_in_dl_queue_max;
 
 extern gboolean		global_show_pois;
 extern gboolean		global_show_friends;
@@ -219,3 +226,5 @@ extern int		mouse_x;
 extern int		mouse_y;
 
 extern int  window1_w,window1_h,window1_x,window1_y;
+
+int drag_started;
