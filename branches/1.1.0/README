@@ -1,0 +1,21 @@
+		TangoGIS
+This program is a fork of tangogps program from Markus Bauer.
+This program oriented on GIS information show for car navigation use.
+
+		Build
+
+mkdir build
+cd build
+cmake ..
+make
+
+		Install
+sudo make install
+
+		Uninstall
+sudo make uninstall
+
+		Local run in build directory
+./tangogis
+
+
