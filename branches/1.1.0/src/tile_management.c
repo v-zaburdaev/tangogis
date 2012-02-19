@@ -27,6 +27,7 @@ typedef struct  {
 	char *tile_url;
 } Repo_data_t;
 
+static gboolean map_redraw_scheduled;
 	
 
 int
@@ -48,39 +49,44 @@ update_thread_number (int change)
 gboolean
 map_redraw(void *p)
 {
-//	int number_threads;
-//	number_threads = update_thread_number(0);
-//	printf("** map_redraw(): %i\n", number_threads);
+	int number_threads;
+	number_threads = update_thread_number(0);
+	printf("** map_redraw(): %i\n", number_threads);
 	
 	
-/*	
-	if (number_threads > 1)
+	
+/*	if (number_threads > 1)
 	{
 		printf("map_redraw: SHOULD NEVER COME HERE - still one thread running\n");
 		return TRUE;
 	}
-	else if (number_threads == 0)
-*/	{
-		printf("REPAINTING.............\n");
-//		fill_tiles_pixel(global_x, global_y, global_zoom);
-//		print_track();
-//		paint_friends();
-//		paint_photos();
-//		paint_pois();
-//		paint_wp();
+	else*/
+	if (!drag_started)
+	{
+		map_redraw_scheduled=FALSE;
+
+		printf("REPAINTING FROM TILE MAN.............\n");
+		/* fill_tiles_pixel(global_x, global_y, global_zoom);
+		print_track();
+		paint_friends();
+		paint_photos();
+		paint_pois();
+		paint_wp();
 		paint_myposition();
 		osd_speed();
+		*/
+		repaint_all();
 		return FALSE;
 	}
-/*	else
+	else
 		return TRUE;
-*/}	
+}	
 	
 	
 size_t 
 cb_write_func(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
-	printf("%s() %i bytes %i\n", __PRETTY_FUNCTION__,size, nmemb );
+//	printf("%s() %i bytes %i\n", __PRETTY_FUNCTION__,size, nmemb );
 /*
 	char test[255];
 	int test1;
@@ -101,16 +107,16 @@ cb_write_func(void *ptr, size_t size, size_t nmemb, FILE *stream)
 		
 	host_failed=0;
 */
-	printf("\n\n");
-	fwrite(ptr, size, nmemb, stream); 
+//	printf("\n\n");
+	return fwrite(ptr, size, nmemb, stream);
 }
 
 
 size_t
 cb_read_func (void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
-	printf("readcurl\n" );
-	printf("%d\n",stream);
+//	printf("readcurl\n" );
+//	printf("%d\n",stream);
   return fread(ptr, size, nmemb, stream);
 }
 
@@ -121,7 +127,7 @@ cb_progress_func(GtkWidget *Bar,
                      double ultotal,
                      double ulnow)
 {
-  printf("progress: %f / %f (%.0f%%)\n", d, t, d*100.0/t);
+  //printf("progress: %d / %d (%.0f%%)\n", d, t, d*100.0/t);
 
   return 0;
 
@@ -131,29 +137,25 @@ cb_progress_func(GtkWidget *Bar,
 
 
 gboolean
-download_tile(repo_t *repo,int zoom,int x,int y)
+download_tile(	repo_t *repo,
+		int zoom,
+		int x,
+		int y)
 {
+
+
+	
 	gchar *tile_data;
 	gchar tile_data_tmp[1512];
 	gchar tile_url[256];
-	int value=1;
+//	int value=1;
 	gchar *found;
 	int maxzoom=17;
 	gboolean retval = FALSE;
 	
 	
 	if (!repo->inverted_zoom)
-	{
-			if (strcmp(repo->uri,"Topo"))
-			{
-
-					g_sprintf(tile_url, repo->uri, zoom, y, zoom, x, y);
-					maxzoom=12;
-			}
-
-			else
-				g_sprintf(tile_url, repo->uri, zoom, x, y);
-	}
+		g_sprintf(tile_url, repo->uri, zoom, x, y);
 	else
 		g_sprintf(tile_url, repo->uri, x, y, zoom, strstr(repo->dir,"TRF/yandex")!=NULL?traffic_time-(240*traffic_old_factor):NULL); 
 	
@@ -164,14 +166,37 @@ download_tile(repo_t *repo,int zoom,int x,int y)
 			repo->dir, zoom, x, y,
 			repo->dir, zoom, x);
 	
+	if(strcmp(repo->uri,"maps-for-free")==0)
+	{
+		g_sprintf(tile_data_tmp, 
+				"http://maps-for-free.com/layer/relief/z%d/row%d/%d_%d-%d.jpg"
+				"|%s/%d/%d/%d.png|%s/%d/%d/",
+				zoom,y,zoom,x,y,
+				repo->dir, zoom, x, y,
+				repo->dir, zoom, x);
+		maxzoom=12;
+	}
+	
+	if(strcmp(repo->uri,"openaerial")==0)
+	{
+		g_sprintf(tile_data_tmp, 
+				"http://tile.openaerialmap.org/tiles/1.0.0/openaerialmap-900913/%d/%d/%d.jpg"
+				"|%s/%d/%d/%d.png|%s/%d/%d/",
+				zoom,x,y,
+				repo->dir, zoom, x, y,
+				repo->dir, zoom, x);
+	}
+
+
 	tile_data = g_strdup(tile_data_tmp);
 	
+	key = g_strdup_printf("%s/%d/%d/%d", repo->dir, zoom, x, y);
 	found = g_hash_table_lookup (ht, key);
 
-	printf("key = %s, value = %s\n",key,found);
-	printf("hash table = %d\n",ht);
-printf("value = %d\n",found);
-printf("host_failed = %d\n",host_failed);
+//	printf("key = %s, value = %s\n",key,found);
+//	printf("hash table = %d\n",ht);
+//printf("value = %d\n",found);
+//printf("host_failed = %d\n",host_failed);
 
 	if (found!=NULL)
 	{
@@ -184,7 +209,11 @@ printf("host_failed = %d\n",host_failed);
 		else
 			{
 				g_hash_table_replace(ht, key, "downloading");
-				dl_thread((void *)tile_data);
+				//dl_thread((void *)tile_data);
+				//dl_thread(tile_data);
+				if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
+						g_warning("can't create DL thread");
+
 			}	
 	}
 	else if(host_failed)	
@@ -195,7 +224,10 @@ printf("host_failed = %d\n",host_failed);
 	{
 		g_hash_table_replace(ht, key, "downloading");
 		printf("%s(): %s######################\n",__PRETTY_FUNCTION__,tile_data);
-		dl_thread((void *)tile_data);
+			if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
+				g_warning("can't create DL thread");
+
+//		dl_thread((void *)tile_data);
 		retval = TRUE;
 	}	
 
@@ -220,7 +252,8 @@ dl_thread(void *ptr)
 	int mkres;
 	tile_data = ptr;
 	
-	
+	number_threads = update_thread_number(1);
+
 	arr1 = g_strsplit(tile_data,"|",3);
 
 	file_temp = g_strdup_printf("%s_tmp",arr1[1]);//Временный файл создается чтобы если файл пробок существует пока новый не закачан показывался старый
@@ -249,10 +282,10 @@ dl_thread(void *ptr)
 
 	if(curl && outfile) 
 	{
-		
+		curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
 		curl_easy_setopt(curl, CURLOPT_URL, arr1[0]);
-		curl_easy_setopt(curl, CURLOPT_USERAGENT, 
-		"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
+		curl_easy_setopt(curl, CURLOPT_USERAGENT, \
+				"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, outfile);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,	 cb_write_func);
 		curl_easy_setopt(curl, CURLOPT_READFUNCTION,	 cb_read_func);
@@ -262,9 +295,8 @@ dl_thread(void *ptr)
 		curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, Bar);
 		curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, err_buffer);
 		curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1); 
-		curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
 		res = curl_easy_perform(curl);
-
+		printf("URL: %s\n",arr1[0]);
 		printf("err_buffer: %s\n",err_buffer);
 		if (res==0)
 		{
@@ -279,7 +311,7 @@ dl_thread(void *ptr)
 				if (!host_failed)
 				{
 					host_failed = TRUE;
-					g_timeout_add_seconds(5, check_connect, NULL);
+//					g_timeout_add_seconds(5, check_connect, NULL);
 				}
 			}
 			else 
@@ -288,16 +320,25 @@ dl_thread(void *ptr)
 			}
 		}
 		
-//		g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка	
 		
 		curl_easy_cleanup(curl);
 
+
+		if (!map_redraw_scheduled)
+		{
+		gdk_threads_enter();
+		g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка
+		map_redraw_scheduled = TRUE;
+		gdk_threads_leave();
+		}
 		printf("curl END: # of running threads: %i \n\n", number_threads );
 	}
 	if(outfile != NULL)
 		fclose(outfile);
 	
 	rename(file_temp, arr1[1]);
+
+	number_threads = update_thread_number(-1);
 
 	g_free(file_temp);
 	g_free(ptr);
@@ -413,6 +454,7 @@ queue_tile_dl_for_bbox(bbox_pixel_t bbox_pixel, int zoom)
 			global_tiles_in_dl_queue++;
 		}
 	}
+	global_tiles_in_dl_queue_max=global_tiles_in_dl_queue;
 }
 
 bbox_t
@@ -444,7 +486,7 @@ get_bbox_deg()
 	bbox.lat2 = rad2deg( pixel2lat(global_zoom, global_y + global_drawingarea_height) );
 	bbox.lon2 = rad2deg( pixel2lon(global_zoom, global_x + global_drawingarea_width) );
 
-	printf("BBOX: %f %f %f %f \n", bbox.lat1, bbox.lon1, bbox.lat2, bbox.lon2);
+	printf("BBOX DEG: %f %f %f %f \n", bbox.lat1, bbox.lon1, bbox.lat2, bbox.lon2);
 	
 	return bbox;
 }
@@ -520,6 +562,6 @@ gboolean check_connect(void)
 //	if (!host_failed)
 //		return FALSE;
 //	printf("CHECK NETWORK CONNECTION\n");
-host_failed=0;
+//host_failed=0;
 	return TRUE;
 }

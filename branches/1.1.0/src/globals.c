@@ -90,7 +90,7 @@ gboolean	global_mapmode = TRUE;
 gboolean	global_autocenter = FALSE;
 gboolean	global_reconnect_gpsd = TRUE;
 int		global_tiles_in_dl_queue = 0;
-
+int global_tiles_in_dl_queue_max = 0;
 gboolean	global_show_friends = FALSE;
 gboolean	global_show_pois = FALSE;
 gboolean	global_show_photos = FALSE;
