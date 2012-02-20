@@ -40,16 +40,24 @@ sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))
 }
 
 gboolean
-file_type_test(const char *file, char *type)
+file_type_test(const char *filename, char *type)
 {
-	char **arr;
-	int i = 0;
-
-	arr = g_strsplit(file, ".", -1);
-	while (arr[i]) i++;
-
-	if (g_strcmp0(arr[i-1], type))
+	if (strlen(filename)-strlen(type)>0)
+	{
+	gchar ext[4];
+	//printf("filename=%s\n",filename+(strlen(filename)-3));
+	strncpy(ext,filename+(strlen(filename)-strlen(type)),strlen(type));
+	for (int k=0;k<=strlen(type);k++) ext[k]=g_ascii_toupper(ext[k]);
+	for (int k=0;k<=strlen(type);k++) type[k]=g_ascii_toupper(type[k]);
+	ext[3]=0;
+	//printf("ext=%s\n",ext);
+	if (strcmp(ext,type)==0)
+		return TRUE;
+	else
 		return FALSE;
-
-	return TRUE;
+	} else
+	{
+		// длина имени файла меньше, чем длина предполагаемого расширения файла.
+		return FALSE;
+	}
 }
