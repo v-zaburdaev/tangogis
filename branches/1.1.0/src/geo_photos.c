@@ -506,7 +506,7 @@ get_entries_from_dir(char *dirname)
 	return list;
 }
 
-
+/*
 gboolean
 file_type_test(const char *file, char *type)
 {
@@ -523,7 +523,7 @@ file_type_test(const char *file, char *type)
 }
 
 
-
+*/
 
 void
 geo_photo_dialog_image_data_next(GtkWidget *widget, gpointer user_data, geo_photo_move_e move)

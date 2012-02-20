@@ -38,3 +38,18 @@ sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))
 	sqlite3_close(db);
 	return result;
 }
+
+gboolean
+file_type_test(const char *file, char *type)
+{
+	char **arr;
+	int i = 0;
+
+	arr = g_strsplit(file, ".", -1);
+	while (arr[i]) i++;
+
+	if (g_strcmp0(arr[i-1], type))
+		return FALSE;
+
+	return TRUE;
+}

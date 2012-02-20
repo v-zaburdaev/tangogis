@@ -34,6 +34,7 @@ int
 load_tracks(GSList *track_to_show,int mode)
 {
 	/// todo: эта часть кода будет серьезно меняться, чтоб брать только нужные данные из базы sqlite
+	//
 	// mode = 0 - Дорисовать текущий трек
 	// !0 - Отрисовать весь трек
 	//local->progress = 2;
@@ -274,7 +275,7 @@ load_tracks(GSList *track_to_show,int mode)
 	//g_slist_free_full(timepoints,&freefunc);
 	g_slist_free(timepoints);
 
-	if ((bbox.lat1 > lat && lat > bbox.lat2)==TRUE && (bbox.lon1 < lon  && lon < bbox.lon2)==TRUE)
+	if ((bbox.lat1 > lat && lat > bbox.lat2)==TRUE || (bbox.lon1 < lon  && lon < bbox.lon2)==TRUE)
 		{
 		/// финиш трека
 			pixel_x = lon2pixel(global_zoom, lon);
@@ -455,16 +456,16 @@ tracks_open_tracks_dialog()
 			for (i=0;i<g_slist_length(filenames);i++)
 			{
 				gchar * filename = g_slist_nth_data(filenames,i);
-				gchar ext[4];
+			/*	gchar ext[4];
 				printf("filename=%s\n",filename+(strlen(filename)-3));
 				strncpy(ext,filename+(strlen(filename)-3),3);
 				for (int k=0;k<=2;k++) ext[k]=g_ascii_toupper(ext[k]);
 				ext[3]=0;
-				printf("ext=%s\n",ext);
-if (strcmp(ext,"LOG")==0)
-				tracks_read(filename,track_data_new);
-if (strcmp(ext,"GPX")==0)
-				my_parse(filename);
+				printf("ext=%s\n",ext);*/
+				if (file_type_test(filename,"LOG"))
+					tracks_read(filename,track_data_new);
+				if (file_type_test(filename,"GPX"))
+					my_parse(filename);
 
 			}
 			g_free(track_data_new);
