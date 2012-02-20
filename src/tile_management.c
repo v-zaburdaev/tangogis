@@ -311,7 +311,7 @@ dl_thread(void *ptr)
 				if (!host_failed)
 				{
 					host_failed = TRUE;
-//					g_timeout_add_seconds(5, check_connect, NULL);
+					g_timeout_add_seconds(5, check_connect, NULL);
 				}
 			}
 			else 

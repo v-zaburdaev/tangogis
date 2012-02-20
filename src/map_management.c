@@ -58,7 +58,7 @@ view_tile(data_of_thread  *local)
 	local->repo=global_curr_repo->data;
 
 	//number_threads = update_thread_number(1);
-	printf("\n\n # of threads: %i \n\n", number_threads );
+	printf("\n\n # of threads: %i \n\n", number_threads);
 
 	if(!pixmap)
 	{
@@ -319,6 +319,7 @@ GdkGC		*gc_map = NULL;
 	}
 	else
 	{
+		printf("host failed ?\n");
 		return ERR_LOAD;
 	}
 	//gdk_threads_enter();

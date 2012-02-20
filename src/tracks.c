@@ -41,10 +41,10 @@ load_tracks(GSList *track_to_show,int mode)
 	printf("* load tracks()\n");
 	int step=60;
 	if (global_zoom>=13) {step=60;}
-		if ((global_zoom<=12) && (global_zoom>=11)) {step=300;}
-		if ((global_zoom<=10) && (global_zoom>=8)) {step=1800;}
-		if ((global_zoom<=7) && (global_zoom>=5)) {step=3600;}
-		if (global_zoom<=4) {step=7200;}
+	if ((global_zoom<=12) && (global_zoom>=11)) {step=300;}
+	if ((global_zoom<=10) && (global_zoom>=8)) {step=1800;}
+	if ((global_zoom<=7) && (global_zoom>=5)) {step=3600;}
+	if (global_zoom<=4) {step=7200;}
 
 	GSList *list;
 	int pixel_x, pixel_y, x,y, last_x = 0, last_y = 0;
@@ -55,7 +55,9 @@ load_tracks(GSList *track_to_show,int mode)
 
 // настройки отображения трека
 
-	double alpha_ch=0.5;
+	double track_alpha_ch=0.5;
+	double points_alpha_ch=0.8;
+
 	double line_width=3.5;
 	double point_size=3;
 
@@ -119,12 +121,6 @@ load_tracks(GSList *track_to_show,int mode)
 			lonmin=pixel2lon(global_zoom,global_x+x);
 			latmax=pixel2lat(global_zoom,global_y+y+TILESIZE);
 			lonmax=pixel2lon(global_zoom,global_x+x+TILESIZE);
-
-			/*
-			cairo_set_source_rgba(ct,colr(0),colr(255),colr(0),1.0);
-			cairo_arc(ct,x,y,4,0,2*M_PI);
-			cairo_fill_preserve(ct);
-			 */
 			last_y=y;
 			last_x=x;
 			is_line=TRUE;
@@ -135,55 +131,33 @@ load_tracks(GSList *track_to_show,int mode)
 
 		} /// определение времени начала трека для вывода точек
 
-		/// игнорируем остановки
-		//if (tp->tpspeed<2) continue;
+		//if (abs((tp->datetime-starttime)/step)==(double)((double)(tp->datetime-starttime)/step))
+		if ((starttime+step) <= tp->datetime)
+		{
+			// запоминаем точки трека
+			timepoints = g_slist_append(timepoints,tp);
+			starttime=tp->datetime;
+		}
+
+		/// игнорируем остановки (скорость менее 2км/ч)
+		if (tp->tpspeed<2) continue;
 
 
-	//printf ("coords %f < %f < %f %d , %d , %d\n",latmin,tp->lat,latmax,(latmin,tp->lat,latmax),(lonmin < tp->lon  < lonmax),(latmin < tp->lat < latmax) && (lonmin < tp->lon  < lonmax));
+
 		if ((bbox.lat1 > tp->lat && tp->lat > bbox.lat2)==TRUE && (bbox.lon1 < tp->lon  && tp->lon < bbox.lon2)==TRUE)
 		//if ((latmin < tp->lat && tp->lat < latmax)==TRUE && (lonmin < tp->lon  && tp->lon < lonmax)==TRUE)
 		//if(1)
 		{
-		//printf("coords: %f<%f<%f\n",bbox.lon1,tp->lon,bbox.lon2);
-
-
-		//if (tp->lan)
-		//lat = tp->lat;
-		//lon = tp->lon;
-/*
-		pixel_x = lon2pixel(global_zoom, lon);
-		pixel_y = lat2pixel(global_zoom, lat);
-
-
-
-		x = pixel_x - global_x;
-		y = pixel_y - global_y;
-
-*/
 		if(is_line)
 		{
 			// вывод линии трека
-			//printf("line %d %d - %d %d\n",last_x,last_y,x,y);
-
-			cairo_set_source_rgba(ct,colr(78),colr(201),colr(229),alpha_ch);
-
-			//cairo_set_source_rgba(ct,0.0,0.0,1.0,0.8);
+			cairo_set_source_rgba(ct,colr(78),colr(201),colr(229),track_alpha_ch);
 			cairo_move_to(ct,last_x,last_y);
 			cairo_line_to(ct,x,y);
 			cairo_stroke (ct);
-			//cairo_clip(ct);
-
-
 		}
 
-		//if (abs((tp->datetime-starttime)/step)==(double)((double)(tp->datetime-starttime)/step))
-		if ((starttime+step) <= tp->datetime)
-		{
-			// точки трека
-			//printf("%d + %d  %d\n",starttime,step,tp->datetime);
-			timepoints = g_slist_append(timepoints,tp);
-			starttime=tp->datetime;
-		}
+
 
 
 
@@ -206,12 +180,6 @@ load_tracks(GSList *track_to_show,int mode)
 	}
 
 
-
-
-
-	//printf("Points count=%d\n",g_slist_length(prevxy));
-
-	//g_slist_free(list);
 //// вывод точек и подписей на трек
 	first_point=TRUE;
 	int prev_x=0,prev_y=0;
@@ -221,28 +189,23 @@ load_tracks(GSList *track_to_show,int mode)
 			trackpoint_t *tp = list->data;
 			x = lon2pixel(global_zoom, tp->lon) - global_x;
 			y = lat2pixel(global_zoom, tp->lat) - global_y;
-			if (first_point || list->next==NULL)
-			{
-				cairo_set_source_rgba(ct,colr(239),colr(0),colr(0),alpha_ch);
-				first_point=FALSE;
-			} else
-			{
-				cairo_set_source_rgba(ct,colr(0),colr(0),colr(128),alpha_ch);
-			}
-/*				gdk_draw_drawable (
-								map_drawable->window,
-								map_drawable->style->fg_gc[GTK_WIDGET_STATE (map_drawable)],
-								pixmap,
-								last_x-5, last_y-5,
-								last_x-5, last_y-5,
-								50+last_x-x,20+last_y-y);
-								*/
-				cairo_arc(ct,x,y,point_size,0,2*M_PI);
-				cairo_fill(ct);
+
 
 				if ((prev_x-20 < x && x < prev_x+20)==FALSE && (prev_y-15< y && y< prev_y+15)==FALSE)
 				{
 				/// выводим надпись со временем, проверяем, не выводилось ли уже рядом
+						if (first_point || list->next==NULL)
+						{
+							cairo_set_source_rgba(ct,colr(239),colr(0),colr(0),points_alpha_ch);
+							first_point=FALSE;
+						} else
+						{
+							cairo_set_source_rgba(ct,colr(0),colr(0),colr(128),points_alpha_ch);
+						}
+
+							cairo_arc(ct,x,y,point_size,0,2*M_PI);
+							cairo_fill(ct);
+
 
 						time_t utctime,badtime,diff;
 						struct tm * ptm;
@@ -252,13 +215,13 @@ load_tracks(GSList *track_to_show,int mode)
 						diff=badtime-utctime+(time_t)tp->datetime;
 						struct tm *ttt=localtime(&diff);
 						buffer = g_strdup_printf("%02d:%02d",ttt->tm_hour,ttt->tm_min);
-						if (mode==0)
-									{
-										cairo_set_source_rgba(ct,colr(0),colr(0),colr(128),alpha_ch);
-									} else
-									{
-										cairo_set_source_rgba(ct,colr(239),colr(0),colr(0),alpha_ch);
-									}
+//						if (mode==0)
+//						{
+//							cairo_set_source_rgba(ct,colr(0),colr(0),colr(128),points_alpha_ch);
+//						} else
+//						{
+//							cairo_set_source_rgba(ct,colr(239),colr(0),colr(0),points_alpha_ch);
+//						}
 						cairo_move_to(ct,x+10,y+10);
 						cairo_set_font_size (ct, 12.0);
 						cairo_select_font_face(ct,"Sans",CAIRO_FONT_SLANT_NORMAL,CAIRO_FONT_WEIGHT_BOLD);
@@ -269,10 +232,8 @@ load_tracks(GSList *track_to_show,int mode)
 
 				}
 
-				//timepoints=g_slist_remove(timepoints,list->data);
 		}
-	//timepoints = g_slist_remove_all(timepoints,)
-	//g_slist_free_full(timepoints,&freefunc);
+
 	g_slist_free(timepoints);
 
 	if ((bbox.lat1 > lat && lat > bbox.lat2)==TRUE || (bbox.lon1 < lon  && lon < bbox.lon2)==TRUE)
@@ -284,20 +245,23 @@ load_tracks(GSList *track_to_show,int mode)
 			y = pixel_y - global_y;
 			if (mode!=0)
 			{
-				cairo_set_source_rgba(ct,colr(0),colr(0),colr(128),alpha_ch);
+				// отображения трека в нормальном режиме
+				cairo_set_source_rgba(ct,colr(0),colr(0),colr(128),points_alpha_ch);
 			} else
 			{
-				cairo_set_source_rgba(ct,colr(239),colr(0),colr(0),alpha_ch);
+				// отображение трека в режиме дорисовывания текущего трека
+				cairo_set_source_rgba(ct,colr(239),colr(0),colr(0),points_alpha_ch);
 			}
 			cairo_arc(ct,x,y,point_size*1.5,0,2*M_PI);
-			cairo_set_source_rgba(ct,1.0,0.5,0.5,alpha_ch);
+			cairo_set_source_rgba(ct,1.0,0.5,0.5,points_alpha_ch);
 			cairo_arc(ct,x,y,point_size,0,2*M_PI);
 		}
+	// отрисовка изменений на экране
 	cairo_clip(ct);
 
-	//gtk_widget_queue_draw(map_drawable);
+
 	cairo_destroy(ct);
-	//gdk_threads_leave();
+
 
 return 0;
 }
@@ -430,7 +394,7 @@ tracks_open_tracks_dialog()
 	}
 
 	GtkWidget *dialog;
-	dialog = gtk_file_chooser_dialog_new ("Load track...",
+	dialog = gtk_file_chooser_dialog_new ("Load track (log or gpx)... ",
 				      NULL,
 				      GTK_FILE_CHOOSER_ACTION_OPEN,
 				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -456,16 +420,11 @@ tracks_open_tracks_dialog()
 			for (i=0;i<g_slist_length(filenames);i++)
 			{
 				gchar * filename = g_slist_nth_data(filenames,i);
-			/*	gchar ext[4];
-				printf("filename=%s\n",filename+(strlen(filename)-3));
-				strncpy(ext,filename+(strlen(filename)-3),3);
-				for (int k=0;k<=2;k++) ext[k]=g_ascii_toupper(ext[k]);
-				ext[3]=0;
-				printf("ext=%s\n",ext);*/
-				if (file_type_test(filename,"LOG"))
+
+				if (file_type_test(filename,"log"))
 					tracks_read(filename,track_data_new);
-				if (file_type_test(filename,"GPX"))
-					my_parse(filename);
+				if (file_type_test(filename,"gpx"))
+					my_parse(filename,track_data_new);
 
 			}
 			g_free(track_data_new);
@@ -550,7 +509,7 @@ track_data* tracks_read (char* file,track_data* data)
 
 		tp->lat = deg2rad(data->lat_tmp);
 		tp->lon = deg2rad(data->lon_tmp);
-		
+
 		if(first_point)
 		{
 			data->lat = atof(arr[0]);
@@ -591,9 +550,12 @@ static char *last_element;
 static int lvl;
 static int array_num;
 static int count;
+gboolean first_point = TRUE;
+float tmp_lat,tmp_lon,tmp_speed,vector,prev_lat,prev_lon;
+double trip_count;
+time_t tmp_datetime,prev_datetime;
 
-float tmp_lat,tmp_lon,tmp_speed,vector;
-time_t tmp_datetime;
+track_data *tempdata;
 
 ///// загрузка треков из GPX
 char * myfullpath()
@@ -645,7 +607,8 @@ void *mystart_element (GMarkupParseContext *context,
 	    					tmp_lat=atof(attribute_values[n]);
 	    					}
 
-						//printf("%d %s/%s : %s\n",count,myfullpath(),attribute_names[n],attribute_values[n]);
+	    			//if (strcmp())
+				//		printf("%d %s/%s : %s\n",count,myfullpath(),attribute_names[n],attribute_values[n]);
 						//count++;
 	    		} else
 	    		{
@@ -669,16 +632,44 @@ void *myend_element    (GMarkupParseContext *context,
 	{
 		count ++;
 
+
 		tp = g_new0(trackpoint_t,1);
 		tp->lat=deg2rad(tmp_lat);
 		tp->lon=deg2rad(tmp_lon);
 		tp->datetime=tmp_datetime;
 
+		if(first_point)
+						{
 
-//printf("lat=%f lon=%f\n",tmp_lat,tmp_lon);
+						tempdata->lat = tmp_lat;
+						tempdata->lon = tmp_lon;
 
-		//tp->tpspeed=atof(); // todo: это можно вычислить из текущего и предыдущего значения координат
-		//tp->vector=atof();  //
+							first_point = FALSE;
+						}
+		tempdata->lat_tmp = tmp_lat;
+		tempdata->lon_tmp = tmp_lon;
+
+		tempdata->max_lat = (tempdata->lat_tmp>tempdata->max_lat) ? tempdata->lat_tmp : tempdata->max_lat;
+		tempdata->min_lat = (tempdata->lat_tmp<tempdata->min_lat) ? tempdata->lat_tmp : tempdata->min_lat;
+		tempdata->max_lon = (tempdata->lon_tmp>tempdata->max_lon) ? tempdata->lon_tmp : tempdata->max_lon;
+		tempdata->min_lon = (tempdata->lon_tmp<tempdata->min_lon) ? tempdata->lon_tmp : tempdata->min_lon;
+
+		double trip_delta = 6371.0 * acos(sin(tp->lat) * sin(prev_lat) +
+										cos(tp->lat) * cos(prev_lat) * cos(prev_lon-tp->lon) );
+
+
+if (trip_delta>0){
+	trip_count=trip_count+trip_delta;
+	tp->tpspeed=(trip_delta*3600)/(tmp_datetime-prev_datetime); /// Возможно ошибаюсь в расчетах
+	tp->vector=get_bearing(tp->lat,tp->lon,prev_lat,prev_lon);
+	prev_lat=tp->lat;
+	prev_lon=tp->lon;
+	//printf("trip_delta=%f speed=%f timedelta=%d tripcount=%f\n",trip_delta,tp->tpspeed,(tmp_datetime-prev_datetime),trip_count);
+	prev_datetime=tmp_datetime;
+}
+
+
+
 
 		loaded_track=g_slist_append(loaded_track,tp);
 	}
@@ -698,11 +689,11 @@ void *mytext(GMarkupParseContext *context,
 				tmp_datetime=LocalTimeFromString(text);
 				}
 
-	if (text_len>4)
-	{
+//	if (text_len>4)
+//	{
 		//count++;
-		printf("%d %s : %s\n",count,myfullpath(),text,text_len);
-	}
+//		printf("%d %s : %s\n",count,myfullpath(),text,text_len);
+//	}
 
 }
 
@@ -722,15 +713,24 @@ static gchar *path1;
 //GHashTable hash;
 
 
-void my_parse(gchar * filename)
+void my_parse(gchar * filename,track_data *data)
 {
+	GtkWidget *drawingarea, *range;
 	gchar xml[1024];
 	FILE *f;
 	path[0]="/";
 	count=0;
-
+	trip_count=0;
 	loaded_track=g_slist_alloc();
+	tempdata = g_new0(track_data,1);
+	tempdata->lat=0;
+	tempdata->lon=0;
+	tempdata->max_lat=-90;
+	tempdata->max_lon=-180;
+	tempdata->min_lat=90;
+	tempdata->min_lon=180;
 
+	first_point=TRUE;
 	GMarkupParseContext * context=g_markup_parse_context_new        (&parser,
 							 G_MARKUP_TREAT_CDATA_AS_TEXT,
 							 point,
@@ -760,6 +760,24 @@ void my_parse(gchar * filename)
 
 		}
 printf("count=%d\n",count);
+
+int track_zoom, width, height;
+
+drawingarea = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
+width  = drawingarea->allocation.width;
+height = drawingarea->allocation.height;
+
+
+		track_zoom = get_zoom_covering(width, height, tempdata->max_lat, tempdata->min_lon, tempdata->min_lat, tempdata->max_lon);
+		track_zoom = (track_zoom > 15) ? 15 : track_zoom;
+		if(tempdata->lat!=0 && tempdata->lon!=0)
+				set_mapcenter((tempdata->max_lat+tempdata->min_lat)/2, (tempdata->max_lon+tempdata->min_lon)/2, track_zoom);
+
+//printf("MINMAX: %f - %f ## %f - %f, zoom=%d\n",tempdata->max_lat,tempdata->max_lon,tempdata->min_lat,tempdata->min_lon,track_zoom);
+
+		range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
+		gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
+		g_free(tempdata);
 
 	}
 }
