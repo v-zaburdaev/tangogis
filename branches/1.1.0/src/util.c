@@ -49,12 +49,12 @@ file_type_test(const char *filename, char *type)
 	gchar *type1;
 	ext=g_malloc(strlen(type)+1);
 	type1=g_malloc(strlen(type)+1);
-	printf("filename=%s\n",filename+(strlen(filename)-strlen(type)));
+	//printf("filename=%s\n",filename+(strlen(filename)-strlen(type)));
 	sprintf(ext,"%s",filename+(strlen(filename)-strlen(type)));
 	for (int k=0;k<=strlen(type)-1;k++) ext[k]=g_ascii_toupper(ext[k]);
 	for (int k=0;k<=strlen(type)-1;k++) type1[k]=g_ascii_toupper(type[k]);
 	type1[strlen(type)]=0;
-	printf("ext=%s = %s\n",ext,type1);
+	//printf("ext=%s = %s\n",ext,type1);
 	if (strcmp(ext,type1)==0)
 	{
 		g_free(ext);

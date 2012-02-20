@@ -302,6 +302,7 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 		{
 			grid_show(widget);
 		}
+		// todo: вывод OSD во время перетаскивания карты
 	}
 	
   return FALSE;
