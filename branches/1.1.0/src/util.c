@@ -3,6 +3,7 @@
 
 #include <glib.h>
 #include <glib/gprintf.h>
+#include <string.h>
 #include <stdio.h>
 #include <sqlite3.h>
 #include <stdlib.h> 
@@ -42,19 +43,30 @@ sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))
 gboolean
 file_type_test(const char *filename, char *type)
 {
-	if (strlen(filename)-strlen(type)>0)
+	if ((strlen(filename)-strlen(type))>0)
 	{
-	gchar ext[4];
-	//printf("filename=%s\n",filename+(strlen(filename)-3));
-	strncpy(ext,filename+(strlen(filename)-strlen(type)),strlen(type));
-	for (int k=0;k<=strlen(type);k++) ext[k]=g_ascii_toupper(ext[k]);
-	for (int k=0;k<=strlen(type);k++) type[k]=g_ascii_toupper(type[k]);
-	ext[3]=0;
-	//printf("ext=%s\n",ext);
-	if (strcmp(ext,type)==0)
+	gchar *ext;
+	gchar *type1;
+	ext=g_malloc(strlen(type)+1);
+	type1=g_malloc(strlen(type)+1);
+	printf("filename=%s\n",filename+(strlen(filename)-strlen(type)));
+	sprintf(ext,"%s",filename+(strlen(filename)-strlen(type)));
+	for (int k=0;k<=strlen(type)-1;k++) ext[k]=g_ascii_toupper(ext[k]);
+	for (int k=0;k<=strlen(type)-1;k++) type1[k]=g_ascii_toupper(type[k]);
+	type1[strlen(type)]=0;
+	printf("ext=%s = %s\n",ext,type1);
+	if (strcmp(ext,type1)==0)
+	{
+		g_free(ext);
+		g_free(type1);
 		return TRUE;
+	}
 	else
+	{
+		g_free(ext);
+		g_free(type1);
 		return FALSE;
+	}
 	} else
 	{
 		// длина имени файла меньше, чем длина предполагаемого расширения файла.
