@@ -466,7 +466,7 @@ fill_tiles_pixel()
 	if (global_track_show)
 		load_tracks(loaded_track,1);
 	if (global_current_track_show)
-		load_tracks(trackpoint_list,0);
+		load_tracks(current_track,0);
 
 
 	fill_tiles_pixel_flag=0;

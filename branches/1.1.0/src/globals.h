@@ -20,12 +20,30 @@
 //#define M_PI 3.1415926535897932384626433832795
 
 GtkBuilder* interface;
+//
+// Данные расположения показываемого трека
+typedef struct {
+	float lat, lon, max_lat, max_lon, min_lat, min_lon, lat_tmp, lon_tmp;
+	time_t min_time,time_tmp;
+	time_t max_time;
+
+	double trip_distance;
+	double trip_starttime;
+	double trip_endtime;
+	double trip_duration;
+	double trip_maxspeed;
+
+
+	GSList *trackpoints;  /// точки трека
+	//trackpoint_t *startpoint;
+	//trackpoint_t *endpoint;
+
+	//GSList *router_waypoints;    /// точки - для треков точки отсчета времени, полученные от роутеров,
+} track_data_t;
 
 typedef struct {
 	float lat;
 	float lon;
-//	int pixel_x;
-//	int pixel_y;
 	time_t datetime;
 	float tpspeed;
 	float vector;
@@ -135,7 +153,9 @@ extern gps_data_t *gpsdata;
 
 //extern trackpoint_t global_track_arr[10];
 
-extern GSList		*loaded_track; //track points latlon information
+extern track_data_t		*loaded_track; //track points latlon information
+extern track_data_t 	*current_track;
+
 extern GSList		*trackpoint_list; //current track latlon information
 extern GSList		*friends_list;
 extern GSList		*photo_list;
