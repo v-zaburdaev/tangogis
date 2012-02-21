@@ -254,13 +254,15 @@ void gps_info_show()
 				}
 				else
 				{
+
 					trip_distance += trip_delta;
 					time_t t=(time_t)gpsdata->fix.time;
 					tp->lat = lat;
 					tp->lon = lon; ///TODO : дописать остальные параметры в tp
 					tp->tpspeed=(float)gpsdata->fix.speed;
 					tp->datetime=(time_t)gpsdata->fix.time;
-					trackpoint_list = g_slist_append(trackpoint_list, tp);
+					current_track->trackpoints = g_slist_append(current_track->trackpoints, tp);
+
 					lat_tmp = lat;
 					lon_tmp = lon;
 
@@ -270,7 +272,7 @@ void gps_info_show()
 						if(counter % 2 == 0)
 						{
 							gdk_threads_enter();
-							load_tracks(trackpoint_list,0);
+							load_tracks(current_track->trackpoints,0);
 							gdk_threads_leave();
 						}
 
@@ -757,6 +759,11 @@ init()
 	char *str = NULL;
 	int screen_height;
 	
+	current_track = g_new(track_data_t,1);
+	current_track->trackpoints=NULL;
+	loaded_track =  g_new(track_data_t,1);
+	loaded_track->trackpoints=NULL;
+
 	screen_height = gdk_screen_get_height(gdk_screen_get_default());
 	
 	g_mkdir(tangogis_dir, 0700);

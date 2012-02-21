@@ -929,9 +929,9 @@ void
 on_button8_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
-	printf("*** %s(): \n",__PRETTY_FUNCTION__);
-	g_slist_free(trackpoint_list);
-	trackpoint_list = NULL;
+	printf("*** %s(): удаление текущего трека\n",__PRETTY_FUNCTION__);
+	g_slist_free(current_track->trackpoints);
+	current_track=NULL;
 	trip_distance = 0;
 	trip_starttime = 0;
 	trip_time =0;
@@ -1955,7 +1955,7 @@ on_button20_clicked                    (GtkButton       *button,
 		char *filename;
 		filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
 		printf("%s\n",filename);
-		GSList* track_save = trackpoint_list;
+		GSList* track_save = current_track->trackpoints;
 		FILE *fp = fopen(filename,"w");
 		if (!g_file_test (filename, G_FILE_TEST_EXISTS))
 		{
