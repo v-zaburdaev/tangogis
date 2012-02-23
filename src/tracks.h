@@ -18,8 +18,8 @@ tracks_on_file_button_release_event      (	GtkWidget       *widget,
 
 int load_tracks(track_data_t *trackdata,int mode);
 
-track_data_t* tracks_read (char* file);
-track_data_t* my_parse(gchar* filename);
+track_data_t* tracks_read_from_log (gchar* filename);
+track_data_t* tracks_read_from_gpx(gchar* filename);
 
 time_t LocalTimeFromString(char* str);
 

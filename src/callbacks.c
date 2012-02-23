@@ -26,6 +26,7 @@
 #include "poi.h"
 #include "wp.h"
 #include "tracks.h"
+#include "geocode_read.h"
 
 #define WTFCOUNTER 5
 
@@ -53,7 +54,7 @@ on_drawingarea1_button_press_event     (GtkWidget       *widget,
 	wtfcounter = 0;
 	if ( event->type==GDK_2BUTTON_PRESS) 
 	{
-		printf("double click\n");
+		printf("double click1\n");
 	}
 	
 	mouse_x = (int) event->x;
@@ -110,7 +111,8 @@ on_drawingarea1_button_release_event   (GtkWidget       *widget,
 		
 		if ( event->type==GDK_2BUTTON_PRESS) 
 		{	
-			printf("end double click\n");
+			printf("end double click2\n");
+
 		}
 		
 		if(wtfcounter >= WTFCOUNTER)
@@ -1590,10 +1592,14 @@ on_item4_activate                      (GtkMenuItem     *menuitem,
 	
 	
 	label = lookup_widget(window2,"label64");
-	
-	g_sprintf(buffer,"<b>This point:</b> \n"
-			"%s \n\n"
-			"<b>Distance from your location:</b>\n%.2f%s", latlon, distance*unit_conv, distunit);
+	/// todo
+	char * geopoint1=get_yandex_geocode_by_point(lat_deg,lon_deg);
+	char * geopoint2=get_google_geocode_by_point(lat_deg,lon_deg);
+
+	g_sprintf(buffer,"<b>This point:</b> %s \n\n"
+			"<b>Address yandex: </b>%s\n"
+			"<b>Address google: </b>%s\n"
+			"<b>Distance from your location:</b>\n%.2f%s", latlon,geopoint1,geopoint2, distance*unit_conv, distunit);
 	
 	gtk_widget_show (window2);
 

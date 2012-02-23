@@ -59,7 +59,7 @@ trackpoint_t	global_myposition;
 
 
 gchar		*global_curr_reponame = NULL;
-int		global_repo_cnt = 0;
+int			global_repo_cnt = 0;
 GSList 		*global_repo_list = NULL;
 GSList		*global_curr_repo = NULL;
 GSList		*global_curr_trf_repo = NULL;

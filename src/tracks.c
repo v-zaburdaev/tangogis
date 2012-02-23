@@ -412,25 +412,34 @@ tracks_open_tracks_dialog()
 
 			GSList *filenames = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
 			g_slist_free(loaded_track->trackpoints);
-			//loaded_track = NULL;
-			//track_data* track_data_new = g_new0(track_data,1);
-			/* track_data_new->lat=0;
-			track_data_new->lon=0; 
-			track_data_new->max_lat=-90; 
-			track_data_new->max_lon=-180; 
-			track_data_new->min_lat=90; 
-			track_data_new->min_lon=180;
-			*/
-			for (i=0;i<g_slist_length(filenames);i++)
-			{
-				gchar * filename = g_slist_nth_data(filenames,i);
 
-				if (file_type_test(filename,"log"))
-					loaded_track = tracks_read(filename);
-				if (file_type_test(filename,"gpx"))
-					loaded_track = my_parse(filename);
+//			for (i=0;i<g_slist_length(filenames);i++)
+//			{
+			gchar * filename = g_slist_nth_data(filenames,0);
 
-			}
+			if (file_type_test(filename,"log"))
+				loaded_track = tracks_read_from_log(filename);
+			if (file_type_test(filename,"gpx"))
+				loaded_track = tracks_read_from_gpx(filename);
+
+
+			//	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
+				GtkWidget *drawingarea, *range;
+				int track_zoom, width, height;
+				drawingarea = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
+				width  = drawingarea->allocation.width;
+				height = drawingarea->allocation.height;
+				track_zoom = get_zoom_covering(width, height, loaded_track->max_lat, loaded_track->min_lon, loaded_track->min_lat, loaded_track->max_lon);
+				track_zoom = (track_zoom > 15) ? 15 : track_zoom;
+
+				if(loaded_track->lat!=0 && loaded_track->lon!=0)
+					set_mapcenter((loaded_track->max_lat+loaded_track->min_lat)/2, (loaded_track->max_lon+loaded_track->min_lon)/2, track_zoom);
+
+				range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
+				gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
+
+
+			//}
 			//g_free(track_data_new);
 			g_slist_free (filenames);
 		}
@@ -466,8 +475,8 @@ return mktime(&t);
 }
 
 
-
-track_data_t* tracks_read (char* file)
+/// загрузка трека из LOG
+track_data_t* tracks_read_from_log (gchar* filename)
 {
 	GtkWidget *drawingarea, *range;
 	char line[121];
@@ -486,14 +495,12 @@ track_data_t* tracks_read (char* file)
 	ret_trackdata->min_lat=90;
 	ret_trackdata->min_lon=180;
 
-	drawingarea = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
-	width  = drawingarea->allocation.width;
-	height = drawingarea->allocation.height;
 	
-	file = (char *) file;
+
+	filename = (gchar *) filename;
 	
-	printf("+++++++++++++++++++++++++++++++++++++++++++ %s \n", file);
-	fd = fopen(file, "r");
+	//printf("+++++++++++++++++++++++++++++++++++++++++++ %s \n", filename);
+	fd = fopen(filename, "r");
 	while(fgets(line,120, fd))
 	{
 		
@@ -505,13 +512,6 @@ track_data_t* tracks_read (char* file)
 
 		trackpoint_t *tp = g_new0(trackpoint_t,1);
 
-						//[0]gpsdata->fix.latitude,
-						//[1]gpsdata->fix.longitude,
-						//[2]gpsdata->fix.altitude,
-						//[3]gpsdata->fix.speed,
-						//[4]gpsdata->fix.track,  направление движения в градусах (180 или 0 когда на стоим месте)
-						//[5]gpsdata->hdop,
-						//[6]date
 		tp->datetime=LocalTimeFromString(arr[6]);
 		ret_trackdata->time_tmp=tp->datetime;
 
@@ -520,7 +520,6 @@ track_data_t* tracks_read (char* file)
 
 		ret_trackdata->lat_tmp = atof(arr[0]);
 		ret_trackdata->lon_tmp = atof(arr[1]);
-
 
 
 		tp->lat = deg2rad(ret_trackdata->lat_tmp);
@@ -543,17 +542,7 @@ track_data_t* tracks_read (char* file)
 		loaded_track = g_slist_append(ret_trackdata->trackpoints, tp);
 	}
 	
-//	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 
-	track_zoom = get_zoom_covering(width, height, ret_trackdata->max_lat, ret_trackdata->min_lon, ret_trackdata->min_lat, ret_trackdata->max_lon);
-	track_zoom = (track_zoom > 15) ? 15 : track_zoom;
-	
-	if(ret_trackdata->lat!=0 && ret_trackdata->lon!=0)
-		set_mapcenter((ret_trackdata->max_lat+ret_trackdata->min_lat)/2, (ret_trackdata->max_lon+ret_trackdata->min_lon)/2, track_zoom);
-		
-		range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
-		gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
-	
 	return ret_trackdata;
 }
 
@@ -726,8 +715,8 @@ static gpointer *point;
 static gchar *path1;
 //GHashTable hash;
 
-
-track_data_t * my_parse(gchar * filename)
+//// Загрузка трека из GPX
+track_data_t * tracks_read_from_gpx(gchar * filename)
 {
 	GtkWidget *drawingarea, *range;
 	gchar xml[1024];
