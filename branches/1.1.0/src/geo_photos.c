@@ -326,22 +326,13 @@ geo_photos_geocode_track_select_dialog (GtkButton       *button,
 		
 		geocode_set_trackname(filename, GTK_WIDGET(button));
 		
-		if(file_type_test(filename, "log"))
-		{
-			/* track_data* track_data_new = g_new0(track_data,1);
-			track_data_new->lat=0; 
-			track_data_new->lon=0; 
-			track_data_new->max_lat=-90; 
-			track_data_new->max_lon=-180; 
-			track_data_new->min_lat=90; 
-			track_data_new->min_lon=180;
-			*/
-			tracks_read(filename);
-			//g_free(track_data_new);
-		}
-		else
-			printf("There is no GPX importer yet :-( \n");
-		
+
+		if (file_type_test(filename,"log"))
+			loaded_track = tracks_read_from_log(filename);
+		if (file_type_test(filename,"gpx"))
+			loaded_track = tracks_read_from_gpx(filename);
+
+
 		g_free (filename);
 	}
 	else
