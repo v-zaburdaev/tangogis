@@ -248,3 +248,4 @@ extern int		mouse_y;
 extern int  window1_w,window1_h,window1_x,window1_y;
 
 int drag_started;
+
