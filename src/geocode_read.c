@@ -37,7 +37,8 @@ yajl_gen g;
 yajl_status yajl_stat;
 void * get_yandex_geocode_by_point(float lat,float lon)
 {
-	//http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true_or_false
+	/http://geocode-maps.yandex.ru/1.x/?geocode=%f,%f&format=json&key=AGb1RU8BAAAAuqcaSQIAlBKg-HJK6XT18hCtvajy2bwUNB8AAAAAAAAAAAC_fb5Vj7YlobpzSJGPpLtx3xuxIg==
+	if (host_failed) return NULL;
 	CURL *curl;
 	answer=NULL;
 	struct MemoryStruct chunk;
@@ -72,6 +73,7 @@ void * get_yandex_geocode_by_point(float lat,float lon)
 
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
 		curl_easy_setopt(curl, CURLOPT_URL, url);
+		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, \
 				"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
@@ -141,6 +143,7 @@ return NULL;
 void * get_google_geocode_by_point(float lat,float lon)
 {
 	//http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true_or_false
+	if (host_failed) return NULL;
 	CURL *curl;
 	answer=NULL;
 	struct MemoryStruct chunk;
@@ -173,6 +176,7 @@ void * get_google_geocode_by_point(float lat,float lon)
 		 hand = yajl_alloc(&callbacks, &cfg, NULL, (void *) g);
 
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
+		curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
 		curl_easy_setopt(curl, CURLOPT_URL, url);
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, \
 				"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
