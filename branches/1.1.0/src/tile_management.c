@@ -326,10 +326,10 @@ dl_thread(void *ptr)
 
 		if (!map_redraw_scheduled)
 		{
-		gdk_threads_enter();
+		//gdk_threads_enter();
 		g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка
 		map_redraw_scheduled = TRUE;
-		gdk_threads_leave();
+		//gdk_threads_leave();
 		}
 		printf("curl END: # of running threads: %i \n\n", number_threads );
 	}
@@ -558,10 +558,33 @@ printf("\n\n####LOOP %d %d ###########\n\n",i,possible_downloads);
 
 gboolean check_connect(void)
 {
-//	if (!global_trf_auto || !global_trf_show) return FALSE;//Неверно, так нельзя, потому что еще обычные карты требуют сеть, те проверку закачки карт надо
-//	if (!host_failed)
-//		return FALSE;
-//	printf("CHECK NETWORK CONNECTION\n");
-//host_failed=0;
-	return TRUE;
+//		printf("CHECK NETWORK CONNECTION\n");
+		CURL *curl;
+		char err_buffer[CURL_ERROR_SIZE+1]="";
+		CURLcode res;
+		curl = curl_easy_init();
+		if (curl)
+		{
+			curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
+			curl_easy_setopt(curl, CURLOPT_URL, "http://www.google.com");
+			curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
+			curl_easy_setopt(curl, CURLOPT_USERAGENT, \
+					"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
+			//curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+			curl_easy_setopt(curl, CURLOPT_NOPROGRESS, TRUE);
+			curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, err_buffer);
+			curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1);
+			res = curl_easy_perform(curl);
+			if (res!=0)
+			{
+//				printf("Error\n");
+				host_failed=TRUE;
+				return TRUE;
+			} else
+			{
+				host_failed=FALSE;
+				map_redraw_scheduled = TRUE;
+				return FALSE;
+			}
+		}
 }

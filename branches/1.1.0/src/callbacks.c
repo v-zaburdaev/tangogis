@@ -27,6 +27,7 @@
 #include "wp.h"
 #include "tracks.h"
 #include "geocode_read.h"
+#include "osd.h"
 
 #define WTFCOUNTER 5
 
@@ -201,18 +202,20 @@ on_drawingarea1_button_release_event   (GtkWidget       *widget,
 				
 				}
 			}
+			/// обработка клика по OSD
+			if (!osd_mouse_click(event->x,event->y))
+				{
+					if (!friend_found && !photo_found && !poi_found)
+					{
+						gtk_widget_show(menu1);
+						gtk_menu_popup (GTK_MENU(menu1), NULL, NULL, NULL, NULL,
+						  event->button, event->time);
+					}
+				}
 			
+
 			
-			if (!friend_found && !photo_found && !poi_found)
-			{	
-	
-				gtk_widget_show(menu1);
-				
-				gtk_menu_popup (GTK_MENU(menu1), NULL, NULL, NULL, NULL, 
-					  event->button, event->time);
-				
-			}
-	
+
 			if (friend_found)
 				on_item3_activate(NULL, NULL);
 			if (photo_found)
@@ -246,6 +249,8 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 		width  = map_drawable->allocation.width;
 		height = map_drawable->allocation.height;
 		
+		osd_mouse_over(event->x,event->y);
+
 		if (event->is_hint)
 			gdk_window_get_pointer (event->window, &x, &y, &state);
 		else
@@ -296,6 +301,7 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 					0, 0,
 					widget->allocation.width,
 					mouse_dy);
+			osd_hostfail_indicator(widget);
 		}	
 		else
 			wtfcounter++;
@@ -305,6 +311,8 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 			grid_show(widget);
 		}
 		// todo: вывод OSD во время перетаскивания карты
+
+
 	}
 	
   return FALSE;
@@ -370,11 +378,13 @@ on_drawingarea1_expose_event           (GtkWidget       *widget,
 		event->area.x, event->area.y,
 		event->area.x, event->area.y,
 		event->area.width, event->area.height);
-
 	if (global_grid_show)
 	{
 		grid_show(widget);
 	}
+
+	osd_hostfail_indicator(widget);
+
 	return FALSE;
 }
 
@@ -3034,6 +3044,7 @@ repaint_all()
 	paint_wp();
 	paint_myposition();
 	osd_speed();
+	//osd_all();
 }
 
 void

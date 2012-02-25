@@ -22,7 +22,7 @@
 #include "callbacks.h"
 #include "wp.h"
 #include "interface.h"
-
+#include "osd.h"
 
 gboolean
 cb_gps_timer() 
@@ -763,6 +763,8 @@ init()
 	current_track->trackpoints=NULL;
 	loaded_track =  g_new(track_data_t,1);
 	loaded_track->trackpoints=NULL;
+
+	osd_init();
 
 	screen_height = gdk_screen_get_height(gdk_screen_get_default());
 	

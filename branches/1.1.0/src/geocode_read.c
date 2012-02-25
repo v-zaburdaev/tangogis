@@ -37,7 +37,7 @@ yajl_gen g;
 yajl_status yajl_stat;
 void * get_yandex_geocode_by_point(float lat,float lon)
 {
-	/http://geocode-maps.yandex.ru/1.x/?geocode=%f,%f&format=json&key=AGb1RU8BAAAAuqcaSQIAlBKg-HJK6XT18hCtvajy2bwUNB8AAAAAAAAAAAC_fb5Vj7YlobpzSJGPpLtx3xuxIg==
+	//http://geocode-maps.yandex.ru/1.x/?geocode=%f,%f&format=json&key=AGb1RU8BAAAAuqcaSQIAlBKg-HJK6XT18hCtvajy2bwUNB8AAAAAAAAAAAC_fb5Vj7YlobpzSJGPpLtx3xuxIg==
 	if (host_failed) return NULL;
 	CURL *curl;
 	answer=NULL;
