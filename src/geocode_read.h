@@ -29,9 +29,9 @@ google_geocode_cb_read_func (void *ptr, size_t size, size_t nmemb, FILE *stream)
 
 static yajl_callbacks callbacks;
 
-static int reformat_null(void * ctx);
+//static int reformat_null(void * ctx);
 
-static int reformat_boolean(void * ctx, int boolean);
+//static int reformat_boolean(void * ctx, int boolean);
 static int reformat_number(void * ctx, const char * s, unsigned int l);
 static int reformat_string(void * ctx, const unsigned char * stringVal,
                            unsigned int stringLen);

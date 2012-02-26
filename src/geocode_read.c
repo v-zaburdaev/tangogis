@@ -6,6 +6,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/stat.h>
 #include <glib.h>
 #include <curl/curl.h>
@@ -102,7 +103,7 @@ void * get_yandex_geocode_by_point(float lat,float lon)
 					 yajl_gen_config conf={1," "};
 					 yajl_gen g;
 					 yajl_status stat;
-					 size_t rd;
+					 //size_t rd;
 					 yajl_parser_config cfg = { 1, 1 };
 
 					 g=yajl_gen_alloc(&conf,NULL);
@@ -206,7 +207,7 @@ void * get_google_geocode_by_point(float lat,float lon)
 					 yajl_gen_config conf={1," "};
 					 yajl_gen g;
 					 yajl_status stat;
-					 size_t rd;
+					 //size_t rd;
 					 yajl_parser_config cfg = { 1, 1 };
 
 					 g=yajl_gen_alloc(&conf,NULL);
@@ -247,10 +248,10 @@ void foreach_hash(gpointer key,
         gpointer user_data)
         {
 
-	if (strncmp(key,user_data)==0)
+	if (strcmp(key,user_data)==0)
 			{
-				printf("hash key=%s  value=%s\n",key,value);
-				char * tmp;
+				//printf("hash key=%s  value=%s\n",key,value);
+				//char * tmp;
 				if (answer!=NULL)
 				{
 					if(strlen(answer)<strlen(value))
@@ -266,7 +267,7 @@ void foreach_hash(gpointer key,
 
 			} else
 			{
-				printf("!hash key=%s  value=%s\n",key,value);
+				//printf("!hash key=%s  value=%s\n",key,value);
 
 			}
 return;
@@ -342,8 +343,8 @@ char * fullpath(char *path[])
 }
 
 static yajl_callbacks callbacks = {
-    reformat_null,
-    reformat_boolean,
+    NULL,
+    NULL,
     NULL,
     NULL,
     reformat_number,
@@ -354,7 +355,7 @@ static yajl_callbacks callbacks = {
     reformat_start_array,
     reformat_end_array
 };
-
+/*
 static int reformat_null(void * ctx)
 {
 	printf("reformat_null \n");
@@ -365,7 +366,7 @@ static int reformat_boolean(void * ctx, int boolean)
 {
     return 1;
 }
-
+*/
 static int reformat_number(void * ctx, const char * s, unsigned int l)
 {
     //map_num[maplvl]++;

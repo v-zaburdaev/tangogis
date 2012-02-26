@@ -53,7 +53,5 @@ queue_tile_dl_for_bbox(bbox_pixel_t bbox_pixel, int zoom);
 gboolean
 timer_tile_download(gpointer data);
 
-gboolean check_connect(void);
-
 //improvement
 static gchar* key;
