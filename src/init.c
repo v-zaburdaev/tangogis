@@ -102,7 +102,7 @@ void gps_info_show()
 
 	if(gpsdata)
 	{
-		trackpoint_t *tp = g_new0(trackpoint_t,1);
+
 		static int counter = 0;
 
 		lat = deg2rad(gpsdata->fix.latitude);
@@ -257,6 +257,7 @@ void gps_info_show()
 
 					trip_distance += trip_delta;
 					time_t t=(time_t)gpsdata->fix.time;
+					trackpoint_t *tp = g_new0(trackpoint_t,1);
 					tp->lat = lat;
 					tp->lon = lon; ///TODO : дописать остальные параметры в tp
 					tp->tpspeed=(float)gpsdata->fix.speed;
@@ -268,11 +269,12 @@ void gps_info_show()
 
 					if(trip_delta> 0.002)
 					{
-						counter++;
-						if(counter % 2 == 0)
+						//counter++;
+						//if(counter % 2 == 0 && global_current_track_show)
+						if(global_current_track_show)
 						{
 							gdk_threads_enter();
-							load_tracks(current_track->trackpoints,0);
+							load_tracks(current_track,0);
 							gdk_threads_leave();
 						}
 
@@ -760,9 +762,9 @@ init()
 	int screen_height;
 	
 	current_track = g_new(track_data_t,1);
-	current_track->trackpoints=NULL;
+	current_track->trackpoints=g_slist_alloc();
 	loaded_track =  g_new(track_data_t,1);
-	loaded_track->trackpoints=NULL;
+	loaded_track->trackpoints=g_slist_alloc();
 
 	osd_init();
 

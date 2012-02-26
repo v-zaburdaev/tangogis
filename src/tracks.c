@@ -98,10 +98,10 @@ load_tracks(track_data_t *trackdata,int mode)
 	//printf("Pixmap created\n");
 
 	trackpoint_t *tp=NULL;
-	int listcount=g_slist_length(trackdata->trackpoints);
+	//int listcount=g_slist_length(trackdata->trackpoints);
 	for(list = trackdata->trackpoints; list != NULL; list = list->next)
 	{
-		listcount--;
+	//	listcount--;
 
 
 
@@ -781,7 +781,7 @@ height = drawingarea->allocation.height;
 		range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
 		gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
 		//g_free(tempdata);
-
+		tempdata->trackpoints=loaded_track;
 	}
 	return tempdata;
 }
