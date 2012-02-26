@@ -632,9 +632,10 @@ void
 pre_init()
 {
 	GError	*err = NULL;
-/* Мне кажется, что это не нужно */
-	g_type_init();
 	loading=TRUE;
+/* Мне кажется, что это не нужно */
+//	g_type_init();
+
 	global_home_dir = getenv("HOME");
 	tangogis_dir = g_strconcat(global_home_dir, "/.tangogis", NULL);
 	tangogis_conf_file_name = g_strconcat(tangogis_dir,CONF_FILE,NULL);
@@ -985,6 +986,8 @@ init()
 		fprintf (stderr, "Failed to load pixbuf file:  %s\n", err->message);
 		g_error_free (err);
 	}
-	printf("Init complete\n");
 	loading=FALSE;
+	printf("Init complete\n");
+	repaint_all();
+
 }

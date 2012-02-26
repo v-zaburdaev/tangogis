@@ -324,7 +324,7 @@ on_drawingarea1_configure_event        (GtkWidget         *widget,
                                         GdkEventConfigure *event,
                                         gpointer           user_data)
 {
-	if (loading) return FALSE;
+
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 	
 	map_drawable = widget;
@@ -358,7 +358,8 @@ else printf("aieee: pixmap NULL\n");
 //		widget, 
 //		0,0,widget->allocation.width+260,widget->allocation.height+260);
 
-	repaint_all();
+	if (loading==FALSE)
+		repaint_all();
 	
 return FALSE;
 }
@@ -369,9 +370,9 @@ on_drawingarea1_expose_event           (GtkWidget       *widget,
                                         GdkEventExpose  *event,
                                         gpointer         user_data)
 {
-	if (loading) return FALSE;
 	
 	
+
 	gdk_draw_drawable (
 		widget->window,
 		widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
@@ -727,7 +728,8 @@ on_comboboxtext1_changed                   (GtkComboBox     *combobox,
 					);
 	
 	
-	repaint_all();
+
+	if (loading==FALSE) repaint_all();
 //	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 
 }
@@ -1131,6 +1133,7 @@ void
 on_comboboxtext_trf_changed        (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
+
 	GSList	*list;
 	gchar *reponame_combo;
 	GError **error = NULL;
@@ -1171,7 +1174,8 @@ on_comboboxtext_trf_changed        (GtkComboBox     *combobox,
 					);
 	
 	
-	repaint_all();
+
+	if (loading==FALSE) repaint_all();
 //	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 }
 
