@@ -32,7 +32,8 @@ void osd_init()
 
 void osd_mouse_over(int x,int y)
 {
-	char *tmp;
+	char *tmp=malloc(12);
+
 	sprintf(tmp,"%d,%d",x,y);
 //	printf("FIND\n");
 	g_hash_table_find(osdcallbacks,osdcallbacks_find,tmp);
