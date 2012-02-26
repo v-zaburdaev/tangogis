@@ -39,8 +39,8 @@ gps_data_t *gpsdata = NULL;
 //GSList		*trackpoint_list = NULL; //current track latlon information
 //GSList		*loaded_track = NULL; //track points latlon information
 
-track_data_t *loaded_track;
-track_data_t *current_track;
+track_data_t *loaded_track;//=g_new(track_data_t,1);
+track_data_t *current_track;//=g_new(track_data_t,1);
 
 
 GSList		*friends_list = NULL;
