@@ -199,7 +199,7 @@ GdkGC		*gc_map = NULL;
 */	
 
 	printf("IMG: %s\n",filename);
-/*
+
 	FILE *fp=fopen(filename,"r");
 	if (!fp)
 	{
@@ -223,7 +223,7 @@ GdkGC		*gc_map = NULL;
 		fclose(fp);
 	}
 
-*/
+
 	pixbuf = gdk_pixbuf_new_from_file (
 			filename,
 			&error);

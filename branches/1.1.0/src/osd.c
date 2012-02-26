@@ -113,7 +113,7 @@ return FALSE;
 
 void osd_hostfail_indicator_no_icon(GtkWidget* widget)
 {
-	printf("osd all\n");
+	//printf("osd all\n");
 	int xmax=map_drawable->allocation.width;
 	int ymax=map_drawable->allocation.height;
 

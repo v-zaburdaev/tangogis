@@ -247,5 +247,7 @@ extern int		mouse_y;
 
 extern int  window1_w,window1_h,window1_x,window1_y;
 
+static gboolean map_redraw_scheduled;
+static gboolean loading;
 int drag_started;
 

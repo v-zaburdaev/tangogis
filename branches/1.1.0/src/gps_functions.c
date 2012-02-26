@@ -563,7 +563,7 @@ get_gps()
 
 	if(!gpsdata  || global_reconnect_gpsd)
 	{
-		printf("reconnecting to gpsd\n");
+//		printf("reconnecting to gpsd\n");
 				
 		if (sock) sock = close(sock);
 			
@@ -576,11 +576,11 @@ get_gps()
 		conn = connect(sock, (struct sockaddr *)&server, sizeof(struct sockaddr));
 		if (conn < 0)
 		{
-			fprintf(stderr, "connection to gpsd FAILED \n");
+			//fprintf(stderr, "connection to gpsd FAILED \n");
 		}
 		else
 		{
-			fprintf(stderr, "connection to gpsd SUCCEEDED \n");
+			//fprintf(stderr, "connection to gpsd SUCCEEDED \n");
 			
 			global_reconnect_gpsd = FALSE;
 			
@@ -612,6 +612,6 @@ get_gps()
 		}
 	}
 	
-	if(!gpsdata)
-		printf("NOGPS");
+	//if(!gpsdata)
+		//printf("NOGPS");
 }

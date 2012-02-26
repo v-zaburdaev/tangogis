@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <sqlite3.h>
 #include <stdlib.h> 
+#include <curl/curl.h>
+#include "globals.h"
+
 
 int
 sql_execute(char *db_name, char *sql, int (*cb_func)(void*,int,char**,char**))
@@ -73,3 +76,38 @@ file_type_test(const char *filename, char *type)
 		return FALSE;
 	}
 }
+
+
+gboolean check_connect(void)
+{
+//		printf("CHECK NETWORK CONNECTION\n");
+		CURL *curl;
+		char err_buffer[CURL_ERROR_SIZE+1]="";
+		CURLcode res;
+		curl = curl_easy_init();
+		if (curl)
+		{
+			curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
+			curl_easy_setopt(curl, CURLOPT_URL, "http://www.google.com");
+			curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
+			curl_easy_setopt(curl, CURLOPT_USERAGENT, \
+					"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
+			//curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+			curl_easy_setopt(curl, CURLOPT_NOPROGRESS, TRUE);
+			curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, err_buffer);
+			curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1);
+			res = curl_easy_perform(curl);
+			if (res!=0)
+			{
+//				printf("Error\n");
+				host_failed=TRUE;
+				return TRUE;
+			} else
+			{
+				host_failed=FALSE;
+				map_redraw_scheduled = TRUE;
+				return FALSE;
+			}
+		}
+}
+

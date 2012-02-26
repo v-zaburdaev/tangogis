@@ -19,6 +19,7 @@
 #include "friends.h"
 #include "poi.h"
 #include "wp.h"
+#include "util.h"
 
 GtkWidget *Bar = NULL; 
 static GSList *tile_download_list = NULL;
@@ -27,8 +28,7 @@ typedef struct  {
 	char *tile_url;
 } Repo_data_t;
 
-static gboolean map_redraw_scheduled;
-	
+
 
 int
 update_thread_number (int change)
@@ -64,17 +64,7 @@ map_redraw(void *p)
 	if (!drag_started)
 	{
 		map_redraw_scheduled=FALSE;
-
 		printf("REPAINTING FROM TILE MAN.............\n");
-		/* fill_tiles_pixel(global_x, global_y, global_zoom);
-		print_track();
-		paint_friends();
-		paint_photos();
-		paint_pois();
-		paint_wp();
-		paint_myposition();
-		osd_speed();
-		*/
 		repaint_all();
 		return FALSE;
 	}
@@ -200,6 +190,7 @@ download_tile(	repo_t *repo,
 
 	if (found!=NULL)
 	{
+		printf("Found in hash key=%s\n",key);
 		if (strcmp(found,"The requested URL returned error: 404")==0)
 			printf("\n%s - Карта не существует\n", key);
 		else if(host_failed)	
@@ -209,6 +200,7 @@ download_tile(	repo_t *repo,
 		else
 			{
 				g_hash_table_replace(ht, key, "downloading");
+
 				//dl_thread((void *)tile_data);
 				//dl_thread(tile_data);
 				if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
@@ -216,21 +208,26 @@ download_tile(	repo_t *repo,
 
 			}	
 	}
-	else if(host_failed)	
-	{
-		printf("Host failed\n");	
-	}
-	else if(zoom <=maxzoom)
-	{
-		g_hash_table_replace(ht, key, "downloading");
-		printf("%s(): %s######################\n",__PRETTY_FUNCTION__,tile_data);
-			if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
-				g_warning("can't create DL thread");
+	else
+		{
+		printf("NOT Found in hash key=%s\n",key);
 
-//		dl_thread((void *)tile_data);
-		retval = TRUE;
-	}	
+			if(host_failed)
+			{
+			printf("Host failed\n");
+			}
+			else if(zoom <=maxzoom)
+			{
+				//g_hash_table_replace(ht, key, "downloading");
+				g_hash_table_insert(ht, key, "downloading");
+				printf("%s(): %s######################\n",__PRETTY_FUNCTION__,tile_data);
+					if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
+						g_warning("can't create DL thread");
 
+		//		dl_thread((void *)tile_data);
+				retval = TRUE;
+			}
+		}
 	return retval;
 }
 
@@ -556,35 +553,3 @@ printf("\n\n####LOOP %d %d ###########\n\n",i,possible_downloads);
 	return more_tiles;
 }
 
-gboolean check_connect(void)
-{
-//		printf("CHECK NETWORK CONNECTION\n");
-		CURL *curl;
-		char err_buffer[CURL_ERROR_SIZE+1]="";
-		CURLcode res;
-		curl = curl_easy_init();
-		if (curl)
-		{
-			curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
-			curl_easy_setopt(curl, CURLOPT_URL, "http://www.google.com");
-			curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
-			curl_easy_setopt(curl, CURLOPT_USERAGENT, \
-					"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
-			//curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
-			curl_easy_setopt(curl, CURLOPT_NOPROGRESS, TRUE);
-			curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, err_buffer);
-			curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1);
-			res = curl_easy_perform(curl);
-			if (res!=0)
-			{
-//				printf("Error\n");
-				host_failed=TRUE;
-				return TRUE;
-			} else
-			{
-				host_failed=FALSE;
-				map_redraw_scheduled = TRUE;
-				return FALSE;
-			}
-		}
-}

@@ -324,6 +324,7 @@ on_drawingarea1_configure_event        (GtkWidget         *widget,
                                         GdkEventConfigure *event,
                                         gpointer           user_data)
 {
+	if (loading) return FALSE;
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 	
 	map_drawable = widget;
@@ -368,7 +369,7 @@ on_drawingarea1_expose_event           (GtkWidget       *widget,
                                         GdkEventExpose  *event,
                                         gpointer         user_data)
 {
-	
+	if (loading) return FALSE;
 	
 	
 	gdk_draw_drawable (
@@ -1603,6 +1604,8 @@ on_item4_activate                      (GtkMenuItem     *menuitem,
 	
 	label = lookup_widget(window2,"label64");
 	/// todo
+	if (!host_failed)
+	{
 	char * geopoint1=get_yandex_geocode_by_point(lat_deg,lon_deg);
 	char * geopoint2=get_google_geocode_by_point(lat_deg,lon_deg);
 
@@ -1610,7 +1613,13 @@ on_item4_activate                      (GtkMenuItem     *menuitem,
 			"<b>Address yandex: </b>%s\n"
 			"<b>Address google: </b>%s\n"
 			"<b>Distance from your location:</b>\n%.2f%s", latlon,geopoint1,geopoint2, distance*unit_conv, distunit);
-	
+	} else
+	{
+		g_sprintf(buffer,"<b>This point:</b> %s \n\n"
+				"<b>Distance from your location:</b>\n%.2f%s", latlon,distance*unit_conv, distunit);
+
+
+	}
 	gtk_widget_show (window2);
 
 	
