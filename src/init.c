@@ -262,6 +262,9 @@ void gps_info_show()
 					tp->lon = lon; ///TODO : дописать остальные параметры в tp
 					tp->tpspeed=(float)gpsdata->fix.speed;
 					tp->datetime=(time_t)gpsdata->fix.time;
+					tp->altitude=gpsdata->fix.altitude;
+					tp->hdop=gpsdata->hdop;
+					tp->bearing =gpsdata->fix.bearing;
 					current_track->trackpoints = g_slist_append(current_track->trackpoints, tp);
 
 					lat_tmp = lat;
