@@ -44,9 +44,13 @@ typedef struct {
 typedef struct {
 	float lat;
 	float lon;
-	time_t datetime;
+	float altitude;
 	float tpspeed;
-	float vector;
+	float bearing;
+	double hdop;
+	time_t datetime;
+
+
 } trackpoint_t;
 
 typedef struct {

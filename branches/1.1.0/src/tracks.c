@@ -516,7 +516,7 @@ track_data_t* tracks_read_from_log (gchar* filename)
 		ret_trackdata->time_tmp=tp->datetime;
 
 		tp->tpspeed=atof(arr[3]);
-		tp->vector=atof(arr[4]);
+		tp->bearing=atof(arr[4]);
 
 		ret_trackdata->lat_tmp = atof(arr[0]);
 		ret_trackdata->lon_tmp = atof(arr[1]);
@@ -664,7 +664,7 @@ void *myend_element    (GMarkupParseContext *context,
 if (trip_delta>0){
 	trip_count=trip_count+trip_delta;
 	tp->tpspeed=(trip_delta*3600)/(tmp_datetime-prev_datetime); /// Возможно ошибаюсь в расчетах
-	tp->vector=get_bearing(tp->lat,tp->lon,prev_lat,prev_lon);
+	tp->bearing=get_bearing(tp->lat,tp->lon,prev_lat,prev_lon);
 	prev_lat=tp->lat;
 	prev_lon=tp->lon;
 	//printf("trip_delta=%f speed=%f timedelta=%d tripcount=%f\n",trip_delta,tp->tpspeed,(tmp_datetime-prev_datetime),trip_count);

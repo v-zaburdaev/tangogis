@@ -1992,11 +1992,40 @@ on_button20_clicked                    (GtkButton       *button,
 			return;
 		}
 		
-		while(track_save)
+		gchar buffer[256];
+			gchar data[256];
+			time_t time_sec;
+			struct tm *ts;
+		trackpoint_t *temp = NULL; //g_new(trackpoint_t,1);
+		//while(track_save)
+		GSList *list;
+		for(list=track_save;list!=NULL;list=list->next)
 		{
-			trackpoint_t *temp = track_save->data;
-			fprintf(fp,"%f,%f\n",rad2deg(temp->lat),rad2deg(temp->lon));
-			track_save = g_slist_next(track_save); 
+
+			printf("1");
+			if (list->data==NULL) continue;
+			temp =	list->data;
+			printf("2");
+			time_sec = (time_t)temp->datetime;
+			ts = localtime(&time_sec);
+			printf("3");
+
+			strftime(buffer, sizeof(buffer), "%Y-%m-%dT%H:%M:%SZ", ts);
+
+
+					sprintf(data, "%f,%f,%.1f,%.1f,%.1f,%.1f,%s\n",
+							rad2deg(temp->lat),
+							rad2deg(temp->lon),
+							temp->altitude,
+							temp->tpspeed,
+							temp->bearing,
+							temp->hdop,
+							buffer);
+
+
+			fprintf(fp,data);
+
+			//track_save = g_slist_next(track_save);
 		}
 		fclose(fp);
 		g_free (filename);
