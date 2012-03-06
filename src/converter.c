@@ -74,7 +74,7 @@ pixel2lat(	float zoom,
 	
 	lat = asin(tanh(lat_m));
 	
-	printf("lat %f => lat_m %f \n", lat,lat_m);
+	//printf("lat %f => lat_m %f \n", lat,lat_m);
 	
 	
 	return lat;

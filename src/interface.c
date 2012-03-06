@@ -549,6 +549,11 @@ create_menu1 (void)
   GtkWidget *item18;
   GtkWidget *item21;
   GtkWidget *item21_menu;
+  GtkWidget *item22;
+  GtkWidget *item22_menu;
+  GtkWidget *item23;
+  GtkWidget *item24;
+
   GtkWidget *itemgeocode1;
   GtkWidget *item6;
   GtkWidget *item6_menu;
@@ -561,6 +566,22 @@ create_menu1 (void)
   item4 = gtk_menu_item_new_with_mnemonic (_("this point"));
   gtk_widget_show (item4);
   gtk_container_add (GTK_CONTAINER (menu1), item4);
+
+  item22 = gtk_menu_item_new_with_mnemonic(_("Route"));
+  gtk_widget_show(item22);
+  gtk_container_add(GTK_CONTAINER(menu1),item22);
+
+  item22_menu=gtk_menu_new ();
+  gtk_menu_item_set_submenu (GTK_MENU_ITEM (item22), item22_menu);
+
+  item23= gtk_menu_item_new_with_mnemonic(_("Set start point"));
+  gtk_widget_show(item23);
+  gtk_container_add(GTK_CONTAINER(item22_menu),item23);
+
+  item24= gtk_menu_item_new_with_mnemonic(_("Set end point"));
+  gtk_widget_show(item24);
+  gtk_container_add(GTK_CONTAINER(item22_menu),item24);
+
 
   item19 = gtk_check_menu_item_new_with_mnemonic (_("show friends"));
   gtk_widget_show (item19);
@@ -676,6 +697,13 @@ create_menu1 (void)
   g_signal_connect ((gpointer) item8, "activate",
                     G_CALLBACK (on_item8_activate),
                     NULL);
+  g_signal_connect ((gpointer) item23,"button_release_event",
+					G_CALLBACK(on_item23_activate),
+					NULL);
+  g_signal_connect ((gpointer) item24,"button_release_event",
+					G_CALLBACK(on_item24_activate),
+					NULL);
+
 
   
   GLADE_HOOKUP_OBJECT_NO_REF (menu1, menu1, "menu1");

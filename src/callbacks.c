@@ -2955,6 +2955,57 @@ on_button23_clicked                    (GtkButton       *button,
 }
 
 void
+on_item23_activate                     (GtkMenuItem     *menuitem,
+                                        gpointer         user_data)
+{
+	float lat, lon;
+//	printf("screen x,y: %d %d \n",mouse_x, mouse_y);
+	lat = rad2deg( pixel2lat(global_zoom, global_y+mouse_y));
+	lon = rad2deg( pixel2lon(global_zoom, global_x+mouse_x));
+	//printf("startpoint : %f %f \n",lat, lon);
+	startpoint=g_new(waypoint_t,1);
+	startpoint->lat=lat;
+	startpoint->lon=lon;
+
+	if (endpoint!=NULL)
+	{
+		get_google_route(startpoint,endpoint,NULL);
+		load_tracks(route_track,2);
+	}
+
+	return FALSE;
+}
+
+void
+on_item24_activate                     (GtkMenuItem     *menuitem,
+                                        gpointer         user_data)
+{
+	float lat, lon;
+	//printf("screen x,y: %d %d \n",mouse_x, mouse_y);
+	lat = rad2deg( pixel2lat(global_zoom, global_y+mouse_y));
+	lon = rad2deg( pixel2lon(global_zoom, global_x+mouse_x));
+	//printf("endpoint x,y: %f %f \n",lat, lon);
+	endpoint=g_new(waypoint_t,1);
+	endpoint->lat=lat;
+	endpoint->lon=lon;
+
+		if (startpoint!=NULL)
+		{
+			printf("startpoint %f, %f endpoint: %f, %f \n",startpoint->lat, startpoint->lon,endpoint->lat,endpoint->lon);
+			get_google_route(startpoint,endpoint,NULL);
+
+			//printf("trackpoints list len=%d\n",g_slist_length(route_track->trackpoints));
+
+			load_tracks(route_track,2);
+
+		}
+
+
+	return FALSE;
+}
+
+
+void
 on_item17_activate                     (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {

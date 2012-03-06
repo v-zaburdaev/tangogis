@@ -758,6 +758,8 @@ init()
 	gint timer;
 	gpointer data = NULL;	
 	
+
+
 	GError	*err = NULL;
 	const gchar *nick, *pass;
 	GtkWidget *nick_entry, *pass_entry, *widget;

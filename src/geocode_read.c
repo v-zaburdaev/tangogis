@@ -53,7 +53,8 @@ void * get_yandex_geocode_by_point(float lat,float lon)
 	{
 		array_num[i]=0;
 		map_num[i]=0;
-		if (path[i]) free(path[i]);
+		path[i]=NULL;
+		//if (path[i]) free(path[i]);
 	}
 
 	lvl=0;

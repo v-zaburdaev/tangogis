@@ -1,9 +1,11 @@
 
 
+#include <sys/stat.h>
 #include <gtk/gtk.h>
 #include <glib.h>
 #include <glib/gprintf.h>
 #include <string.h>
+#include <stdio.h>
 #include <curl/curl.h>
 //#include <curl/types.h> 
 #include <curl/easy.h> 
@@ -332,9 +334,20 @@ dl_thread(void *ptr)
 	}
 	if(outfile != NULL)
 		fclose(outfile);
-	
-	rename(file_temp, arr1[1]);
-
+	struct stat filestat;
+	if (stat(file_temp,&filestat)==0)
+			{
+				printf("download file size = %d bytes.(%s)\n",filestat.st_size,file_temp);
+				if (filestat.st_size>0)
+				{
+					rename(file_temp, arr1[1]);
+				}
+				else
+				{
+					printf("delete file (size = %d ",filestat.st_size);
+					unlink(file_temp);
+				}
+			}
 	number_threads = update_thread_number(-1);
 
 	g_free(file_temp);
