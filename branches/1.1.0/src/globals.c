@@ -16,6 +16,9 @@ GtkWidget *dialog8 = NULL;
 GtkWidget *window3 = NULL;
 GtkWidget *menu1 = NULL;
 
+waypoint_t *startpoint=NULL;
+waypoint_t *endpoint=NULL;
+track_data_t		*route_track=NULL;
 
 char *global_track_dir = NULL;
 char *global_map_dir = NULL;

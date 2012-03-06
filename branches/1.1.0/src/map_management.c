@@ -212,7 +212,7 @@ GdkGC		*gc_map = NULL;
 
 		if (stat(filename,&filestat)==0)
 		{
-			printf("%d IMG FILE EXISTS Size = %d bytes.(%s)\n",local->thread_id,filestat.st_size,filename);
+			//printf("IMG FILE EXISTS Size = %d bytes.(%s)\n",filestat.st_size,filename);
 			if (!filestat.st_size>0)
 					{
 						printf("ERRoR File is empty %s, redownloading",filename);
@@ -468,6 +468,8 @@ fill_tiles_pixel()
 	if (global_current_track_show)
 		load_tracks(current_track,0);
 
+	if(route_track!=NULL)
+		load_tracks(route_track,2);
 
 	fill_tiles_pixel_flag=0;
 }
@@ -736,4 +738,45 @@ gboolean auto_load_trf_timer()
 	return FALSE;
 }
 //--------------Traffic autodownloadtimer--------------------------------
+/*
+ *
+GAsyncQueue showtilesqueue;
+showtilesqueue= g_async_queue_new();
+g_async_queue_push                  (GAsyncQueue *queue,
+                                                         gpointer data);
+g_async_queue_pop                   (GAsyncQueue *queue);
 
+
+void show_queue()
+{
+//filename, x,y, layer?
+	pixbuf = gdk_pixbuf_new_from_file (
+			filename,
+			&error);
+	gdk_draw_pixbuf (
+			pixmap,
+			gc_map,
+			pixbuf,
+			0,0,
+			local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
+			TILESIZE,TILESIZE,
+			GDK_RGB_DITHER_NONE, 0, 0);
+
+
+	g_object_unref (pixbuf);
+
+	drawingarea11 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
+
+	gtk_widget_queue_draw_area (
+		drawingarea11,
+		local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
+		TILESIZE,TILESIZE);
+
+
+
+
+}
+
+
+
+*/

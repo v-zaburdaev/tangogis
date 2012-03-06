@@ -3,6 +3,13 @@
 void
 print_track();
 
+
+void
+on_item23_activate                     (GtkMenuItem     *menuitem,
+                                        gpointer         user_data);
+void
+on_item24_activate                     (GtkMenuItem     *menuitem,
+                                        gpointer         user_data);
 gboolean
 on_drawingarea1_button_press_event     (GtkWidget       *widget,
                                         GdkEventButton  *event,
