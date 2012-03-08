@@ -520,9 +520,10 @@ g_key_get_repolist()
 
 		repo_trf[1] = g_new0(repo_t, 1);
 		repo_trf[1]->name = g_strdup("Google TRF");
-		repo_trf[1]->uri  = g_strdup("http://mt1.google.com/mapstt?zoom=%d&x=%d&y=%d&client=google");
+
+		repo_trf[1]->uri  = g_strdup("http://mt0.google.com/vt?hl=ru&src=app&lyrs=m@171000000,traffic|seconds_into_week:-1&x=%d&y=%d&z=%d&style=15");
 		repo_trf[1]->dir  = g_strdup_printf("%s/TRF/google",tangogis_dir);
-		repo_trf[1]->inverted_zoom = 0;
+		repo_trf[1]->inverted_zoom = 1;
 		
 		int i;
 		for (i=0;i<amount_trf_repo;i++)
