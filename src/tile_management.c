@@ -131,112 +131,61 @@ cb_progress_func(GtkWidget *Bar,
 
 
 gboolean
-download_tile(repo_t *repo,int zoom,int x,int y)
+download_tile(tile_t *local)
 {
+	int x=local->x;
+	int y=local->y;
+	int zoom=local->zoom;
+	int time=local->time;
+	void *thread_data=local->local;
+	repo_t *repo=local->repo;
+	g_free(local);
+
 	gchar *tile_data;
-	gchar tile_data_tmp[1512];
-	gchar tile_url[256];
+	gchar *tile_data_tmp;
+	gchar *tile_url;
 	int value=1;
 	gchar *found;
 	int maxzoom=17;
 	gboolean retval = FALSE;
 	
-	
 	if (!repo->inverted_zoom)
 	{
 			if (strcmp(repo->uri,"Topo"))
 			{
-
-					g_sprintf(tile_url, repo->uri, zoom, y, zoom, x, y);
-					maxzoom=12;
+				tile_url = g_strdup_printf(repo->uri, zoom, y, zoom, x, y);
+				maxzoom=12;
 			}
-
 			else
-				g_sprintf(tile_url, repo->uri, zoom, x, y);
+				tile_url = g_strdup_printf(repo->uri, zoom, x, y);
 	}
 	else
-		g_sprintf(tile_url, repo->uri, x, y, zoom, strstr(repo->dir,"TRF/yandex")!=NULL?traffic_time-(240*traffic_old_factor):NULL); 
+		tile_url = g_strdup_printf(repo->uri, x, y, zoom, strstr(repo->dir,"TRF/yandex")!=NULL?time-(240*traffic_old_factor):NULL); 
 	
+	char *tile_dir = g_strdup_printf("%s/%d/%d",repo->dir, zoom, x);
+	char *tile_file =g_strdup_printf("%s/%d.png",tile_dir,y); 
+	char *tile_temp_file =g_strdup_printf("%s_tmp",tile_file); 
 	
-	
-	g_sprintf(tile_data_tmp, "%s|%s/%d/%d/%d.png|%s/%d/%d/",
-			tile_url,
-			repo->dir, zoom, x, y,
-			repo->dir, zoom, x);
-	
-	tile_data = g_strdup(tile_data_tmp);
-	
-	found = g_hash_table_lookup (ht, key);
+	static GStaticMutex mutex_download_tiles = G_STATIC_MUTEX_INIT;
+	g_static_mutex_lock (&mutex_download_tiles);
+	g_hash_table_replace(ht,tile_file,"downloading");
+	g_static_mutex_unlock (&mutex_download_tiles);
 
-	printf("key = %s, value = %s\n",key,found);
-	printf("hash table = %d\n",ht);
-printf("value = %d\n",found);
-printf("host_failed = %d\n",host_failed);
-
-	if (found!=NULL)
-	{
-		if (strcmp(found,"The requested URL returned error: 404")==0)
-			printf("\n%s - Карта не существует\n", key);
-		else if(host_failed)	
-			{
-				printf("Host failed\n");	
-			}
-		else
-			{
-				g_hash_table_replace(ht, key, "downloading");
-				dl_thread((void *)tile_data);
-			}	
-	}
-	else if(host_failed)	
-	{
-		printf("Host failed\n");	
-	}
-	else if(zoom <=maxzoom)
-	{
-		g_hash_table_replace(ht, key, "downloading");
-		printf("%s(): %s######################\n",__PRETTY_FUNCTION__,tile_data);
-		dl_thread((void *)tile_data);
-		retval = TRUE;
-	}	
-
-	return retval;
-}
-
-
-
-
-void *
-dl_thread(void *ptr)
-{
 	CURL *curl;
 	CURLcode res;
-	FILE *outfile;
 	char err_buffer[CURL_ERROR_SIZE+1]="";
 
-	const gchar *tile_data; 
-	gchar **arr1;
-	gchar *file_temp;
+	FILE *outfile;
 
 	int mkres;
-	tile_data = ptr;
 	
-	
-	arr1 = g_strsplit(tile_data,"|",3);
-
-	file_temp = g_strdup_printf("%s_tmp",arr1[1]);//Временный файл создается чтобы если файл пробок существует пока новый не закачан показывался старый
-	
-	mkres = g_mkdir_with_parents(arr1[2],0700);
+	mkres = g_mkdir_with_parents(tile_dir,0700);
 	if(mkres==-1) {
 		perror("mkdir()");
-		printf("MKDIR ERROR: %s\n", arr1[2]);
+		printf("MKDIR ERROR: %s\n", tile_dir);
 	}
 	
-	printf( "\n\n************************************\n"
-		"tile_data: %s \n URL: %s \n FILE: %s \n DIR: %s\n",
-		tile_data, arr1[0],arr1[1],arr1[2]);
-	
-	
-	outfile = fopen(file_temp, "w");
+	outfile = fopen(tile_temp_file, "w");
 	if (outfile==NULL)
 	{
 		perror("###### ERROR - Could not open OUTFILE");
@@ -244,13 +193,10 @@ dl_thread(void *ptr)
 	}
 
 	curl = curl_easy_init();
-	printf("\ncurl = %d\n",curl);
-
 
 	if(curl && outfile) 
 	{
-		
-		curl_easy_setopt(curl, CURLOPT_URL, arr1[0]);
+		curl_easy_setopt(curl, CURLOPT_URL, tile_url);
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, 
 		"libcurl-agent/1.0 | tangogps " VERSION " | " __VERSION__);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, outfile);
@@ -265,15 +211,25 @@ dl_thread(void *ptr)
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
 		res = curl_easy_perform(curl);
 
-		printf("err_buffer: %s\n",err_buffer);
+		fclose(outfile);
 		if (res==0)
 		{
 			printf("########## curl res=0, tile download ok\n");
+			rename(tile_temp_file,tile_file);
+			sleep(1);
+			g_static_mutex_lock (&mutex_download_tiles);
+			g_hash_table_remove(ht,tile_file);
+			g_static_mutex_unlock (&mutex_download_tiles);
+			view_tile(thread_data);
+			//fill_tiles_pixel();
 		}
 		else
 		{	
 			printf("TILE DL PROBLEM: %s\n",err_buffer);
-			g_hash_table_replace(ht,key,g_strdup_printf(err_buffer));
+			printf("err_buffer: %s\n",err_buffer);
+			g_static_mutex_lock (&mutex_download_tiles);
+			g_hash_table_replace(ht,tile_file,g_strdup(err_buffer));
+			g_static_mutex_unlock (&mutex_download_tiles);
 			if (strstr(err_buffer, "Couldn't resolve host")!=NULL)
 			{
 				if (!host_failed)
@@ -287,21 +243,12 @@ dl_thread(void *ptr)
 				host_failed = FALSE;
 			}
 		}
-		
-//		g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка	
-		
 		curl_easy_cleanup(curl);
-
-		printf("curl END: # of running threads: %i \n\n", number_threads );
 	}
-	if(outfile != NULL)
-		fclose(outfile);
-	
-	rename(file_temp, arr1[1]);
-
-	g_free(file_temp);
-	g_free(ptr);
-	return NULL;
+	free(tile_file);
+	free(tile_temp_file);
+	free(tile_url);
+	free(tile_dir);
 }
 
 
@@ -498,7 +445,8 @@ printf("\n\n####LOOP %d %d ###########\n\n",i,possible_downloads);
 				tile->x < exp(tile->zoom * M_LN2)	&&
 				tile->y < exp(tile->zoom * M_LN2))
 			{
-				download_tile(tile->repo, tile->zoom, tile->x, tile->y);
+//закоментирвано для отладки				
+//				download_tile(tile->repo, tile->zoom, tile->x, tile->y);
 			}
 			global_tiles_in_dl_queue--;
 		}

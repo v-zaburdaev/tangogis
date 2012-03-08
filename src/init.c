@@ -131,7 +131,13 @@ cb_gps_timer()
 {
 
 	get_gps();
-	fill_tiles_pixel();
+	if(gpsdata) 
+		gps_info_show();
+	else 
+	{
+		printf("no gpsdata for timer\n");
+		set_label_nogps();
+	}
 	return TRUE; 
 }
 
@@ -509,13 +515,13 @@ g_key_get_repolist()
 		repo_trf[0]= g_new0(repo_t, 1);
 		repo_trf[0]->name = g_strdup("Yandex TRF");
 		repo_trf[0]->uri  = g_strdup("http://jgo.maps.yandex.net/tiles?l=trf&x=%d&y=%d&z=%d&tm=%d");
-		repo_trf[0]->dir  = g_strdup_printf("%s/Maps/TRF/yandex",global_home_dir);
+		repo_trf[0]->dir  = g_strdup_printf("%s/TRF/yandex",tangogis_dir);
 		repo_trf[0]->inverted_zoom = 1;
 
 		repo_trf[1] = g_new0(repo_t, 1);
 		repo_trf[1]->name = g_strdup("Google TRF");
 		repo_trf[1]->uri  = g_strdup("http://mt1.google.com/mapstt?zoom=%d&x=%d&y=%d&client=google");
-		repo_trf[1]->dir  = g_strdup_printf("%s/Maps/TRF/google",global_home_dir);
+		repo_trf[1]->dir  = g_strdup_printf("%s/TRF/google",tangogis_dir);
 		repo_trf[1]->inverted_zoom = 0;
 		
 		int i;

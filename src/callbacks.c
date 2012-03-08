@@ -236,8 +236,6 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 {
 	if(global_mapmode)
 	{
-		
-
 		int x, y, width, height;
 		GdkModifierType state;
 		
@@ -294,6 +292,14 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 					0, 0,
 					widget->allocation.width,
 					mouse_dy);
+// Попытка усовершенствовать отбражение				
+	//printf("global_x = %d, global_y = %d\n", global_x,global_y);
+//	global_x += mouse_dx;
+//	global_y += mouse_dy;
+//	local_x += mouse_dx;
+//	local_y += mouse_dy;
+//		mouse_x += mouse_dx;
+//		mouse_y += mouse_dy;
 		}	
 		else
 			wtfcounter++;

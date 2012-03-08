@@ -162,7 +162,7 @@ GHashTable *ht;//таблица состояние тайла
 GList *curl_threads;//таблица закачек
 int showed_tiles_index;
 //char **showed_tiles;
-GSList *showed_tiles;
+GSList *download_tiles;
 //typedef struct tile
 int pause_all_threads;
 //--------------Traffic download & show----------------------
