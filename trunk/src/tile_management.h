@@ -18,14 +18,16 @@ typedef struct {
 	int x;
 	int y;
 	int zoom;
+	time_t time;
 	repo_t *repo;
+	void *local; 
 } tile_t;
 
 gboolean
-download_tile(	repo_t *repo,//TODO das sollte eine repo struct sein
+download_tile(tile_t *local);/*,//TODO das sollte eine repo struct sein
 		int zoom,
 		int x,
-		int y);
+		int y);*/
 void *
 dl_thread(void *ptr);
 

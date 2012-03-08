@@ -74,9 +74,6 @@ pixel2lat(	float zoom,
 	
 	lat = asin(tanh(lat_m));
 	
-	printf("lat %f => lat_m %f \n", lat,lat_m);
-	
-	
 	return lat;
 }
 
@@ -190,8 +187,6 @@ get_distance(double lat1, double lon1, double lat2, double lon2)
 	
 	distance = 6371.0 *  acos(tmp);
 
-	printf("DISTANCE: acos(%.2f), ll1: %f, %f -- ll2: %f, %f\n", tmp, lat1, lon1, lat2, lon2);
-	
 	return distance;
 }
 

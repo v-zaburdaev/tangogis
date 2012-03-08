@@ -73,7 +73,7 @@ extern gboolean host_failed = FALSE;//ошибка разрешения имен
 GHashTable *ht = NULL;
 int destroy_all_threads=0;
 //--------------Traffic download & show----------------------
-GSList *showed_tiles = NULL;
+GSList *download_tiles = NULL;
 int traffic_old_factor=0;
 gchar		*curr_trf_name = NULL;
 GSList 		*global_trf_list = NULL;
