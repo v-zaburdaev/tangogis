@@ -151,16 +151,19 @@ download_tile(tile_t *local)
 	
 	if (!repo->inverted_zoom)
 	{
-			if (strcmp(repo->uri,"Topo"))
-			{
-				tile_url = g_strdup_printf(repo->uri, zoom, y, zoom, x, y);
-				maxzoom=12;
-			}
-			else
-				tile_url = g_strdup_printf(repo->uri, zoom, x, y);
+		if (strcmp(repo->name,"Topo")==0)
+		{
+			tile_url = g_strdup_printf(repo->uri, zoom, y, zoom, x, y);
+			maxzoom=12;
+		}
+		else
+		{
+			tile_url = g_strdup_printf(repo->uri, zoom, x, y);
+		}
 	}
 	else
 		tile_url = g_strdup_printf(repo->uri, x, y, zoom, strstr(repo->dir,"TRF/yandex")!=NULL?time-(240*traffic_old_factor):NULL); 
+	printf("TILE URL : %s\n",tile_url);	
 	
 	char *tile_dir = g_strdup_printf("%s/%d/%d",repo->dir, zoom, x);
 	char *tile_file =g_strdup_printf("%s/%d.png",tile_dir,y); 
