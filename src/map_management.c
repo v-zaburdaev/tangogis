@@ -26,12 +26,17 @@
 #define ERR_LIMITS -5
 #define LOAD_OK     1
 
-static GtkWidget	*drawingarea11 = NULL;
+static GtkWidget *drawingarea1=NULL;
+static GdkPixbuf ***showed_tile_maps;
+static GdkPixbuf ***showed_tile_trf;
+static int threads_data_size_x,threads_data_size_y;
 
 
 void
 view_tile(data_of_thread  *local)
 {
+	if(drawingarea1==NULL)
+		drawingarea1 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 	static GStaticMutex mutex_thread = G_STATIC_MUTEX_INIT;
 	if (local->thread_id)
 //		if (local->zoom==global_zoom || 
@@ -84,6 +89,12 @@ view_tile(data_of_thread  *local)
 		}
 //----------Trafic visualization---------------
 	}
+		gdk_threads_enter();
+		gtk_widget_queue_draw_area (
+			drawingarea1, 
+			local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
+			TILESIZE,TILESIZE);
+		gdk_threads_leave();
 
 	if (number_threads==1)
 	{
@@ -208,32 +219,12 @@ gdk_threads_enter();
 		is_line = TRUE;
 	}
 gdk_threads_leave();
-
-//gdk_threads_enter();
-//	gdk_draw_pixbuf (
-//			pixmap,
-//			gc_map,
-//			pixbuf_tracks,
-//			0,0,
-//			local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
-//			TILESIZE,TILESIZE,
-//			GDK_RGB_DITHER_NONE, 0, 0);
-//
-//	drawingarea11 = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
-//	
-//	gtk_widget_queue_draw_area (
-//		drawingarea11, 
-//		local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
-//		TILESIZE,TILESIZE);
-//gdk_threads_leave();
 return 0;
 }
 
 int
 load_map(data_of_thread *local)
 {
-	printf("---repo dir: %s \n",g_strdup(local->repo->dir));
-
    	if (strcasestr(local->repo->name,"Yandex")!=NULL)
 	{
 		local->offset_x = - (local->mercator_x) % TILESIZE;
@@ -259,11 +250,8 @@ GdkGC		*gc_map = NULL;
 
 	local->progress = 1;
 
-	printf("* load MAP()\n");
+	//printf("* load MAP()\n");
 	
-		GtkWidget *widget;
-			
-		widget = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 			
 	if ((local->x < 0) || (local->y < 0) || (local->x > exp(local->zoom * M_LN2)) || (local->y > exp(local->zoom * M_LN2)))
 	{
@@ -271,15 +259,12 @@ GdkGC		*gc_map = NULL;
 gdk_threads_enter();
 		gdk_draw_rectangle (
 			pixmap,
-			widget->style->white_gc,
+			drawingarea1->style->white_gc,
 			TRUE,
 			local->offset_x, local->offset_y,
 			256,
 			256);
 						
-		gtk_widget_queue_draw_area (
-			widget, 
-			local->offset_x,local->offset_y,256,256);
 gdk_threads_leave();
 		return ERR_LIMITS;
 	}
@@ -289,16 +274,27 @@ gdk_threads_leave();
 	filename = g_strdup_printf("%s/%u/%u/%u.png", local->repo->dir, local->zoom, local->x, local->y);
 	printf("IMG: %s\n",filename);
 
-	if (local->last_x!=local->x || local->last_y != local->y  )
+gdk_threads_enter();
+	if (local->pixbuf_map==NULL)
+	{
+		local->pixbuf_map = gdk_pixbuf_new_from_file (filename, &error);
+	}
+	else if (local->last_x!=local->x || local->last_y != local->y  )
 	{
 		if (local->pixbuf_map)
 			g_object_unref(local->pixbuf_map);
 		local->pixbuf_map = gdk_pixbuf_new_from_file (filename, &error);
+//		int i_new=local->i+(local->x-local->last_x);
+//		int j_new=local->j+(local->y-local->last_y);
+//		if ((i_new>threads_data_size_x && j_new>threads_data_size_y) || (i_new<0 && j_new<0))
+//		{
+////			g_object_unref(local->pixbuf_map);
+//			local->pixbuf_map = gdk_pixbuf_new_from_file (filename, &error);
+//		}
+//		else
+//			local->pixbuf_map = showed_tile_maps[i_new][j_new];
 	}
-	else if (local->pixbuf_map==NULL)
-	{
-		local->pixbuf_map = gdk_pixbuf_new_from_file (filename, &error);
-	}
+gdk_threads_leave();
 
 	if (global_map_reload || (global_auto_download && local->pixbuf_map==0))
 	{
@@ -331,10 +327,6 @@ gdk_threads_leave();
 					TILESIZE,TILESIZE,
 					GDK_RGB_DITHER_NONE, 0, 0);
 
-		gtk_widget_queue_draw_area (
-			widget, 
-			local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
-			TILESIZE,TILESIZE);
 		gdk_threads_leave();
 		return LOAD_OK;
 	}
@@ -343,15 +335,12 @@ gdk_threads_leave();
 		gdk_threads_enter();
 		gdk_draw_rectangle (
 			pixmap,
-			widget->style->white_gc,
+			drawingarea1->style->white_gc,
 			TRUE,
 			local->offset_x, local->offset_y,
 			256,
 			256);
 						
-		gtk_widget_queue_draw_area (
-			widget, 
-			local->offset_x,local->offset_y,256,256);
 		gdk_threads_leave();
 		return ERR_LOAD;
 	}
@@ -393,7 +382,6 @@ GdkGC		*gc_map = NULL;
 
 	gchar* key;
 
-	GtkWidget *widget = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
 
 	filename = g_strdup_printf("%s/%d/%d/%d.png", curr_trf->dir, local->zoom, local->x, local->y);
 	printf("IMG: %s\n",filename);
@@ -471,10 +459,6 @@ GdkGC		*gc_map = NULL;
 					TILESIZE,TILESIZE,
 					GDK_RGB_DITHER_NONE, 0, 0);
 
-		gtk_widget_queue_draw_area (
-			widget, 
-			local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
-			TILESIZE,TILESIZE);
 		gdk_threads_leave();
 		return LOAD_OK;
 	}
@@ -518,11 +502,8 @@ fill_tiles_pixel()
 	tile_count_y = map_drawable->allocation.height / TILESIZE + 2;
 	
 //------------------double dinamic array--------------------------1
-	static int threads_data_size_x,threads_data_size_y;
 	if ((threads_data_size_x != tile_count_x) || (threads_data_size_y != tile_count_y))
 	{
-		//if (number_threads)
-		//	return;
 		while (number_threads);
 		if (threads_data)
 		{
@@ -533,6 +514,8 @@ fill_tiles_pixel()
 					g_object_unref(threads_data[i][j]->pixbuf_map);
 					g_object_unref(threads_data[i][j]->pixbuf_trf);
 					free(threads_data[i][j]);
+					free(showed_tile_maps[i][j]);
+					free(showed_tile_trf[i][j]);
 				}
 				free(threads_data[i]);
 			}
@@ -541,10 +524,14 @@ fill_tiles_pixel()
 		threads_data_size_x = tile_count_x;
 		threads_data_size_y = tile_count_y;
 		threads_data = malloc(threads_data_size_x*sizeof(void*)); 
+		showed_tile_maps = malloc(threads_data_size_x*sizeof(void*)); 
+		showed_tile_trf = malloc(threads_data_size_x*sizeof(void*)); 
 		memset(threads_data,0,threads_data_size_x*sizeof(void*));
 		for (int i=0;i<threads_data_size_x;i++)
 		{
 			threads_data[i] = malloc(threads_data_size_y*sizeof(void*));
+			showed_tile_maps[i] = malloc(threads_data_size_x*sizeof(void*)); 
+			showed_tile_trf[i] = malloc(threads_data_size_x*sizeof(void*)); 
 			memset(threads_data[i],0,threads_data_size_y*sizeof(void*));
 			for (int j=0;j<threads_data_size_y;j++)
 			{
@@ -560,6 +547,8 @@ fill_tiles_pixel()
 		for (int j=0;  j<tile_count_y; j++)
 		{
 			//if (threads_data[i][j]->thread_id)
+				showed_tile_maps[i][j]=threads_data[i][j]->pixbuf_map; 
+				showed_tile_trf[i][j]=threads_data[i][j]->pixbuf_trf; 
 				threads_data[i][j]->thread_id_next=g_thread_create(&view_tile, threads_data[i][j], FALSE, NULL);
 		}
 	}
