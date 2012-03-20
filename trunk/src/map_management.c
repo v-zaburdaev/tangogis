@@ -27,10 +27,12 @@
 #define LOAD_OK     1
 
 static GtkWidget *drawingarea1=NULL;
+
 static GdkPixbuf ***showed_tile_maps;
 static GdkPixbuf ***showed_tile_trf;
 static int threads_data_size_x,threads_data_size_y;
 
+clock_t draw_time;
 
 void
 view_tile(data_of_thread  *local)
@@ -53,8 +55,8 @@ view_tile(data_of_thread  *local)
 	local->thread_id=g_thread_self();
 			
 	local->progress = 0;
-	local->x_glob=global_x;
-	local->y_glob=global_y;//Чтобы отследить изменилось ли положение карты
+//	local->x_glob=global_x;
+//	local->y_glob=global_y;//Чтобы отследить изменилось ли положение карты
 	local->zoom=global_zoom;
 	local->repo=global_curr_repo->data;
 	number_threads = update_thread_number(1);
@@ -66,35 +68,110 @@ view_tile(data_of_thread  *local)
 		local->thread_id = 0;
 		return;
 	}
-//--------Yandex offset----------
-	mercator_offset(local->zoom, local->x_glob, local->y_glob, &local->mercator_x, &local->mercator_y);
-//--------Yandex offset----------
-	if (load_map(local)==ERR_LIMITS)
+//--------WGS84 offset----------
+	int WGS84_x,WGS84_y;
+	WGS84_offset(global_zoom, global_x, global_y, &WGS84_x, &WGS84_y);
+//--------WGS84 offset----------
+   	if (strcasestr(local->repo->name,"Yandex")!=NULL)
 	{
-		number_threads = update_thread_number(-1);
-		local->thread_id = 0;
-		return;
+		local->map_offset_x = - (WGS84_x) % TILESIZE;
+		local->map_offset_y = - (WGS84_y) % TILESIZE;
+		local->map_x =  floor((float)WGS84_x / (float)TILESIZE) + local->i;
+		local->map_y =  floor((float)WGS84_y / (float)TILESIZE) + local->j;
 	}
-//	gchar* key;
-//	key = g_strdup_printf("%s/%d/%d/%d", local->repo->dir, local->zoom, local->x, local->y);
-//	g_hash_table_replace(ht,key,"MAP showing okay");
+	else
+	{
+		local->map_offset_x = - global_x % TILESIZE;
+		local->map_offset_y = - global_y % TILESIZE;
+		local->map_x =  floor((float)(global_x) / (float)TILESIZE) + local->i;
+		local->map_y =  floor((float)(global_y) / (float)TILESIZE) + local->j;
+	}
+	if (local->map_offset_x > 0) local->map_offset_x -= 256;
+	if (local->map_offset_y > 0) local->map_offset_y -= 256;
+	local->map_offset_x += TILESIZE*local->i;
+	local->map_offset_y += TILESIZE*local->j;
 
-//----------Trafic visualization---------------
+	if (strcasestr(curr_trf->name,"Yandex")!=NULL)
+	{
+		local->trf_offset_x = - (WGS84_x) % TILESIZE;
+		local->trf_offset_y = - (WGS84_y) % TILESIZE;
+		local->trf_x =  floor((float)WGS84_x / (float)TILESIZE) + local->i;
+		local->trf_y =  floor((float)WGS84_y / (float)TILESIZE) + local->j;
+	}
+	else
+	{
+		local->trf_offset_x = - global_x % TILESIZE;
+		local->trf_offset_y = - global_y % TILESIZE;
+		local->trf_x =  floor((float)(global_x) / (float)TILESIZE) + local->i;
+		local->trf_y =  floor((float)(global_y) / (float)TILESIZE) + local->j;
+	}
+	if (local->trf_offset_x > 0) local->trf_offset_x -= 256;
+	if (local->trf_offset_y > 0) local->trf_offset_y -= 256;
+	local->trf_offset_x += TILESIZE*local->i;
+	local->trf_offset_y += TILESIZE*local->j;
+
+
+	load_map(local);
 	if (global_trf_show)
 	{
-		if (load_trf(local)==LOAD_OK)
+		if (local->pixbuf_map)
 		{
-			load_map(local);
 			load_trf(local);
 		}
-//----------Trafic visualization---------------
 	}
-		gdk_threads_enter();
+
+//	if (local->thread_id_next!=g_thread_self()) 
+//		return;
+GdkGC		*gc_map = NULL;
+	gdk_threads_enter();
+	if (local->pixbuf_map)
+	{
+			gdk_draw_pixbuf (
+					pixmap,
+					gc_map,
+					local->pixbuf_map,
+					0,0,
+					local->map_offset_x/*-(global_x-local->x_glob)*/,local->map_offset_y/*-(global_y-local->y_glob)*/,
+					TILESIZE,TILESIZE,
+					GDK_RGB_DITHER_NONE, 0, 0);
+	}
+	else
+	{
+		gdk_draw_rectangle (
+			pixmap,
+			drawingarea1->style->white_gc,
+			TRUE,
+			local->map_offset_x, local->map_offset_y,
+			256,
+			256);
+	}
+//----------Trafic visualization---------------
+	if (local->pixbuf_trf)
+	{
+			gdk_draw_pixbuf (
+					pixmap,
+					gc_map,
+					local->pixbuf_trf,
+					0,0,
+					local->trf_offset_x/*-(global_x-local->x_glob)*/,local->trf_offset_y/*-(global_y-local->y_glob)*/,
+					TILESIZE,TILESIZE,
+					GDK_RGB_DITHER_NONE, 0, 0);
+
+	}
+	else
+	{
+	}
+//----------Trafic visualization---------------
 		gtk_widget_queue_draw_area (
 			drawingarea1, 
-			local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
+			local->map_offset_x/*-(global_x-local->x_glob)*/,local->map_offset_y/*-(global_y-local->y_glob)*/,
 			TILESIZE,TILESIZE);
-		gdk_threads_leave();
+	gdk_threads_leave();
+	local->map_last_x = local->map_x;
+	local->map_last_y = local->map_y;
+	local->last_zoom = local->zoom;
+	local->trf_last_x = local->trf_x;
+	local->trf_last_y = local->trf_y;
 
 	if (number_threads==1)
 	{
@@ -102,12 +179,9 @@ view_tile(data_of_thread  *local)
 			printf ("load_tracks returned %d",load_tracks(local));
 		if (global_current_track_show)
 			printf ("load_tracks returned %d",load_current_track(local));
-
+printf ("draw time = %d\n",clock()-draw_time);//время в микросекундах
 	}
 
-	local->last_x = local->x;
-	local->last_y = local->y;
-	local->last_zoom = local->zoom;
 
 number_threads = update_thread_number(-1);
 	local->thread_id = 0;
@@ -225,61 +299,29 @@ return 0;
 int
 load_map(data_of_thread *local)
 {
-   	if (strcasestr(local->repo->name,"Yandex")!=NULL)
-	{
-		local->offset_x = - (local->mercator_x) % TILESIZE;
-		local->offset_y = - (local->mercator_y) % TILESIZE;
-		local->x =  floor((float)local->mercator_x / (float)TILESIZE) + local->i;
-		local->y =  floor((float)local->mercator_y / (float)TILESIZE) + local->j;
-	}
-	else
-	{
-		local->offset_x = - global_x % TILESIZE;
-		local->offset_y = - global_y % TILESIZE;
-		local->x =  floor((float)(local->x_glob) / (float)TILESIZE) + local->i;
-		local->y =  floor((float)(local->y_glob) / (float)TILESIZE) + local->j;
-	}
-	if (local->offset_x > 0) local->offset_x -= 256;
-	if (local->offset_y > 0) local->offset_y -= 256;
-	local->offset_x += TILESIZE*local->i;
-	local->offset_y += TILESIZE*local->j;
-
-GdkPixbuf	*pixbuf=NULL;
-GError		*error = NULL;
-GdkGC		*gc_map = NULL;
 
 	local->progress = 1;
 
 	//printf("* load MAP()\n");
 	
+GError		*error = NULL;
 			
-	if ((local->x < 0) || (local->y < 0) || (local->x > exp(local->zoom * M_LN2)) || (local->y > exp(local->zoom * M_LN2)))
+	if ((local->map_x < 0) || (local->map_y < 0) || (local->map_x > exp(local->zoom * M_LN2)) || (local->map_y > exp(local->zoom * M_LN2)))
 	{
-		printf("*** Coordinate failed \n");
-gdk_threads_enter();
-		gdk_draw_rectangle (
-			pixmap,
-			drawingarea1->style->white_gc,
-			TRUE,
-			local->offset_x, local->offset_y,
-			256,
-			256);
-						
-gdk_threads_leave();
+		g_object_unref(local->pixbuf_map);
 		return ERR_LIMITS;
 	}
 
-
 	gchar *filename;
-	filename = g_strdup_printf("%s/%u/%u/%u.png", local->repo->dir, local->zoom, local->x, local->y);
+	filename = g_strdup_printf("%s/%u/%u/%u.png", local->repo->dir, local->zoom, local->map_x, local->map_y);
 	printf("IMG: %s\n",filename);
 
-gdk_threads_enter();
+//gdk_threads_enter();
 	if (local->pixbuf_map==NULL)
 	{
 		local->pixbuf_map = gdk_pixbuf_new_from_file (filename, &error);
 	}
-	else if (local->last_x!=local->x || local->last_y != local->y  )
+	else if (local->map_last_x!=local->map_x || local->map_last_y != local->map_y  )
 	{
 		if (local->pixbuf_map)
 			g_object_unref(local->pixbuf_map);
@@ -294,7 +336,7 @@ gdk_threads_enter();
 //		else
 //			local->pixbuf_map = showed_tile_maps[i_new][j_new];
 	}
-gdk_threads_leave();
+//gdk_threads_leave();
 
 	if (global_map_reload || (global_auto_download && local->pixbuf_map==0))
 	{
@@ -305,7 +347,7 @@ gdk_threads_leave();
 			if (!status)
 			{
 				tile_t *tile=g_new0(tile_t,1);
-				tile->x=local->x; tile->y=local->y;tile->zoom=local->zoom;tile->repo=local->repo;tile->local=local;
+				tile->x=local->map_x; tile->y=local->map_y;tile->zoom=local->zoom;tile->repo=local->repo;tile->local=local;
 				g_thread_create(&download_tile,tile,FALSE,TRUE);
 			}
 			else
@@ -314,36 +356,6 @@ gdk_threads_leave();
 		}
 	}
 	g_free(filename);
-
-	if (local->pixbuf_map)
-	{
-		gdk_threads_enter();
-			gdk_draw_pixbuf (
-					pixmap,
-					gc_map,
-					local->pixbuf_map,
-					0,0,
-					local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
-					TILESIZE,TILESIZE,
-					GDK_RGB_DITHER_NONE, 0, 0);
-
-		gdk_threads_leave();
-		return LOAD_OK;
-	}
-	else
-	{
-		gdk_threads_enter();
-		gdk_draw_rectangle (
-			pixmap,
-			drawingarea1->style->white_gc,
-			TRUE,
-			local->offset_x, local->offset_y,
-			256,
-			256);
-						
-		gdk_threads_leave();
-		return ERR_LOAD;
-	}
 }
 
 //--------------Traffic download--------------------------------
@@ -353,25 +365,6 @@ load_trf(data_of_thread *local)
 
 		printf("\n----------Trafic visualization---------------\n");
 		printf("\n\nshow=%d ,auto=%d ,down=%d\n",global_trf_show,global_trf_auto,global_auto_download);
-
-		if (strcasestr(curr_trf->name,"Yandex")!=NULL)
-		{
-			local->offset_x = - (local->mercator_x) % TILESIZE;
-			local->offset_y = - (local->mercator_y) % TILESIZE;
-			local->x =  floor((float)local->mercator_x / (float)TILESIZE) + local->i;
-			local->y =  floor((float)local->mercator_y / (float)TILESIZE) + local->j;
-		}
-		else
-		{
-			local->offset_x = - local->x_glob % TILESIZE;
-			local->offset_y = - local->y_glob % TILESIZE;
-			local->x =  floor((float)(local->x_glob) / (float)TILESIZE) + local->i;
-			local->y =  floor((float)(local->y_glob) / (float)TILESIZE) + local->j;
-		}
-		if (local->offset_x > 0) local->offset_x -= 256;
-		if (local->offset_y > 0) local->offset_y -= 256;
-		local->offset_x += TILESIZE*local->i;
-		local->offset_y += TILESIZE*local->j;
 
 GError		*error = NULL;
 GdkGC		*gc_map = NULL;
@@ -383,10 +376,9 @@ GdkGC		*gc_map = NULL;
 	gchar* key;
 
 
-	filename = g_strdup_printf("%s/%d/%d/%d.png", curr_trf->dir, local->zoom, local->x, local->y);
+	filename = g_strdup_printf("%s/%d/%d/%d.png", curr_trf->dir, local->zoom, local->trf_x, local->trf_y);
 	printf("IMG: %s\n",filename);
 	char *status=g_hash_table_lookup(ht,filename);
-
 
 	{
 //Информация о загрузке данного тайла пробок
@@ -410,7 +402,7 @@ GdkGC		*gc_map = NULL;
 		 
 	}
 
-	if (local->last_x!=local->x || local->last_y != local->y)
+	if (local->trf_last_x!=local->trf_x || local->trf_last_y != local->trf_y)
 	{
 		local->trf_need_redraw=1;
 		if (local->pixbuf_trf)
@@ -429,7 +421,7 @@ GdkGC		*gc_map = NULL;
 			if (!status)
 			{
 				tile_t *tile=g_new0(tile_t,1);
-				tile->x=local->x; tile->y=local->y;tile->zoom=local->zoom;tile->repo=curr_trf;tile->time=traffic_time;tile->local=local;
+				tile->x=local->trf_x; tile->y=local->trf_y;tile->zoom=local->zoom;tile->repo=curr_trf;tile->time=traffic_time;tile->local=local;
 				local->trf_time=traffic_time;
 				g_thread_create(&download_tile,tile,FALSE,TRUE);
 			}
@@ -447,44 +439,12 @@ GdkGC		*gc_map = NULL;
 
 	g_free(filename);
 
-	if (local->pixbuf_trf)
-	{
-		gdk_threads_enter();
-			gdk_draw_pixbuf (
-					pixmap,
-					gc_map,
-					local->pixbuf_trf,
-					0,0,
-					local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
-					TILESIZE,TILESIZE,
-					GDK_RGB_DITHER_NONE, 0, 0);
-
-		gdk_threads_leave();
-		return LOAD_OK;
-	}
-	else
-	{
-	}
 return 0;
 }
 //--------------Traffic download--------------------------------
 void
 fill_tiles_pixel()
 {
-	static int fill_tiles_pixel_flag=0; //Флаг выплняющегося запроса по перерисовке
-//	if(fill_tiles_pixel_flag>0) 
-//	{
-//		//fill_tiles_pixel_flag++;
-//		return;
-//	}
-//	else if (fill_tiles_pixel_flag==1)
-//	{
-//		while(number_threads);
-//			sleep(1);
-//	}
-
-	fill_tiles_pixel_flag++;
-
 	int tile_count_x, tile_count_y;
 	gboolean success = FALSE;
 	GError *error = NULL;
@@ -542,6 +502,8 @@ fill_tiles_pixel()
 			}
 		}
 	}
+draw_time=clock();//время в микросекундах
+printf ("draw time fill = %d\n",draw_time);//время в тактах процессора
 	for (int i=0; i<tile_count_x;i++)
 	{
 		for (int j=0;  j<tile_count_y; j++)
@@ -583,7 +545,6 @@ fill_tiles_pixel()
 				"global_zoom",
 				global_zoom
 				);
-	fill_tiles_pixel_flag=0;
 }
 
 void
@@ -661,7 +622,7 @@ fill_tiles_latlon_hack(	float lat,
 
 
 
-void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)
+void WGS84_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y)
 {
 //--------------Yandex repository offset ------------------------
 	    {

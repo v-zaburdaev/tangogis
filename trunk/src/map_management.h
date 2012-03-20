@@ -5,20 +5,23 @@ typedef struct {
 	void* thread_id;
 	void* thread_id_next;
 	int progress;//Флаг места выполнения
-	int x;		//Для показа
-	int y;		//Для показа
-	int mercator_x,mercator_y;	
+	int map_x;		//Для показа
+	int map_y;		//Для показа
+	int map_offset_x;//Для показа
+	int map_offset_y;//Для показа
+	int map_last_x;		//Для отслеживания изменений между вызовами перерисовки
+	int map_last_y;		//Для отслеживания изменений между вызовами перерисовки
+	int trf_x;		//Для показа
+	int trf_y;		//Для показа
+	int trf_offset_x;//Для показа
+	int trf_offset_y;//Для показа
+	int trf_last_x;		//Для отслеживания изменений между вызовами перерисовки
+	int trf_last_y;		//Для отслеживания изменений между вызовами перерисовки
 	int zoom;		//Для показа
-	int last_x;		//Для отслеживания изменений между вызовами перерисовки
-	int last_y;		//Для отслеживания изменений между вызовами перерисовки
 	int last_zoom;	//Для отслеживания изменений между вызовами перерисовки
-	int x_glob;		//Для отслеживания изменений в пределах перерисовки
-	int y_glob;		//Для отслеживания изменений в пределах перерисовки
-	int offset_x;
-	int offset_y;
+//	int x_glob;		//Для отслеживания изменений в пределах перерисовки
+//	int y_glob;		//Для отслеживания изменений в пределах перерисовки
 	repo_t* repo;
-	int download_map_flag;
-	int download_trf_flag;
 	time_t trf_time;
 	int trf_need_redraw;
 	GdkPixbuf *pixbuf_map;
@@ -56,6 +59,6 @@ set_mapcenter(	float lat,
 		float lon,
 		int zoom);
 
-void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y);
+void WGS84_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y);
 
 
