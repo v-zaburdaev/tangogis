@@ -32,7 +32,7 @@ static GdkPixbuf ***showed_tile_maps;
 static GdkPixbuf ***showed_tile_trf;
 static int threads_data_size_x,threads_data_size_y;
 
-clock_t draw_time;
+static clock_t draw_time;//время в микросекундах
 
 void
 view_tile(data_of_thread  *local)
