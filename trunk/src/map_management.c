@@ -180,6 +180,8 @@ GdkGC		*gc_map = NULL;
 		if (global_current_track_show)
 			printf ("load_tracks returned %d",load_current_track(local));
 printf ("draw time = %d\n",clock()-draw_time);//время в микросекундах
+		printf ("draw time = %d\n",clock()-draw_time);
+
 	}
 
 
