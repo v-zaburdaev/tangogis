@@ -31,6 +31,7 @@ static GtkWidget *drawingarea1=NULL;
 static GdkPixbuf ***showed_tile_maps;
 static GdkPixbuf ***showed_tile_trf;
 static int threads_data_size_x,threads_data_size_y;
+static int WGS84_x,WGS84_y;
 
 static clock_t draw_time;//время в микросекундах
 
@@ -68,10 +69,6 @@ view_tile(data_of_thread  *local)
 		local->thread_id = 0;
 		return;
 	}
-//--------WGS84 offset----------
-	int WGS84_x,WGS84_y;
-	WGS84_offset(global_zoom, global_x, global_y, &WGS84_x, &WGS84_y);
-//--------WGS84 offset----------
    	if (strcasestr(local->repo->name,"Yandex")!=NULL)
 	{
 		local->map_offset_x = - (WGS84_x) % TILESIZE;
@@ -91,37 +88,37 @@ view_tile(data_of_thread  *local)
 	local->map_offset_x += TILESIZE*local->i;
 	local->map_offset_y += TILESIZE*local->j;
 
-	if (strcasestr(curr_trf->name,"Yandex")!=NULL)
-	{
-		local->trf_offset_x = - (WGS84_x) % TILESIZE;
-		local->trf_offset_y = - (WGS84_y) % TILESIZE;
-		local->trf_x =  floor((float)WGS84_x / (float)TILESIZE) + local->i;
-		local->trf_y =  floor((float)WGS84_y / (float)TILESIZE) + local->j;
-	}
-	else
-	{
-		local->trf_offset_x = - global_x % TILESIZE;
-		local->trf_offset_y = - global_y % TILESIZE;
-		local->trf_x =  floor((float)(global_x) / (float)TILESIZE) + local->i;
-		local->trf_y =  floor((float)(global_y) / (float)TILESIZE) + local->j;
-	}
-	if (local->trf_offset_x > 0) local->trf_offset_x -= 256;
-	if (local->trf_offset_y > 0) local->trf_offset_y -= 256;
-	local->trf_offset_x += TILESIZE*local->i;
-	local->trf_offset_y += TILESIZE*local->j;
-
-
 	load_map(local);
-	if (global_trf_show)
+	if (global_trf_show && local->pixbuf_map)
 	{
-		if (local->pixbuf_map)
+		if (strcasestr(curr_trf->name,"Yandex")!=NULL)
 		{
-			load_trf(local);
+			local->trf_offset_x = - (WGS84_x) % TILESIZE;
+			local->trf_offset_y = - (WGS84_y) % TILESIZE;
+			local->trf_x =  floor((float)WGS84_x / (float)TILESIZE) + local->i;
+			local->trf_y =  floor((float)WGS84_y / (float)TILESIZE) + local->j;
 		}
+		else
+		{
+			local->trf_offset_x = - global_x % TILESIZE;
+			local->trf_offset_y = - global_y % TILESIZE;
+			local->trf_x =  floor((float)(global_x) / (float)TILESIZE) + local->i;
+			local->trf_y =  floor((float)(global_y) / (float)TILESIZE) + local->j;
+		}
+		if (local->trf_offset_x > 0) local->trf_offset_x -= 256;
+		if (local->trf_offset_y > 0) local->trf_offset_y -= 256;
+		local->trf_offset_x += TILESIZE*local->i;
+		local->trf_offset_y += TILESIZE*local->j;
+
+		load_trf(local);
 	}
 
-//	if (local->thread_id_next!=g_thread_self()) 
-//		return;
+if (local->thread_id_next!=local->thread_id) 
+	{
+		number_threads = update_thread_number(-1);
+		local->thread_id = 0;
+		return;
+	}	
 GdkGC		*gc_map = NULL;
 	gdk_threads_enter();
 	if (local->pixbuf_map)
@@ -146,7 +143,7 @@ GdkGC		*gc_map = NULL;
 			256);
 	}
 //----------Trafic visualization---------------
-	if (local->pixbuf_trf)
+	if (global_trf_show && local->pixbuf_map && local->pixbuf_trf)
 	{
 			gdk_draw_pixbuf (
 					pixmap,
@@ -164,7 +161,8 @@ GdkGC		*gc_map = NULL;
 //----------Trafic visualization---------------
 		gtk_widget_queue_draw_area (
 			drawingarea1, 
-			local->map_offset_x/*-(global_x-local->x_glob)*/,local->map_offset_y/*-(global_y-local->y_glob)*/,
+			(local->map_offset_x<local->trf_offset_x)?local->map_offset_x:local->trf_offset_x,
+			(local->map_offset_y<local->trf_offset_y)?local->map_offset_y:local->trf_offset_y,
 			TILESIZE,TILESIZE);
 	gdk_threads_leave();
 	local->map_last_x = local->map_x;
@@ -175,13 +173,14 @@ GdkGC		*gc_map = NULL;
 
 	if (number_threads==1)
 	{
+		gdk_threads_enter();
 		if (global_track_show)
 			printf ("load_tracks returned %d",load_tracks(local));
 		if (global_current_track_show)
 			printf ("load_tracks returned %d",load_current_track(local));
 printf ("draw time = %d\n",clock()-draw_time);//время в микросекундах
 		printf ("draw time = %d\n",clock()-draw_time);
-
+		gdk_threads_leave();
 	}
 
 
@@ -199,7 +198,6 @@ load_current_track(data_of_thread *local)
 	float lat, lon;
 	GdkColor color;
 
-gdk_threads_enter();
 	GdkGC *gc;
 	gboolean is_line = FALSE;
 	
@@ -240,7 +238,6 @@ gdk_threads_enter();
 		
 		is_line = TRUE;
 	}
-gdk_threads_leave();
 	return 0;
 }
 
@@ -255,7 +252,6 @@ load_tracks(data_of_thread *local)
 	GdkColor color;
 
 
-gdk_threads_enter();
 	GdkGC *gc;
 	gboolean is_line = FALSE;
 	
@@ -294,7 +290,6 @@ gdk_threads_enter();
 		
 		is_line = TRUE;
 	}
-gdk_threads_leave();
 return 0;
 }
 
@@ -364,6 +359,7 @@ GError		*error = NULL;
 int
 load_trf(data_of_thread *local)
 {
+//	gdk_threads_enter();
 
 		printf("\n----------Trafic visualization---------------\n");
 		printf("\n\nshow=%d ,auto=%d ,down=%d\n",global_trf_show,global_trf_auto,global_auto_download);
@@ -442,6 +438,7 @@ GdkGC		*gc_map = NULL;
 	g_free(filename);
 
 return 0;
+//	gdk_threads_enter();
 }
 //--------------Traffic download--------------------------------
 void
@@ -504,6 +501,9 @@ fill_tiles_pixel()
 			}
 		}
 	}
+//--------WGS84 offset----------
+	WGS84_offset(global_zoom, global_x, global_y, &WGS84_x, &WGS84_y);
+//--------WGS84 offset----------
 draw_time=clock();//время в микросекундах
 printf ("draw time fill = %d\n",draw_time);//время в тактах процессора
 	for (int i=0; i<tile_count_x;i++)
