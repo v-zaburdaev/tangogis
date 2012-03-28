@@ -255,6 +255,7 @@ download_tile(tile_t *local)
 }
 
 
+
 void
 cb_download_maps(GtkWidget *dialog)
 {
