@@ -3,13 +3,15 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
+
+
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
 #include <glib.h>
 #include <glib/gprintf.h>
 
-#include <gdk/gdkkeysyms.h>
 
 #include "callbacks.h"
 #include "interface.h"
@@ -45,6 +47,21 @@ drag_started = 0;
 
 static	GdkPixmap *pixmap_photo = NULL;
 static	GdkPixmap *pixmap_photo_big = NULL;
+
+void
+on_togglebutton_cam4_toggled                (GtkToggleButton *togglebutton, gpointer user_data)
+{
+
+
+  //GtkWidget *bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (actor1));
+
+//  GtkWidget *window2 = gtk_clutter_window_new();
+
+//  gtk_container_add (GTK_CONTAINER (bin), window2);
+
+//  gtk_widget_show(window2);
+
+}
 
 gboolean
 on_drawingarea1_button_press_event     (GtkWidget       *widget,
@@ -271,7 +288,7 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 
 				drag_started = 1;				
 			}
-			 gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_autocenter")),FALSE);
+			 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(interface,"togglebutton_autocenter")),FALSE);
 				
 			mouse_dx = x - mouse_x;	
 			mouse_dy = y - mouse_y;
@@ -326,12 +343,12 @@ on_drawingarea1_configure_event        (GtkWidget         *widget,
 {
 
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
-	
+//	gdk_threads_enter();
 	map_drawable = widget;
 	
 	global_drawingarea_width  = widget->allocation.width;
 	global_drawingarea_height = widget->allocation.height;
-	
+printf("1 w=%d h=%d\n",global_drawingarea_width, global_drawingarea_height);
 	if (pixmap)
 		g_object_unref (pixmap);
 
@@ -345,6 +362,7 @@ on_drawingarea1_configure_event        (GtkWidget         *widget,
 if(pixmap) printf("pixmap created\n");
 else printf("aieee: pixmap NULL\n");
 
+//gdk_threads_leave();
 	
 //	gdk_draw_rectangle (
 //		pixmap,
@@ -357,7 +375,7 @@ else printf("aieee: pixmap NULL\n");
 //	gtk_widget_queue_draw_area (
 //		widget, 
 //		0,0,widget->allocation.width+260,widget->allocation.height+260);
-
+printf("loading=%d",loading);
 	if (loading==FALSE)
 		repaint_all();
 	
@@ -690,8 +708,8 @@ on_comboboxtext1_changed                   (GtkComboBox     *combobox,
 {	
 	GSList	*list;
 	gchar *reponame_combo;
-	GError **error = NULL;
-	gboolean success = FALSE;
+//	GError **error = NULL;
+//	gboolean success = FALSE;
 
 	printf("%s():\n",__PRETTY_FUNCTION__);
 	
@@ -729,7 +747,8 @@ on_comboboxtext1_changed                   (GtkComboBox     *combobox,
 	
 	
 
-	if (loading==FALSE) repaint_all();
+	if (loading==FALSE)
+	  repaint_all();
 //	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
 
 }
@@ -958,8 +977,8 @@ on_checkbutton2_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+//	gboolean success = FALSE;
+//	GError **error = NULL;
 	
 	toggled = gtk_toggle_button_get_active(togglebutton);
 	global_auto_download = toggled;
@@ -978,8 +997,8 @@ on_checkbutton_trf_auto_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+//	gboolean success = FALSE;
+//	GError **error = NULL;
 	
 	toggled = gtk_toggle_button_get_active(togglebutton);
 	global_trf_auto = toggled;
@@ -1073,7 +1092,7 @@ gboolean
 on_dialog_options_delete_event(GtkDialog *dialog)
 {
 	gtk_widget_hide(dialog);
-	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_opt")),FALSE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(interface,"togglebutton_opt")),FALSE);
 	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_options")));
 	return TRUE;
 }
@@ -1082,7 +1101,7 @@ gboolean
 on_dialog_info_delete_event(GtkDialog *dialog)
 {
 	gtk_widget_hide(dialog);
-	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_info")),FALSE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON (gtk_builder_get_object(interface,"togglebutton_info")),FALSE);
 	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_info")));
 	return TRUE;
 }
@@ -1090,7 +1109,7 @@ on_dialog_info_delete_event(GtkDialog *dialog)
 gboolean
 on_dialog_tracks_delete_event(GtkDialog *dialog)
 {
-	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
 	gtk_widget_hide(dialog);
 	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_tracks")));
 	return TRUE;
@@ -1113,8 +1132,8 @@ on_togglebutton_trf_show_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	printf("on_togglebutton_trf_show_toggled");
 	toggled = gtk_toggle_button_get_active(togglebutton);
@@ -1136,8 +1155,8 @@ on_comboboxtext_trf_changed        (GtkComboBox     *combobox,
 
 	GSList	*list;
 	gchar *reponame_combo;
-	GError **error = NULL;
-	gboolean success = FALSE;
+	//GError **error = NULL;
+	//gboolean success = FALSE;
 
 	printf("%s():\n",__PRETTY_FUNCTION__);
 	
@@ -1185,7 +1204,7 @@ on_button_tracks_close_clicked                     (GtkButton       *button,
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
 	//gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog_tracks")));
-	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON (gtk_builder_get_object(interface,"togglebutton_tracks")),FALSE);
 }
 
 void
@@ -1193,7 +1212,7 @@ on_button_info_close_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
-	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_info")),FALSE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON (gtk_builder_get_object(interface,"togglebutton_info")),FALSE);
 }
 
 void
@@ -1201,7 +1220,7 @@ on_button_opt_close_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(gtk_widget_get_toplevel(button));
-	gtk_toggle_button_set_active(GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton_opt")),FALSE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON (gtk_builder_get_object(interface,"togglebutton_opt")),FALSE);
 }
 
 //-----------------Traffic reponame choise---------------------
@@ -1252,8 +1271,8 @@ on_button11_clicked                    (GtkButton       *button,
 	
 
 	GtkWidget *widget;
-	gboolean success = FALSE;
-	GError **error = NULL;
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
@@ -1315,8 +1334,8 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	printf("on_togglebutton1_toggled (GRID on/off)\n");
 	toggled = gtk_toggle_button_get_active(togglebutton);
@@ -1389,8 +1408,8 @@ on_togglebutton_autocenter_toggled     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	printf("on_togglebutton_autocenter (autocenter)");
 	toggled = gtk_toggle_button_get_active(togglebutton);
@@ -1415,8 +1434,8 @@ on_togglebutton_reload_toggled     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	printf("on_togglebutton_reload (reload existing MAP tiles!!!!)");
 	toggled = gtk_toggle_button_get_active(togglebutton);
@@ -1430,8 +1449,8 @@ on_togglebutton2_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 	gboolean	toggled;
-	gboolean success = FALSE;
-	GError **error = NULL;	
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	printf("on_togglebutton2_toggled (TRACK on/off)");
 	toggled = gtk_toggle_button_get_active(togglebutton);
@@ -1851,8 +1870,8 @@ on_entry7_changed                      (GtkEditable     *editable,
 {
 	GtkWidget *nick;
 	const gchar *n;
-	GError **error = NULL;
-	gboolean success = FALSE;
+	//GError **error = NULL;
+	//gboolean success = FALSE;
 	
 	nick  = GTK_WIDGET (gtk_builder_get_object(interface, "entry7"));
 	
@@ -1872,8 +1891,8 @@ on_entry8_changed                      (GtkEditable     *editable,
 {
 	GtkWidget *pass;
 	const gchar *p;
-	GError **error = NULL;
-	gboolean success = FALSE;
+	//GError **error = NULL;
+	//gboolean success = FALSE;
 	
 	pass  = GTK_WIDGET (gtk_builder_get_object(interface, "entry8"));
 	
@@ -2054,8 +2073,8 @@ on_okbutton2_clicked                   (GtkButton       *button,
 	GtkWidget *dialog3;
 	GtkEntry *entry;
 	gint mkres;
-	GError **error = NULL;
-	gboolean success = FALSE;
+	//GError **error = NULL;
+	//gboolean success = FALSE;
 	int result;
 
 	
@@ -2589,8 +2608,8 @@ void
 on_radiobutton1_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	gboolean success = FALSE;
-	GError **error = NULL;
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	if (gtk_toggle_button_get_active(togglebutton))
 	{
@@ -2626,8 +2645,8 @@ void
 on_radiobutton13_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	gboolean success = FALSE;
-	GError **error = NULL;
+	//gboolean success = FALSE;
+	//GError **error = NULL;
 	
 	global_ffupdate_auto = (gtk_toggle_button_get_active(togglebutton)) ? TRUE : global_ffupdate_auto;
 
@@ -2643,7 +2662,7 @@ void
 on_entry16_changed                     (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	gboolean success = FALSE;
+	//gboolean success = FALSE;
 	GError **error = NULL;
 		
 	GtkWidget *widget;
@@ -2685,7 +2704,7 @@ void
 on_radiobutton14_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	gboolean success = FALSE;
+	//gboolean success = FALSE;
 	GError **error = NULL;
 	
 	global_speed_unit = (gtk_toggle_button_get_active(togglebutton)) ? 0 : global_speed_unit;
@@ -2701,7 +2720,7 @@ void
 on_radiobutton15_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	gboolean success = FALSE;
+	//gboolean success = FALSE;
 	GError **error = NULL;
 	
 	global_speed_unit = (gtk_toggle_button_get_active(togglebutton)) ? 1 : global_speed_unit;
@@ -2717,7 +2736,7 @@ void
 on_radiobutton16_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	gboolean success = FALSE;
+	//gboolean success = FALSE;
 	GError **error = NULL;
 	
 	global_speed_unit = (gtk_toggle_button_get_active(togglebutton)) ? 2 : global_speed_unit;
@@ -2973,7 +2992,7 @@ on_item23_activate                     (GtkMenuItem     *menuitem,
 		load_tracks(route_track,2);
 	}
 
-	return FALSE;
+	return;
 }
 
 void
@@ -3001,7 +3020,7 @@ on_item24_activate                     (GtkMenuItem     *menuitem,
 		}
 
 
-	return FALSE;
+	return;
 }
 
 

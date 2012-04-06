@@ -10,12 +10,7 @@
 #include "globals.h"
 #include "osd.h"
 
-#define HOST_FAIL_INDICATOR 1
-#define HOST_FAIL_INDICATOR_WIDTH 32
-#define HOST_FAIL_INDICATOR_HEIGHT 32
-static gboolean host_fail_indicator_mouseover;
 
-static GHashTable *osdcallbacks;
 
 GdkPixbuf *pixbuf_hostfail_indicator;
 GError	   *error = NULL;
@@ -35,7 +30,8 @@ void osd_mouse_over(int x,int y)
 	char *tmp=malloc(12);
 
 	sprintf(tmp,"%d,%d",x,y);
-//	printf("FIND\n");
+
+//	printf("FIND from %d elements\n",g_hash_table_size(osdcallbacks));
 	g_hash_table_find(osdcallbacks,osdcallbacks_find,tmp);
 }
 
@@ -51,17 +47,24 @@ void osdcallbacks_find  (gpointer key,
 		sscanf((char*)key,"%d,%d,%d,%d",&x,&y,&x1,&y1);
 		sscanf((char*)user_data,"%d,%d",&mx,&my);
 
-		//printf("x=%d y=%d x1=%d y1=%d mx=%d my=%d\n",x,y,x1,y1,mx,my);
+		printf("x=%d y=%d x1=%d y1=%d mx=%d my=%d\n",x,y,x1,y1,mx,my);
 
 		if ((x<mx && mx<x1) && (y<my && my<y1))
 		{
 			if (value==HOST_FAIL_INDICATOR)
 			{
 				/// тут вызов идет с дребезгом, то есть на каждое движение мыши
-				//printf("HOST_FAIL_INDICATOR\n");
+				printf("HOST_FAIL_INDICATOR\n");
 
 
 			}
+			if (value==TRACK_LINE)
+                        {
+                                /// тут вызов идет с дребезгом, то есть на каждое движение мыши
+                                printf("TRACK LINE\n");
+
+
+                        }
 
 
 		}
@@ -99,7 +102,7 @@ gboolean osdcallbacks_click  (gpointer key,
 
 		if ((x<mx && mx<x1) && (y<my && my<y1))
 		{
-			if (value==HOST_FAIL_INDICATOR)
+			if (&value==HOST_FAIL_INDICATOR)
 			{
 				/// тут вызов идет с дребезгом, то есть на каждое движение мыши
 				printf("HOST_FAIL_INDICATOR CLICKED!\n");

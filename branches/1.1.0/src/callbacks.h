@@ -3,6 +3,8 @@
 void
 print_track();
 
+void
+on_togglebutton_cam4_toggled                (GtkToggleButton *togglebutton, gpointer user_data);
 
 void
 on_item23_activate                     (GtkMenuItem     *menuitem,

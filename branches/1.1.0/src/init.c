@@ -29,7 +29,14 @@ cb_gps_timer()
 {
 
 	get_gps();
-	gps_info_show();
+	if(gpsdata)
+	  gps_info_show();
+	else
+	{
+	  //printf("no gpsdata for timer\n");
+	  set_label_nogps();
+	}
+        //gps_info_show();
 	//fill_tiles_pixel();
 	return TRUE; 
 }
@@ -348,7 +355,7 @@ void gps_info_show()
 		set_label_nogps();
 	}
 	//printf("** %s() end\n", __PRETTY_FUNCTION__);
-	return TRUE;
+	return;
 }
 void
 g_key_get_repolist()
@@ -462,13 +469,13 @@ g_key_get_repolist()
 		repo_trf[0]= g_new0(repo_t, 1);
 		repo_trf[0]->name = g_strdup("Yandex TRF");
 		repo_trf[0]->uri  = g_strdup("http://jgo.maps.yandex.net/tiles?l=trf&x=%d&y=%d&z=%d&tm=%d");
-		repo_trf[0]->dir  = g_strdup_printf("%s/Maps/TRF/yandex",global_home_dir);
+		repo_trf[0]->dir  = g_strdup_printf("%s/Maps/TRF/yandex",tangogis_dir);
 		repo_trf[0]->inverted_zoom = 1;
 
 		repo_trf[1] = g_new0(repo_t, 1);
 		repo_trf[1]->name = g_strdup("Google TRF");
 		repo_trf[1]->uri  = g_strdup("http://mt1.google.com/mapstt?zoom=%d&x=%d&y=%d&client=google");
-		repo_trf[1]->dir  = g_strdup_printf("%s/Maps/TRF/google",global_home_dir);
+		repo_trf[1]->dir  = g_strdup_printf("%s/Maps/TRF/google",tangogis_dir);
 		repo_trf[1]->inverted_zoom = 0;
 		
 		int i;
@@ -505,7 +512,7 @@ g_key_get_repolist()
 	}
 //------------Traffic repo name remember------------	
 
-	return global_repo_list;	
+//	return global_repo_list;
 					
 }
 
@@ -578,20 +585,23 @@ repoconfig__set_current_list_pointer()
 void
 repoconfig__create_dropdown()
 {
-	GtkWidget	*combobox;
+	GtkComboBox	*combobox;
 	GSList		*list;
 	int 		i = 0;
 	int		j = 0;
 	const gchar	*reponame;
 	
-	combobox = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext1"));
+	combobox = GTK_COMBO_BOX (gtk_builder_get_object(interface, "comboboxtext1"));
+
 	for(list = global_repo_list; list != NULL; list = list->next)
 	{
 		repo_t	*repo;
 		repo = list->data;
 		reponame = g_strdup(repo->name);
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX(combobox), g_strdup(repo->name));
+		printf("combobox repo %s\n",reponame);
+		gtk_combo_box_append_text (combobox, g_strdup(repo->name));
 		
+
 		if(	strcmp(reponame,global_curr_reponame) == 0)
 		{
 			j = i;
@@ -600,7 +610,7 @@ repoconfig__create_dropdown()
 		i++;
 	}
 	global_repo_cnt = i;
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), j);
+	gtk_combo_box_set_active(combobox, j);
 //	g_signal_connect ((gpointer) combobox, "changed",
 //                    G_CALLBACK (on_comboboxtext1_changed),
 //                    NULL);
@@ -623,9 +633,9 @@ j=0;i=0;
 		}
 		i++;
 	}
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), j);
+//	gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), j);
 //	g_signal_connect ((gpointer) combobox, "changed",
-//                    G_CALLBACK (on_comboboxtext_trf_changed),
+//                   G_CALLBACK (on_comboboxtext_trf_changed),
 //                    NULL);
 //-------------Traffic combobox list------------------	
 }
@@ -635,7 +645,7 @@ void
 pre_init()
 {
 	GError	*err = NULL;
-	loading=TRUE;
+
 /* Мне кажется, что это не нужно */
 //	g_type_init();
 
