@@ -8,6 +8,17 @@
 #ifndef OSD_H_
 #define OSD_H_
 
+
+#define HOST_FAIL_INDICATOR 1
+#define HOST_FAIL_INDICATOR_WIDTH 32
+#define HOST_FAIL_INDICATOR_HEIGHT 32
+
+extern gboolean host_fail_indicator_mouseover;
+
+#define TRACK_LINE      2
+
+static GHashTable *osdcallbacks;
+
 void * osd_all_callback();
 
 void osd_hostfail_indicator(GtkWidget* widget);

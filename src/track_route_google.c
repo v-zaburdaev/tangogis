@@ -6,8 +6,11 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include <glib.h>
+#include <ctype.h>
 #include "globals.h"
+
 #include <curl/curl.h>
 #include "track_route_google.h"
 #include "converter.h"
@@ -17,9 +20,9 @@ struct MemoryStruct {
   size_t size;
 };
 static char *path[10];
-static char *last_element;
+//static char *last_element;
 static int lvl;
-static int array_num;
+//static int array_num;
 static int count;
 
 int cnt[32];
@@ -31,7 +34,7 @@ route_step_t *step;
 
 void get_google_route(waypoint_t *startpoint, waypoint_t *endpoint, GSList *waypoints)
 {
-
+  loading=TRUE;
 	gchar * url=malloc(2048);
 	sprintf(url,"http://maps.googleapis.com/maps/api/directions/xml?mode=driving&origin=%f,%f&destination=%f,%f&sensor=false",startpoint->lat,startpoint->lon,endpoint->lat,endpoint->lon);
 //	for(list=trackpoints;list!=NULL;list=list->next)
@@ -50,7 +53,7 @@ void get_google_route(waypoint_t *startpoint, waypoint_t *endpoint, GSList *wayp
 		}
 	}
 	printf("route_track count=%d\n",g_slist_length(route_track->trackpoints));
-
+	loading=FALSE;
 	free(url);
 }
 
@@ -109,6 +112,7 @@ void *route_mystart_element (GMarkupParseContext *context,
 			step->endpoint=g_new(waypoint_t,1);
 		}
 
+		return NULL;
      }
 void *route_myend_element    (GMarkupParseContext *context,
                           const gchar         *element_name,
@@ -123,7 +127,7 @@ void *route_myend_element    (GMarkupParseContext *context,
 		printf("save step\n");
 		 route_track->steps=g_slist_append(route_track->steps,step);
 	}
-
+return NULL;
 }
 
   /* Called for character data */
@@ -141,55 +145,55 @@ void *route_mytext(GMarkupParseContext *context,
 	if (strlen(trimtext)>0)
 	{
 		//count++;
-		printf("%d %s : '%s' %d\n",count,f_path,trimtext,text_len);
+		//printf("%d %s : '%s' %d\n",count,f_path,trimtext,text_len);
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/start_location/lat")==0)
 		{
 			//if (step->startpoint==NULL) step->startpoint=g_new (waypoint_t,1);
-			printf("startpoint->lat=%s\n",trimtext);
+		//	printf("startpoint->lat=%s\n",trimtext);
 			step->startpoint->lat=deg2rad(atof(trimtext));
 
 		}
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/start_location/lng")==0)
 		{
 			//if (step->startpoint==NULL) step->startpoint=g_new (waypoint_t,1);
-			printf("startpoint->lon=%s\n",trimtext);
+		//	printf("startpoint->lon=%s\n",trimtext);
 			step->startpoint->lon=deg2rad(atof(trimtext));
 
 		}
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/end_location/lat")==0)
 		{
 			//if (step->endpoint==NULL) step->endpoint=g_new (waypoint_t,1);
-			printf("endpoint->lat=%s\n",trimtext);
+		//	printf("endpoint->lat=%s\n",trimtext);
 			step->endpoint->lat=deg2rad(atof(trimtext));
 
 		}
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/end_location/lng")==0)
 		{
 			//if (step->startpoint==NULL) step->endpoint=g_new (waypoint_t,1);
-			printf("endpoint->lon=%s\n",trimtext);
+		//	printf("endpoint->lon=%s\n",trimtext);
 			step->endpoint->lon=deg2rad(atof(trimtext));
 
 		}
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/distance/value")==0)
 		{
-			printf("distance=%s\n",trimtext);
+		//	printf("distance=%s\n",trimtext);
 			step->distance=atof(trimtext);
 
 		}
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/duration/value")==0)
 		{
-			printf("duration=%s\n",trimtext);
+		//	printf("duration=%s\n",trimtext);
 			step->duration=atof(trimtext);
 
 		}
 		 // /DirectionsResponse/route/leg/step/polyline/points
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/polyline/points")==0)
 		{
-			printf("polyline=%s\n",trimtext);
+		//	printf("polyline=%s\n",trimtext);
 		}
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/html_instructions")==0)
 				{
-					printf("instructions=%s\n",trimtext);
+		//			printf("instructions=%s\n",trimtext);
 					step->instructions=malloc(strlen(trimtext)+1);
 					strcpy(step->instructions,trimtext);
 				}
@@ -198,31 +202,29 @@ void *route_mytext(GMarkupParseContext *context,
 		 ///DirectionsResponse/route/bounds/southwest/lat
 		if (strcmp(f_path,"/DirectionsResponse/route/bounds/southwest/lat")==0)
 				{
-					printf("max lat=%s\n",trimtext);
+		//			printf("max lat=%s\n",trimtext);
 					route_track->max_lat=atof(trimtext);
 				}
 		if (strcmp(f_path,"/DirectionsResponse/route/bounds/southwest/lng")==0)
 				{
-					printf("max lon=%s\n",trimtext);
+		//			printf("max lon=%s\n",trimtext);
 					route_track->max_lon=atof(trimtext);
 				}
 		if (strcmp(f_path,"/DirectionsResponse/route/bounds/northeast/lat")==0)
 				{
-					printf("min lat=%s\n",trimtext);
+		//			printf("min lat=%s\n",trimtext);
 					route_track->min_lat=atof(trimtext);
 				}
 		if (strcmp(f_path,"/DirectionsResponse/route/bounds/northeast/lng")==0)
 				{
-					printf("min lon=%s\n",trimtext);
+		//			printf("min lon=%s\n",trimtext);
 					route_track->min_lon=atof(trimtext);
 				}
 		///DirectionsResponse/route/leg/step/polyline/points
 		if (strcmp(f_path,"/DirectionsResponse/route/leg/step/polyline/points")==0)
-						{
-						trackpoint_t *tmp=g_new(trackpoint_t,1);
-
-						gpolyline_decode(trimtext,"");
-
+		                {
+				        trackpoint_t *tmp=g_new(trackpoint_t,1);
+					gpolyline_decode(trimtext,"");
 //						for(GSList *list1=route_track->trackpoints;list1!=NULL;list1=list1->next)
 //							{
 
@@ -238,7 +240,7 @@ void *route_mytext(GMarkupParseContext *context,
 //						printf("4\n");
 						}
 	}
-
+return NULL;
 }
 
 
@@ -253,11 +255,11 @@ static GMarkupParser route_parser=
 
 GError **error;
 static gpointer *point;
-static gchar *path1;
+//static gchar *path1;
 //GHashTable hash;
 
 
-track_data_t *route_parse(char *parsexml)
+void route_parse(char *parsexml)
 {
 
 
@@ -299,6 +301,7 @@ track_data_t *route_parse(char *parsexml)
 
 
 //	return route_track;
+	return;
 }
 
 

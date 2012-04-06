@@ -9,9 +9,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
-
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
+
 
 #include "callbacks.h"
 #include "globals.h"
@@ -255,7 +255,7 @@ create_window1 (void)
   GtkWidget *checkbutton_trf_auto = GTK_WIDGET (gtk_builder_get_object(interface, "checkbutton_trf_auto"));
   GtkWidget *togglebutton_trf_show = GTK_WIDGET (gtk_builder_get_object(interface, "togglebutton_trf_show"));
   GtkWidget *comboboxtext_trf = GTK_WIDGET (gtk_builder_get_object(interface, "comboboxtext_trf"));
-
+  GtkWidget *togglebutton_cam4=GTK_WIDGET (gtk_builder_get_object(interface, "togglebutton_cam4"));
 
 
 //---------label for grid
@@ -350,6 +350,13 @@ create_window1 (void)
 //  g_signal_connect ((gpointer) togglebutton1, "toggled",
 //                    G_CALLBACK (on_togglebutton1_toggled),
 //                    NULL);
+  g_signal_connect ((gpointer) togglebutton_cam4, "toggled",
+                      G_CALLBACK (on_togglebutton_cam4_toggled),
+                      NULL);
+
+
+
+
   g_signal_connect ((gpointer) drawingarea1, "button_press_event",
                     G_CALLBACK (on_drawingarea1_button_press_event),
                     NULL);
@@ -459,13 +466,13 @@ create_window1 (void)
   g_signal_connect ((gpointer) checkbutton_trf_auto, "toggled",
                     G_CALLBACK (on_checkbutton_trf_auto_toggled),
                     NULL);
-  g_signal_connect ((gpointer) comboboxtext_trf, "changed",
-                    G_CALLBACK (on_comboboxtext_trf_changed),
-                    NULL);
+ // g_signal_connect ((gpointer) comboboxtext_trf, "changed",
+ //                   G_CALLBACK (on_comboboxtext_trf_changed),
+ //                  NULL);
 //------------------Traffic callbacks-------------		    
-  g_signal_connect ((gpointer) comboboxtext1, "changed",
-                    G_CALLBACK (on_comboboxtext1_changed),
-                    NULL);
+//  g_signal_connect ((gpointer) comboboxtext1, "changed",
+//                    G_CALLBACK (on_comboboxtext1_changed),
+//                    NULL);
   g_signal_connect ((gpointer) button7, "clicked",
                     G_CALLBACK (on_button7_clicked),
                     NULL);

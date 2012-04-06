@@ -4,6 +4,9 @@
 
 #include <gtk/gtk.h>
 #include <time.h>
+//#include <clutter/clutter.h>
+
+
 
 #define CONF_FILE "/"PACKAGE".conf"
 #define TILESIZE 256
@@ -139,7 +142,10 @@ typedef struct {
 	gboolean seen_vaild; /* ever had a vaild fix? */
 } gps_data_t;
 
+
+//extern ClutterActor     *actor;
 extern GdkPixmap 	*pixmap;
+
 //extern GdkPixbuf 	*pixbuf_tracks; //pixbuf for tracks
 extern GtkWidget	*window1, *window2;
 extern GtkWidget	*map_drawable;
@@ -268,7 +274,7 @@ extern int		mouse_y;
 
 extern int  window1_w,window1_h,window1_x,window1_y;
 
-static gboolean map_redraw_scheduled;
-static gboolean loading=TRUE;
+extern gboolean map_redraw_scheduled;
+extern gboolean loading;
 int drag_started;
 

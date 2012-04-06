@@ -46,7 +46,7 @@ main (int argc, char *argv[])
 
 
 	char *main_interface_file = g_strconcat(INTERFACE_INSTALL_INTERFACE_PATH,"interface.ui",NULL);
-	printf("\ninterface file - %s\n",main_interface_file);
+	//printf("\ninterface file - %s\n",main_interface_file);
 	if (!g_file_test (main_interface_file, G_FILE_TEST_EXISTS)) 
 	{
 		main_interface_file = g_strconcat(INTERFACE_NONINSTALL_INTERFACE_PATH,"interface.ui",NULL);
@@ -57,6 +57,7 @@ main (int argc, char *argv[])
 		return -10;
 	}
 	GError* error = NULL;
+	printf("\ninterface file - %s\n",main_interface_file);
 	interface = gtk_builder_new ();
 	if (!gtk_builder_add_from_file (interface, main_interface_file, &error))
 	  {

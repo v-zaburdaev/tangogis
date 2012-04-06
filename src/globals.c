@@ -127,3 +127,7 @@ gchar		*tangogis_dir = NULL;
 int		mouse_x = 0;
 int		mouse_y = 0;
 int  window1_w=320,window1_h=480,window1_x=350,window1_y=100;
+
+gboolean         map_redraw_scheduled=FALSE;
+gboolean         host_fail_indicator_mouseover=FALSE;
+gboolean        loading=FALSE;

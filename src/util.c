@@ -109,5 +109,6 @@ gboolean check_connect(void)
 				return FALSE;
 			}
 		}
+		return FALSE;
 }
 

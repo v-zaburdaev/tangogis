@@ -7,6 +7,8 @@
 #include <glib/gstring.h>
 #include <glib/gprintf.h>
 #include <math.h>
+#include <time.h>
+
 #include "support.h"
 #include "globals.h"
 #include "map_management.h"
@@ -32,9 +34,9 @@ static GtkWidget	*drawingarea11 = NULL;
 void
 view_tile(data_of_thread  *local)
 {
-	printf("%d *** %s(): \n",local->thread_id,__PRETTY_FUNCTION__);
+//	printf("%d *** %s(): \n",local->thread_id,__PRETTY_FUNCTION__);
 
-	gchar filename[256];
+//	gchar filename[256];
 //	printf("local i = %d j = %d\n",local->i, local-> j);
 
 	if (local->thread_id)
@@ -177,6 +179,8 @@ view_tile(data_of_thread  *local)
 int
 load_map(data_of_thread *local)
 {
+cairo_surface_t *pixbuf_ct;
+
 GdkPixbuf	*pixbuf=NULL;
 GError		*error = NULL;
 GdkGC		*gc_map = NULL;
@@ -356,7 +360,7 @@ fill_tiles_pixel()
 	int tile_count_x, tile_count_y;
 	int i,j;
 	gboolean success = FALSE;
-	GError *error = NULL;
+//	GError *error = NULL;
 //		if (gpsdata!=NULL)
 //		{
 //			printf("time=%f\n",gpsdata->fix.time);
@@ -365,7 +369,7 @@ fill_tiles_pixel()
 //		else	
 //		
 	
-	printf("*** %s(): xyz %d %d %d, time=%d\n",__PRETTY_FUNCTION__,global_x,global_y,global_zoom,global_time);
+//	printf("*** %s(): xyz %d %d %d, time=%d\n",__PRETTY_FUNCTION__,global_x,global_y,global_zoom,global_time);
 	
 	if (showed_tiles)
 	{
@@ -381,7 +385,7 @@ fill_tiles_pixel()
 	
 //------------------double dinamic array--------------------------1
 	static data_of_thread*** threads_data;
-	printf("Threads_data addr=%x\n",&threads_data);
+//	printf("Threads_data addr=%x\n",&threads_data);
 	static int threads_data_size_x,threads_data_size_y;
 	if ((threads_data_size_x != tile_count_x) || (threads_data_size_y != tile_count_y))
 	{
@@ -393,6 +397,7 @@ fill_tiles_pixel()
 			{
 				for (j=0;j<threads_data_size_y;j++)
 //					pthread_kill(&threads_data[i][j]->thread_id,9);
+				  if (threads_data[i][j]!=NULL)
 					free(threads_data[i][j]);
 				free(threads_data[i]);
 			}
@@ -640,12 +645,12 @@ GdkGC		*gc_map = NULL;
 		load_time=*temp;
 
 				global_time=time(NULL);
-				struct tm*  local_time;
+				struct tm *local_time;
 				local_time=localtime(&global_time);//local time of this machine
 				//printf ("%d:%d:%d\n", local_time->tm_hour,  local_time->tm_min,  local_time->tm_sec);
 				int temptime=local_time->tm_min*60+local_time->tm_sec;//Прошло времени с момента начала нового часа
 				traffic_time=global_time-temptime+(int)(temptime/240)*240-240;
-				printf("Возраст пробок %i\n", global_time-traffic_time);//время с момента создания новых карт движения, т.е. возраст последних пробок на яндексе.
+				//printf("Возраст пробок %i\n", global_time-traffic_time);//время с момента создания новых карт движения, т.е. возраст последних пробок на яндексе.
 				//printf("global_time = %i\n", global_time);
 				//printf("traffic_time = %i\n", traffic_time);
 				//printf("load_time = %i\n", load_time);

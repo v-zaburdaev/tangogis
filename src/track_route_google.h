@@ -10,6 +10,6 @@
 
 char * my_curl_get(char *url);
 void gpolyline_decode(gchar * bytes,gchar* levels);
-track_data_t * route_parse(char * xml);
+void route_parse(char * xml);
 
 #endif /* TRACK_ROUTE_GOOGLE_H_ */

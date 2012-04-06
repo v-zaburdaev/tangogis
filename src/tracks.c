@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
+
 #include <gtk/gtk.h>
 #include <glib.h>
 #include <glib/gstdio.h>
+
 
 #include <errno.h>
 
@@ -20,12 +23,14 @@
 #include "converter.h"
 #include "map_management.h"
 #include "tile_management.h"
+#include "osd.h"
+
 GtkWidget *
 make_file_label(const char *file, char *full_file);
 static char *path[10];
 static char *last_element;
 static int lvl;
-static int array_num;
+//static int array_num;
 static int count;
 gboolean first_point = TRUE;
 float tmp_lat,tmp_lon,tmp_speed,vector,prev_lat,prev_lon;
@@ -34,7 +39,7 @@ time_t tmp_datetime,prev_datetime;
 track_data_t *tempdata;
 trackpoint_t *tp;
 
-
+/*
 track_data_t track_add_trackpoint(track_data_t *track,trackpoint_t *trackpoint)
 {
 	if (track->trackpoints==NULL) track->trackpoints=g_slist_alloc();
@@ -71,7 +76,7 @@ prev_datetime=tmp_datetime;
 
 
 }
-
+*/
 
 double colr(int n)
 {
@@ -89,6 +94,7 @@ load_tracks(track_data_t *trackdata,int mode)
 	//local->progress = 2;
 	printf("* load tracks()\n");
 	if (trackdata==NULL) return 0;
+	if (loading==TRUE) return 0;
 	if (trackdata->trackpoints==NULL) return 0;
 
 	int step=60;
@@ -101,7 +107,7 @@ load_tracks(track_data_t *trackdata,int mode)
 	GSList *list;
 	int pixel_x, pixel_y, x,y, last_x = 0, last_y = 0;
 	float lat, lon;
-	GdkColor color;
+	//GdkColor color;
 	//GdkGC *gc2;
 	float latmin,lonmin,latmax,lonmax;
 
@@ -116,10 +122,10 @@ load_tracks(track_data_t *trackdata,int mode)
 	bbox_t bbox;
 	bbox=get_bbox(); // текущий view (нужны координаты, чтоб не рисовать все то,что за пределами экрана)
 
-	static int width = 0, height = 0;
+	//static int width = 0, height = 0;
 	time_t starttime;
 
-	float tremor=0.0001,tremor_lat,tremor_lon;
+	//float tremor=0.0001,tremor_lat,tremor_lon;
 
 
 
@@ -130,7 +136,7 @@ load_tracks(track_data_t *trackdata,int mode)
 
 	//gdk_threads_enter();
 
-	GdkGC *gc;
+	//GdkGC *gc;
 	//GdkGC *gc1;
 	gboolean is_line = FALSE;
 	gboolean first_point=TRUE;
@@ -159,6 +165,9 @@ load_tracks(track_data_t *trackdata,int mode)
 
 		x=pixel_x-global_x;
 		y=pixel_y-global_y;
+
+		/// игнорим если last_x==x && last_y==y
+                if (last_x==x && last_y==y) continue;
 
 		if (first_point) {
 			// первая точка трека
@@ -192,6 +201,7 @@ load_tracks(track_data_t *trackdata,int mode)
 		/// игнорируем остановки (скорость менее 2км/ч)
 		if (tp->tpspeed<2) continue;
 
+
 /// TODO: неверно определять границы - наверное стоит это делать по предыдущей точке.
 
 		if ((bbox.lat1 > tp->lat && tp->lat > bbox.lat2)==TRUE && (bbox.lon1 < tp->lon  && tp->lon < bbox.lon2)==TRUE)
@@ -214,6 +224,18 @@ load_tracks(track_data_t *trackdata,int mode)
 			cairo_move_to(ct,last_x,last_y);
 			cairo_line_to(ct,x,y);
 			cairo_stroke (ct);
+			char *key=malloc(22);
+			sprintf(key,"%d,%d,%d,%d",last_x,last_y,x,y);
+
+//			if (g_hash_table_lookup(osdcallbacks,key)==NULL)
+//                          {
+//			  printf("add key=%s %d\n",key, g_hash_table_size(osdcallbacks));
+//			  g_hash_table_insert (osdcallbacks, key,TRACK_LINE);
+//			  } else
+//			    {
+//			    printf("add key not need\n");
+//
+//			    }
 		}
 
 
@@ -281,7 +303,8 @@ load_tracks(track_data_t *trackdata,int mode)
 							ptm=gmtime(&badtime);
 							utctime=mktime(ptm);
 							diff=badtime-utctime+(time_t)tp->datetime;
-							struct tm *ttt=localtime(&diff);
+							struct tm *ttt;
+							ttt=localtime(&diff);
 							buffer = g_strdup_printf("%02d:%02d",ttt->tm_hour,ttt->tm_min);
 	//						if (mode==0)
 	//						{
@@ -330,7 +353,7 @@ load_tracks(track_data_t *trackdata,int mode)
 	{
 		// вывод шагов
 		route_step_t *step=NULL;
-		gchar *buffer;
+		//gchar *buffer;
 	for(list = trackdata->steps; list != NULL; list = list->next)
 		{
 		step=list->data;
@@ -355,9 +378,10 @@ load_tracks(track_data_t *trackdata,int mode)
 		cairo_select_font_face(ct,"Sans",CAIRO_FONT_SLANT_NORMAL,CAIRO_FONT_WEIGHT_BOLD);
 		cairo_show_text(ct,buffer);
 		cairo_move_to(ct,x,y);
-		cairo_stroke (ct);
+
 		g_free(buffer);
 		*/
+		cairo_stroke (ct);
 		}
 
 
@@ -479,14 +503,14 @@ track_log_close()
 void
 tracks_open_tracks_dialog()
 {
-	int i;
+	//int i;
 	GDir *dir;
 	GError *err = NULL;
-	const char *file;
-	gboolean isfile;
-	GList *list = NULL;
+	//const char *file;
+	//gboolean isfile;
+	//GList *list = NULL;
 
-	GtkWidget *label, *vbox, *eventbox;
+	GtkWidget  *vbox;//, *eventbox, *label;
 	
 
 	dir = g_dir_open(global_track_dir, 0, &err);
@@ -510,6 +534,7 @@ tracks_open_tracks_dialog()
 	gtk_file_chooser_set_select_multiple(dialog,FALSE);
 	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
 		{
+	                loading=TRUE;
 			gtk_toggle_button_set_active (GTK_WIDGET (gtk_builder_get_object(interface,"togglebutton2")),TRUE);
 
 			GSList *filenames = gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER (dialog));
@@ -524,26 +549,23 @@ tracks_open_tracks_dialog()
 			if (file_type_test(filename,"gpx"))
 				loaded_track = tracks_read_from_gpx(filename);
 
+                        GtkWidget *drawingarea, *range;
+                        int track_zoom, width, height;
+                        drawingarea = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
+                        width  = drawingarea->allocation.width;
+                        height = drawingarea->allocation.height;
+                        track_zoom = get_zoom_covering(width, height, loaded_track->max_lat, loaded_track->min_lon, loaded_track->min_lat, loaded_track->max_lon);
+                        track_zoom = (track_zoom > 15) ? 15 : track_zoom;
 
-			//	gtk_notebook_set_current_page(GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object(interface,"notebook1"))), 0);
-				GtkWidget *drawingarea, *range;
-				int track_zoom, width, height;
-				drawingarea = GTK_WIDGET (gtk_builder_get_object(interface, "drawingarea1"));
-				width  = drawingarea->allocation.width;
-				height = drawingarea->allocation.height;
-				track_zoom = get_zoom_covering(width, height, loaded_track->max_lat, loaded_track->min_lon, loaded_track->min_lat, loaded_track->max_lon);
-				track_zoom = (track_zoom > 15) ? 15 : track_zoom;
+                        if(loaded_track->lat!=0 && loaded_track->lon!=0)
+                                set_mapcenter((loaded_track->max_lat+loaded_track->min_lat)/2, (loaded_track->max_lon+loaded_track->min_lon)/2, track_zoom);
 
-				if(loaded_track->lat!=0 && loaded_track->lon!=0)
-					set_mapcenter((loaded_track->max_lat+loaded_track->min_lat)/2, (loaded_track->max_lon+loaded_track->min_lon)/2, track_zoom);
+                        range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
+                        gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
 
-				range = GTK_WIDGET (gtk_builder_get_object(interface, "vscale1"));
-				gtk_range_set_value(GTK_RANGE(range), (double) global_zoom);
-
-
-			//}
-			//g_free(track_data_new);
 			g_slist_free (filenames);
+			loading=FALSE;
+			repaint_all();
 		}
 	gtk_widget_destroy (dialog);
 }
@@ -580,12 +602,12 @@ return mktime(&t);
 /// загрузка трека из LOG
 track_data_t* tracks_read_from_log (gchar* filename)
 {
-	GtkWidget *drawingarea, *range;
+	//GtkWidget *drawingarea, *range;
 	char line[121];
 	char **arr;
 	FILE *fd;
 	gboolean first_point = TRUE;
-	int track_zoom, width, height;
+	//int track_zoom, width, height;
 
 	track_data_t *ret_trackdata=g_new(track_data_t,1);
 	ret_trackdata->trackpoints=g_slist_alloc();
@@ -665,7 +687,7 @@ char * gpx_myfullpath()
 	    sprintf(tm,"%s/%s",ret,path[i]);
 	    ret=tm;
 	    }
-	    //printf("%s\n",ret);
+	    printf("%s\n",ret);
 	    return ret;
 }
 
@@ -716,6 +738,7 @@ void *gpx_mystart_element (GMarkupParseContext *context,
 
 		//printf("start %s\n",element_name);
 
+return NULL;
      }
 void *gpx_myend_element    (GMarkupParseContext *context,
                           const gchar         *element_name,
@@ -734,13 +757,11 @@ void *gpx_myend_element    (GMarkupParseContext *context,
 		tp->datetime=tmp_datetime;
 
 		if(first_point)
-						{
-
-						tempdata->lat = tmp_lat;
-						tempdata->lon = tmp_lon;
-
-							first_point = FALSE;
-						}
+                  {
+                  tempdata->lat = tmp_lat;
+                  tempdata->lon = tmp_lon;
+                  first_point = FALSE;
+                  }
 		tempdata->lat_tmp = tmp_lat;
 		tempdata->lon_tmp = tmp_lon;
 
@@ -750,25 +771,27 @@ void *gpx_myend_element    (GMarkupParseContext *context,
 		tempdata->min_lon = (tempdata->lon_tmp<tempdata->min_lon) ? tempdata->lon_tmp : tempdata->min_lon;
 
 		double trip_delta = 6371.0 * acos(sin(tp->lat) * sin(prev_lat) +
-										cos(tp->lat) * cos(prev_lat) * cos(prev_lon-tp->lon) );
+						cos(tp->lat) * cos(prev_lat) * cos(prev_lon-tp->lon) );
 
 
-if (trip_delta>0){
-	trip_count=trip_count+trip_delta;
-	tp->tpspeed=(trip_delta*3600)/(tmp_datetime-prev_datetime); /// Возможно ошибаюсь в расчетах
-	tp->bearing=get_bearing(tp->lat,tp->lon,prev_lat,prev_lon);
-	prev_lat=tp->lat;
-	prev_lon=tp->lon;
-	//printf("trip_delta=%f speed=%f timedelta=%d tripcount=%f\n",trip_delta,tp->tpspeed,(tmp_datetime-prev_datetime),trip_count);
-	prev_datetime=tmp_datetime;
-}
+                if (trip_delta>0)
+                {
+                      trip_count=trip_count+trip_delta;
+                      tp->tpspeed=(trip_delta*3600)/(tmp_datetime-prev_datetime); /// Возможно ошибаюсь в расчетах
+                      tp->bearing=get_bearing(tp->lat,tp->lon,prev_lat,prev_lon);
+                      prev_lat=tp->lat;
+                      prev_lon=tp->lon;
+                      //printf("trip_delta=%f speed=%f timedelta=%d tripcount=%f\n",trip_delta,tp->tpspeed,(tmp_datetime-prev_datetime),trip_count);
+                      prev_datetime=tmp_datetime;
+                      loaded_track=g_slist_append(loaded_track,tp);
+                }
 
 
 
 
-		loaded_track=g_slist_append(loaded_track,tp);
+		//loaded_track=g_slist_append(loaded_track,tp);
 	}
-
+return NULL;
 }
 
   /* Called for character data */
@@ -1049,7 +1072,7 @@ printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
 			// первая точка в треке
 			//gdk_draw_arc(pixmap,gc,TRUE,x,y,15,15,0,360);
-			/* gdk_draw_line(pixmap,gc,x,y,x,y+10);
+			gdk_draw_line(pixmap,gc,x,y,x,y+10);
 			gtk_widget_queue_draw_area (
 						map_drawable,
 						x-8, y-8,
