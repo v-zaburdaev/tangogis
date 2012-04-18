@@ -1001,6 +1001,9 @@ init()
 		fprintf (stderr, "Failed to load pixbuf file:  %s\n", err->message);
 		g_error_free (err);
 	}
+
+	g_timeout_add(500,redraw_layers,NULL);
+
 	loading=FALSE;
 	printf("Init complete\n");
 	repaint_all();

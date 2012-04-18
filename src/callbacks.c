@@ -348,7 +348,7 @@ on_drawingarea1_configure_event        (GtkWidget         *widget,
 	
 	global_drawingarea_width  = widget->allocation.width;
 	global_drawingarea_height = widget->allocation.height;
-printf("1 w=%d h=%d\n",global_drawingarea_width, global_drawingarea_height);
+//printf("1 w=%d h=%d\n",global_drawingarea_width, global_drawingarea_height);
 	if (pixmap)
 		g_object_unref (pixmap);
 
@@ -357,6 +357,7 @@ printf("1 w=%d h=%d\n",global_drawingarea_width, global_drawingarea_height);
 			widget->allocation.width+260, 
 			widget->allocation.height+260,
 			-1);
+
 
 
 if(pixmap) printf("pixmap created\n");
@@ -450,8 +451,6 @@ on_button2_clicked                     (GtkButton       *button,
 	fill_tiles_latlon(lat, lon, 15);
 }
 
-
-
 void
 on_vscale1_value_changed               (GtkRange        *range,
                                         gpointer         user_data)
@@ -486,8 +485,8 @@ on_vscale1_value_changed               (GtkRange        *range,
 	zoom_old,global_zoom, factor, global_x);
 #endif
 }
-void
-on_button4_clicked                     (GtkButton       *button,
+
+void on_button4_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	GtkWidget *range;
@@ -584,9 +583,7 @@ on_window1_destroy_event               (GtkWidget       *widget,
 	return FALSE;
 }
 
-
-void
-on_button5_clicked                     (GtkButton       *button,
+void on_button5_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
 {
 	int zoom_old;
@@ -633,7 +630,6 @@ on_item1_activate                      (GtkMenuItem     *menuitem,
 
 }
 
-
 void
 on_item2_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
@@ -659,7 +655,6 @@ on_vscale1_button_press_event          (GtkWidget       *widget,
 
   return FALSE;
 }
-
 
 gboolean
 on_vscale1_button_release_event        (GtkWidget       *widget,
@@ -700,7 +695,6 @@ on_vscale1_button_release_event        (GtkWidget       *widget,
 	
   return FALSE;
 }
-
 
 void
 on_comboboxtext1_changed                   (GtkComboBox     *combobox,
@@ -771,14 +765,12 @@ on_checkbutton1_toggled                (GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive (button6, TRUE);
 }
 
-
 void
 on_dialog1_close                       (GtkDialog       *dialog,
                                         gpointer         user_data)
 {
 	gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object(interface,"dialog1")));
 }
-
 
 void
 on_dialog1_response                    (GtkDialog       *dialog,
@@ -788,7 +780,6 @@ on_dialog1_response                    (GtkDialog       *dialog,
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
 }
-
 
 void
 on_cancelbutton1_clicked               (GtkButton       *button,
@@ -803,7 +794,6 @@ on_cancelbutton1_clicked               (GtkButton       *button,
 
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 }
-
 
 void
 on_okbutton1_clicked                   (GtkButton       *button,
@@ -855,7 +845,6 @@ on_okbutton1_clicked                   (GtkButton       *button,
 
 }
 
-
 void
 on_button7_clicked                     (GtkButton       *button,
                                         gpointer         user_data)
@@ -903,7 +892,6 @@ on_entry1_changed                      (GtkEditable     *editable,
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
 
 }
-
 
 void
 on_entry2_changed                      (GtkEditable     *editable,
@@ -1328,7 +1316,7 @@ on_button11_clicked                    (GtkButton       *button,
 	global_show_friends = TRUE;
 }
 
-
+// GRID on/off
 void
 on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
@@ -1396,6 +1384,7 @@ on_togglebutton1_toggled               (GtkToggleButton *togglebutton,
 	repaint_all();
 }
 
+// update screen
 void
 on_button_update_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
@@ -3157,6 +3146,7 @@ repaint_all()
 	paint_myposition();
 	osd_speed();
 	//osd_all();
+	map_redraw_scheduled=TRUE;
 }
 
 void
