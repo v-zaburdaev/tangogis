@@ -145,6 +145,8 @@ typedef struct {
 
 //extern ClutterActor     *actor;
 extern GdkPixmap 	*pixmap;
+extern GdkPixmap        *pixmap1;
+
 
 //extern GdkPixbuf 	*pixbuf_tracks; //pixbuf for tracks
 extern GtkWidget	*window1, *window2;
@@ -209,7 +211,7 @@ gboolean trf_next;//флаг запроса на загрузку свежих �
 //----------------------------------------------------------
 gboolean        pixbuf_is_null;//нету такого тайла в хеше
 gboolean        trf_is_failed;//ошибка загрузки пробки по причине отсутствия
-extern gboolean host_failed;//ошибка разрешения имени хоста, скорее всего нет инета
+volatile gboolean host_failed;//ошибка разрешения имени хоста, скорее всего нет инета
 GHashTable *ht;//таблица состояние тайла
 GList *curl_threads;//таблица закачек
 int showed_tiles_index;
@@ -226,7 +228,7 @@ extern gboolean	global_trf_show;//показ пробок
 repo_t		*curr_trf;//указатель на текущий репозиторий
 time_t		global_time;//время
 time_t		traffic_time;//время создания пробоК
-extern gboolean host_failed;//ошибка разрешения имени хоста, скорее всего нет инета
+//volatile gboolean host_failed;//ошибка разрешения имени хоста, скорее всего нет инета
 //--------------Traffic download & show----------------------
 //--------------layers show----------------------------------
 gboolean	global_grid_show;
@@ -234,7 +236,7 @@ gboolean	global_track_show;
 gboolean	global_current_track_show;
 //--------------layers show----------------------------------
 //------------Threads--------------------------	
-	int number_threads;
+volatile int number_threads;
 //------------Threads--------------------------	
 extern gboolean		global_map_reload;
 extern gboolean		global_mapmode;
@@ -274,7 +276,7 @@ extern int		mouse_y;
 
 extern int  window1_w,window1_h,window1_x,window1_y;
 
-extern gboolean map_redraw_scheduled;
+volatile extern gboolean map_redraw_scheduled;
 extern gboolean loading;
 int drag_started;
 

@@ -43,4 +43,7 @@ set_mapcenter(	float lat,
 
 void mercator_offset(int zoom, int pixel_x, int pixel_y, int* mercator_x, int* mercator_y);
 
+gboolean redraw_layers(void);
 
+
+int test_paint_tile(data_of_thread *local,char * errtext);

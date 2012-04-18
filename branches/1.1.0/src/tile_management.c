@@ -187,49 +187,59 @@ download_tile(	repo_t *repo,
 
 //	printf("key = %s, value = %s\n",key,found);
 //	printf("hash table = %d\n",ht);
-//printf("value = %d\n",found);
-//printf("host_failed = %d\n",host_failed);
+//      printf("value = %d\n",found);
+//      printf("host_failed = %d\n",host_failed);
 
 	if (found!=NULL)
 	{
-		printf("Found in hash key=%s\n",key);
+//		printf("Found in hash key=%s\n",key);
 		if (strcmp(found,"The requested URL returned error: 404")==0)
-			printf("\n%s - Карта не существует\n", key);
+		  {
+//			printf("%s - Карта не существует (404) (%s)\n", key,tile_data_tmp);
+			return FALSE;
+		  }
 		else if(host_failed)	
 			{
-				printf("Host failed\n");	
+//				printf("Host failed\n");
+				return FALSE;
 			}
-		else
-			{
-				g_hash_table_replace(ht, key, "downloading");
+		else if (strcmp(found,"downloading")==0)
+		  {
+//		    printf("already downloading %s\n",key);
+		    return FALSE;
+		  } else
+                  {
+                          g_hash_table_replace(ht, key, "downloading");
 
-				//dl_thread((void *)tile_data);
-				//dl_thread(tile_data);
-				if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
-						g_warning("can't create DL thread");
+                          //dl_thread((void *)tile_data);
+                          //dl_thread(tile_data);
+                          //printf("creating download thread %s\n",tile_data);
 
-			}	
+                          if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
+                                          g_warning("can't create DL thread");
+
+                  }
 	}
 	else
-		{
-		printf("NOT Found in hash key=%s\n",key);
+        {
+        printf("NOT Found in hash key=%s\n",key);
 
-			if(host_failed)
-			{
-			printf("Host failed\n");
-			}
-			else if(zoom <=maxzoom)
-			{
-				//g_hash_table_replace(ht, key, "downloading");
-				g_hash_table_insert(ht, key, "downloading");
-				printf("%s(): %s######################\n",__PRETTY_FUNCTION__,tile_data);
-					if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
-						g_warning("can't create DL thread");
+            if(host_failed)
+            {
+            printf("Host failed\n");
+            }
+            else if(zoom <=maxzoom)
+            {
+                    //g_hash_table_replace(ht, key, "downloading");
+                    g_hash_table_insert(ht, key, "downloading");
+                    printf("%s(): %s######################\n",__PRETTY_FUNCTION__,tile_data);
+                            if (!g_thread_create(&dl_thread, (void *)tile_data, FALSE, NULL) != 0)
+                                    g_warning("can't create DL thread");
 
-		//		dl_thread((void *)tile_data);
-				retval = TRUE;
-			}
-		}
+    //		dl_thread((void *)tile_data);
+                    retval = TRUE;
+            }
+        }
 	return retval;
 }
 
@@ -263,9 +273,9 @@ dl_thread(void *ptr)
 		printf("MKDIR ERROR: %s\n", arr1[2]);
 	}
 	
-	printf( "\n\n************************************\n"
-		"tile_data: %s \n URL: %s \n FILE: %s \n DIR: %s\n",
-		tile_data, arr1[0],arr1[1],arr1[2]);
+//	printf( "\n\n************************************\n"
+//		"tile_data: %s \n URL: %s \n FILE: %s \n DIR: %s\n",
+//		tile_data, arr1[0],arr1[1],arr1[2]);
 	
 	
 	outfile = fopen(file_temp, "w");
@@ -276,7 +286,7 @@ dl_thread(void *ptr)
 	}
 
 	curl = curl_easy_init();
-	printf("\ncurl = %d\n",curl);
+	//printf("\ncurl = %d\n",curl);
 
 
 	if(curl && outfile) 
@@ -296,16 +306,16 @@ dl_thread(void *ptr)
 		curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1); 
 		res = curl_easy_perform(curl);
 		printf("URL: %s\n",arr1[0]);
-		printf("err_buffer: %s\n",err_buffer);
+
 		if (res==0)
 		{
-			printf("########## curl res=0, tile download ok\n");
+			//printf("########## curl res=0, tile download ok\n");
 		}
 		else
 		{	
-			printf("TILE DL PROBLEM: %s\n",err_buffer);
+//			printf("TILE DL PROBLEM: %s\n",err_buffer);
 			g_hash_table_replace(ht,key,g_strdup_printf(err_buffer));
-			if (strstr(err_buffer, "Couldn't resolve host")!=NULL)
+			if (strstr(err_buffer, "Couldn't resolve host")!=NULL || strstr(err_buffer, "couldn't connect to host")!=NULL)
 			{
 				if (!host_failed)
 				{
@@ -323,24 +333,26 @@ dl_thread(void *ptr)
 		curl_easy_cleanup(curl);
 
 
-		if (!map_redraw_scheduled)
-		{
-		//gdk_threads_enter();
-		g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка
-		map_redraw_scheduled = TRUE;
-		//gdk_threads_leave();
-		}
-		printf("curl END: # of running threads: %i \n\n", number_threads );
+//		printf("curl END: # of running threads: %i \n\n", number_threads );
 	}
 	if(outfile != NULL)
 		fclose(outfile);
 	struct stat filestat;
 	if (stat(file_temp,&filestat)==0)
 			{
-				printf("download file size = %d bytes.(%s)\n",filestat.st_size,file_temp);
+	//			printf("download file size = %d bytes.(%s)\n",filestat.st_size,file_temp);
 				if (filestat.st_size>0)
 				{
+				    //printf("TILE DL PROBLEM: %s\n",err_buffer);
 					rename(file_temp, arr1[1]);
+
+			                //if (!map_redraw_scheduled)
+			                //{
+			                //gdk_threads_enter();
+			                //g_timeout_add(500, map_redraw, NULL);//нужно если нужна перерисовка
+			                map_redraw_scheduled = TRUE;
+			                //gdk_threads_leave();
+			                // }
 				}
 				else
 				{
@@ -432,7 +444,6 @@ get_tile(int pixel_x, int pixel_y, int zoom)
 	return tile;
 }
 
-
 void
 queue_tile_dl_for_bbox(bbox_pixel_t bbox_pixel, int zoom)
 {
@@ -517,7 +528,6 @@ get_bbox_pixel(bbox_t bbox, int zoom)
 	
 	return	bbox_pixel;
 }
-
 
 gboolean
 timer_tile_download(gpointer data)

@@ -1,4 +1,5 @@
 #include <glib.h>
+//#include "map_management.h"
 //#include "globals.h"
 
 void
@@ -22,5 +23,4 @@ track_data_t* tracks_read_from_log (gchar* filename);
 track_data_t* tracks_read_from_gpx(gchar* filename);
 
 time_t LocalTimeFromString(char* str);
-
 

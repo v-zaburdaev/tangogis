@@ -5,6 +5,7 @@
 
 
 GdkPixmap *pixmap = NULL;
+//GdkPixmap *pixmap1=NULL;
 //GdkPixbuf *pixbuf_tracks = NULL; //pixmap for tracks
 GtkWidget *window1 = NULL;
 GtkWidget *window2 = NULL;
@@ -77,7 +78,7 @@ gboolean trf_next=FALSE;//флаг запроса на загрузку свеж
 //----------------------------------------------------------
 gboolean	pixbuf_is_null = FALSE;//нету такого тайла в хеше
 gboolean	trf_is_failed = FALSE;//ошибка загрузки пробки по причине отсутствия
-extern gboolean host_failed = FALSE;//ошибка разрешения имени хоста, скорее всего нет инета
+volatile gboolean host_failed = FALSE;//ошибка разрешения имени хоста, скорее всего нет инета
 GHashTable *ht = NULL;
 int destroy_all_threads=0;
 //--------------Traffic download & show----------------------
@@ -128,6 +129,6 @@ int		mouse_x = 0;
 int		mouse_y = 0;
 int  window1_w=320,window1_h=480,window1_x=350,window1_y=100;
 
-gboolean         map_redraw_scheduled=FALSE;
+volatile gboolean         map_redraw_scheduled=FALSE;
 gboolean         host_fail_indicator_mouseover=FALSE;
 gboolean        loading=FALSE;
