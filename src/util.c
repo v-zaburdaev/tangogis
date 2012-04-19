@@ -77,6 +77,16 @@ file_type_test(const char *filename, char *type)
 	}
 }
 
+gboolean file_exists(const char * filename)
+{
+  FILE * file = fopen(filename, "r");
+    if (file)
+    {
+        fclose(file);
+        return TRUE;
+    }
+    return FALSE;
+}
 
 gboolean check_connect(void)
 {
