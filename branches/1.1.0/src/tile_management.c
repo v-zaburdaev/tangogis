@@ -195,17 +195,17 @@ download_tile(	repo_t *repo,
 //		printf("Found in hash key=%s\n",key);
 		if (strcmp(found,"The requested URL returned error: 404")==0)
 		  {
-//			printf("%s - Карта не существует (404) (%s)\n", key,tile_data_tmp);
+			printf("%s - Карта не существует (404) (%s)\n", key,tile_data_tmp);
 			return FALSE;
 		  }
 		else if(host_failed)	
 			{
-//				printf("Host failed\n");
+				printf("Host failed\n");
 				return FALSE;
 			}
 		else if (strcmp(found,"downloading")==0)
 		  {
-//		    printf("already downloading %s\n",key);
+		    printf("already downloading %s\n",key);
 		    return FALSE;
 		  } else
                   {
@@ -313,7 +313,7 @@ dl_thread(void *ptr)
 		}
 		else
 		{	
-//			printf("TILE DL PROBLEM: %s\n",err_buffer);
+			printf("TILE DL PROBLEM: %s\n",err_buffer);
 			g_hash_table_replace(ht,key,g_strdup_printf(err_buffer));
 			if (strstr(err_buffer, "Couldn't resolve host")!=NULL || strstr(err_buffer, "couldn't connect to host")!=NULL)
 			{
@@ -344,6 +344,11 @@ dl_thread(void *ptr)
 				if (filestat.st_size>0)
 				{
 				    //printf("TILE DL PROBLEM: %s\n",err_buffer);
+				    if (file_exists(arr1[1]))
+				        {
+				        printf("del: %s\n",arr1[1]);
+				        unlink(arr1[1]);
+				        }
 					rename(file_temp, arr1[1]);
 
 			                //if (!map_redraw_scheduled)

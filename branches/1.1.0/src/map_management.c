@@ -31,6 +31,7 @@
 
 //static GtkWidget	*drawingarea11 = NULL;
 
+FILE * fp;
 
 void
 view_tile(data_of_thread  *local)
@@ -96,7 +97,7 @@ view_tile(data_of_thread  *local)
         local->offset_y += TILESIZE*local->j;
 
 
-		//	printf("Local offset 1 x=%d y=%d\n",local->offset_x,local->offset_y);
+//	printf("Local offset x=%d y=%d\n",local->x,local->y);
 
 	if (load_map(local)!=LOAD_OK)
 	{
@@ -189,7 +190,7 @@ GdkGC		*gc_map = NULL;
 	if (local->repo!=global_curr_repo->data) { printf("repo error"); return ERR_REPO;}
 	if ((local->x < 0) || (local->y < 0) || (local->x > exp(local->zoom * M_LN2)) || (local->y > exp(local->zoom * M_LN2)))
 	{
-		printf("Limits error\n");
+		printf("Limits error x=%d y=%d exp1=%f\n",local->x,local->y,exp(local->zoom * M_LN2));
 		return ERR_LIMITS;
 	}
 
@@ -199,8 +200,8 @@ GdkGC		*gc_map = NULL;
 
 //	printf("IMG: %s\n",filename);
 /// Проверяем, есть ли файл в кеше
-	FILE *fp=fopen(filename,"r");
-	if (!fp)
+
+	if (!file_exists(filename))
 	{
 	    /// файла нет. скачиваем отдаем на скачивание и завершаем
 		printf("%d IMG FILE NOT FOUND downloading.(%s)\n",local->thread_id,filename);
@@ -222,7 +223,7 @@ GdkGC		*gc_map = NULL;
 	                          {
 	                            printf("redownloading %s - autoreload is on\n",filename);
 	                            download_tile(local->repo,local->zoom,local->x,local->y);
-	                            fclose(fp);
+
 	                            return LOADING;
 	                          }
 		          }
@@ -231,13 +232,13 @@ GdkGC		*gc_map = NULL;
 					{
 						printf("ERRoR File is empty %s, redownloading",filename);
 						download_tile(local->repo,local->zoom,local->x,local->y);
-						fclose(fp);
+
 						return LOADING;
 					}
 
 		}
 
-		fclose(fp);
+
 	}
 
 	/// файл есть, и размер его больше 0
@@ -627,11 +628,11 @@ GtkWidget	*drawingarea11 = NULL;
             traffic_time=global_time-temptime+(int)(temptime/240)*240-240;
 
 	    //Информация о загрузке данного тайла пробок
-	    FILE *fp=fopen(filename,"r");
-            if (!fp)
+
+            if (!file_exists(filename))
               {
                /// файла нет, скачиваем
-               //printf ("Файл %s не найден. Закачиваем пробки\n",filename);
+               printf ("Файл %s не найден. Закачиваем пробки\n",filename);
                download_tile(curr_trf,local->zoom,local->x,local->y);
                return LOADING;
               } else
@@ -644,14 +645,14 @@ GtkWidget	*drawingarea11 = NULL;
                   if ((global_time-filestat.st_mtim.tv_sec)>300)
                     {
                     // файл пробок устарел
-                      //printf ("Файл %s найден, устарел. Закачиваем пробки (%d-%d=%d)\n",filename,global_time,filestat.st_mtim.tv_sec,global_time-filestat.st_mtim.tv_sec);
+                      printf ("Файл %s найден, устарел. Закачиваем пробки (%d-%d=%d)\n",filename,global_time,filestat.st_mtim.tv_sec,global_time-filestat.st_mtim.tv_sec);
                       download_tile(curr_trf,local->zoom,local->x,local->y);
                       return LOADING;
                     }
                     else
                     {
                       // файл прообок новый, рисуем
-                     //printf("LOAD_TRF: new\n");
+                     printf("LOAD_TRF: show tile %s\n",filename);
                      pixbuf = gdk_pixbuf_new_from_file (
                                              filename,
                                              &error);
@@ -665,7 +666,6 @@ GtkWidget	*drawingarea11 = NULL;
                                    local->offset_x-(global_x-local->x_glob),local->offset_y-(global_y-local->y_glob),
                                    TILESIZE,TILESIZE,
                                    GDK_RGB_DITHER_NONE, 0, 0);
-                               //test_paint_tile(local,filename);
                                g_object_unref (pixbuf);
 
                                return LOAD_OK;
