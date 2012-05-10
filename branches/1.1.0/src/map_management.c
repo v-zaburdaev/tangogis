@@ -459,15 +459,15 @@ fill_tiles_pixel()
 //------------------double dinamic array--------------------------1
 
 
-/*
+
 //		if (trf_old) traffic_old_factor++;
-		if (global_trf_auto)
-		{
-			printf ("До загрузки пробок осталось %d секунд\n", (traffic_time + 250 +240 - global_time));
-			g_timeout_add_seconds ((traffic_time + 250 - global_time), auto_load_trf_timer, NULL);
-		}
-	}	
-*/
+		//if (global_trf_auto)
+		//{
+		//	printf ("До загрузки пробок осталось %d секунд\n", (traffic_time + 250 - global_time));
+		//	g_timeout_add_seconds ((traffic_time + 250 - global_time), auto_load_trf_timer, NULL);
+		//}
+	//}
+
 
 	g_key_file_set_integer(
 				global_tangogis_config, 
@@ -684,10 +684,11 @@ return 0;
 gboolean auto_load_trf_timer()
 {
 	printf("*** %s(): \n",__PRETTY_FUNCTION__);
-
-	repaint_all();
-
-	return FALSE;
+	if (global_trf_auto)
+	  {
+	    map_redraw_scheduled=TRUE;
+	  }
+	return TRUE;
 }
 //--------------Traffic autodownloadtimer--------------------------------
 /*

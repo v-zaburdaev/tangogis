@@ -228,8 +228,8 @@ void * get_google_geocode_by_point(float lat,float lon)
 					}
 
 
-					yajl_gen_free(g);
-					yajl_free(hand);
+					//yajl_gen_free(g);
+					//yajl_free(hand);
 
 ///					if (g_hash_table_find(hash,find_hash,"/status[1_6]"))
 //					{

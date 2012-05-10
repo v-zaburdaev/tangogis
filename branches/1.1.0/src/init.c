@@ -1003,7 +1003,7 @@ init()
 	}
 
 	g_timeout_add(500,redraw_layers,NULL);
-
+	g_timeout_add_seconds (300, auto_load_trf_timer, NULL);
 	loading=FALSE;
 	printf("Init complete\n");
 	repaint_all();
