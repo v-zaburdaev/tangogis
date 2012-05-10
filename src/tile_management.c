@@ -273,10 +273,13 @@ dl_thread(void *ptr)
 		printf("MKDIR ERROR: %s\n", arr1[2]);
 	}
 	
+	char *key=malloc(strlen(file_temp)-7);
+	g_strlcat(key,file_temp,strlen(file_temp)-7);
+
 //	printf( "\n\n************************************\n"
 //		"tile_data: %s \n URL: %s \n FILE: %s \n DIR: %s\n",
 //		tile_data, arr1[0],arr1[1],arr1[2]);
-	
+//printf("key=%s\n",key);
 	
 	outfile = fopen(file_temp, "w");
 	if (outfile==NULL)
@@ -350,7 +353,7 @@ dl_thread(void *ptr)
 				        unlink(arr1[1]);
 				        }
 					rename(file_temp, arr1[1]);
-
+		                        g_hash_table_replace(ht, key, "ok");
 			                //if (!map_redraw_scheduled)
 			                //{
 			                //gdk_threads_enter();
