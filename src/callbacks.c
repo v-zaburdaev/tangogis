@@ -247,6 +247,7 @@ on_drawingarea1_button_release_event   (GtkWidget       *widget,
 			
 		mouse_dx = mouse_dy = 0;
 		drag_started = 0;
+		map_redraw_scheduled=TRUE;
 	}
 	return FALSE;
 }
@@ -286,7 +287,8 @@ on_drawingarea1_motion_notify_event    (GtkWidget       *widget,
 				local_x = global_x;
 				local_y = global_y;
 
-				drag_started = 1;				
+				drag_started = 1;
+				map_redraw_scheduled=FALSE;
 			}
 			 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(interface,"togglebutton_autocenter")),FALSE);
 				
