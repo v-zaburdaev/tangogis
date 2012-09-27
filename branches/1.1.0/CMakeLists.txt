@@ -21,7 +21,10 @@ set (PROJECT_SOURCE_LIST src/main.c
 						src/tile_management.c 
 						src/tracks.c 
 						src/util.c 
-						src/wp.c)
+						src/wp.c
+						src/osd.c
+						src/track_route_google.c
+						src/geocode_read.c)
 
 FIND_PACKAGE(GTK2 REQUIRED gtk)
 include_directories(${GTK2_INCLUDE_DIRS})
@@ -29,6 +32,9 @@ include_directories(${GTK2_INCLUDE_DIRS})
 
 FIND_PACKAGE(CURL REQUIRED)
 	include_directories(${CURL_INCLUDE_DIRS})
+
+#FIND_PACKAGE(YAJL REQUIRED)
+#	include_directories(${YAJL_INCLUDE_DIRS})
 
 
 ADD_EXECUTABLE(tangogis ${PROJECT_SOURCE_LIST})
@@ -41,6 +47,7 @@ target_link_libraries(tangogis
 								exif
 								m
 								gthread-2.0
+								yajl
 								)
 
 
