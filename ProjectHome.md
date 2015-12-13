@@ -1,0 +1,2 @@
+Tangogis is a fork of tangogps for to make better view, addition many various functions(e.g. supporting WGS-84 Mercator and other maps) and many tangogps-bugs fix.
+Mainstream of project is a creation fast easy for use and relaible software product for use as car computer on unix-like OS platform hardware.
